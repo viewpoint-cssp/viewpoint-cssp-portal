@@ -1,59 +1,84 @@
 <template>
-	<nav class="nav-menu" :class="{ full: showNavMenu }" @mouseover="mouseOver" @mouseout="mouseOut">
-		<div v-if="!showNavMenu">
-			=
-		</div>
-		<ul v-else>
-			<li 
+	<nav class="nav-menu">
+		<ul class="main-nav">
+			<li
 				v-for="opt in options"
 				:key="`opt-${opt.page}`"
 				class="nav-item"
 				:class="{ active: navPage == opt.page }"
 				:disabled="opt.disabled"
-				@click="opt.action"
+				@click="goTo(opt.page)"
 			>
 				{{ opt.label }}
+				<ul v-if="opt.options" class="sub-nav">
+					<li
+						v-for="sub in opt.options"
+						:key="`sub-${sub.page}`"
+						class="nav-item"
+						:class="{ active: navPage == sub.page }"
+						:disabled="sub.disabled"
+						@click="goTo(sub.page)"
+					>
+						{{ sub.label }}
+					</li>
+				</ul>
 			</li>
 		</ul>
 	</nav>
 </template>
 
 <script>
+const appPages = ['home', 'cat', 'training', 'demonstrators']
+
 export default {
 	name: 'NavMenu',
 	props: {
-		navPage: String,
-		fixed: Boolean
+		navPage: String, // current page (see valid page names in options array below)
+		portal: Boolean // passed true only when component is called from viewpoint-cssp-portal's App.vue
 	},
 	data() {
 		return {
-			showNavMenu: true,
 			options: [
-				{ page: 'home', label: 'Home', action: ''},
-				{ page: 'cat', label: 'Catalogue', action: ''},
-				{ page: 'demos', label: 'Demonstrators', action: ''},
-				{ page: 'training', label: 'Training materials', action: ''},
-				{ page: 'help', label: 'Explainers', action: '', disabled: true},
-				{ page: 'videos', label: 'Videos', action: '', disabled: true},
-				{ page: 'handbook', label: 'Handbook', action: '', disabled: true},
+				{ page: 'home', label: 'Home' },
+				{ page: 'cat', label: 'Catalogue' },
+				{ 
+					page: 'demonstrators', 
+					label: 'Demonstrators', 
+					options: [
+						{ page: 'suhi', label: 'SUHI'},
+						{ page: 'wrm', label: 'WRM'}
+					]
+				},
+				{ page: 'training', label: 'Training materials' },
+				{
+					page: 'help',
+					label: 'Explainers',
+					disabled: true
+				},
+				{ page: 'videos', label: 'Videos', disabled: true },
+				{
+					page: 'handbook',
+					label: 'Handbook',
+					disabled: true
+				}
 			]
 		}
 	},
 	methods: {
-		mouseOver() {
-			if (!this.fixed) {
-				this.showNavMenu = true
+		goTo(page) {
+			if (page == this.navPage) return
+			if (appPages.includes(page)) {
+				if (this.portal) {
+					this.$emit('goTo', page)
+				} else {
+					location.href =
+						'https://viewpoint-cssp.github.io/viewpoint-viewpoint-cssp-portal#' + page
+				}
+			} else if (page == 'suhi') {
+				location.href = 'https://the-iea.github.io/viewpoint-suhi'
+			} else if (page == 'wrm') {
+				location.ref = 'https://the-iea.github.io/viewpoint-wrm'
 			}
-		},
-		mouseOut() {
-			if (!this.fixed) {
-				this.showNavMenu = false
-			}
-		}
-	},
-	mounted() {
-		if (typeof this.fixed == 'boolean' && !this.fixed) {
-			this.showNavMenu = false
 		}
 	}
 }
@@ -61,17 +86,15 @@ export default {
 
 <style scoped>
 .nav-menu {
-	width: 100vw;
 	background: var(--vpDark);
+	width: 100%;
 	display: flex;
 	flex-direction: row;
 	padding: 0 32px;
-}
-.nav-menu.full {
 	border-bottom: 1px solid var(--vpOrange);
 }
 
-ul {
+ul.main-nav {
 	width: 100%;
 	background: transparent;
 	display: flex;
@@ -80,11 +103,24 @@ ul {
 	align-items: center;
 }
 
+ul.sub-nav {
+	position: absolute;
+	margin: 0 8px;
+	left: -8px;
+	width: 100%;
+	background: var(--vpDark);
+	display: flex;
+	flex-direction: column;
+	display: none;
+	border-bottom: 1px solid var(--vpOrange);
+}
+
 .nav-item {
 	list-style: none;
 	padding: 8px;
 	color: var(--whiteDisabled);
 	background: transparent;
+	position: relative;
 }
 .nav-item.active {
 	color: var(--whiteDefault);
@@ -94,5 +130,9 @@ ul {
 }
 .nav-item:hover:not([disabled]):not(.active) {
 	color: var(--whiteHover);
+}
+
+.nav-item:hover:not([disabled]):not(.active) ul.sub-nav {
+	display: block;
 }
 </style>
