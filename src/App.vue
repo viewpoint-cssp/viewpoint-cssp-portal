@@ -38,7 +38,6 @@ export default {
 		setPage() {
 			const hash = location.hash.replace('#', '') || 'home'
 			this.loadPage(hash)
-			}
 		},
 		loadPage(page) {
 			if (appPages.includes(page)) {
