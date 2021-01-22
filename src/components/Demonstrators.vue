@@ -162,4 +162,14 @@ div.button-item * {
 }
 .button-panel:hover div.button-item * {
 	color: whitesmoke;
-}</style>
+}
+
+@supports (-ms-ime-align:auto) { 
+	/* EdgeHTML is jerky if 'fixed' so set it to scroll up with the rest of the page 
+	AND since background-blend-style doesn't work, use a white box 'shadow' to lighten */
+	.banner {
+		background-attachment: scroll;
+		box-shadow: inset 0 0 0 1000px rgba(255,255,255,0.8);
+	}
+}
+</style>

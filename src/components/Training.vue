@@ -22,4 +22,11 @@ export default {
 	justify-content: center;
 	align-items: center;
 }
+
+@supports (-ms-ime-align:auto) { 
+	/* EdgeHTML doesn't support background-blend-style so use a white box 'shadow' to lighten */
+	.placeholder {
+		box-shadow: inset 0 0 0 1000px rgba(255,255,255,0.8);
+	}
+}
 </style>

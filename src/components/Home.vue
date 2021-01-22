@@ -170,4 +170,11 @@ div.button-item * {
 .button-panel:hover div.button-item * {
 	color: whitesmoke;
 }
+
+@supports (-ms-ime-align:auto) { 
+	/* EdgeHTML is jerky if 'fixed' so set it to scroll up with the rest of the page */
+	.banner {
+		background-attachment: scroll;
+	}
+}
 </style>
