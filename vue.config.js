@@ -18,5 +18,6 @@ module.exports = {
 		]
 	},
 	lintOnSave: true,
-	publicPath: process.env.NODE_ENV === 'production' ? '/viewpoint-cat/' : '/'
+	publicPath:
+		process.env.NODE_ENV === 'production' ? '/viewpoint-cssp-portal/' : '/'
 }
