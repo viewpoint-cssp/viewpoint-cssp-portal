@@ -45,8 +45,8 @@ export default {
 					page: 'demonstrators', 
 					label: 'Demonstrators', 
 					options: [
-						{ page: 'suhi', label: 'SUHI'},
-						{ page: 'wrm', label: 'WRM'}
+						{ page: 'suhi', label: 'Surface Urban Heat Island'},
+						{ page: 'wrm', label: 'Water Resources Management'}
 					]
 				},
 				{ page: 'training', label: 'Training materials' },
@@ -106,8 +106,8 @@ ul.main-nav {
 ul.sub-nav {
 	position: absolute;
 	margin: 0 8px;
-	left: -8px;
-	width: 100%;
+	left: -16px;
+	padding: 8px;
 	background: var(--vpDark);
 	display: flex;
 	flex-direction: column;
@@ -134,5 +134,10 @@ ul.sub-nav {
 
 .nav-item:hover:not([disabled]):not(.active) ul.sub-nav {
 	display: block;
+}
+
+.sub-nav .nav-item {
+	margin-left: 0;
+	white-space: nowrap;
 }
 </style>

@@ -10,14 +10,15 @@
 			<h2>About the demonstrators</h2>
 			<hr />
 			<p>
-				Some description about demonstrators, what they are, why these were selected.
+				Some description about demonstrators, what they are, why these
+				were selected.
 			</p>
 			<p lang="zh-cn">TODO: Mandarin here?</p>
 		</div>
 		<div class="button-panel" @click="goTo('suhi')">
 			<div class="button-content">
 				<div class="button-item">
-					<h3>SUHI</h3>
+					<h3>Surface Urban Heat Island</h3>
 					<p>
 						Intro...
 					</p>
@@ -30,9 +31,11 @@
 			<div class="button-content">
 				<img class="button-item" src="../assets/demonstrators.jpg" />
 				<div class="button-item">
-					<h3>WRM</h3>
+					<h3>Water Resources Management</h3>
 					<p>
-						Intro...
+						A prototype dashboard to investigate the impact of
+						climate change and water abstraction on the Upper Yellow
+						River basin.
 					</p>
 					<p lang="zh-cn">TODO: Mandarin here?</p>
 				</div>
@@ -164,12 +167,12 @@ div.button-item * {
 	color: whitesmoke;
 }
 
-@supports (-ms-ime-align:auto) { 
+@supports (-ms-ime-align: auto) {
 	/* EdgeHTML is jerky if 'fixed' so set it to scroll up with the rest of the page 
 	AND since background-blend-style doesn't work, use a white box 'shadow' to lighten */
 	.banner {
 		background-attachment: scroll;
-		box-shadow: inset 0 0 0 1000px rgba(255,255,255,0.8);
+		box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.8);
 	}
 }
 </style>
