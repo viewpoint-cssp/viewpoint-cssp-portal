@@ -43,8 +43,7 @@
 						have been organised into a searchable catalogue,
 						organised by theme.
 					</p>
-					<h3 lang="zh-cn">目錄</h3>
-					<p lang="zh-cn">目錄說明</p>
+					<p lang="zh-cn">TODO: Mandarin here?</p>
 				</div>
 			</div>
 		</div>
@@ -56,8 +55,7 @@
 						Online demonstrators of CSSP-China projects, including
 						...
 					</p>
-					<h3 lang="zh-cn">網站範例</h3>
-					<p lang="zh-cn">網站說明</p>
+					<p lang="zh-cn">TODO: Mandarin here?</p>
 				</div>
 				<img class="button-item" src="../assets/demonstrators.jpg" />
 			</div>
@@ -68,8 +66,7 @@
 				<div class="button-item">
 					<h3>Training materials</h3>
 					<p>Lots of lovely things to learn.</p>
-					<h3 lang="zh-cn">培訓教材</h3>
-					<p lang="zh-cn">培訓材料說明</p>
+					<p lang="zh-cn">TODO: Mandarin here?</p>
 				</div>
 			</div>
 		</div>
@@ -90,6 +87,7 @@ export default {
 	background-attachment: fixed;
 	height: 70vh;
 	min-height: 250px;
+	max-height: 450px;
 	padding: 32px 64px;
 	display: flex;
 	flex-direction: column;
@@ -135,10 +133,16 @@ export default {
 	justify-content: center;
 	align-items: stretch;
 }
+.button-content p:lang(zh-cn) {
+	margin-top: 12px;
+	font-style: italic;
+	opacity: 0.95;
+}
 .button-item {
 	width: 50%;
 	max-width: 400px;
 	margin: 0 16px;
+	border: 2px solid transparent;
 }
 img.button-item {
 	height: 250px;
@@ -158,10 +162,12 @@ div.button-item * {
 }
 .button-panel:hover {
 	background: var(--bannerGrey);
-	border-color: var(--vpOrange);
+	/*border-color: var(--vpOrange);*/
+}
+.button-panel:hover .button-item {
+	border: 2px solid var(--vpOrange);
 }
 .button-panel:hover div.button-item * {
 	color: whitesmoke;
-	font-size: 1.1rem;
 }
 </style>
