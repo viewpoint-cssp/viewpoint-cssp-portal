@@ -1,11 +1,11 @@
 <template>
 	<div id="app">
-		<NavMenu :navPage="navPage" :portal="true" @goTo="loadPage"></NavMenu>
+		<NavMenu class="app-fixed" :navPage="navPage" :portal="true" @goTo="loadPage"></NavMenu>
 		<Catalogue v-if="navPage == 'cat'"></Catalogue>
 		<Training v-else-if="navPage == 'training'"></Training>
 		<Demonstrators v-else-if="navPage == 'demonstrators'"></Demonstrators>
 		<Home v-else @goTo="loadPage"></Home>
-		<Footer :portal="true"></Footer>
+		<Footer class="app-fixed" :portal="true"></Footer>
 	</div>
 </template>
 
