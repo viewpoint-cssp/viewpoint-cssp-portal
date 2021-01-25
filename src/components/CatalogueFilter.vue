@@ -147,7 +147,7 @@ export default {
 				})
 			}
 			if (!this.filterChanged) {
-				this.filterSettings.themes(origTag => {
+				this.filterSettings.themes.map(origTag => {
 					if (!this.selectedTags.includes(origTag)) {
 						this.filterChanged = true
 					}
