@@ -5,7 +5,7 @@
 		<Training v-else-if="navPage == 'training'"></Training>
 		<Demonstrators v-else-if="navPage == 'demonstrators'"></Demonstrators>
 		<Home v-else @goTo="loadPage"></Home>
-		<Footer></Footer>
+		<Footer :portal="true"></Footer>
 	</div>
 </template>
 

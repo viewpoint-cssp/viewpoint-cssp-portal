@@ -1,11 +1,11 @@
 <template>
-	<nav class="nav-menu">
+	<nav class="nav-menu" @mouseenter="stopTimer" @mouseleave="startTimer">
 		<ul class="main-nav">
 			<li
 				v-for="opt in options"
 				:key="`opt-${opt.page}`"
 				class="nav-item"
-				:class="{ active: navPage == opt.page }"
+				:class="{ active: isActive(opt.page, opt.options) }"
 				:disabled="opt.disabled"
 				@click="goTo(opt.page)"
 			>
@@ -17,7 +17,7 @@
 						class="nav-item"
 						:class="{ active: navPage == sub.page }"
 						:disabled="sub.disabled"
-						@click="goTo(sub.page)"
+						@click.stop="goTo(sub.page)"
 					>
 						{{ sub.label }}
 					</li>
@@ -28,6 +28,12 @@
 </template>
 
 <script>
+/*
+To deploy on a website external to the portal use something like:
+<NavMenu navPage="suhi" v-if="showMenu" @mouseleave="showMenu = false"></NavMenu>
+Use .nav-menu to position (eg absolute, at top left with any z-index)
+@mouseleave not required if there's no v-if or there's another way to disappear it
+*/
 const appPages = ['home', 'cat', 'training', 'demonstrators']
 
 export default {
@@ -61,10 +67,20 @@ export default {
 					label: 'Handbook',
 					disabled: true
 				}
-			]
+			],
+			timeout: null
 		}
 	},
 	methods: {
+		isActive(page, options) {
+			if (page == this.navPage) {
+				return true
+			}
+			if (!options) {
+				return false
+			}
+			return options.filter(opt => opt.page == this.navPage).length > 0
+		},
 		goTo(page) {
 			if (page == this.navPage) return
 			if (appPages.includes(page)) {
@@ -72,13 +88,38 @@ export default {
 					this.$emit('goTo', page)
 				} else {
 					location.href =
-						'https://viewpoint-cssp.github.io/viewpoint-viewpoint-cssp-portal#' + page
+						'https://viewpoint-cssp.github.io/viewpoint-cssp-portal#' + page
 				}
 			} else if (page == 'suhi') {
 				location.href = 'https://the-iea.github.io/viewpoint-suhi'
 			} else if (page == 'wrm') {
-				location.ref = 'https://the-iea.github.io/viewpoint-wrm'
+				location.href = 'https://the-iea.github.io/viewpoint-wrm'
 			}
+		},
+		// if called from the likes of SUHI or WRM pages: if the mouse is outside this navMenu for more
+		// than 1 second, this component will emit a mouseleave event for the parent to hide/close it 
+		// (parent can chose to ignore mouseleave if the navMenu is permanently on the screen)
+		startTimer() {
+			if (!this.portal) {
+				this.timeout = setTimeout(() => { 
+					this.$emit('mouseleave')
+				}, 1000)
+			}
+		},
+		stopTimer() {
+			if (!this.portal) {
+				clearTimeout(this.timeout)
+			}
+		}
+	},
+	mounted() {
+		if (!this.portal && !window.matchMedia('(hover: hover)').matches) { // or '(pointer: none)' ?
+			// if called from the likes of SUHI or WRM pages on a touch device: if nothing is selected 
+			// within 10 seconds, this component will emit a mouseleave event for the parent to hide/close
+			// it (parent can chose to ignore mouseleave if the navMenu is permanently on the screen)
+			this.timeout = setTimeout(() => { 
+				this.$emit('mouseleave')
+			}, 10000)
 		}
 	}
 }
@@ -132,7 +173,7 @@ ul.sub-nav {
 	color: var(--whiteHover);
 }
 
-.nav-item:hover:not([disabled]):not(.active) ul.sub-nav {
+.nav-item:hover:not([disabled]) ul.sub-nav {
 	display: block;
 }
 
