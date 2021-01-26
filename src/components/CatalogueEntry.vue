@@ -188,7 +188,7 @@ export default {
 	width: var(--rightPanelWidth);
 	height: var(--contentHeight);
 	overflow-x: hidden;
-	overflow-y: auto;
+	overflow-y: scroll;
 	display: flex;
 	flex-direction: column;
 }

@@ -6,7 +6,7 @@
 			</div>
 			<div class="header-right">
 				<p>{{ count }} entries</p>
-				<h1 class="filter" @click="showFilter = !showFilter">
+				<h1 class="filter" @click="toggleFilter">
 					Filter&nbsp;
 					<font-awesome-icon
 						icon="caret-down"
@@ -18,7 +18,7 @@
 		</div>
 		<CatalogueContent
 			:showFilter="showFilter"
-			@filterClosed="showFilter = false"
+			@filterClosed="closeFilter"
 			@filterOpen="showFilter = true"
 			@updateCount="updateCount"
 		></CatalogueContent>
@@ -40,6 +40,19 @@ export default {
 		}
 	},
 	methods: {
+		toggleFilter() {
+			if (this.showFilter) {
+				this.closeFilter()
+			} else {
+				this.showFilter = true
+			}
+		},
+		closeFilter() {
+			// filter can't be closed if no entries exist
+			if (this.count > 0) {
+				this.showFilter = false
+			}
+		},
 		updateCount(val) {
 			this.count = val
 		},
@@ -150,14 +163,21 @@ img#logo {
 .header-right p {
 	text-align: right;
 	margin-right: 32px;
-	color: var(--vpOrange);
+	color: var(--vpCoolGrey);
 }
 
 h1.filter {
+	color: var(--vpCoolGrey);
 	cursor: pointer;
+}
+h1.filter:hover {
+	color: var(--vpOrange);
 }
 
 h1.filter path {
+	fill: var(--vpCoolGrey);
+}
+h1.filter:hover path {
 	fill: var(--vpOrange);
 }
 
