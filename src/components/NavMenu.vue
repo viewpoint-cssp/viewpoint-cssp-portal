@@ -148,6 +148,7 @@ ul.sub-nav {
 	position: absolute;
 	margin: 0 8px;
 	left: -16px;
+	z-index: 100;
 	padding: 8px;
 	background: var(--vpDark);
 	display: flex;
