@@ -202,7 +202,8 @@ td {
 	tr,
 	label,
 	a,
-	a:visited {
+	a:visited,
+	button {
 		font-size: var(--fontSizeMedium);
 	}
 }
@@ -217,7 +218,8 @@ td {
 	tr,
 	label,
 	a,
-	a:visited {
+	a:visited,
+	button {
 		font-size: var(--fontSizeSmall);
 	}
 }
