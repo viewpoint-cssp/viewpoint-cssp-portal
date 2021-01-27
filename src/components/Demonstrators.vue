@@ -24,12 +24,12 @@
 					</p>
 					<p lang="zh-cn">TODO: Mandarin here?</p>
 				</div>
-				<img class="button-item" src="../assets/demonstrators.jpg" />
+				<img class="button-item" src="../assets/suhi.png" />
 			</div>
 		</div>
 		<div class="button-panel" @click="goTo('wrm')">
 			<div class="button-content">
-				<img class="button-item" src="../assets/demonstrators.jpg" />
+				<img class="button-item" src="../assets/wrm.png" />
 				<div class="button-item">
 					<h3>Water Resources Management</h3>
 					<p>
@@ -74,10 +74,12 @@ export default {
 	background-size: cover;
 	background-blend-mode: soft-light;
 	background-attachment: fixed;
-	height: 70vh;
+	/*height: 50vh;
 	min-height: 250px;
 	max-height: 450px;
-	padding: 32px 64px;
+	padding: 32px 64px;*/
+	height: 280px;
+	padding: 12px 64px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -143,6 +145,8 @@ export default {
 img.button-item {
 	height: 250px;
 	object-fit: cover;
+	object-position: top left;
+	border-color: var(--vpGreen);
 }
 div.button-item {
 	padding: 16px 32px;
@@ -156,12 +160,16 @@ div.button-item * {
 .button-panel:nth-of-type(odd) div.button-item {
 	background: var(--vpDark);
 }
+.button-panel:nth-of-type(odd) img.button-item {
+	border-color: var(--vpDark);
+}
 .button-panel:hover {
 	background: var(--bannerGrey);
 	/*border-color: var(--vpOrange);*/
 }
 .button-panel:hover .button-item {
-	border: 2px solid var(--vpOrange);
+	border-color: var(--vpOrange) !important;
+	box-shadow: 5px 5px 10px var(--vpDark);
 }
 .button-panel:hover div.button-item * {
 	color: whitesmoke;
@@ -173,6 +181,12 @@ div.button-item * {
 	.banner {
 		background-attachment: scroll;
 		box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.8);
+	}
+}
+
+@media (max-width: 768px) {
+	.button-panel {
+		padding: 32px;
 	}
 }
 </style>
