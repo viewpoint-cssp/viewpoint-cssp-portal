@@ -189,8 +189,6 @@ export default {
 	height: var(--contentHeight);
 	overflow-x: hidden;
 	overflow-y: scroll;
-	display: flex;
-	flex-direction: column;
 }
 
 .selected-page {

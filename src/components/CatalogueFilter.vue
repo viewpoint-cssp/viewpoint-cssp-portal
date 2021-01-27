@@ -35,6 +35,7 @@
 					@click="searchTitle = !searchTitle"
 				>
 					Title
+					<p v-html="tickOrCross(searchTitle)"></p>
 				</div>
 				<div
 					class="keyword"
@@ -42,6 +43,7 @@
 					@click="searchAbstract = !searchAbstract"
 				>
 					Abstract
+					<p v-html="tickOrCross(searchAbstract)"></p>
 				</div>
 				<div
 					class="keyword"
@@ -49,6 +51,7 @@
 					@click="searchAuthor = !searchAuthor"
 				>
 					Authors
+					<p v-html="tickOrCross(searchAuthor)"></p>
 				</div>
 				<div
 					class="keyword"
@@ -56,6 +59,7 @@
 					@click="searchTags = !searchTags"
 				>
 					Keywords
+					<p v-html="tickOrCross(searchTags)"></p>
 				</div>
 				<button
 					class="reset-button"
@@ -79,6 +83,11 @@
 					@click="toggleTag(tag)"
 				>
 					{{ tag }}
+					<p
+						v-html="tickOrCross(
+							selectedTags.includes(allTags[i].toUpperCase())
+						)"
+					></p>
 				</div>
 				<button
 					class="reset-button"
@@ -131,8 +140,10 @@ export default {
 			return this.searchString || this.selectedTags.length
 		},
 		currentFilterCount() {
-			if (this.filterSettings.chars ||
-				(this.filterSettings.themes && this.filterSettings.themes.length > 0)
+			if (
+				this.filterSettings.chars ||
+				(this.filterSettings.themes &&
+					this.filterSettings.themes.length > 0)
 			) {
 				return `Entries found: ${this.count}`
 			}
@@ -194,6 +205,9 @@ export default {
 		}
 	},
 	methods: {
+		tickOrCross(boo) {
+			return boo ? '&#x2713;' : '&#x2717;'
+		},
 		resetChars() {
 			this.searchString = ''
 			this.searchTitle = true
@@ -247,7 +261,9 @@ export default {
 		if (this.filterSettings.chars) {
 			this.searchString = this.filterSettings.chars
 			this.searchTitle = this.filterSettings.fields.includes('title')
-			this.searchAbstract = this.filterSettings.fields.includes('abstract')
+			this.searchAbstract = this.filterSettings.fields.includes(
+				'abstract'
+			)
 			this.searchAuthor = this.filterSettings.fields.includes('author')
 			this.searchTags = this.filterSettings.fields.includes('tags')
 		}
@@ -264,8 +280,6 @@ export default {
 	height: var(--contentHeight);
 	overflow-x: hidden;
 	overflow-y: scroll;
-	display: flex;
-	flex-direction: column;
 }
 
 .header {
@@ -327,10 +341,6 @@ table.filter-on {
 	flex-wrap: wrap;
 }
 
-.search-in-list p {
-	margin-right: 8px;
-}
-
 .reset-button {
 	margin: 0 0 2px 4px;
 	padding: 4px 8px;
@@ -355,18 +365,26 @@ table.filter-on {
 	font-size: 16px;
 	cursor: pointer;
 }
-.keyword:after {
+/* :after and :before are nice but only while the contents were the same width! */
+/* when the tick had to change for Edge, the widths changed and so now tickOrCross is used instead :( */
+/*.keyword:after {
 	content: '\2717'; 
 	font-size: 0.7rem;
-}
+}*/
 .keyword.selected {
 	background: var(--primarySelected);
 }
-.keyword.selected:after {
+/*.keyword.selected:after {
 	content: '\2713'; 
-}
+}*/
 .keyword:hover {
 	background: var(--vpOrange);
+}
+.keyword p {
+	display: inline-block;
+	width: 11px;
+	background: transparent;
+	font-size: 0.7rem;
 }
 
 .buttons {
@@ -374,5 +392,11 @@ table.filter-on {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+}
+.buttons > button {
+	max-width: 50%;
+}
+.buttons > button:nth-child(1) {
+	margin-right: 2px;
 }
 </style>
