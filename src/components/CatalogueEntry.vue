@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="selected-entry">
 		<div class="selected-page">
 			<div
 				class="selected-page-button"
@@ -170,6 +170,13 @@ export default {
 	watch: {
 		selectedEntry() {
 			this.showAllAuthors = false
+			this.$nextTick(() => {
+				if (typeof this.$el.scrollTo == 'function') {
+					this.$el.scrollTo({ top: 0, behavior: 'smooth'})
+				} else {
+					this.$el.scrollTop = 0
+				}
+			})
 		}
 	},
 	methods: {

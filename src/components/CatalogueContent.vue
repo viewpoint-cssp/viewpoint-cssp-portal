@@ -93,7 +93,7 @@
 			</div>
 			<transition name="fade" mode="out-in">
 				<CatalogueFilter
-					class="filter"
+					class="rh-panel"
 					:tagList="tagList"
 					:filterSettings="filterSettings"
 					:count="sortedCatalogue.length"
@@ -102,7 +102,7 @@
 					@setFilter="setFilter"
 				></CatalogueFilter>
 				<CatalogueEntry
-					class="selected-entry"
+					class="rh-panel"
 					:selectedId="selectedId"
 					:selectedEntry="selectedEntry"
 					:tagList="tagList"
@@ -340,6 +340,11 @@ export default {
 				this.sortDirection = 'asc'
 			}
 		},
+		rhChanged(el) {
+			// once the rh panel has toggled between the entry and the filter, 
+			// ensure its contents are scrolled to the top again
+			el.scrollIntoView(true)
+		},
 		selectEntry(entry) {
 			this.clickedId = entry
 			if (this.showFilter) {
@@ -351,100 +356,28 @@ export default {
 			this.filterSettings = newFilter
 			//this.$emit('filterClosed') don't auto-close
 		},
-		/* following is disabled unless specifically requested
-		keypress(event) {
-			if (this.sortedCatalogue.length == 0) return
-			// if using arrow keys to go up and down, then a right-arrow 
-			// will close the filter and show the abstract!
-			if (event.key == 'ArrowRight' && this.selectedId && this.showFilter) {
-				event.preventDefault()
-				this.$emit('filterClosed')
-				return
-			}
-			// otherwise handle up and down arrow keys, home and end, 
-			// (and possibly letters)
-			let clickedId 
-			if (
-				event.key == 'Home' ||
-				(event.key == 'ArrowUp' && event.ctrlKey)
-			) {
-				event.preventDefault()
-				clickedId = this.sortedCatalogue[0].id
-			} else if (
-				event.key == 'End' ||
-				(event.key == 'ArrowDown' && event.ctrlKey)
-			) {
-				event.preventDefault()
-				clickedId = this.sortedCatalogue[
-					this.sortedCatalogue.length - 1
-				].id
-			} else if (event.key == 'ArrowUp') {
-				event.preventDefault()
-				for (let c = 1; c < this.sortedCatalogue.length; c++) {
-					if (this.sortedCatalogue[c].id == this.selectedId) {
-						clickedId = this.sortedCatalogue[c - 1].id
-						break
-					}
-				}
-			} else if (event.key == 'ArrowDown') {
-				event.preventDefault()
-				for (let c = 0; c < this.sortedCatalogue.length - 1; c++) {
-					if (this.sortedCatalogue[c].id == this.selectedId) {
-						clickedId = this.sortedCatalogue[c + 1].id
-						break
-					}
-				}
-			// If cursor's not in the input box for the filter, the following works
-			// for title or author sort orders only (nonsensical when in year order) 
-			} else if (
-				event.key.length == 1 &&
-				event.key.match('[a-zA-Z0-9]') &&
-				event.target.tagName !== 'INPUT'
-			) {
-				const matchChar = event.key.toUpperCase()
-				const matchingCatalogue = this.sortedCatalogue.filter(c => {
-					let firstChar = ''
-					if (this.sortBy == 'title' && c.title) {
-						firstChar = c.title.substring(0, 1).toUpperCase()
-					} else if (this.sortBy == 'author' && c.authors.length > 0) {
-						firstChar = c.authors[0].substring(0, 1).toUpperCase()
-					}
-					return firstChar && firstChar.match('[a-zA-Z0-9]') && firstChar == matchChar
-				})
-				if (matchingCatalogue.length > 0) {
-					clickedId = matchingCatalogue[0].id
-				}
-			}
-			if (clickedId) {
-				this.clickedId = clickedId
-				this.$nextTick(() => {
-					this.scrollRowIntoView()
-				})
-			}
-		},*/
 		scrollRowIntoView() {
 			// scroll the row into view if required - by changing the table sort order or filter
-			// (if keypress gets uncommented - also moving the cursor using a keypress)
 			if (!this.selectedId) return
 			const el = document.getElementById(`id-${this.selectedId}`)
 			if (el) {
 				if (typeof el.scrollIntoViewIfNeeded == 'function') {
 					el.scrollIntoViewIfNeeded(false) // not FireFox or EdgeHTML - and not smooth behaviour!
 				} else {
-					const FF = (typeof el.scrollTo == 'function')
+					const canScrollTo = (typeof el.scrollTo == 'function') // Firefox = true, EdgeHTML = false
 					const elBounds = el.getBoundingClientRect()
 					const ctr = el.parentElement.parentElement // the scrollable div.cat-table-wrapper
 					const ctrBounds = ctr.getBoundingClientRect()
 					const offset = 41 // height of sticky header row
 					if (elBounds.top < (ctrBounds.top + offset)) {
-						if (FF) {
+						if (canScrollTo) {
 							ctr.scrollTo({ top: el.offsetTop - offset, behavior: 'smooth'})
 						} else {
 							ctr.scrollTop = el.offsetTop - offset
 						}
 					}
 					if ((elBounds.bottom) > ctrBounds.bottom) {
-						if (FF) {
+						if (canScrollTo) {
 							el.scrollIntoView({behavior: "smooth", block: "end"})
 						} else { // testing for scrollTo to pick up EdgeHTML
 							el.scrollIntoView(false)
@@ -453,12 +386,6 @@ export default {
 				}
 			}
 		}
-	},
-	mounted() {
-		//document.addEventListener('keydown', this.keypress)
-	},
-	beforeDestroy() {
-		//document.removeEventListener('keydown', this.keypress)
 	}
 }
 </script>

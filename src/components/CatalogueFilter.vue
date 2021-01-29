@@ -270,6 +270,12 @@ export default {
 		if (this.filterSettings.themes) {
 			this.selectedTags = [...this.filterSettings.themes]
 		}
+		this.$nextTick(() => {
+			const input = document.getElementsByTagName('input')
+			if (input.length > 0) {
+				input[0].focus()
+			}
+		})
 	}
 }
 </script>
@@ -379,6 +385,11 @@ table.filter-on {
 }*/
 .keyword:hover {
 	background: var(--vpOrange);
+	box-shadow: 2px 2px 5px var(--primarySelected);
+}
+.keyword:active {
+	transform: translateY(1px);
+	box-shadow: none;
 }
 .keyword p {
 	display: inline-block;

@@ -128,6 +128,12 @@ button:disabled {
 
 button:not([disabled]):hover {
 	background: var(--vpOrange);
+	box-shadow: 4px 4px 5px var(--primarySelected);
+}
+
+button:not([disabled]):active {
+	transform: translateY(1px);
+	box-shadow: none;
 }
 
 select {
