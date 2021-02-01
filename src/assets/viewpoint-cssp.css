@@ -18,9 +18,12 @@
 	--text: #4d5858; /* --vpDark not #212121; */
 	--font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
 		sans-serif;
-	--contentHeight: 484px;
-	--leftPanelWidth: calc(1920px - 480px);
-	--rightPanelWidth: 480px;
+	--catalogueHeight: 484px;
+	--leftCatalogueWidth: calc(1920px - 480px);
+	--rightCatalogueWidth: 480px;
+	--minTrainingHeight: 484px;
+	--leftTrainingWidth: 360px;
+	--rightTrainingWidth: calc(1920px - 360px);
 	--fontSizeMedium: 0.925rem; /* for 641px to 1007px */
 	--fontSizeSmall: 0.85rem; /* up to 640px */
 }

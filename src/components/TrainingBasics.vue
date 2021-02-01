@@ -1,0 +1,24 @@
+<template>
+	<div>
+		<h1>Basics of QGIS and UMEP</h1>
+		<p>
+			This covers the basics of QGIS: vector data and coordinates as well as an
+			introduction to digital surface models (DSM) using data from the
+			tutorial in the previous <strong>First Steps</strong> section.
+			<a
+				href="https://www.youtube.com/watch?v=69sbn95sucI&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=4"
+				target="_blank"
+			>
+				<img class="youtube" src="../assets/training-4.png" alt="YouTube video" />
+			</a>
+		</p>
+	</div>
+</template>
+
+<script>
+export default {
+	name: 'Basics'
+}
+</script>
+
+<style scoped></style>

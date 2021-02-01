@@ -1,32 +1,507 @@
 <template>
-	<div class='placeholder'>
-		This is a placeholder for the training materials
+	<div id="training">
+		<div class="banner">
+			<div class="header-left">
+				<img id="logo" src="../assets/logo.png" />
+			</div>
+		</div>
+		<div class="training-handbook">
+			<div class="contents">
+				<h1 class="section header" @click="showAbout = !showAbout">
+					About
+					<font-awesome-icon
+						icon="caret-down"
+						class="section-header-icon"
+						:class="{ expanded: showAbout }"
+					></font-awesome-icon>
+				</h1>
+				<div
+					class="section"
+					:class="{ selected: page == 'TrainingIntroduction' }"
+					v-if="showAbout"
+					@click="page = 'TrainingIntroduction'"					
+				>
+					Introduction
+					<font-awesome-icon
+						icon="caret-right"
+						v-if="page == 'TrainingIntroduction'"
+					></font-awesome-icon>
+				</div>
+				<div
+					class="section"
+					:class="{ selected: page == 'TrainingBackground' }"
+					v-if="showAbout"
+					@click="page = 'TrainingBackground'"
+				>
+					Background
+					<font-awesome-icon
+						icon="caret-right"
+						v-if="page == 'TrainingBackground'"
+					></font-awesome-icon>
+				</div>
+				<h1
+					class="section header"
+					@click="showGettingStarted = !showGettingStarted"
+				>
+					Getting Started
+					<font-awesome-icon
+						icon="caret-down"
+						class="section-header-icon"
+						:class="{ expanded: showGettingStarted }"
+					></font-awesome-icon>
+				</h1>
+				<div
+					class="section"
+					:class="{ selected: page == 'TrainingJupyter' }"
+					v-if="showGettingStarted"
+					@click="page = 'TrainingJupyter'"
+				>
+					Installing Jupyter Notebook
+					<font-awesome-icon
+						icon="caret-right"
+						v-if="page == 'TrainingJupyter'"
+					></font-awesome-icon>
+				</div>
+				<div
+					class="section"
+					:class="{ selected: page == 'TrainingAnaconda' }"
+					v-if="showGettingStarted"
+					@click="page = 'TrainingAnaconda'"
+				>
+					Installing Anaconda and Jupyter Notebook
+					<font-awesome-icon
+						icon="caret-right"
+						v-if="page == 'TrainingAnaconda'"
+					></font-awesome-icon>
+				</div>
+				<div
+					class="section"
+					:class="{ selected: page == 'TrainingQgis' }"
+					v-if="showGettingStarted"
+					@click="page = 'TrainingQgis'"
+				>
+					Installing QGIS and UMEP
+					<font-awesome-icon
+						icon="caret-right"
+						v-if="page == 'TrainingQgis'"
+					></font-awesome-icon>
+				</div>
+				<div
+					class="section"
+					:class="{ selected: page == 'TrainingSupport' }"
+					v-if="showGettingStarted"
+					@click="page = 'TrainingSupport'"
+				>
+					UMEP technical support
+					<font-awesome-icon
+						icon="caret-right"
+						v-if="page == 'TrainingSupport'"
+					></font-awesome-icon>
+				</div>
+				<h1
+					class="section header"
+					@click="showUsingUMEP = !showUsingUMEP"
+				>
+					Using UMEP
+					<font-awesome-icon
+						icon="caret-down"
+						class="section-header-icon"
+						:class="{ expanded: showUsingUMEP }"
+					></font-awesome-icon>
+				</h1>
+				<div
+					class="section"
+					:class="{ selected: page == 'TrainingFirstSteps' }"
+					v-if="showUsingUMEP"
+					@click="page = 'TrainingFirstSteps'"
+				>
+					First steps with UMEP
+					<font-awesome-icon
+						icon="caret-right"
+						v-if="page == 'TrainingFirstSteps'"
+					></font-awesome-icon>
+				</div>
+				<div
+					class="section"
+					:class="{ selected: page == 'TrainingBasics' }"
+					v-if="showUsingUMEP"
+					@click="page = 'TrainingBasics'"
+				>
+					Basics of QGIS and UMEP
+					<font-awesome-icon
+						icon="caret-right"
+						v-if="page == 'TrainingBasics'"
+					></font-awesome-icon>
+				</div>
+				<div
+					class="section"
+					:class="{ selected: page == 'TrainingGrid' }"
+					v-if="showUsingUMEP"
+					@click="page = 'TrainingGrid'"
+				>
+					Creating a grid in QGIS and UMEP
+					<font-awesome-icon
+						icon="caret-right"
+						v-if="page == 'TrainingGrid'"
+					></font-awesome-icon>
+				</div>
+				<div
+					class="section"
+					:class="{ selected: page == 'TrainingData' }"
+					v-if="showUsingUMEP"
+					@click="page = 'TrainingData'"
+				>
+					Meteorological data for UMEP modelling
+					<font-awesome-icon
+						icon="caret-right"
+						v-if="page == 'TrainingData'"
+					></font-awesome-icon>
+				</div>
+				<div
+					class="section"
+					:class="{ selected: page == 'TrainingWebServices' }"
+					v-if="showUsingUMEP"
+					@click="page = 'TrainingWebServices'"
+				>
+					Web services
+					<font-awesome-icon
+						icon="caret-right"
+						v-if="page == 'TrainingWebServices'"
+					></font-awesome-icon>
+				</div>
+				<div
+					class="section"
+					:class="{ selected: page == 'TrainingTutorials' }"
+					v-if="showUsingUMEP"
+					@click="page = 'TrainingTutorials'"
+				>
+					Ongoing tutorials
+					<font-awesome-icon
+						icon="caret-right"
+						v-if="page == 'TrainingTutorials'"
+					></font-awesome-icon>
+				</div>
+				<hr />
+				<div
+					class="section header"
+					:class="{ selected: page == 'TrainingReferences' }"
+					@click="page = 'TrainingReferences'"
+				>
+					References
+					<font-awesome-icon
+						icon="caret-right"
+						v-if="page == 'TrainingReferences'"
+					></font-awesome-icon>
+				</div>
+			</div>
+			<div class="page-content">
+				<component 
+					:is="page" 
+					id="page-component"
+					@skipTo="skipTo"
+				></component>
+				<div class="page-bottom">
+					<button @click="prevPage" :class="{ hidden: page == pages[0] }">
+						<font-awesome-icon icon="chevron-left"></font-awesome-icon>
+						Previous
+					</button>
+					<button @click="nextPage" :class="{ hidden: page == pages[pages.length - 1] }">
+						Next
+						<font-awesome-icon icon="chevron-right"></font-awesome-icon>
+					</button>
+				</div>
+			</div>
+		</div>
 	</div>
 </template>
 
 <script>
+import TrainingIntroduction from './TrainingIntroduction.vue'
+import TrainingBackground from './TrainingBackground.vue'
+import TrainingJupyter from './TrainingJupyter.vue'
+import TrainingAnaconda from './TrainingAnaconda.vue'
+import TrainingQgis from './TrainingQgis.vue'
+import TrainingSupport from './TrainingSupport.vue'
+import TrainingFirstSteps from './TrainingFirstSteps.vue'
+import TrainingBasics from './TrainingBasics.vue'
+import TrainingGrid from './TrainingGrid.vue'
+import TrainingData from './TrainingData.vue'
+import TrainingWebServices from './TrainingWebServices.vue'
+import TrainingTutorials from './TrainingTutorials.vue'
+import TrainingReferences from './TrainingReferences.vue'
+
 export default {
-	name: 'Training'
+	name: 'Training',
+	components: {
+		TrainingIntroduction,
+		TrainingBackground,
+		TrainingJupyter,
+		TrainingAnaconda,
+		TrainingQgis,
+		TrainingSupport,
+		TrainingFirstSteps,
+		TrainingBasics,
+		TrainingGrid,
+		TrainingData,
+		TrainingWebServices,
+		TrainingTutorials,
+		TrainingReferences
+	},
+	data() {
+		return {
+			page: 'TrainingIntroduction',
+			showAbout: true,
+			showGettingStarted: false,
+			showUsingUMEP: false,
+			pages: [
+				'TrainingIntroduction',
+				'TrainingBackground',
+				'TrainingJupyter',
+				'TrainingAnaconda',
+				'TrainingQgis',
+				'TrainingSupport',
+				'TrainingFirstSteps',
+				'TrainingBasics',
+				'TrainingGrid',
+				'TrainingData',
+				'TrainingWebServices',
+				'TrainingTutorials',
+				'TrainingReferences'
+			]
+		}
+	},
+	watch: {
+		page() {
+			this.$nextTick(() => {
+				const el = document.getElementById('page-component')
+				if (typeof el.scrollTo == 'function') {
+					el.scrollTo({ top: 0, behavior: 'smooth'})
+				} else {
+					el.scrollTop = 0
+				}
+			})
+		}
+	},
+	methods: {
+		prevPage() {
+			const ix = this.pages.indexOf(this.page) - 1
+			if (ix >= 0) {
+				this.skipTo(this.pages[ix])
+			}
+		},
+		nextPage() {
+			const ix = this.pages.indexOf(this.page) + 1
+			if (ix <= this.pages.length - 1) {
+				this.skipTo(this.pages[ix])
+			}
+		},
+		skipTo(page) {
+			// could set this up to do this programmatically but...
+			const ix = this.pages.indexOf(page)
+			if (ix <= 1) {
+				this.showAbout = true
+			} else if (ix <= 5) {
+				this.showGettingStarted = true
+			} else {
+				this.showUsingUMEP = true
+			}
+			this.page = page
+		},
+		resized() {
+			// recalculate --minTrainingHeight using 100vh and deducting
+			// App.vue's NavMenu and Footer (since this component sits between them)
+			let usedHeight = 0
+			const appFixed = document.getElementsByClassName('app-fixed')
+			if (appFixed) {
+				for (let i = 0; i < appFixed.length; i++) {
+					usedHeight += appFixed[i].getBoundingClientRect().height
+				}
+			}
+			if (usedHeight) {
+				document.documentElement.style.setProperty(
+					'--minTrainingHeight',
+					`${window.innerHeight - usedHeight}px`
+				)
+			}
+			// and recalculate a best-fit width for the two panels too
+			let lhWidth = 360
+			if (window.innerWidth >= 1600)
+				lhWidth = Math.floor(window.innerWidth / 4)
+			if (window.innerWidth >= 900) {
+				lhWidth = Math.floor(window.innerWidth / 3)
+			} else {
+				lhWidth = Math.floor(window.innerWidth / 2)
+			}
+			document.documentElement.style.setProperty(
+				'--rightTrainingWidth',
+				`${window.innerWidth - lhWidth}px`
+			)
+			document.documentElement.style.setProperty(
+				'--leftTrainingWidth',
+				`${lhWidth}px`
+			)
+		}
+	},
+	mounted() {
+		this.resized() /* reset size-based CSS vars immediately on loading */
+		window.addEventListener('resize', this.resized)
+		window.addEventListener('orientationchange', this.resized)
+	},
+	beforeDestroy() {
+		window.removeEventListener('resize', this.resized)
+		window.removeEventListener('orientationchange', this.resized)
+	}
 }
 </script>
 
 <style scoped>
-.placeholder {
-	background-image: url('../assets/training.jpg');
-	background-size: cover;
-	background-blend-mode: soft-light;
-	width: 100%;
-	height: calc(100vh - 92px); /* nav is 41px footer is 51px */
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
+#training {
+	min-height: var(--minTrainingHeight);
 }
 
-@supports (-ms-ime-align:auto) { 
-	/* EdgeHTML doesn't support background-blend-style so use a white box 'shadow' to lighten */
-	.placeholder {
-		box-shadow: inset 0 0 0 1000px rgba(255,255,255,0.8);
+.banner {
+	width: 100vw;
+	background-image: url('../assets/banner.png');
+	background-position: center;
+	background-size: cover;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-end;
+	border-bottom: 4px solid var(--vpDark);
+}
+
+.header-left {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	background: transparent;
+}
+
+img#logo {
+	padding: 4px 0 4px 32px;
+	height: 60px;
+	background: transparent;
+}
+
+.training-handbook {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+}
+
+.contents {
+	min-width: var(--leftTrainingWidth);
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: auto;
+	border-right: 1px solid var(--primaryLightest);
+}
+
+.section {
+	margin: 8px 32px 8px 64px;
+	cursor: pointer;
+}
+
+.section.header {
+	margin-left: 32px;
+}
+
+.section-header-icon {
+	transition: transform 0.4s linear;
+}
+.section-header-icon.expanded {
+	transform: rotate(180deg);
+}
+
+.fa-caret-right {
+	transform: translateY(2px);
+}
+
+.section.selected,
+.section:hover,
+.section:hover path,
+.fa-caret-right path {
+	color: var(--vpOrange);
+}
+
+hr {
+	border-bottom: none;
+	border-color: var(--primaryLightest);
+}
+
+.page-content {
+	border-left: 1px solid var(--primaryLightest);
+	width: 100%;
+}
+
+.page-content >>> h1 {
+	color: var(--vpOrange);
+}
+
+.page-content >>> h1,
+.page-content >>> h2,
+.page-content >>> p {
+	margin: 16px 64px;
+}
+
+.page-content >>> span.goto {
+	cursor: pointer;
+}
+.page-content >>> span.goto:hover,
+.page-content >>> span.goto:hover strong,
+.page-content >>> span.goto:hover svg path {
+	color: var(--vpOrange);
+}
+
+.page-content >>> a {
+	text-decoration: none;
+	outline: 0;
+}
+.page-content >>> a:hover,
+.page-content >>> a:hover svg path {
+	color: var(--vpOrange);
+}
+.page-content >>> a:hover img {
+	box-shadow: 4px 4px 5px var(--primarySelected);
+}
+.page-content >>> a:active img {
+	transform: translateY(1px);
+	box-shadow: none;
+}
+
+.page-content >>> img.youtube {
+	display: block;
+	max-width: 360px;
+	margin-top: 8px;
+}
+
+.page-bottom {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 16px 64px;
+}
+
+.page-bottom button svg {
+	background: transparent;
+}
+.page-bottom button svg path {
+	color: white;
+}
+.page-bottom button.hidden {
+	visibility: hidden;
+}
+
+@media (max-width: 1007px) {
+	img#logo {
+		height: calc(80px * 0.925);
+	}
+}
+@media (max-width: 640px) {
+	img#logo {
+		padding-left: 12px;
+		height: calc(80px * 0.85);
 	}
 }
 </style>

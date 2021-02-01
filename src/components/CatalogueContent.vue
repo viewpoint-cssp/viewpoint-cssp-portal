@@ -398,8 +398,8 @@ export default {
 }
 
 .cat-table-wrapper {
-	width: var(--leftPanelWidth);
-	height: var(--contentHeight);
+	width: var(--leftCatalogueWidth);
+	height: var(--catalogueHeight);
 	overflow-x: hidden;
 	overflow-y: scroll;
 }

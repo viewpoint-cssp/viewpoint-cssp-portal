@@ -57,7 +57,7 @@ export default {
 			this.count = val
 		},
 		resized() {
-			// recalculate --contentHeight using 100vh and deducting height of this banner
+			// recalculate --catalogueHeight using 100vh and deducting height of this banner
 			// AND App.vue's NavMenu and Footer (since this component sits between them)
 			let usedHeight = 0
 			const banner = document.getElementsByClassName('banner')
@@ -72,7 +72,7 @@ export default {
 			}
 			if (usedHeight) {
 				document.documentElement.style.setProperty(
-					'--contentHeight',
+					'--catalogueHeight',
 					`${window.innerHeight - usedHeight}px`
 				)
 			}
@@ -86,11 +86,11 @@ export default {
 				rhWidth = Math.floor(window.innerWidth / 2)
 			}
 			document.documentElement.style.setProperty(
-				'--rightPanelWidth',
+				'--rightCatalogueWidth',
 				`${rhWidth}px`
 			)
 			document.documentElement.style.setProperty(
-				'--leftPanelWidth',
+				'--leftCatalogueWidth',
 				`${window.innerWidth - rhWidth}px`
 			)
 		}
@@ -98,11 +98,11 @@ export default {
 	mounted() {
 		this.resized() /* reset size-based CSS vars immediately on loading */
 		window.addEventListener('resize', this.resized)
-		window.addEventListener('changeorientation', this.resized)
+		window.addEventListener('orientationchange', this.resized)
 	},
 	beforeDestroy() {
 		window.removeEventListener('resize', this.resized)
-		window.removeEventListener('changeorientation', this.resized)
+		window.removeEventListener('orientationchange', this.resized)
 	}
 }
 </script>

@@ -192,8 +192,8 @@ export default {
 
 <style scoped>
 .selected-entry {
-	width: var(--rightPanelWidth);
-	height: var(--contentHeight);
+	width: var(--rightCatalogueWidth);
+	height: var(--catalogueHeight);
 	overflow-x: hidden;
 	overflow-y: scroll;
 }
