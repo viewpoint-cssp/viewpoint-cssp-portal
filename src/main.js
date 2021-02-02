@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
+	faBackward,
 	faCaretDown,
 	faCaretRight,
 	faChevronLeft,
@@ -15,6 +16,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 library.add(
+	faBackward,
 	faCaretDown,
 	faCaretRight,
 	faChevronLeft,

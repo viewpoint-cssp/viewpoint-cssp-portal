@@ -15,29 +15,29 @@
 						:class="{ expanded: showAbout }"
 					></font-awesome-icon>
 				</h1>
-				<div
-					class="section"
-					:class="{ selected: page == 'TrainingIntroduction' }"
-					v-if="showAbout"
-					@click="page = 'TrainingIntroduction'"					
-				>
-					Introduction
-					<font-awesome-icon
-						icon="caret-right"
-						v-if="page == 'TrainingIntroduction'"
-					></font-awesome-icon>
-				</div>
-				<div
-					class="section"
-					:class="{ selected: page == 'TrainingBackground' }"
-					v-if="showAbout"
-					@click="page = 'TrainingBackground'"
-				>
-					Background
-					<font-awesome-icon
-						icon="caret-right"
-						v-if="page == 'TrainingBackground'"
-					></font-awesome-icon>
+				<div v-if="showAbout">
+					<div
+						class="section"
+						:class="{ selected: page == 'TrainingIntroduction' }"
+						@click="page = 'TrainingIntroduction'"	
+					>
+						Introduction
+						<font-awesome-icon
+							icon="caret-right"
+							v-if="page == 'TrainingIntroduction'"
+						></font-awesome-icon>
+					</div>
+					<div
+						class="section"
+						:class="{ selected: page == 'TrainingBackground' }"
+						@click="page = 'TrainingBackground'"
+					>
+						Background
+						<font-awesome-icon
+							icon="caret-right"
+							v-if="page == 'TrainingBackground'"
+						></font-awesome-icon>
+					</div>
 				</div>
 				<h1
 					class="section header"
@@ -50,53 +50,51 @@
 						:class="{ expanded: showGettingStarted }"
 					></font-awesome-icon>
 				</h1>
-				<div
-					class="section"
-					:class="{ selected: page == 'TrainingJupyter' }"
-					v-if="showGettingStarted"
-					@click="page = 'TrainingJupyter'"
-				>
-					Installing Jupyter Notebook
-					<font-awesome-icon
-						icon="caret-right"
-						v-if="page == 'TrainingJupyter'"
-					></font-awesome-icon>
-				</div>
-				<div
-					class="section"
-					:class="{ selected: page == 'TrainingAnaconda' }"
-					v-if="showGettingStarted"
-					@click="page = 'TrainingAnaconda'"
-				>
-					Installing Anaconda and Jupyter Notebook
-					<font-awesome-icon
-						icon="caret-right"
-						v-if="page == 'TrainingAnaconda'"
-					></font-awesome-icon>
-				</div>
-				<div
-					class="section"
-					:class="{ selected: page == 'TrainingQgis' }"
-					v-if="showGettingStarted"
-					@click="page = 'TrainingQgis'"
-				>
-					Installing QGIS and UMEP
-					<font-awesome-icon
-						icon="caret-right"
-						v-if="page == 'TrainingQgis'"
-					></font-awesome-icon>
-				</div>
-				<div
-					class="section"
-					:class="{ selected: page == 'TrainingSupport' }"
-					v-if="showGettingStarted"
-					@click="page = 'TrainingSupport'"
-				>
-					UMEP technical support
-					<font-awesome-icon
-						icon="caret-right"
-						v-if="page == 'TrainingSupport'"
-					></font-awesome-icon>
+				<div v-if="showGettingStarted">
+					<div
+						class="section"
+						:class="{ selected: page == 'TrainingJupyter' }"
+						@click="page = 'TrainingJupyter'"
+					>
+						Installing Jupyter Notebook
+						<font-awesome-icon
+							icon="caret-right"
+							v-if="page == 'TrainingJupyter'"
+						></font-awesome-icon>
+					</div>
+					<div
+						class="section"
+						:class="{ selected: page == 'TrainingAnaconda' }"
+						@click="page = 'TrainingAnaconda'"
+					>
+						Installing Anaconda and Jupyter Notebook
+						<font-awesome-icon
+							icon="caret-right"
+							v-if="page == 'TrainingAnaconda'"
+						></font-awesome-icon>
+					</div>
+					<div
+						class="section"
+						:class="{ selected: page == 'TrainingQgis' }"
+						@click="page = 'TrainingQgis'"
+					>
+						Installing QGIS and UMEP
+						<font-awesome-icon
+							icon="caret-right"
+							v-if="page == 'TrainingQgis'"
+						></font-awesome-icon>
+					</div>
+					<div
+						class="section"
+						:class="{ selected: page == 'TrainingSupport' }"
+						@click="page = 'TrainingSupport'"
+					>
+						UMEP technical support
+						<font-awesome-icon
+							icon="caret-right"
+							v-if="page == 'TrainingSupport'"
+						></font-awesome-icon>
+					</div>
 				</div>
 				<h1
 					class="section header"
@@ -109,77 +107,73 @@
 						:class="{ expanded: showUsingUMEP }"
 					></font-awesome-icon>
 				</h1>
-				<div
-					class="section"
-					:class="{ selected: page == 'TrainingFirstSteps' }"
-					v-if="showUsingUMEP"
-					@click="page = 'TrainingFirstSteps'"
-				>
-					First steps with UMEP
-					<font-awesome-icon
-						icon="caret-right"
-						v-if="page == 'TrainingFirstSteps'"
-					></font-awesome-icon>
-				</div>
-				<div
-					class="section"
-					:class="{ selected: page == 'TrainingBasics' }"
-					v-if="showUsingUMEP"
-					@click="page = 'TrainingBasics'"
-				>
-					Basics of QGIS and UMEP
-					<font-awesome-icon
-						icon="caret-right"
-						v-if="page == 'TrainingBasics'"
-					></font-awesome-icon>
-				</div>
-				<div
-					class="section"
-					:class="{ selected: page == 'TrainingGrid' }"
-					v-if="showUsingUMEP"
-					@click="page = 'TrainingGrid'"
-				>
-					Creating a grid in QGIS and UMEP
-					<font-awesome-icon
-						icon="caret-right"
-						v-if="page == 'TrainingGrid'"
-					></font-awesome-icon>
-				</div>
-				<div
-					class="section"
-					:class="{ selected: page == 'TrainingData' }"
-					v-if="showUsingUMEP"
-					@click="page = 'TrainingData'"
-				>
-					Meteorological data for UMEP modelling
-					<font-awesome-icon
-						icon="caret-right"
-						v-if="page == 'TrainingData'"
-					></font-awesome-icon>
-				</div>
-				<div
-					class="section"
-					:class="{ selected: page == 'TrainingWebServices' }"
-					v-if="showUsingUMEP"
-					@click="page = 'TrainingWebServices'"
-				>
-					Web services
-					<font-awesome-icon
-						icon="caret-right"
-						v-if="page == 'TrainingWebServices'"
-					></font-awesome-icon>
-				</div>
-				<div
-					class="section"
-					:class="{ selected: page == 'TrainingTutorials' }"
-					v-if="showUsingUMEP"
-					@click="page = 'TrainingTutorials'"
-				>
-					Ongoing tutorials
-					<font-awesome-icon
-						icon="caret-right"
-						v-if="page == 'TrainingTutorials'"
-					></font-awesome-icon>
+				<div v-if="showUsingUMEP">
+					<div
+						class="section"
+						:class="{ selected: page == 'TrainingFirstSteps' }"
+						@click="page = 'TrainingFirstSteps'"
+					>
+						First steps with UMEP
+						<font-awesome-icon
+							icon="caret-right"
+							v-if="page == 'TrainingFirstSteps'"
+						></font-awesome-icon>
+					</div>
+					<div
+						class="section"
+						:class="{ selected: page == 'TrainingBasics' }"
+						@click="page = 'TrainingBasics'"
+					>
+						Basics of QGIS and UMEP
+						<font-awesome-icon
+							icon="caret-right"
+							v-if="page == 'TrainingBasics'"
+						></font-awesome-icon>
+					</div>
+					<div
+						class="section"
+						:class="{ selected: page == 'TrainingGrid' }"
+						@click="page = 'TrainingGrid'"
+					>
+						Creating a grid in QGIS and UMEP
+						<font-awesome-icon
+							icon="caret-right"
+							v-if="page == 'TrainingGrid'"
+						></font-awesome-icon>
+					</div>
+					<div
+						class="section"
+						:class="{ selected: page == 'TrainingData' }"
+						@click="page = 'TrainingData'"
+					>
+						Meteorological data for UMEP modelling
+						<font-awesome-icon
+							icon="caret-right"
+							v-if="page == 'TrainingData'"
+						></font-awesome-icon>
+					</div>
+					<div
+						class="section"
+						:class="{ selected: page == 'TrainingWebServices' }"
+						@click="page = 'TrainingWebServices'"
+					>
+						Web services
+						<font-awesome-icon
+							icon="caret-right"
+							v-if="page == 'TrainingWebServices'"
+						></font-awesome-icon>
+					</div>
+					<div
+						class="section"
+						:class="{ selected: page == 'TrainingTutorials' }"
+						@click="page = 'TrainingTutorials'"
+					>
+						Ongoing tutorials
+						<font-awesome-icon
+							icon="caret-right"
+							v-if="page == 'TrainingTutorials'"
+						></font-awesome-icon>
+					</div>
 				</div>
 				<hr />
 				<div
@@ -474,6 +468,15 @@ hr {
 	display: block;
 	max-width: 360px;
 	margin-top: 8px;
+}
+/*.page-content >>> iframe {
+	margin-top: 12px;
+}*/
+
+.page-content >>> hr {
+	margin: 0 64px;
+	border-bottom: none;
+	border-color: var(--primaryLightest);
 }
 
 .page-bottom {

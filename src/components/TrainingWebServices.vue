@@ -1,5 +1,37 @@
 <template>
-	<div>Web services</div>
+	<div>
+		<h1>Web services</h1>
+		<p>
+			A tutorial on how to import data from web services for use in QGIS and UMEP is 
+			provided in video format, focusing on using population density data.
+			<a
+				href="https://www.youtube.com/watch?v=Zvc0ccQc1ds&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=7"
+				target="_blank"
+			>
+				<img class="youtube" src="../assets/training-7.png" />
+			</a>
+		</p>
+		<p>
+			There is also
+			<a
+				href="https://umep-workshop.readthedocs.io/en/latest/GettingData/UMEP10.html"
+				target="_blank"
+				class="nowrap"
+			>
+				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
+				documentation on the UMEP workshop website</a
+			>.
+		</p>
+		<p>
+			<a
+				href="https://umep-docs.readthedocs.io/projects/tutorial/en/latest/Tutorials/SuewsWUDAPT.html#population-density"
+				target="_blank"
+			>
+				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
+				An example of how to use population density data</a
+			> is provided as part of the SUEWS work.
+		</p>
+	</div>
 </template>
 
 <script>
@@ -9,5 +41,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

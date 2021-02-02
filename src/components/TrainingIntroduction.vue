@@ -6,30 +6,32 @@
 			Workshop materials, tutorials and videos to allow you to follow
 			along. All of these are complimentary and have been organised to
 			streamline your user experience. The example data is available in
-			the tutorials. A detailed introduction to UMEP and associated
-			projects is available at
+			the tutorials.
 			<a
 				href="https://umep-docs.readthedocs.io/en/latest/Introduction.html"
 				target="_blank"
+				class="nowrap"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
-				UMEP's own website</a
-			>.
+				A detailed introduction to UMEP</a
+			>
+			and associated projects is available at the UMEP website.
 		</p>
 		<p>
 			If you are familiar with Python and already have Python installed,
-			<span class="goto" @click="$emit('skipTo', 'TrainingQgis')">
-				<font-awesome-icon icon="forward"></font-awesome-icon>
-				skip to the step to install
+			skip to the section to install
+			<span class="goto nowrap" @click="$emit('skipTo', 'TrainingQgis')">
+				<font-awesome-icon icon="forward"></font-awesome-icon>&nbsp;
 				<strong>QGIS and UMEP</strong></span
 			>.
 		</p>
 		<p>
-			If you have UMEP installed and are ready to go,
-			<span class="goto" @click="$emit('skipTo', 'TrainingQgis')">
-				<font-awesome-icon icon="forward"></font-awesome-icon>
-				skip to the <strong>First Steps</strong></span
-			>.
+			If you have UMEP installed and are ready to go, skip to the
+			<span class="goto nowrap" @click="$emit('skipTo', 'TrainingFirstSteps')">
+				<font-awesome-icon icon="forward"></font-awesome-icon>&nbsp;
+				<strong>First Steps</strong></span
+			>
+			section.
 		</p>
 		<p>
 			UMEP is a powerful tool and opens up a world of possibilities for
@@ -40,13 +42,41 @@
 			<a
 				href="https://umep-docs.readthedocs.io/projects/tutorial/en/latest/index.html"
 				target="_blank"
+				class="nowrap"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
-				UMEP tutorial website</a
+				UMEP tutorial</a
 			>. A few detailed examples are provided here, along with
 			installation instructions. For more information, see the linked
 			pages.
 		</p>
+		<!--<p>
+			All links are to the
+			<a
+				href="https://umep-docs.readthedocs.io/en/latest/index.html"
+				target="_blank"
+				class="nowrap"
+			>
+				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
+				UMEP documentation website</a
+			> or the
+			<a
+				href="https://umep-workshop.readthedocs.io/en/latest/index.html"
+				target="_blank"
+				class="nowrap"
+			>
+				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
+				UMEP workshop website</a
+			>. The video links are to the 			
+			<a
+				href="https://www.youtube.com/channel/UCTPkXncD3ghb5ZTdZe_u7gA"
+				target="_blank"
+				class="nowrap"
+			>
+				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
+				UMEP channel on YouTube</a
+			>.
+		</p>-->
 	</div>
 </template>
 
@@ -56,8 +86,4 @@ export default {
 }
 </script>
 
-<style scoped>
-a {
-	white-space: nowrap;
-}
-</style>
+<style scoped></style>

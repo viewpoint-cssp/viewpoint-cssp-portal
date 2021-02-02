@@ -4,12 +4,12 @@
 		<h2>Installing QGIS</h2>
 		<p>
 			<a
-				href="https://umep-docs.readthedocs.io/en/latest/Getting_Started.html"
+				href="https://umep-docs.readthedocs.io/en/latest/Getting_Started.html#recommended-installation-of-qgis-on-windows"
 				target="_blank"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
-				Detailed instructions from the UMEP website</a
-			>.
+				How to install onto Windows</a
+			>
 		</p>
 		<p>
 			<a
@@ -22,16 +22,16 @@
 		<h2>Installing UMEP</h2>
 		<p>
 			<a
-				href="https://umep-docs.readthedocs.io/en/latest/Getting_Started.html"
+				href="https://umep-docs.readthedocs.io/en/latest/Getting_Started.html#installing-the-umep-plugin"
 				target="_blank"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
-				Detailed instructions from the UMEP website</a
+				How to install the UMEP plugin</a
 			>.
 		</p>
 		<p>
 			<a
-				href="    https://www.youtube.com/watch?v=R3QQQtf7zWU&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=2"
+				href="https://www.youtube.com/watch?v=R3QQQtf7zWU&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=2"
 				target="_blank"
 			>
 				<img class="youtube" src="../assets/training-2.png" alt="YouTube video" />
@@ -47,5 +47,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

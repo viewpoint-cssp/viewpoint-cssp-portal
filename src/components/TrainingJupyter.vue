@@ -2,13 +2,22 @@
 	<div>
 		<h1>Installing Jupyter Notebook</h1>
 		<p>
-			If you just want to install Jupyter Notebook as a standalone program, please watch this tutorial on YouTube.
+			If you just want to install Jupyter Notebook as a standalone program, 
+			please watch this tutorial on YouTube.
 			<a
 				href="https://www.youtube.com/watch?v=bvZOOYZ0QOU&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=9"
 				target="_blank"
 			>
 				<img class="youtube" src="../assets/training-9.png" />
 			</a>
+			<!--<iframe 
+				src="https://www.youtube.com/embed/bvZOOYZ0QOU?rel=0" 
+				allowfullscreen="" 
+				width="100%" 
+				height="350" 
+				frameborder="0"
+				v-else
+			></iframe>-->
 		</p>
 		<p>
 			The basics of Jupyter Notebooks are covered in this tutorial and include:
@@ -21,15 +30,15 @@
 		</p>
 		<hr />
 		<p>
-			Go to the UMEP website to: 
+			Jupyter Notebook extensions (optional, but recommended): 
 		</p>
 		<p>
 			<a
-				href="https://umep-workshop.readthedocs.io/en/latest/Jupyter/JN0.html"
+				href="https://umep-workshop.readthedocs.io/en/latest/Jupyter/JN0.html#jupyter-notebook-extensions"
 				target="_blank"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
-				Find out about Jupyter Notebook Extensions (optional, but recommended)</a
+				Find out about extensions</a
 			>
 		</p>
 		<p>
@@ -38,27 +47,25 @@
 				target="_blank"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
-				Follow the method to install the extensions</a
+				How to install the extensions</a
 			>
 		</p>
 		<hr />
 		<p>
 			These two tutorials on YouTube have advanced tips on using Jupyter Notebook:
 		</p>
-		<p>
-			First Basics on Using Jupyter Notebook
+		<p class="flex-wrapper">
 			<a
 				href="https://www.youtube.com/watch?v=FZ1aNbH178Y&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=10"
 				target="_blank"
+				alt="First basics on using Jupyter Notebook"
 			>
 				<img class="youtube" src="../assets/training-10.png" />
 			</a>
-		</p>
-		<p>
-			Second Basics on Using Jupyter Notebook
 			<a
 				href="https://www.youtube.com/watch?v=Ts5DC5-5xVw&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=11"
 				target="_blank"
+				alt="Second basics on using Jupyter Notebook"
 			>
 				<img class="youtube" src="../assets/training-11.png" />
 			</a>
@@ -91,13 +98,10 @@ export default {
 </script>
 
 <style scoped>
-a {
-	white-space: nowrap;
-}
-
-hr {
-	margin: 0 64px;
-	border-bottom: none;
-	border-color: var(--primaryLightest);
+.flex-wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
 }
 </style>

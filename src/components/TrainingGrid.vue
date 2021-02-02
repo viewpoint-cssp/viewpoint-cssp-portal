@@ -5,6 +5,7 @@
 			<a
 				href="https://umep-workshop.readthedocs.io/en/latest/GettingData/QGIS2.html"
 				target="_blank"
+				class="nowrap"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
 				Learn how to generate a grid</a
@@ -15,6 +16,7 @@
 			<a
 				href="https://umep-workshop.readthedocs.io/en/latest/GettingData/GettingData.html"
 				target="_blank"
+				class="nowrap"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
 				tutorials</a
@@ -28,7 +30,6 @@
 				<img class="youtube" src="../assets/training-5.png" alt="YouTube video" />
 			</a>
 		</p>
-		
 	</div>
 </template>
 
@@ -39,5 +40,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

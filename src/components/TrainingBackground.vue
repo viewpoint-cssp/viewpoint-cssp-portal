@@ -2,7 +2,7 @@
 	<div>
 		<h1>Background</h1>
 		<p>
-			The UMEP website hosts many useful resources: 
+			The UMEP workshop website holds much additional information: 
 		</p>
 		<p>
 			<a
@@ -10,8 +10,7 @@
 				target="_blank"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
-				Introductory material for the meteorological terms used in these
-				resources</a
+				Introductory material for the meteorological terms used</a
 			>
 		</p>
 		<p>

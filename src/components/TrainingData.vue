@@ -4,9 +4,9 @@
 		<p>
 			If you want to
 			<a
-				class="nowrap"
 				href="https://umep-workshop.readthedocs.io/en/latest/GettingData/SUEWS4.html"
 				target="_blank"
+				class="nowrap"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
 				use your own meteorological data with UMEP</a
@@ -14,7 +14,7 @@
 			the steps to download ERA5 data as an example dataset.
 		</p>
 		<p class="boxed">
-			<strong>Warning</strong>, downloading the ERA5 data takes hours due
+			<strong>Warning</strong> Downloading the ERA5 data takes hours due
 			to the size of the data, so consider doing this the day before
 			working through the tutorial.
 		</p>
@@ -39,10 +39,6 @@ export default {
 </script>
 
 <style scoped>
-a.nowrap {
-	white-space: nowrap;
-}
-
 p.boxed {
 	padding: 8px;
 	border: 1px solid var(--primaryDisabled);

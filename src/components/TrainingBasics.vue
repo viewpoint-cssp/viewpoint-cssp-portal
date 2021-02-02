@@ -4,7 +4,11 @@
 		<p>
 			This covers the basics of QGIS: vector data and coordinates as well as an
 			introduction to digital surface models (DSM) using data from the
-			tutorial in the previous <strong>First Steps</strong> section.
+			tutorial in the previous
+			<span class="goto" @click="$emit('skipTo', 'TrainingFirstSteps')">
+				<font-awesome-icon icon="backward"></font-awesome-icon>&nbsp;
+				<strong>First Steps</strong></span
+			> section.
 			<a
 				href="https://www.youtube.com/watch?v=69sbn95sucI&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=4"
 				target="_blank"
