@@ -78,9 +78,9 @@ export default {
 			}
 			// and recalculate a best-fit width for the two panels too
 			let rhWidth = 480
-			if (window.innerWidth >= 1600)
+			if (window.innerWidth >= 1600) {
 				rhWidth = Math.floor(window.innerWidth / 4) 
-			if (window.innerWidth >= 900) {
+			} else if (window.innerWidth >= 900) {
 				rhWidth = Math.floor(window.innerWidth / 3) 
 			} else {
 				rhWidth = Math.floor(window.innerWidth / 2)
