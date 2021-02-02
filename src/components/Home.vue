@@ -33,6 +33,18 @@
 				</span>
 			</p>
 		</div>
+		<div class="button-panel" @click="$emit('goTo', 'about')">
+			<div class="button-content">
+				<img class="button-item" src="../assets/about.png" />
+				<div class="button-item">
+					<h3>About VIEWpoint</h3>
+					<p>
+						TODO: Short summary here?.
+					</p>
+					<p lang="zh-cn">TODO: Mandarin here?</p>
+				</div>
+			</div>
+		</div>
 		<div class="button-panel" @click="$emit('goTo', 'cat')">
 			<div class="button-content">
 				<img class="button-item" src="../assets/catalogue.jpg" />
@@ -49,15 +61,15 @@
 		</div>
 		<div class="button-panel" @click="$emit('goTo', 'demonstrators')">
 			<div class="button-content">
+				<img class="button-item" src="../assets/demonstrators.jpg" />
 				<div class="button-item">
 					<h3>Demonstrators</h3>
 					<p>
-						Online demonstrators of CSSP-China projects, including
+						TODO: Online demonstrators of CSSP-China projects, including
 						...
 					</p>
 					<p lang="zh-cn">TODO: Mandarin here?</p>
 				</div>
-				<img class="button-item" src="../assets/demonstrators.jpg" />
 			</div>
 		</div>
 		<div class="button-panel" @click="$emit('goTo', 'training')">
@@ -65,7 +77,7 @@
 				<img class="button-item" src="../assets/training.jpg" />
 				<div class="button-item">
 					<h3>Training materials</h3>
-					<p>Lots of lovely things to learn.</p>
+					<p>TODO: Lots of lovely things to learn.</p>
 					<p lang="zh-cn">TODO: Mandarin here?</p>
 				</div>
 			</div>
@@ -161,6 +173,9 @@ div.button-item * {
 }
 .button-panel:nth-of-type(odd) div.button-item {
 	background: var(--vpDark);
+}
+.button-panel:nth-of-type(even) div.button-content {
+	flex-direction: row-reverse;
 }
 .button-panel:hover {
 	background: var(--bannerGrey);

@@ -7,14 +7,14 @@
 		</div>
 		<div class="training-handbook">
 			<div class="contents">
-				<h1 class="section header" @click="showAbout = !showAbout">
+				<h2 class="section header" @click="showAbout = !showAbout">
 					About
 					<font-awesome-icon
 						icon="caret-down"
 						class="section-header-icon"
 						:class="{ expanded: showAbout }"
 					></font-awesome-icon>
-				</h1>
+				</h2>
 				<div v-if="showAbout">
 					<div
 						class="section"
@@ -39,7 +39,7 @@
 						></font-awesome-icon>
 					</div>
 				</div>
-				<h1
+				<h2
 					class="section header"
 					@click="showGettingStarted = !showGettingStarted"
 				>
@@ -49,7 +49,7 @@
 						class="section-header-icon"
 						:class="{ expanded: showGettingStarted }"
 					></font-awesome-icon>
-				</h1>
+				</h2>
 				<div v-if="showGettingStarted">
 					<div
 						class="section"
@@ -96,7 +96,7 @@
 						></font-awesome-icon>
 					</div>
 				</div>
-				<h1
+				<h2
 					class="section header"
 					@click="showUsingUMEP = !showUsingUMEP"
 				>
@@ -106,7 +106,7 @@
 						class="section-header-icon"
 						:class="{ expanded: showUsingUMEP }"
 					></font-awesome-icon>
-				</h1>
+				</h2>
 				<div v-if="showUsingUMEP">
 					<div
 						class="section"
@@ -362,7 +362,6 @@ export default {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: flex-end;
-	border-bottom: 4px solid var(--vpDark);
 }
 
 .header-left {

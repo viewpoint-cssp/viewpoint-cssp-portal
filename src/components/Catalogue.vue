@@ -122,7 +122,6 @@ export default {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: flex-end;
-	border-bottom: 4px solid var(--vpDark);
 }
 
 .header-left {

@@ -1,7 +1,8 @@
 <template>
 	<div id="app">
 		<NavMenu class="app-fixed" :navPage="navPage" :portal="true" @goTo="loadPage"></NavMenu>
-		<Catalogue v-if="navPage == 'cat'"></Catalogue>
+		<About v-if="navPage == 'about'"></About>
+		<Catalogue v-else-if="navPage == 'cat'"></Catalogue>
 		<Training v-else-if="navPage == 'training'"></Training>
 		<Demonstrators v-else-if="navPage == 'demonstrators'"></Demonstrators>
 		<Home v-else @goTo="loadPage"></Home>
@@ -12,18 +13,20 @@
 <script>
 import NavMenu from './components/NavMenu.vue'
 import Footer from './components/Footer.vue'
+import About from './components/About.vue'
 import Home from './components/Home.vue'
 import Catalogue from './components/Catalogue.vue'
 import Training from './components/Training.vue'
 import Demonstrators from './components/Demonstrators.vue'
 
-const appPages = ['home', 'cat', 'training', 'demonstrators']
+const appPages = ['home', 'about', 'cat', 'training', 'demonstrators']
 
 export default {
 	name: 'App',
 	components: {
 		NavMenu,
 		Footer,
+		About,
 		Home,
 		Catalogue,
 		Training,
@@ -32,6 +35,18 @@ export default {
 	data() {
 		return {
 			navPage: 'home'
+		}
+	},
+	watch: {
+		navPage() {
+			this.$nextTick(() => {
+				const el = document.getElementById('app')
+				if (typeof el.scrollTo == 'function') {
+					el.scrollTo({ top: 0, behavior: 'smooth'})
+				} else {
+					el.scrollTop = 0
+				}
+			})
 		}
 	},
 	methods: {

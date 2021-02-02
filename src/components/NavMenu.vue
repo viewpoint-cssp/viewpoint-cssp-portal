@@ -34,7 +34,7 @@ To deploy on a website external to the portal use something like:
 Use .nav-menu to position (eg absolute, at top left with any z-index)
 @mouseleave not required if there's no v-if or there's another way to disappear it
 */
-const appPages = ['home', 'cat', 'training', 'demonstrators']
+const appPages = ['home', 'about', 'cat', 'training', 'demonstrators']
 
 export default {
 	name: 'NavMenu',
@@ -46,6 +46,7 @@ export default {
 		return {
 			options: [
 				{ page: 'home', label: 'Home' },
+				{ page: 'about', label: 'About' },
 				{ page: 'cat', label: 'Catalogue' },
 				{ 
 					page: 'demonstrators', 
