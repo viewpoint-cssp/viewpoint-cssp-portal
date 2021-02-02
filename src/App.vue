@@ -39,14 +39,11 @@ export default {
 	},
 	watch: {
 		navPage() {
-			this.$nextTick(() => {
-				const el = document.getElementById('app')
-				if (typeof el.scrollTo == 'function') {
-					el.scrollTo({ top: 0, behavior: 'smooth'})
-				} else {
-					el.scrollTop = 0
-				}
-			})
+			if (typeof window.scrollTo == 'function') {
+				window.scrollTo({ top: 0, behavior: 'smooth'})
+			} else {
+				window.scrollTop = 0
+			}
 		}
 	},
 	methods: {

@@ -15,7 +15,7 @@
 						:class="{ expanded: showAbout }"
 					></font-awesome-icon>
 				</h2>
-				<div v-if="showAbout">
+				<div v-show-slide="showAbout">
 					<div
 						class="section"
 						:class="{ selected: page == 'TrainingIntroduction' }"
@@ -50,7 +50,7 @@
 						:class="{ expanded: showGettingStarted }"
 					></font-awesome-icon>
 				</h2>
-				<div v-if="showGettingStarted">
+				<div v-show-slide="showGettingStarted">
 					<div
 						class="section"
 						:class="{ selected: page == 'TrainingJupyter' }"
@@ -107,7 +107,7 @@
 						:class="{ expanded: showUsingUMEP }"
 					></font-awesome-icon>
 				</h2>
-				<div v-if="showUsingUMEP">
+				<div v-show-slide="showUsingUMEP">
 					<div
 						class="section"
 						:class="{ selected: page == 'TrainingFirstSteps' }"
@@ -189,11 +189,13 @@
 				</div>
 			</div>
 			<div class="page-content">
-				<component 
-					:is="page" 
-					id="page-component"
-					@skipTo="skipTo"
-				></component>
+				<transition name="fade" mode="out-in">
+					<component 
+						:is="page" 
+						id="page-component"
+						@skipTo="skipTo"
+					></component>
+				</transition>
 				<div class="page-bottom">
 					<button @click="prevPage" :class="{ hidden: page == pages[0] }">
 						<font-awesome-icon icon="chevron-left"></font-awesome-icon>
@@ -266,14 +268,11 @@ export default {
 	},
 	watch: {
 		page() {
-			this.$nextTick(() => {
-				const el = document.getElementById('page-component')
-				if (typeof el.scrollTo == 'function') {
-					el.scrollTo({ top: 0, behavior: 'smooth'})
-				} else {
-					el.scrollTop = 0
-				}
-			})
+			if (typeof window.scrollTo == 'function') {
+				window.scrollTo({ top: 0, behavior: 'smooth'})
+			} else {
+				window.scrollTop = 0
+			}
 		}
 	},
 	methods: {
@@ -493,6 +492,15 @@ hr {
 }
 .page-bottom button.hidden {
 	visibility: hidden;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+	transition: all 0.5s ease-out;
+}
+.fade-enter,
+.fade-leave-to {
+	opacity: 0;
 }
 
 @media (max-width: 1007px) {

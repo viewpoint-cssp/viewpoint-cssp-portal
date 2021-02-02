@@ -14,6 +14,7 @@ import {
 	faTimes
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import VShowSlide from 'v-show-slide'
 
 library.add(
 	faBackward,
@@ -28,6 +29,8 @@ library.add(
 	faTimes
 )
 Vue.component('font-awesome-icon', FontAwesomeIcon)
+
+Vue.use(VShowSlide)
 
 Vue.config.productionTip = false
 
