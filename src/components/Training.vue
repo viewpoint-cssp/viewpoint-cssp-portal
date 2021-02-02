@@ -192,7 +192,6 @@
 				<transition name="fade" mode="out-in">
 					<component 
 						:is="page" 
-						id="page-component"
 						@skipTo="skipTo"
 					></component>
 				</transition>
@@ -249,6 +248,7 @@ export default {
 			showAbout: true,
 			showGettingStarted: false,
 			showUsingUMEP: false,
+			fixedContents: false,
 			pages: [
 				'TrainingIntroduction',
 				'TrainingBackground',
@@ -318,9 +318,9 @@ export default {
 			}
 			// and recalculate a best-fit width for the two panels too
 			let lhWidth = 360
-			if (window.innerWidth >= 1600)
+			if (window.innerWidth >= 1600) {
 				lhWidth = Math.floor(window.innerWidth / 4)
-			if (window.innerWidth >= 900) {
+			} else if (window.innerWidth >= 300) {
 				lhWidth = Math.floor(window.innerWidth / 3)
 			} else {
 				lhWidth = Math.floor(window.innerWidth / 2)
@@ -496,7 +496,7 @@ hr {
 
 .fade-enter-active,
 .fade-leave-active {
-	transition: all 0.5s ease-out;
+	transition: all 0.4s ease-in-out;
 }
 .fade-enter,
 .fade-leave-to {
@@ -507,11 +507,33 @@ hr {
 	img#logo {
 		height: calc(80px * 0.925);
 	}
+	.section {
+		margin: 4px 16px 4px 32px;
+	}
+	.section.header {
+		margin-left: 16px;
+	}
+	.page-content >>> h1,
+	.page-content >>> h2,
+	.page-content >>> p {
+		margin: 12px 32px;
+	}
 }
 @media (max-width: 640px) {
 	img#logo {
 		padding-left: 12px;
 		height: calc(80px * 0.85);
+	}
+	.section {
+		margin: 4px 8px 4px 16px;
+	}
+	.section.header {
+		margin-left: 8px;
+	}
+	.page-content >>> h1,
+	.page-content >>> h2,
+	.page-content >>> p {
+		margin: 8px 16px;
 	}
 }
 </style>
