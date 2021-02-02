@@ -1,11 +1,12 @@
 <template>
 	<div id="app">
 		<NavMenu class="app-fixed" :navPage="navPage" :portal="true" @goTo="loadPage"></NavMenu>
-		<About v-if="navPage == 'about'"></About>
-		<Catalogue v-else-if="navPage == 'cat'"></Catalogue>
-		<Training v-else-if="navPage == 'training'"></Training>
-		<Demonstrators v-else-if="navPage == 'demonstrators'"></Demonstrators>
-		<Home v-else @goTo="loadPage"></Home>
+		<transition name="fade" mode="out-in">
+			<component 
+				:is="navPage" 
+				@goTo="loadPage"
+			></component>
+		</transition>
 		<Footer class="app-fixed" :portal="true"></Footer>
 	</div>
 </template>
@@ -19,7 +20,7 @@ import Catalogue from './components/Catalogue.vue'
 import Training from './components/Training.vue'
 import Demonstrators from './components/Demonstrators.vue'
 
-const appPages = ['home', 'about', 'cat', 'training', 'demonstrators']
+const appPages = ['Home', 'About', 'Catalogue', 'Training', 'Demonstrators']
 
 export default {
 	name: 'App',
@@ -34,7 +35,7 @@ export default {
 	},
 	data() {
 		return {
-			navPage: 'home'
+			navPage: 'Home' 
 		}
 	},
 	watch: {
@@ -52,9 +53,12 @@ export default {
 			this.loadPage(hash)
 		},
 		loadPage(page) {
-			if (appPages.includes(page)) {
-				location.hash = page
-				this.navPage = page
+			// nicer to have hash part as all lowercase so this just needs to a page
+			// argumet that could be a hash part in lowercase or a navPage in Propercase
+			const properPage = page.substr(0, 1).toUpperCase() + page.substr(1).toLowerCase()
+			if (appPages.includes(properPage)) {
+				location.hash = page.toLowerCase()
+				this.navPage = properPage
 			}
 		}
 	},
@@ -70,5 +74,14 @@ export default {
 
 #app {
 	overflow-x: hidden;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+	transition: all 0.3s ease-in-out;
+}
+.fade-enter,
+.fade-leave-to {
+	opacity: 0;
 }
 </style>

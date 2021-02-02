@@ -9,7 +9,7 @@
 				:disabled="opt.disabled"
 				@click="goTo(opt.page)"
 			>
-				{{ opt.label }}
+				{{ opt.label || opt.page }}
 				<ul v-if="opt.options" class="sub-nav">
 					<li
 						v-for="sub in opt.options"
@@ -34,7 +34,7 @@ To deploy on a website external to the portal use something like:
 Use .nav-menu to position (eg absolute, at top left with any z-index)
 @mouseleave not required if there's no v-if or there's another way to disappear it
 */
-const appPages = ['home', 'about', 'cat', 'training', 'demonstrators']
+const appPages = ['Home', 'About', 'Catalogue', 'Training', 'Demonstrators']
 
 export default {
 	name: 'NavMenu',
@@ -45,27 +45,24 @@ export default {
 	data() {
 		return {
 			options: [
-				{ page: 'home', label: 'Home' },
-				{ page: 'about', label: 'About' },
-				{ page: 'cat', label: 'Catalogue' },
+				{ page: 'Home' },
+				{ page: 'About' },
+				{ page: 'Catalogue' },
 				{ 
-					page: 'demonstrators', 
-					label: 'Demonstrators', 
+					page: 'Demonstrators', 
 					options: [
 						{ page: 'suhi', label: 'Surface Urban Heat Island'},
 						{ page: 'wrm', label: 'Water Resources Management'}
 					]
 				},
-				{ page: 'training', label: 'Training materials' },
+				{ page: 'Training', label: 'Training materials' },
 				{
-					page: 'help',
-					label: 'Explainers',
+					page: 'Explainers',
 					disabled: true
 				},
-				{ page: 'videos', label: 'Videos', disabled: true },
+				{ page: 'Videos', disabled: true },
 				{
-					page: 'handbook',
-					label: 'Handbook',
+					page: 'Handbook',
 					disabled: true
 				}
 			],

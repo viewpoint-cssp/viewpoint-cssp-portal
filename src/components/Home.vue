@@ -8,7 +8,7 @@
 			</h1>
 		</div>
 		<div class="about">
-			<h2>VIEWpoint and CSSP-China</h2>
+			<h2>VIEWpoint and CSSP China</h2>
 			<hr />
 			<p>
 				The VIEWpoint project seeks to maximise the impact of the
@@ -16,7 +16,7 @@
 				<a
 					href="https://www.metoffice.gov.uk/research/approach/collaboration/newton/cssp-china/index"
 					target="_blank"
-				>CSSP-China</a>
+				>CSSP China</a>
 				(Climate Science for Service Partnership China) programme.
 				VIEWpoint has created tools, demonstrators, articles and videos
 				to make research outputs more accessible to a wider audience,
@@ -27,13 +27,13 @@
 				<span lang="zh-cn">
 					项目旨在最大化地发挥“中英气候科学到服务伙伴关系计划”
 				</span>
-				(CSSP-China: Climate Science for Service Partnership China)
+				(CSSP China: Climate Science for Service Partnership China)
 				<span lang="zh-cn">
 					的世界级科研合作的影响力。通过创建工具、演示、文章和视频，“新观点”项目让包括政府、企业和公众等在内的不同群体更易获得研究成果。
 				</span>
 			</p>
 		</div>
-		<div class="button-panel" @click="$emit('goTo', 'about')">
+		<div class="button-panel" @click="$emit('goTo', 'About')">
 			<div class="button-content">
 				<img class="button-item" src="../assets/about.png" />
 				<div class="button-item">
@@ -45,13 +45,13 @@
 				</div>
 			</div>
 		</div>
-		<div class="button-panel" @click="$emit('goTo', 'cat')">
+		<div class="button-panel" @click="$emit('goTo', 'Catalogue')">
 			<div class="button-content">
 				<img class="button-item" src="../assets/catalogue.jpg" />
 				<div class="button-item">
-					<h3>Catalogue of CSSP-China Papers</h3>
+					<h3>Catalogue of CSSP China Papers</h3>
 					<p>
-						All 300+ journal papers published through CSSP-China
+						All 300+ journal papers published through CSSP China
 						have been organised into a searchable catalogue,
 						organised by theme.
 					</p>
@@ -59,20 +59,20 @@
 				</div>
 			</div>
 		</div>
-		<div class="button-panel" @click="$emit('goTo', 'demonstrators')">
+		<div class="button-panel" @click="$emit('goTo', 'Demonstrators')">
 			<div class="button-content">
 				<img class="button-item" src="../assets/demonstrators.jpg" />
 				<div class="button-item">
 					<h3>Demonstrators</h3>
 					<p>
-						TODO: Online demonstrators of CSSP-China projects, including
+						TODO: Online demonstrators of CSSP China projects, including
 						...
 					</p>
 					<p lang="zh-cn">TODO: Mandarin here?</p>
 				</div>
 			</div>
 		</div>
-		<div class="button-panel" @click="$emit('goTo', 'training')">
+		<div class="button-panel" @click="$emit('goTo', 'Training')">
 			<div class="button-content">
 				<img class="button-item" src="../assets/training.jpg" />
 				<div class="button-item">
