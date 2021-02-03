@@ -1,5 +1,10 @@
 <template>
-	<nav class="nav-menu" @mouseenter="stopTimer" @mouseleave="startTimer">
+	<nav
+		class="nav-menu"
+		:class="{ 'stand-alone': !portal }"
+		@mouseenter="stopTimer"
+		@mouseleave="startTimer"
+	>
 		<ul class="main-nav">
 			<li
 				v-for="opt in options"
@@ -48,11 +53,11 @@ export default {
 				{ page: 'Home' },
 				{ page: 'About' },
 				{ page: 'Catalogue' },
-				{ 
-					page: 'Demonstrators', 
+				{
+					page: 'Demonstrators',
 					options: [
-						{ page: 'suhi', label: 'Surface Urban Heat Island'},
-						{ page: 'wrm', label: 'Water Resources Management'}
+						{ page: 'suhi', label: 'Surface Urban Heat Island' },
+						{ page: 'wrm', label: 'Water Resources Management' }
 					]
 				},
 				{ page: 'Training', label: 'Training materials' },
@@ -86,7 +91,8 @@ export default {
 					this.$emit('goTo', page)
 				} else {
 					location.href =
-						'https://viewpoint-cssp.github.io/viewpoint-cssp-portal#' + page
+						'https://viewpoint-cssp.github.io/viewpoint-cssp-portal#' +
+						page
 				}
 			} else if (page == 'suhi') {
 				location.href = 'https://the-iea.github.io/viewpoint-suhi'
@@ -95,11 +101,11 @@ export default {
 			}
 		},
 		// if called from the likes of SUHI or WRM pages: if the mouse is outside this navMenu for more
-		// than 1 second, this component will emit a mouseleave event for the parent to hide/close it 
+		// than 1 second, this component will emit a mouseleave event for the parent to hide/close it
 		// (parent can chose to ignore mouseleave if the navMenu is permanently on the screen)
 		startTimer() {
 			if (!this.portal) {
-				this.timeout = setTimeout(() => { 
+				this.timeout = setTimeout(() => {
 					this.$emit('mouseleave')
 				}, 1000)
 			}
@@ -111,11 +117,32 @@ export default {
 		}
 	},
 	mounted() {
-		if (!this.portal && !window.matchMedia('(hover: hover)').matches) { // or '(pointer: none)' ?
-			// if called from the likes of SUHI or WRM pages on a touch device: if nothing is selected 
+		// check whether the required CSS vars exist
+		if (!document.documentElement.style.getPropertyValue('--vpOrange')) {
+			document.documentElement.style.setProperty('--vpCoolGrey', '#d9d8d6')
+			document.documentElement.style.setProperty('--vpDark', '#4d5858')
+			document.documentElement.style.setProperty('--vpOrange', '#ff671d')
+			document.documentElement.style.setProperty('--whiteDefault', '#fff')
+			document.documentElement.style.setProperty(
+				'--whiteHover',
+				'rgba(255, 255, 255, 0.75)'
+			)
+			document.documentElement.style.setProperty(
+				'--whiteDisabled',
+				'rgba(255, 255, 255, 0.5)'
+			)
+			document.documentElement.style.setProperty('--text', '#4d5858')
+			document.documentElement.style.setProperty(
+				'--font-family',
+				`'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif`
+			)
+		}
+		if (!this.portal && !window.matchMedia('(hover: hover)').matches) {
+			// or '(pointer: none)' ?
+			// if called from the likes of SUHI or WRM pages on a touch device: if nothing is selected
 			// within 10 seconds, this component will emit a mouseleave event for the parent to hide/close
 			// it (parent can chose to ignore mouseleave if the navMenu is permanently on the screen)
-			this.timeout = setTimeout(() => { 
+			this.timeout = setTimeout(() => {
 				this.$emit('mouseleave')
 			}, 10000)
 		}
@@ -127,14 +154,26 @@ export default {
 .nav-menu {
 	background: var(--vpDark);
 	width: 100%;
-	display: flex;
-	flex-direction: row;
 	padding: 0 32px;
 	border-bottom: 1px solid var(--vpOrange);
 }
 
+/* extra base styling needed on top of specific .nav-menu 
+   styling when this component is used outside portal */
+.nav-menu.stand-alone { 
+	box-sizing: border-box;
+	margin: 0;
+	color: var(--text);
+	font-family: var(--font-family);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 18px;
+}
+
 ul.main-nav {
 	width: 100%;
+	margin: 0;
+	padding: 0;
 	background: transparent;
 	display: flex;
 	flex-direction: row;
@@ -157,6 +196,7 @@ ul.sub-nav {
 
 .nav-item {
 	list-style: none;
+	margin-left: 32px;
 	padding: 8px;
 	color: var(--whiteDisabled);
 	background: transparent;
@@ -179,5 +219,32 @@ ul.sub-nav {
 .sub-nav .nav-item {
 	margin-left: 0;
 	white-space: nowrap;
+}
+
+@media (max-width: 1007px) {
+	.nav-menu {
+		padding: 0 8px;
+	}
+	.nav-item {
+		margin-left: 4px;
+	}
+	.nav-menu.stand-alone {
+		font-size: 13.69px;
+	}
+}
+@media (max-width: 640px) {
+	.nav-menu {
+		padding: 0 4px;
+	}
+	.nav-item {
+		margin-left: 4px;
+	}
+	.nav-menu.stand-alone {
+		font-size: 11.56px;
+	}
+}
+@media (max-width: 550px) {
+	/* If options are Home, About, Catalogue, Demonstrators, Training 
+	materials, Explainers, Videos & Handbook - reduce to hamburger */
 }
 </style>

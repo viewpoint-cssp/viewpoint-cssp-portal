@@ -1,11 +1,16 @@
 <template>
-	<footer  @mouseenter="stopTimer" @mouseleave="startTimer">
+	<footer 
+		:class="{ 'stand-alone': !portal }"
+		@mouseenter="stopTimer" 
+		@mouseleave="startTimer"
+	>
 		<p>
 			Copyright &copy;
-			<a href="https://www.the-iea.org">
+			<a href="https://www.the-iea.org" target="_blank">
 				The Institute for Environmental Analytics</a
 			>,
-			<a href="https://www.reading.ac.uk">University of Reading</a>
+			<a href="https://www.reading.ac.uk" target="_blank">
+				University of Reading</a>
 			2021
 		</p>
 		<p>
@@ -54,6 +59,17 @@ export default {
 		}
 	},
 	mounted() {
+		// check whether the required CSS vars exist
+		if (!document.documentElement.style.getPropertyValue('--vpOrange')) {
+			document.documentElement.style.setProperty('--vpCoolGrey', '#d9d8d6')
+			document.documentElement.style.setProperty('--vpDark', '#4d5858')
+			document.documentElement.style.setProperty('--vpOrange', '#ff671d')
+			document.documentElement.style.setProperty('--text', '#4d5858')
+			document.documentElement.style.setProperty(
+				'--font-family',
+				`'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif`
+			)
+		}
 		if (!this.portal && !window.matchMedia('(hover: hover)').matches) { // or '(pointer: none)' ?
 			// if called from the likes of SUHI or WRM pages on a touch device: if nothing is selected 
 			// within 10 seconds, this component will emit a mouseleave event for the parent to hide/close
@@ -77,16 +93,50 @@ footer {
 	justify-content: space-between;
 }
 
+/* extra base styling needed on top of specific footer 
+   styling when this component is used outside portal */
+footer.stand-alone { 
+	box-sizing: border-box;
+	margin: 0;
+	color: var(--text);
+	font-family: var(--font-family);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 18px;
+}
+
 footer * {
 	background: transparent;
 	color: var(--vpCoolGrey);
-	font-size: 0.75rem;
+	font-size: 12px;
+	margin: 0;
+	padding: 0;
 }
 
 footer a {
 	text-decoration: none;
 }
+footer a:focus {
+	outline: none;
+	color: var(--vpOrange);
+}
 footer a:hover {
 	color: var(--vpOrange);
 }
+
+@media (max-width: 1007px) {
+	footer.stand-alone p,
+	footer.stand-alone a,
+	footer.stand-alone a:visited {
+		font-size: 11px;
+	}
+}
+@media (max-width: 640px) {
+	footer.stand-alone p,
+	footer.stand-alone a,
+	footer.stand-alone a:visited {
+		font-size: 10px;
+	}
+}
+
 </style>
