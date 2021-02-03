@@ -5,7 +5,22 @@
 		@mouseenter="stopTimer"
 		@mouseleave="startTimer"
 	>
-		<ul class="main-nav">
+		<div class="hamburger" v-if="hamburgerMenu">
+			<div
+				class="hamburger-icon"
+				:class="{ close: showOptions }"
+				@click="showOptions = !showOptions"
+			>
+				<span class="hamburger-line"></span>
+				<span class="hamburger-line"></span>
+				<span class="hamburger-line"></span>
+			</div>
+		</div>
+		<ul 
+			class="main-nav" 
+			:class="{ hamburger: hamburgerMenu }"
+			v-if="showOptions"
+		>
 			<li
 				v-for="opt in options"
 				:key="`opt-${opt.page}`"
@@ -45,7 +60,8 @@ export default {
 	name: 'NavMenu',
 	props: {
 		navPage: String, // current page (see valid page names in options array below)
-		portal: Boolean // passed true only when component is called from viewpoint-cssp-portal's App.vue
+		portal: Boolean, // passed true only when component is called from viewpoint-cssp-portal's App.vue
+		forceHamburger: Boolean // passed true to use hamburger/vertical menu regardless of browser width
 	},
 	data() {
 		return {
@@ -71,7 +87,25 @@ export default {
 					disabled: true
 				}
 			],
-			timeout: null
+			timeout: null,
+			narrowPage: false,
+			showOptions: true,
+			hamburgerMenu: false
+		}
+	},
+	watch: {
+		narrowPage() {
+			// NOTE narrowPage only ever changed if !this.forceHamburger
+			// the page has changed from being too-narrow to wide-enough or vice versa
+			if (this.narrowPage) {
+				// hide the normal options first to show the closed hamburger icon
+				this.showOptions = false
+				this.hamburgerMenu = true
+			} else {
+				// kill the hamburger icon and ensure the normal options are visible
+				this.hamburgerMenu = false
+				this.showOptions = true
+			}
 		}
 	},
 	methods: {
@@ -85,6 +119,9 @@ export default {
 			return options.filter(opt => opt.page == this.navPage).length > 0
 		},
 		goTo(page) {
+			if (this.hamburgerMenu) {
+				this.showOptions = false
+			}
 			if (page == this.navPage) return
 			if (appPages.includes(page)) {
 				if (this.portal) {
@@ -114,6 +151,16 @@ export default {
 			if (!this.portal) {
 				clearTimeout(this.timeout)
 			}
+		},
+		resized() {
+			// NOTE this method is only ever called if !this.forceHamburger
+			// If options are Home, About, Catalogue, Demonstrators, Training 
+			// materials, Explainers, Videos & Handbook, 550px is about the threshold
+			if (window.matchMedia('(max-width: 550px)').matches) {
+				this.narrowPage = true
+			} else {
+				this.narrowPage = false
+			}
 		}
 	},
 	mounted() {
@@ -137,14 +184,31 @@ export default {
 				`'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif`
 			)
 		}
+		// if forcing use of hamburger, set props, otherwise listen for 
+		// resize event to see when hamburger needs to be toggled on/off
+		if (this.forceHamburger) {
+			// show the closed hamburger icon
+			this.showOptions = false 
+			this.hamburgerMenu = true
+		} else {
+			this.resized() 
+			window.addEventListener('resize', this.resized)
+			window.addEventListener('orientationchange', this.resized)
+		}
+		// if called from the likes of SUHI or WRM pages on a touch device: if nothing is selected
+		// within 10 seconds, this component will emit a mouseleave event for the parent to hide/close
+		// it (parent can chose to ignore mouseleave if the navMenu is permanently on the screen)
 		if (!this.portal && !window.matchMedia('(hover: hover)').matches) {
 			// or '(pointer: none)' ?
-			// if called from the likes of SUHI or WRM pages on a touch device: if nothing is selected
-			// within 10 seconds, this component will emit a mouseleave event for the parent to hide/close
-			// it (parent can chose to ignore mouseleave if the navMenu is permanently on the screen)
 			this.timeout = setTimeout(() => {
 				this.$emit('mouseleave')
 			}, 10000)
+		}
+	},
+	beforeDestroy() {
+		if (!this.forceHamburger) {
+			window.removeEventListener('resize', this.resized)
+			window.removeEventListener('orientationchange', this.resized)
 		}
 	}
 }
@@ -156,6 +220,7 @@ export default {
 	width: 100%;
 	padding: 0 32px;
 	border-bottom: 1px solid var(--vpOrange);
+	position: relative; /* for hamburger (vertical) ul.main-nav */
 }
 
 /* extra base styling needed on top of specific .nav-menu 
@@ -170,7 +235,8 @@ export default {
 	font-size: 18px;
 }
 
-ul.main-nav {
+ul.main-nav,
+.hamburger {
 	width: 100%;
 	margin: 0;
 	padding: 0;
@@ -221,6 +287,84 @@ ul.sub-nav {
 	white-space: nowrap;
 }
 
+.hamburger-icon {
+	background: transparent;
+	color: var(--whiteDefault);
+	width: 24px;
+	height: 24px;
+	margin: 8px 0;
+	position: relative;
+}
+.hamburger-icon:hover {
+	color: var(--whiteHover);
+	cursor: pointer;
+}
+
+.hamburger-icon .hamburger-line {
+	display: block;
+	width: 100%;
+	height: 4px;
+	border-radius: 2px;
+	background: #a6acac; /* ---whiteDisabled on --vpDark background */
+	position: absolute;
+	transition: all 200ms ease-out;
+}
+.hamburger-icon:hover .hamburger-line {
+	background: var(--whiteHover);
+}
+.hamburger-icon .hamburger-line:nth-child(1) {
+	top: 4px;
+}
+.hamburger-icon .hamburger-line:nth-child(2) {
+	top: 10px;
+}
+.hamburger-icon .hamburger-line:nth-child(3) {
+	bottom: 4px;
+}
+.hamburger-icon.close .hamburger-line:nth-child(1) {
+	transform: translateY(6px) rotate(45deg);
+	height: 4px;
+}
+.hamburger-icon.close .hamburger-line:nth-child(2) {
+	transform: translateX(10px);
+	width: 2px;
+	opacity: 0;
+}
+.hamburger-icon.close .hamburger-line:nth-child(3) {
+	transform: translateY(-6px) rotate(-45deg);
+	height: 4px;
+}
+
+/* the following overrides normal horizontal 
+nav menu to make a reasonable vertical menu */
+.main-nav.hamburger {
+	position: absolute; /* wrt .nav-menu */
+	right: 0;
+	z-index: 100;
+	padding: 0 24px 8px 24px;
+	width: auto;
+	background: var(--vpDark);
+	border-bottom: 1px solid var(--vpOrange);
+	flex-direction: column;
+	align-items: flex-start;
+}
+.main-nav.hamburger ul.sub-nav {
+	position: relative;
+	margin: 0;
+	left: unset;
+	display: block;
+	padding-left: 0;
+	padding-bottom: 0;
+	border-bottom: none;
+}
+.main-nav.hamburger .nav-item {
+	margin-left: 8px;
+}
+.main-nav.hamburger ul.sub-nav .nav-item {
+	list-style: inside square;
+	padding-left: 0;
+}
+
 @media (max-width: 1007px) {
 	.nav-menu {
 		padding: 0 8px;
@@ -242,9 +386,5 @@ ul.sub-nav {
 	.nav-menu.stand-alone {
 		font-size: 11.56px;
 	}
-}
-@media (max-width: 550px) {
-	/* If options are Home, About, Catalogue, Demonstrators, Training 
-	materials, Explainers, Videos & Handbook - reduce to hamburger */
 }
 </style>
