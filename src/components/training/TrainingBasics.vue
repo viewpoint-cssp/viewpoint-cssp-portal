@@ -13,7 +13,7 @@
 				href="https://www.youtube.com/watch?v=69sbn95sucI&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=4"
 				target="_blank"
 			>
-				<img class="youtube" src="../assets/training-4.png" alt="YouTube video" />
+				<img class="youtube" src="../../assets/images/training-4.png" alt="YouTube video" />
 			</a>
 		</p>
 	</div>

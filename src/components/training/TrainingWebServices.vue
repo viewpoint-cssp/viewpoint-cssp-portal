@@ -8,7 +8,7 @@
 				href="https://www.youtube.com/watch?v=Zvc0ccQc1ds&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=7"
 				target="_blank"
 			>
-				<img class="youtube" src="../assets/training-7.png" />
+				<img class="youtube" src="../../assets/images/training-7.png" />
 			</a>
 		</p>
 		<p>

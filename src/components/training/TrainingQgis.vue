@@ -16,7 +16,7 @@
 				href="https://www.youtube.com/watch?v=b9FwI0GyAGQ&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=1"
 				target="_blank"
 			>
-				<img class="youtube" src="../assets/training-1.png" alt="YouTube video" />
+				<img class="youtube" src="../../assets/images/training-1.png" alt="YouTube video" />
 			</a>
 		</p>
 		<h2>Installing UMEP</h2>
@@ -34,7 +34,7 @@
 				href="https://www.youtube.com/watch?v=R3QQQtf7zWU&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=2"
 				target="_blank"
 			>
-				<img class="youtube" src="../assets/training-2.png" alt="YouTube video" />
+				<img class="youtube" src="../../assets/images/training-2.png" alt="YouTube video" />
 			</a>
 		</p>
 	</div>

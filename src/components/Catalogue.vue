@@ -2,7 +2,7 @@
 	<div id="catalogue">
 		<div class="banner">
 			<div class="header-left">
-				<img id="logo" src="../assets/logo.png" />
+				<img id="logo" src="../assets/images/logo.png" />
 			</div>
 			<div class="header-right">
 				<p>{{ count }} entries</p>
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import CatalogueContent from './CatalogueContent.vue'
+import CatalogueContent from './catalogue/CatalogueContent.vue'
 
 export default {
 	name: 'Catalogue',
@@ -115,7 +115,7 @@ export default {
 
 .banner {
 	width: 100vw;
-	background-image: url('../assets/banner.png');
+	background-image: url('../assets/images/banner.png');
 	background-position: center;
 	background-size: cover;
 	display: flex;

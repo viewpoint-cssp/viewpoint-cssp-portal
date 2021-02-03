@@ -1,7 +1,7 @@
 <template>
 	<div class="about">
 		<div class="banner">
-			<img id="logo" alt="VIEWpoint logo" src="../assets/logo.png" />
+			<img id="logo" alt="VIEWpoint logo" src="../assets/images/logo.png" />
 			<h1>
 				About VIEWpoint
 			</h1>
@@ -170,7 +170,7 @@ export default {}
 }
 
 .banner {
-	background-image: url('../assets/about.png');
+	background-image: url('../assets/images/about.png');
 	background-position: center;
 	background-size: cover;
 	background-blend-mode: soft-light;

@@ -70,7 +70,7 @@ export default {
 </script>
 
 <style>
-@import './assets/viewpoint-cssp.css';
+@import './assets/css/viewpoint-cssp.css';
 
 #app {
 	overflow-x: hidden;

@@ -11,7 +11,7 @@
 				target="_blank"
 				alt="Downloading Anaconda3"
 			>
-				<img class="youtube" src="../assets/training-12.png" />
+				<img class="youtube" src="../../assets/images/training-12.png" />
 			</a>
 		</p>
 		<p>
@@ -20,7 +20,7 @@
 				target="_blank"
 				alt="Installing Anaconda3"
 			>
-				<img class="youtube" src="../assets/training-13.png" />
+				<img class="youtube" src="../../assets/images/training-13.png" />
 			</a>
 		</p>
 		<p>
@@ -29,7 +29,7 @@
 				target="_blank"
 				alt="Launching Jupyter Notebook"
 			>
-				<img class="youtube" src="../assets/training-14.png" />
+				<img class="youtube" src="../../assets/images/training-14.png" />
 			</a>
 		</p>
 		<p>

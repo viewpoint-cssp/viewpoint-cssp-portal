@@ -27,7 +27,7 @@
 				href="https://www.youtube.com/watch?v=nJ5oG5KFnNk&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=5"
 				target="_blank"
 			>
-				<img class="youtube" src="../assets/training-5.png" alt="YouTube video" />
+				<img class="youtube" src="../../assets/images/training-5.png" alt="YouTube video" />
 			</a>
 		</p>
 	</div>

@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="banner">
-			<img id="logo" alt="VIEWpoint logo" src="../assets/logo.png" />
+			<img id="logo" alt="VIEWpoint logo" src="../assets/images/logo.png" />
 			<h1>
 				A showcase for the Climate Science for Service Partnership with
 				China
@@ -35,7 +35,7 @@
 		</div>
 		<div class="button-panel" @click="$emit('goTo', 'About')">
 			<div class="button-content">
-				<img class="button-item" src="../assets/about.png" />
+				<img class="button-item" src="../assets/images/about.png" />
 				<div class="button-item">
 					<h3>About VIEWpoint</h3>
 					<p>
@@ -47,7 +47,7 @@
 		</div>
 		<div class="button-panel" @click="$emit('goTo', 'Catalogue')">
 			<div class="button-content">
-				<img class="button-item" src="../assets/catalogue.jpg" />
+				<img class="button-item" src="../assets/images/catalogue.jpg" />
 				<div class="button-item">
 					<h3>Catalogue of CSSP China Papers</h3>
 					<p>
@@ -61,7 +61,7 @@
 		</div>
 		<div class="button-panel" @click="$emit('goTo', 'Demonstrators')">
 			<div class="button-content">
-				<img class="button-item" src="../assets/demonstrators.jpg" />
+				<img class="button-item" src="../assets/images/demonstrators.jpg" />
 				<div class="button-item">
 					<h3>Demonstrators</h3>
 					<p>
@@ -74,7 +74,7 @@
 		</div>
 		<div class="button-panel" @click="$emit('goTo', 'Training')">
 			<div class="button-content">
-				<img class="button-item" src="../assets/training.jpg" />
+				<img class="button-item" src="../assets/images/training.jpg" />
 				<div class="button-item">
 					<h3>Training materials</h3>
 					<p>TODO: Lots of lovely things to learn.</p>
@@ -93,7 +93,7 @@ export default {
 
 <style scoped>
 .banner {
-	background-image: url('../assets/banner.png');
+	background-image: url('../assets/images/banner.png');
 	background-position: center;
 	background-size: cover;
 	background-attachment: fixed;

@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="banner">
-			<img id="logo" alt="VIEWpoint logo" src="../assets/logo.png" />
+			<img id="logo" alt="VIEWpoint logo" src="../assets/images/logo.png" />
 			<h1>
 				Demonstrators
 			</h1>
@@ -24,12 +24,12 @@
 					</p>
 					<p lang="zh-cn">TODO: Mandarin here?</p>
 				</div>
-				<img class="button-item" src="../assets/suhi.png" />
+				<img class="button-item" src="../assets/images/suhi.png" />
 			</div>
 		</div>
 		<div class="button-panel" @click="goTo('wrm')">
 			<div class="button-content">
-				<img class="button-item" src="../assets/wrm.png" />
+				<img class="button-item" src="../assets/images/wrm.png" />
 				<div class="button-item">
 					<h3>Water Resources Management</h3>
 					<p>
@@ -69,7 +69,7 @@ export default {
 
 <style scoped>
 .banner {
-	background-image: url('../assets/demonstrators.jpg');
+	background-image: url('../assets/images/demonstrators.jpg');
 	background-position: center;
 	background-size: cover;
 	background-blend-mode: soft-light;

@@ -2,7 +2,7 @@
 	<div id="training">
 		<div class="banner">
 			<div class="header-left">
-				<img id="logo" src="../assets/logo.png" />
+				<img id="logo" src="../assets/images/logo.png" />
 			</div>
 		</div>
 		<div class="training-handbook">
@@ -211,19 +211,19 @@
 </template>
 
 <script>
-import TrainingIntroduction from './TrainingIntroduction.vue'
-import TrainingBackground from './TrainingBackground.vue'
-import TrainingJupyter from './TrainingJupyter.vue'
-import TrainingAnaconda from './TrainingAnaconda.vue'
-import TrainingQgis from './TrainingQgis.vue'
-import TrainingSupport from './TrainingSupport.vue'
-import TrainingFirstSteps from './TrainingFirstSteps.vue'
-import TrainingBasics from './TrainingBasics.vue'
-import TrainingGrid from './TrainingGrid.vue'
-import TrainingData from './TrainingData.vue'
-import TrainingWebServices from './TrainingWebServices.vue'
-import TrainingTutorials from './TrainingTutorials.vue'
-import TrainingReferences from './TrainingReferences.vue'
+import TrainingIntroduction from './training/TrainingIntroduction.vue'
+import TrainingBackground from './training/TrainingBackground.vue'
+import TrainingJupyter from './training/TrainingJupyter.vue'
+import TrainingAnaconda from './training/TrainingAnaconda.vue'
+import TrainingQgis from './training/TrainingQgis.vue'
+import TrainingSupport from './training/TrainingSupport.vue'
+import TrainingFirstSteps from './training/TrainingFirstSteps.vue'
+import TrainingBasics from './training/TrainingBasics.vue'
+import TrainingGrid from './training/TrainingGrid.vue'
+import TrainingData from './training/TrainingData.vue'
+import TrainingWebServices from './training/TrainingWebServices.vue'
+import TrainingTutorials from './training/TrainingTutorials.vue'
+import TrainingReferences from './training/TrainingReferences.vue'
 
 export default {
 	name: 'Training',
@@ -354,7 +354,7 @@ export default {
 
 .banner {
 	width: 100vw;
-	background-image: url('../assets/banner.png');
+	background-image: url('../assets/images/banner.png');
 	background-position: center;
 	background-size: cover;
 	display: flex;

@@ -115,7 +115,7 @@
 </template>
 
 <script>
-import { json } from '../bib/VIEWpoint-json.js'
+import { json } from '../../bib/VIEWpoint-json.js'
 import CatalogueEntry from './CatalogueEntry.vue'
 import CatalogueFilter from './CatalogueFilter.vue'
 

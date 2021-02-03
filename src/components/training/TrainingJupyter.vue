@@ -8,7 +8,7 @@
 				href="https://www.youtube.com/watch?v=bvZOOYZ0QOU&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=9"
 				target="_blank"
 			>
-				<img class="youtube" src="../assets/training-9.png" />
+				<img class="youtube" src="../../assets/images/training-9.png" />
 			</a>
 			<!--<iframe 
 				src="https://www.youtube.com/embed/bvZOOYZ0QOU?rel=0" 
@@ -60,14 +60,14 @@
 				target="_blank"
 				alt="First basics on using Jupyter Notebook"
 			>
-				<img class="youtube" src="../assets/training-10.png" />
+				<img class="youtube" src="../../assets/images/training-10.png" />
 			</a>
 			<a
 				href="https://www.youtube.com/watch?v=Ts5DC5-5xVw&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=11"
 				target="_blank"
 				alt="Second basics on using Jupyter Notebook"
 			>
-				<img class="youtube" src="../assets/training-11.png" />
+				<img class="youtube" src="../../assets/images/training-11.png" />
 			</a>
 		</p>
 		<p>
