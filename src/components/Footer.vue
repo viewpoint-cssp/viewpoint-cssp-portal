@@ -18,7 +18,18 @@
 			<a href="mailto:viewpoint@the-iea.org">viewpoint@the-iea.org</a>
 		</p>
 		<div class="logo-wrapper">
-			<p>TODO: Logos of collaborating organisations here</p>
+			<a href="https://www.newton-gcrf.org/" target="_blank">
+				<img alt="Newton Fund" src="../assets/images/nf-logo.png" />
+			</a>
+			<a id="mo-logo" href="https://www.metoffice.gov.uk/weather/climate/science" target="_blank">
+				<img alt="UK Met Office" src="../assets/images/mo-logo.png" />
+			</a>
+			<a href="https://data.cma.cn/en" target="_blank">
+				<img alt="CMA" src="../assets/images/cma-logo.png" />
+			</a>
+			<a id="iap-logo" href="http://english.iap.cas.cn/" target="_blank">
+				<img alt="IAP" src="../assets/images/iap-logo.png" />
+			</a>
 		</div>
 	</footer>
 </template>
@@ -87,10 +98,11 @@ footer {
 	width: 100%;
 	background: var(--vpDark);
 	border-top: 1px solid var(--vpOrange);
-	padding: 16px 32px 16px 16px;
+	padding: 8px 32px 8px 16px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	align-items: center;
 }
 
 /* extra base styling needed on top of specific footer 
@@ -124,7 +136,29 @@ footer a:hover {
 	color: var(--vpOrange);
 }
 
+.logo-wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+.logo-wrapper a, /* otherwise will be 35px for some reason */
+.logo-wrapper img {
+	height: 32px;
+}
+#mo-logo { /* has lots of air either side */
+	margin-left: -6px;
+	margin-right: -4px;
+}
+#iap-logo { /* for air between cma-logo and this logo */
+	margin-left: 4px;
+}
+
 @media (max-width: 1007px) {
+	.logo-wrapper a,
+	.logo-wrapper img {
+		height: 29.6px;
+	}
 	footer.stand-alone p,
 	footer.stand-alone a,
 	footer.stand-alone a:visited {
@@ -132,6 +166,10 @@ footer a:hover {
 	}
 }
 @media (max-width: 640px) {
+	.logo-wrapper a,
+	.logo-wrapper img {
+		height: 27.2px;
+	}
 	footer.stand-alone p,
 	footer.stand-alone a,
 	footer.stand-alone a:visited {
