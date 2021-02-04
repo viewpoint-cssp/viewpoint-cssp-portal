@@ -170,7 +170,7 @@ if __name__ == '__main__':
 
     # filenames should include path if not in the same directory
     bibFile = r'VIEWpoint-jan2021-bibLaTeX.bib'
-    #jsonFile = r'../src/bib/VIEWpoint-json.js'
+    #jsonFile = r'../src/js/VIEWpoint-json.js'
     jsonFile = r'VIEWpoint-json.js'
       
     make_json(bibFile, jsonFile)

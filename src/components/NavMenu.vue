@@ -39,7 +39,7 @@
 						:disabled="sub.disabled"
 						@click.stop="goTo(sub.page)"
 					>
-						{{ sub.label }}
+						{{ sub.label || sub.page }}
 					</li>
 				</ul>
 			</li>
@@ -54,7 +54,7 @@ To deploy on a website external to the portal use something like:
 Use .nav-menu to position (eg absolute, at top left with any z-index)
 @mouseleave not required if there's no v-if or there's another way to disappear it
 */
-const appPages = ['Home', 'About', 'Catalogue', 'Training', 'Demonstrators']
+import { appPages } from '../js/constants.js'
 
 export default {
 	name: 'NavMenu',
@@ -76,16 +76,27 @@ export default {
 						{ page: 'wrm', label: 'Water Resources Management' }
 					]
 				},
-				{ page: 'Training', label: 'Training materials' },
-				{
-					page: 'Explainers',
-					disabled: true
+				{ 
+					page: 'Resources',
+					options: [
+						{ page: 'Training', label: 'Training materials' },
+						{
+							page: 'Explainers',
+							disabled: true
+						},
+						{
+							page: 'Briefing',
+							label: 'Briefing notes',
+							disabled: true
+						},
+						{ page: 'Videos', disabled: true },
+						{
+							page: 'Handbook',
+							disabled: true
+						}
+					]
 				},
-				{ page: 'Videos', disabled: true },
-				{
-					page: 'Handbook',
-					disabled: true
-				}
+				{ page: 'Glossary', disabled: true }
 			],
 			timeout: null,
 			narrowPage: false,
@@ -129,7 +140,7 @@ export default {
 				} else {
 					location.href =
 						'https://viewpoint-cssp.github.io/viewpoint-cssp-portal#' +
-						page
+						page.toLowerCase()
 				}
 			} else if (page == 'suhi') {
 				location.href = 'https://the-iea.github.io/viewpoint-suhi'
@@ -156,7 +167,9 @@ export default {
 			// NOTE this method is only ever called if !this.forceHamburger
 			// If options are Home, About, Catalogue, Demonstrators, Training 
 			// materials, Explainers, Videos & Handbook, 550px is about the threshold
-			if (window.matchMedia('(max-width: 550px)').matches) {
+			// If options are Home, About, Catalogue, Demonstrators, Resources 
+			// & Glossary, 410px is about the threshold
+			if (window.matchMedia('(max-width: 410px)').matches) {
 				this.narrowPage = true
 			} else {
 				this.narrowPage = false

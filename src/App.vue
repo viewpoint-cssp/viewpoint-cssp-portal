@@ -17,10 +17,10 @@ import Footer from './components/Footer.vue'
 import About from './components/About.vue'
 import Home from './components/Home.vue'
 import Catalogue from './components/Catalogue.vue'
-import Training from './components/Training.vue'
 import Demonstrators from './components/Demonstrators.vue'
-
-const appPages = ['Home', 'About', 'Catalogue', 'Training', 'Demonstrators']
+import Resources from './components/Resources.vue'
+import Training from './components/Training.vue'
+import { appPages } from './js/constants.js'
 
 export default {
 	name: 'App',
@@ -30,8 +30,9 @@ export default {
 		About,
 		Home,
 		Catalogue,
-		Training,
-		Demonstrators
+		Demonstrators,
+		Resources,
+		Training
 	},
 	data() {
 		return {
