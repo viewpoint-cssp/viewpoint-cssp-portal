@@ -1,12 +1,8 @@
 <template>
 	<div>
-		<div class="banner">
-			<img id="logo" alt="VIEWpoint logo" src="../assets/images/logo.png" />
-			<h1>
-				A showcase for the Climate Science for Service Partnership with
-				China
-			</h1>
-		</div>
+		<Banner
+			enTitle="A showcase for the Climate Science for Service Partnership with China"
+		></Banner>
 		<div class="about">
 			<h2>VIEWpoint and CSSP China</h2>
 			<hr />
@@ -86,37 +82,17 @@
 </template>
 
 <script>
+import Banner from './Banner.vue'
+
 export default {
-	name: 'Home'
+	name: 'Home',
+	components: {
+		Banner
+	}
 }
 </script>
 
 <style scoped>
-.banner {
-	background-image: url('../assets/images/banner.png');
-	background-position: center;
-	background-size: cover;
-	background-attachment: fixed;
-	/*height: 50vh;
-	min-height: 250px;
-	max-height: 450px;
-	padding: 32px 64px;*/
-	height: 280px;
-	padding: 12px 64px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-.banner #logo {
-	background: transparent;
-	width: 50%;
-	align-self: flex-end;
-}
-.banner h1 {
-	width: 50%;
-	color: var(--vpOrange);
-}
-
 .about {
 	padding: 64px;
 }
@@ -187,13 +163,6 @@ div.button-item * {
 }
 .button-panel:hover div.button-item * {
 	color: whitesmoke;
-}
-
-@supports (-ms-ime-align:auto) { 
-	/* EdgeHTML is jerky if 'fixed' so set it to scroll up with the rest of the page */
-	.banner {
-		background-attachment: scroll;
-	}
 }
 
 @media (max-width: 768px) {

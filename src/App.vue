@@ -20,6 +20,7 @@ import Catalogue from './components/Catalogue.vue'
 import Demonstrators from './components/Demonstrators.vue'
 import Resources from './components/Resources.vue'
 import Training from './components/Training.vue'
+import Explainers from './components/Explainers.vue'
 import { appPages } from './js/constants.js'
 
 export default {
@@ -32,7 +33,8 @@ export default {
 		Catalogue,
 		Demonstrators,
 		Resources,
-		Training
+		Training,
+		Explainers
 	},
 	data() {
 		return {

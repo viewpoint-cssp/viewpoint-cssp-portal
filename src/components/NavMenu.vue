@@ -80,10 +80,7 @@ export default {
 					page: 'Resources',
 					options: [
 						{ page: 'Training', label: 'Training materials' },
-						{
-							page: 'Explainers',
-							disabled: true
-						},
+						{ page: 'Explainers' },
 						{
 							page: 'Briefing',
 							label: 'Briefing notes',

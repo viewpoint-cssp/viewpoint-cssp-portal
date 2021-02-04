@@ -3,6 +3,7 @@ import App from './App.vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
 	faBackward,
+	faBookOpen,
 	faCaretDown,
 	faCaretRight,
 	faChevronLeft,
@@ -18,6 +19,7 @@ import VShowSlide from 'v-show-slide'
 
 library.add(
 	faBackward,
+	faBookOpen,
 	faCaretDown,
 	faCaretRight,
 	faChevronLeft,

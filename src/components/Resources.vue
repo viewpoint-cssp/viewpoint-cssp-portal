@@ -1,11 +1,8 @@
 <template>
 	<div>
-		<div class="banner">
-			<img id="logo" alt="VIEWpoint logo" src="../assets/images/logo.png" />
-			<h1>
-				Resources
-			</h1>
-		</div>
+		<Banner class="banner-style"
+			enTitle="Resources"
+		></Banner>
 		<div class="about">
 			<h2>About the resources</h2>
 			<hr />
@@ -72,9 +69,13 @@
 At the moment this looks and works very similar to Home.vue. That may change. 
 If it doesn't, the styling could go into the .css or simplify by using new component(s)?
 */
+import Banner from './Banner.vue'
 
 export default {
 	name: 'Resources',
+	components: {
+		Banner
+	},
 	mounted() {
 		this.$el.parentElement.scrollIntoView(true)
 	}
@@ -82,33 +83,15 @@ export default {
 </script>
 
 <style scoped>
-.banner {
+.banner-style {
 	background-image: url('../assets/images/resources.jpg');
-	background-position: center;
-	background-size: cover;
 	background-blend-mode: soft-light;
-	background-attachment: fixed;
-	/*height: 50vh;
-	min-height: 250px;
-	max-height: 450px;
-	padding: 32px 64px;*/
-	height: 280px;
-	padding: 12px 64px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
 }
-.banner #logo {
-	background: transparent;
-	width: 50%;
-	align-self: flex-end;
-}
-.banner h1 {
-	width: 50%;
-	color: var(--vpOrange);
-}
-.banner h1 span {
-	color: var(--vpOrange);
+@supports (-ms-ime-align: auto) {
+	/* EdgeHTML since background-blend-style doesn't work, use a white box 'shadow' to lighten */
+	.banner-style {
+		box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.8);
+	}
 }
 
 .about {
@@ -187,15 +170,6 @@ div.button-item * {
 }
 .button-panel:hover div.button-item * {
 	color: whitesmoke;
-}
-
-@supports (-ms-ime-align: auto) {
-	/* EdgeHTML is jerky if 'fixed' so set it to scroll up with the rest of the page 
-	AND since background-blend-style doesn't work, use a white box 'shadow' to lighten */
-	.banner {
-		background-attachment: scroll;
-		box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.8);
-	}
 }
 
 @media (max-width: 768px) {

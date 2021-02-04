@@ -4,5 +4,6 @@ export const appPages = [
 	'Catalogue',
 	'Demonstrators',
 	'Resources',
-	'Training'
+	'Training',
+	'Explainers'
 ]

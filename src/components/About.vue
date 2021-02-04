@@ -1,11 +1,8 @@
 <template>
 	<div class="about">
-		<div class="banner">
-			<img id="logo" alt="VIEWpoint logo" src="../assets/images/logo.png" />
-			<h1>
-				About VIEWpoint
-			</h1>
-		</div>
+		<Banner
+			enTitle="About VIEWpoint"
+		></Banner>
 		<div class="about-content">
 			<p>
 				The VIEWpoint climate science project shares the world-class
@@ -162,40 +159,29 @@
 </template>
 
 <script>
-export default {}
+import Banner from './Banner.vue'
+
+export default {
+	name: 'About',
+	components: {
+		Banner
+	}
+}
 </script>
 
 <style scoped>
 .about {
 }
 
-.banner {
+.banner-style {
 	background-image: url('../assets/images/about.png');
-	background-position: center;
-	background-size: cover;
 	background-blend-mode: soft-light;
-	background-attachment: fixed;
-	/*height: 50vh;
-	min-height: 250px;
-	max-height: 450px;
-	padding: 32px 64px;*/
-	height: 280px;
-	padding: 12px 64px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
 }
-.banner #logo {
-	background: transparent;
-	width: 50%;
-	align-self: flex-end;
-}
-.banner h1 {
-	width: 50%;
-	color: var(--vpOrange);
-}
-.banner h1 span {
-	color: var(--vpOrange);
+@supports (-ms-ime-align: auto) {
+	/* EdgeHTML since background-blend-style doesn't work, use a white box 'shadow' to lighten */
+	.banner-style {
+		box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.8);
+	}
 }
 
 .about-content {
