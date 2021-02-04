@@ -10,7 +10,7 @@
 			<h2>About the resources</h2>
 			<hr />
 			<p>
-				Some description about the different resources.
+				TODO: Some description about the different resources.
 			</p>
 			<p lang="zh-cn">TODO: Mandarin here?</p>
 		</div>
@@ -26,7 +26,7 @@
 		</div>
 		<div class="button-panel" @click="$emit('goTo', 'Explainers')">
 			<div class="button-content">
-				<img class="button-item" src="../assets/images/training.jpg" />
+				<img class="button-item" src="../assets/images/resources.jpg" />
 				<div class="button-item">
 					<h3>Explainers</h3>
 					<p>TODO: Explain the explainers.</p>
@@ -36,30 +36,30 @@
 		</div>
 		<div class="button-panel" @click="$emit('goTo', 'Briefing')">
 			<div class="button-content">
-				<img class="button-item" src="../assets/images/training.jpg" />
+				<img class="button-item" src="../assets/images/resources.jpg" />
 				<div class="button-item">
 					<h3>Briefing notes</h3>
-					<p>TODO: Brief description of what briefing notes are.</p>
+					<p>TODO: Brief description.</p>
 					<p lang="zh-cn">TODO: Mandarin here?</p>
 				</div>
 			</div>
 		</div>
 		<div class="button-panel" @click="$emit('goTo', 'Videos')">
 			<div class="button-content">
-				<img class="button-item" src="../assets/images/training.jpg" />
+				<img class="button-item" src="../assets/images/resources.jpg" />
 				<div class="button-item">
 					<h3>Videos</h3>
-					<p>TODO: All about the videos.</p>
+					<p>TODO: Look here!</p>
 					<p lang="zh-cn">TODO: Mandarin here?</p>
 				</div>
 			</div>
 		</div>
-		<div class="button-panel" @click="$emit('goTo', 'Videos')">
+		<div class="button-panel" @click="$emit('goTo', 'Handbook')">
 			<div class="button-content">
-				<img class="button-item" src="../assets/images/training.jpg" />
+				<img class="button-item" src="../assets/images/resources.jpg" />
 				<div class="button-item">
-					<h3>Videos</h3>
-					<p>TODO: All about the videos.</p>
+					<h3>Handbook</h3>
+					<p>TODO: Handy summary.</p>
 					<p lang="zh-cn">TODO: Mandarin here?</p>
 				</div>
 			</div>
@@ -75,15 +75,6 @@ If it doesn't, the styling could go into the .css or simplify by using new compo
 
 export default {
 	name: 'Resources',
-	methods: {
-		goTo(page) {
-			if (page == 'suhi') {
-				location.href = 'https://the-iea.github.io/viewpoint-suhi'
-			} else if (page == 'wrm') {
-				location.href = 'https://the-iea.github.io/viewpoint-wrm'
-			}
-		}
-	},
 	mounted() {
 		this.$el.parentElement.scrollIntoView(true)
 	}
@@ -92,7 +83,7 @@ export default {
 
 <style scoped>
 .banner {
-	background-image: url('../assets/images/demonstrators.jpg');
+	background-image: url('../assets/images/resources.jpg');
 	background-position: center;
 	background-size: cover;
 	background-blend-mode: soft-light;

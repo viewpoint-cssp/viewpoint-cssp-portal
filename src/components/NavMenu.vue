@@ -299,6 +299,9 @@ ul.sub-nav {
 	margin-left: 0;
 	white-space: nowrap;
 }
+.sub-nav .nav-item[disabled] {
+	cursor: initial;
+}
 
 .hamburger-icon {
 	background: transparent;
