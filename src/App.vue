@@ -21,6 +21,7 @@ import Demonstrators from './components/Demonstrators.vue'
 import Resources from './components/Resources.vue'
 import Training from './components/Training.vue'
 import Explainers from './components/Explainers.vue'
+import Glossary from './components/Glossary.vue'
 import { appPages } from './js/constants.js'
 
 export default {
@@ -34,7 +35,8 @@ export default {
 		Demonstrators,
 		Resources,
 		Training,
-		Explainers
+		Explainers,
+		Glossary
 	},
 	data() {
 		return {

@@ -93,7 +93,7 @@ export default {
 						}
 					]
 				},
-				{ page: 'Glossary', disabled: true }
+				{ page: 'Glossary' }
 			],
 			timeout: null,
 			narrowPage: false,

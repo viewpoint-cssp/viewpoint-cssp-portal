@@ -1,0 +1,89 @@
+﻿English,Suggested definition in English,Suggested Mandarin translation,Meaning of Mandarin translation,Comments
+State,Particular condition at a specific time,状态,特定时间下的状态,e.g. 'state' of the atmosphere (not 'nation')
+Uncertainty/ certainty,"A state of incomplete knowledge that can result from a lack of information or from disagreement
+about what is known or even knowable",不确定性/确定性,由于信息缺失或者对已知甚至可知信息的不同见解而产生的不完善的知识状态,IPCC SR1.5 (2018). Meaning of translation changed from: 由于信息缺失或者对已知和尚未获得信息的不同见解而产生的对某一现象或状态的不确知
+Skill,"A statistical evaluation of the accuracy of forecasts or the effectiveness of detection techniques.
+",技巧,信号侦测手段的有效性,https://glossary.ametsoc.org/wiki/Skill
+Ensemble,"A collection of comparable datasets that reflect variations within the bounds of one or more sources of uncertainty, and that when averaged can provide a more robust estimate of underlying behaviour. ",集合,针对某一变量，综合采用不同数据源进行估计，从而提升估计值的可靠性,"Ensemble techniques are used by the observational, reanalysisand modelling communities. IPCC AR6"
+Precision,The quality of being exactly defined.,精密度,多次重复测定同一量时各测定值之间彼此相符合的程度,"Proofreading: Translation of this term is much more complicated than the original text 
+ https://glossary.ametsoc.org/wiki/Precision
+"
+Accuracy,The extent to which results of a calculation or the readings of an instrument approach the true values of the calculated or measured quantities.,准确度,对某一变量的估计或者仪器度数的准确度，用以刻画测量值与真实值的接近程度,https://glossary.ametsoc.org/wiki/Accuracy
+Exceedance,"For any threshold, x, the probability that during the year the random variable in question, X, will exceed some x; exceedance probability =
+P = [X>x]",超越（概率）,变量X超过临界值x的概率,https://glossary.ametsoc.org/wiki/Exceedance_probability
+Excess,Exceeding a prescribed or desirable amount.,超值,超过临界值的数量,Oxford Languages
+Vulnerability,The propensity or predisposition to be adversely affected,脆弱性,承灾体易于受到致灾因子的破坏、伤害或损伤的可能性,"Vulnerability encompasses a variety of concepts and elements including sensitivity
+or susceptibility to harm and lack of capacity to cope and adapt. IPCC AR5"
+Exposure,"The presence of people,  ivelihoods,species or ecosystems,  nvironmental functions,services, and resources, infrastructure, or economic,social, or
+cultural assets in places and settings that could be adversely affected.",暴露,人员、生计、种群、生态环境、服务、资源、基础设施，以及经济、社会和文化财产处于可能被灾害破坏的状态,IPCC AR5
+Predictability,"The extent to which future states of a system may be predicted based on
+knowledge of current and past states of the system.",可预报性,基于历史数据，对于未来状态的可预测程度,"Because knowledge of the climate system’s past and current states is generally imperfect, as are the models that utilize this knowledge to produce a climate prediction, and because the climate system is inherently nonlinear and chaotic, predictability of the climate system is inherently limited. Even with arbitrarily accurate models and observations, there may still be limits to the predictability of such a nonlinear system (AMS, 2000). IPCC AR5"
+Confidence,,信度,被测量参数的测量值的可信程度,Proofreading: changed from: 置信
+Likelihood,,可能性,给定特定观测值后，描述模型参数是否合理,Proofreading: changed from: 似然
+Surprises,"Low probability, high consequence events",突发事件,低可能性但会产生重大影响的事件,Proofreading: changed from: 异常
+Probability,"The chance that a prescribed event  will occur, represented as a pure  number p in the range 0 ≤ p ≤ 1.",概率,某事件可能发生的百分比,"The probability of an impossible event is zero and that of an inevitable event is unity. Probability is estimated empirically by relative frequency, that is, the number of times the particular event occurs divided by the total count of all events in the class considered. 
+
+https://glossary.ametsoc.org/wiki/Probability"
+Reliability,,可靠性,指采用同样的方法对同一对象重复测量时所得结果的一致性程度,Proofreading: changed from: 信度
+Properties/Property,Characteristics,特征,某事物或事件的特有或突出属性,could be mistaken for owned item or estate/building
+End-user/ next user,,终端用户/下游用户,,
+Urban characteristic/s,Aspects/Features of the urban environment/form,关于城市环境的特征 ,Aspects/Features of the urban environment/form,could be mis-tranlsated as Mandarin equivalent of 'urban disease'
+City asset,City Infrastructure,城市基础设施,City Infrastructure,
+Adaptive capacity,"The ability of systems, institutions, humans and other organisms to adjust to potential damage, to take advantage of opportunities, or to respond to consequences",适应能力,指一个系统能修正或改变其特 质或行为，使在面对既有的或预期的外部压力时能有 更好的处理能力,Used in Arup's city tool. IPCC SR1.5
+Annual Exceedende Probability (AEP),"The likelihood that an event
+exceeding some magnitude occurs in any given year",年超越概率,指某一年内某超过临界值事件的发生可能性,Used in Arup's city tool. IPCC SR1.5
+Climate Change,"A change in the state of the climate that can be identified (e.g., by using statistical tests) by changes in the mean and/or the variability of its properties and that persists for an extended period, typically decades or longer.",气候变化,当前气候的平均态或变率产生包含或超过年代纪的持续变化,Used in Arup's city tool. IPCC SR1.5
+Global Climate Model,"A numerical representation of the climate system based on the physical, chemical and biological properties of its components, their interactions and feedback processes, and accounting for some of its known properties.",全球气候模式,全球尺度下，依据物理、化学和生物学关系对气候系统进行数值模拟的工具,Used in Arup's city tool. IPCC SR1.5
+Hazard,"The potential occurrence of a natural or human-induced physical event or trend that may cause loss of life, injury, or other health impacts, as well as damage and loss to property, infrastructure, livelihoods, service provision, ecosystems and environmental resources.",灾害,自然产生或人为造成的可能产生人员伤亡和财产损失的事件,Used in Arup's city tool. IPCC SR1.5. Proofreading: changed from: 致灾因子
+Impacts,"The consequences of realized risks on natural and human systems, where risks result from the interactions of climate-related hazards (including extreme weather and climate events), exposure, and vulnerability. ",影响,极端天气现象或气候事件对人类社会生产生活产生的影响,"Used in Arup's city tool. IPCC SR1.5
+
+Impacts generally refer to effects on lives; livelihoods; health and well-being; ecosystems and species; economic, social and cultural assets; services (including ecosystem services); and infrastructure. Impacts may be referred to as consequences or outcomes, and can be adverse or beneficial."
+Infrastructure system,,基建系统,国民经济各部门为增加固定资产面进行的建筑、购置和安装工作的总称,From Arup's city tool
+Primary hazard,,主要致灾因子,主要致灾因子,From Arup's city tool
+Primary impacts,,主要影响,极端天气现象或气候事件对人类社会生产生活产生的主要影响,From Arup's city tool
+Representative Concentration Pathway (RCP),"Scenarios that include time series of emissions and concentrations of the full suite of greenhouse gases (GHGs) and aerosols and chemically active gases, as well as land use/land cover (Moss et al., 2008)",代表性浓度路径,一组包括了所有温室气体、气溶胶和化学活性气体 排放和浓度时间序列，以及土地利用/土地覆盖状况的情景,"From Arup's city tool. IPCCSR1.5
+
+The word representative signifies that each RCP provides only one of many possible scenarios that would lead to the specific radiative forcing characteristics. The term pathway emphasizes the fact that not only the long-term concentration levels but also the trajectory taken over time to reach that outcome are of interest (Moss et al., 2010). RCPs were used to develop climate projections in CMIP5."
+Shared Socioeconomic Pathway (SSP),"Shared Socio-economic Pathways (SSPs) were developed to complement the RCPs with varying socio-economic challenges to adaptation and mitigation (O’Neill et al., 2014)",共享社会经济路径,反应辐射强波和社会经济发展的关联,"From Arup's city tool. IPCCSR1.5
+
+Based on five narratives, the SSPs describe alternative socio-economic futures in the absence of climate policy intervention, comprising sustainable development (SSP1), regional rivalry (SSP3), inequality (SSP4), fossil–fuelled development (SSP5) and middle-of-the-road development (SSP2) (O’Neill, 2000; O’Neill et al., 2017; Riahi et al., 2017). The combination of SSP-based socio-economic scenarios and Representative Concentration Pathway (RCP)-based climate projections provides an integrative frame for climate impact and policy analysis."
+Risk,The potential for adverse consequences where something of value is at stake and where the occurrence and degree of an outcome is uncertain.,风险,气候相关危害与人类和自然系统的暴露度和脆弱性相互作用而产生不良后果的可能,"Used in Arup's city tool. IPCC SR1.5
+
+In the context of the assessment of climate impacts, the term risk is often used to refer to the potential for adverse consequences of a climate-related hazard, or of adaptation or mitigation responses to such a hazard, on lives, livelihoods, health and well-being, ecosystems and species, economic, social and cultural assets, services (including ecosystem services), and infrastructure. Risk results from the interaction of vulnerability (of the affected system), its exposure over time (to the hazard), as well as the (climate-related) hazard and the likelihood of its occurrence."
+Risk Acceptability,The predisposition to accept the risk,风险的可接受性,对于某气候风险的可接受度,From Arup's city tool
+Secondary hazard,,次级致灾因子,居第二位的致灾因子,"From Arup's city tool. Proofreading: change to 次生灾害 if you mean hazard that is caused by primary hazard as ""secondary"" in secondary organic pollution. If it just means ""secondary"", then keep translation as it is. So is the case with secondary impacts."
+Secondary impacts,,次级影响,居第二位的气候影响,"From Arup's city tool. Proofreading: change to 次生灾害 if you mean hazard that is caused by primary hazard as ""secondary"" in secondary organic pollution. If it just means ""secondary"", then keep translation as it is. So is the case with secondary impacts."
+Sensitivity,,敏感性,某事件或变量对控制因子的响应程度,From Arup's city tool
+Error,Difference from exact true number,误差,测量结果偏离真值的程度,"avoid using mistake, wrong, incorrect in definition"
+Positive Trend,Upward trend,正（向）趋势,变量随时间正向变化,could be mistaken for 'fashion'. Avoid 'good trend'
+Positive Feedback,Self-reinforcing cycle,正（向）反馈,两变量呈互相促进的发展变化关系,"avoid using good response, praise in definition"
+Scheme,Systematic plan,方案,较系统的实施计划,could be mistaken for 'devious plot'
+Anomaly,Change from long term average,异常,较长期平均值的差异,avoid 'abnormal occurrence'
+Values,"Numbers, quantity",数值,数值,"could be mistaken for ethics, monetary value"
+Sign,Plus or minus sign,正负号,数学定义上的正值与负值,could be mistaken for indication or astrological sign
+Theory,Scientific understanding,理论,对某一事物或现象的系统性认知,could be mistaken or hunch or speculation
+Enhance,"Intensify, increase",增强 或 增加,某气候或天气系统增强或某测量值增加,avoid 'improve'
+Bias,,偏差,,could be mistaken for political bias of media
+Trough (eg of low pressure),,（低压）槽,,was once (20 years ago) mistakenly translated as a pig trough in a forecast 
+Zonal (ie westerly) wind,, ,,
+Meridional (ie southerly) wind,,经向风,,Is sometimes confused with the Greenwich meridian - and mistakenly interpreted as the westerly wind
+Front (eg cold front),,锋面（如冷锋）,,
+Drought,,干旱,,"Need to be careful if using ""drought"" to describe a short break within the wet season. Better to describe ""pause"" in the rainfall."
+Low pressure,,低压,,"Need to be careful of inadvertently interpreting a local reduction in the high pressure during the winter., as a low pressure centre"
+Chaos,,混沌,,
+Correlation (formal statistical definition),,相关,,
+Correlation (as opposed to causality),, ,,
+Causality,,因果关系,,
+Reliability (formal statistical definition),,可靠性,,
+Compound events,,,,
+CSSP China,, 气候科学支持服务伙伴关系计划中国项目    ,,
+Normal,,,,
+Users,,,,
+Flood,,,,
+Extreme,,,,
+Forecast/Outlook,,,,
+Climate,,,,
+Projection,,,,
+Risk,,,,
+Hindcast,,,,
+Percentiles,,,,
