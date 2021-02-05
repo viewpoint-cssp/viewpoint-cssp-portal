@@ -43,10 +43,12 @@ export default {
 	},
 	watch: {
 		navPage() {
-			if (typeof window.scrollTo == 'function') {
+			if ('scrollBehavior' in document.documentElement.style) {
 				window.scrollTo({ top: 0, behavior: 'smooth'})
 			} else {
-				window.scrollTop = 0
+				// EdgeHTML scrolls to top by scrolling the .nav-menu into view
+				const navFtr = document.getElementsByClassName('app-fixed')
+				navFtr[0].scrollIntoView(true)
 			}
 		}
 	},
