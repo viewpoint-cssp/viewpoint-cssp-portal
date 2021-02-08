@@ -4,7 +4,7 @@
 		@mouseenter="stopTimer" 
 		@mouseleave="startTimer"
 	>
-		<p>
+		<p v-if="!narrowPage">
 			Copyright &copy;
 			<a href="https://www.the-iea.org" target="_blank" rel="noopener noreferrer">
 				The Institute for Environmental Analytics</a
@@ -13,12 +13,27 @@
 				University of Reading</a>
 			2021
 		</p>
-		<p>
+		<div class="logo-wrapper narrow-page" v-else>
+			<div class="copyright">
+				<p>&copy;</p>
+				<p class="tiny">2021</p>
+			</div>
+			<a id="iea-logo" href="https://www.the-iea.org" target="_blank" rel="noopener noreferrer">
+				<img alt="Institute for Environmental Analytics" src="../assets/images/iea-logo.png" />
+			</a>
+			<a id="uor-logo" href="https://www.reading.ac.uk" target="_blank" rel="noopener noreferrer">
+				<img alt="University of Reading" src="../assets/images/uor-logo.png" />
+			</a>
+		</div>
+		<p v-if="!narrowPage">
 			Contact:
 			<a href="mailto:viewpoint@the-iea.org">viewpoint@the-iea.org</a>
 		</p>
-		<div class="logo-wrapper">
-			<a href="https://www.newton-gcrf.org/" target="_blank" rel="noopener noreferrer">
+		<div class="envelope-wrapper" v-else>
+			<a href="mailto:viewpoint@the-iea.org"><div class="mail-solid icon"></div></a>
+		</div>
+		<div class="logo-wrapper" :class="{ 'narrow-page': narrowPage }">
+			<a id="nf-logo" href="https://www.newton-gcrf.org/" target="_blank" rel="noopener noreferrer">
 				<img alt="Newton Fund" src="../assets/images/nf-logo.png" />
 			</a>
 			<a id="mo-logo" href="https://www.metoffice.gov.uk/weather/climate/science" target="_blank" rel="noopener noreferrer">
@@ -45,13 +60,15 @@ Use footer styling to position (eg absolute, at top left with any z-index)
 export default {
 	name: 'Footer',
 	props: {
-		portal: Boolean // passed true only when component is called from viewpoint-cssp-portal's App.vue
-	},
+		portal: Boolean, // passed true only when component is called from viewpoint-cssp-portal's App.vue
+		forceIconsOnly: Boolean // passed true to use icons only regardless of browser width
+},
 	data() {
 		return {
 			timeout: null,
 			urlCMA: 'http://www.cma.gov.cn/en2014/',
-			urlIAP: 'http://english.iap.cas.cn/'
+			urlIAP: 'http://english.iap.cas.cn/',
+			narrowPage: false 
 		}
 	},
 	methods: {
@@ -68,6 +85,14 @@ export default {
 		stopTimer() {
 			if (!this.portal) {
 				clearTimeout(this.timeout)
+			}
+		},
+		resized() {
+			// NOTE this method is only ever called if !this.forceIconsOnly
+			if (window.matchMedia('(max-width: 580px)').matches) {
+				this.narrowPage = true
+			} else {
+				this.narrowPage = false
 			}
 		}
 	},
@@ -88,6 +113,15 @@ export default {
 				`'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif`
 			)
 		}
+		// if forcing use of just icons, set props, otherwise listen for 
+		// resize event to see when just-icons mode needs to be toggled on/off
+		if (this.forceIconsOnly) {
+			this.narrowPage = true
+		} else {
+			this.resized() 
+			window.addEventListener('resize', this.resized)
+			window.addEventListener('orientationchange', this.resized)
+		}
 		if (!this.portal && !window.matchMedia('(hover: hover)').matches) { // or '(pointer: none)' ?
 			// if called from the likes of SUHI or WRM pages on a touch device: if nothing is selected 
 			// within 10 seconds, this component will emit a mouseleave event for the parent to hide/close
@@ -95,6 +129,12 @@ export default {
 			this.timeout = setTimeout(() => { 
 				this.$emit('mouseleave')
 			}, 10000)
+		}
+	},
+	beforeDestroy() {
+		if (!this.forceIconsOnly) {
+			window.removeEventListener('resize', this.resized)
+			window.removeEventListener('orientationchange', this.resized)
 		}
 	}
 }
@@ -153,12 +193,73 @@ footer a:hover {
 .logo-wrapper img {
 	height: 32px;
 }
+#iea-logo {
+	margin-left: 4px;
+	margin-right: 8px;
+}
 #mo-logo { /* has lots of air either side */
 	margin-left: -6px;
 	margin-right: -4px;
 }
 #iap-logo { /* for air between cma-logo and this logo */
 	margin-left: 4px;
+}
+
+.narrow-page .copyright {
+	line-height: 1;
+}
+.tiny {
+	font-size: 10px;
+}
+
+.envelope-wrapper {
+	/* needed to size and therefore position the anchor properly*/
+	width: 24.5px;
+	height: 17px;
+}
+
+.mail-solid.icon {
+	box-sizing: content-box;
+color: var(--whiteDefault);
+  position: absolute;
+  width: 22.5px;
+  height: 15px;
+  border-radius: 1.5px;
+  border: solid 1.5px currentColor;
+  background-color: currentColor;
+}
+.mail-solid.icon:hover {
+	color: var(--vpOrange);
+}
+
+.mail-solid.icon:before {
+  content: '';
+  position: absolute;
+  left: 10.5px;
+  top: -6px;
+  width: 1.5px;
+  height: 15px;
+  color: var(--vpDark);
+  background-color: currentColor;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-transform: rotate(-54deg);
+          transform: rotate(-54deg);
+}
+
+.mail-solid.icon:after {
+  content: '';
+  position: absolute;
+  left: 10.5px;
+  top: -6px;
+  width: 1.5px;
+  height: 15px;
+  color: var(--vpDark);
+  background-color: currentColor;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-transform: rotate(54deg);
+          transform: rotate(54deg);
 }
 
 @media (max-width: 1007px) {
@@ -173,6 +274,10 @@ footer a:hover {
 	}
 }
 @media (max-width: 640px) {
+	footer {
+		padding-right: 16px;
+	}
+	footer
 	.logo-wrapper a,
 	.logo-wrapper img {
 		height: 27.2px;
@@ -181,6 +286,33 @@ footer a:hover {
 	footer.stand-alone a,
 	footer.stand-alone a:visited {
 		font-size: 10px;
+	}
+}
+@media (max-width: 430px) {
+	.logo-wrapper img {
+		object-fit: cover;
+		object-position: left;
+	}
+	#iea-logo {
+		margin-left: 6px;
+		margin-right: 10px;
+	}
+	#iea-logo img,
+	#nf-logo img {
+		width: 27px;
+	}
+	#uor-logo img {
+		width: 23px;
+	}
+	#mo-logo {
+		margin-left: 0;
+		margin-right: 8px;
+	}
+	#mo-logo img {
+		width: 24px;
+	}
+	#iap-logo {
+		margin-left: 8px;
 	}
 }
 
