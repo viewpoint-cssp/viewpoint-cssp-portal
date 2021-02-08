@@ -54,7 +54,19 @@ To deploy on a website external to the portal use something like:
 Use .nav-menu to position (eg absolute, at top left with any z-index)
 @mouseleave not required if there's no v-if or there's another way to disappear it
 */
-import { appPages } from '../js/constants.js'
+
+// NOTE This is defined here AND in App.vue in order to allow this 
+// component to be copied stand-alone for inclusion in the demonstrators
+const appPages = [
+	'Home',
+	'About',
+	'Catalogue',
+	'Demonstrators',
+	'Resources',
+	'Training',
+	'Explainers',
+	'Glossary'
+]
 
 export default {
 	name: 'NavMenu',

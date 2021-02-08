@@ -22,7 +22,19 @@ import Resources from './components/Resources.vue'
 import Training from './components/Training.vue'
 import Explainers from './components/Explainers.vue'
 import Glossary from './components/Glossary.vue'
-import { appPages } from './js/constants.js'
+
+// NOTE This is defined here AND in NavMenu.vue in order to allow that 
+// component to be copied stand-alone for inclusion in the demonstrators
+const appPages = [
+	'Home',
+	'About',
+	'Catalogue',
+	'Demonstrators',
+	'Resources',
+	'Training',
+	'Explainers',
+	'Glossary'
+]
 
 export default {
 	name: 'App',
