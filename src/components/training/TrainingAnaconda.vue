@@ -8,7 +8,7 @@
 		<p>
 			<a
 				href="https://www.youtube.com/watch?v=AnPHtLf7gYc&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=12"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 				alt="Downloading Anaconda3"
 			>
 				<img class="youtube" src="../../assets/images/training-12.png" />
@@ -17,7 +17,7 @@
 		<p>
 			<a
 				href="https://www.youtube.com/watch?v=qCZW5Esh3O8&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=13"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 				alt="Installing Anaconda3"
 			>
 				<img class="youtube" src="../../assets/images/training-13.png" />
@@ -26,7 +26,7 @@
 		<p>
 			<a
 				href="https://www.youtube.com/watch?v=PG2laJaHNsU&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=14"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 				alt="Launching Jupyter Notebook"
 			>
 				<img class="youtube" src="../../assets/images/training-14.png" />
@@ -35,7 +35,7 @@
 		<p>
 			<a
 				href="https://umep-workshop.readthedocs.io/en/latest/Jupyter/PY0.html"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
 				Background information on Python and Juypter Notebooks </a

@@ -5,7 +5,7 @@
 			There is a
 			<a
 				href="https://umep-workshop.readthedocs.io/en/latest/NeedHelp.html#needhelp"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 				class="nowrap"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
@@ -23,7 +23,7 @@
 			See the
 			<a
 				href="https://umep-workshop.readthedocs.io/en/latest/FAQ.html#faq"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 				class="nowrap"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>

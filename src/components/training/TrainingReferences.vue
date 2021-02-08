@@ -5,7 +5,7 @@
 			For scientific references, see the 
 			<a
 				href="https://umep-workshop.readthedocs.io/en/latest/References/Ref0.html"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 				class="nowrap"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>

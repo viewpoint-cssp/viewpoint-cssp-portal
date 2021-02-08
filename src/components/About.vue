@@ -37,14 +37,14 @@
 			</p>
 			<p>
 				This successful collaboration with the
-				<a href="https://data.cma.cn/en" target="_blank">
+				<a href="https://data.cma.cn/en" target="_blank" rel="noopener noreferrer">
 					<font-awesome-icon
 						icon="external-link-alt"
 					></font-awesome-icon
 					>&nbsp; China Meteorological Administration</a
 				>
 				(CMA), the
-				<a href="http://english.iap.cas.cn/" target="_blank">
+				<a href="http://english.iap.cas.cn/" target="_blank" rel="noopener noreferrer">
 					<font-awesome-icon
 						icon="external-link-alt"
 					></font-awesome-icon
@@ -59,10 +59,10 @@
 			<p lang="zh-cn">
 				本项目成功地得到了与<a
 					href="https://data.cma.cn/"
-					target="_blank"
+					target="_blank" rel="noopener noreferrer"
 					>中国气象局</a
 				>
-				(CMA)、<a href="http://www.iap.cas.cn/" target="_blank"
+				(CMA)、<a href="http://www.iap.cas.cn/" target="_blank" rel="noopener noreferrer"
 					>中国科学院大气物理研究所</a
 				>（IAP）以及多所中国高等学府的支持。 它开始于 2014
 				年，到目前为止已经发表了 340

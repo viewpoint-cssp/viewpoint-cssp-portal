@@ -11,7 +11,7 @@
 				world-class collaborative scientific research of the
 				<a
 					href="https://www.metoffice.gov.uk/research/approach/collaboration/newton/cssp-china/index"
-					target="_blank"
+					target="_blank" rel="noopener noreferrer"
 				>CSSP China</a>
 				(Climate Science for Service Partnership China) programme.
 				VIEWpoint has created tools, demonstrators, articles and videos

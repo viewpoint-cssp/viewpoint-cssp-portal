@@ -6,7 +6,7 @@
 			provided in video format, focusing on using population density data.
 			<a
 				href="https://www.youtube.com/watch?v=Zvc0ccQc1ds&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=7"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 			>
 				<img class="youtube" src="../../assets/images/training-7.png" />
 			</a>
@@ -15,7 +15,7 @@
 			There is also
 			<a
 				href="https://umep-workshop.readthedocs.io/en/latest/GettingData/UMEP10.html"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 				class="nowrap"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
@@ -25,7 +25,7 @@
 		<p>
 			<a
 				href="https://umep-docs.readthedocs.io/projects/tutorial/en/latest/Tutorials/SuewsWUDAPT.html#population-density"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
 				An example of how to use population density data</a

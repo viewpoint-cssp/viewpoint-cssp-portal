@@ -9,7 +9,7 @@
 		<p>
 			<a
 				href="https://umep-docs.readthedocs.io/projects/tutorial/en/latest/Tutorials/DailyShading.html#data-for-this-tutorial"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
 				Data for this tutorial and detailed steps</a
@@ -19,7 +19,7 @@
 			This follow-along video should take approximately 30 minutes.
 			<a
 				href="https://www.youtube.com/watch?v=plTUb_fNWqg&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=3"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 			>
 				<img class="youtube" src="../../assets/images/training-3.png" /></a
 			>

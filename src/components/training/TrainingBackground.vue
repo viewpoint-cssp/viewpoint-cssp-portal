@@ -7,7 +7,7 @@
 		<p>
 			<a
 				href="https://umep-workshop.readthedocs.io/en/latest/BackGroundMet/BGM0.html"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
 				Introductory material for the meteorological terms used</a
@@ -16,7 +16,7 @@
 		<p>
 			<a
 				href="https://umep-workshop.readthedocs.io/en/latest/BackGroundEval/BGE0.html"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
 				Introductory material on the benchmark system for evaluating the
@@ -27,7 +27,7 @@
 		<p>
 			<a
 				href="https://umep-workshop.readthedocs.io/en/latest/BackGroundMet/BGM1.html"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
 				A glossary of terms used</a

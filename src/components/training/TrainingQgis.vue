@@ -5,7 +5,7 @@
 		<p>
 			<a
 				href="https://umep-docs.readthedocs.io/en/latest/Getting_Started.html#recommended-installation-of-qgis-on-windows"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
 				How to install onto Windows</a
@@ -14,7 +14,7 @@
 		<p>
 			<a
 				href="https://www.youtube.com/watch?v=b9FwI0GyAGQ&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=1"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 			>
 				<img class="youtube" src="../../assets/images/training-1.png" alt="YouTube video" />
 			</a>
@@ -23,7 +23,7 @@
 		<p>
 			<a
 				href="https://umep-docs.readthedocs.io/en/latest/Getting_Started.html#installing-the-umep-plugin"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
 				How to install the UMEP plugin</a
@@ -32,7 +32,7 @@
 		<p>
 			<a
 				href="https://www.youtube.com/watch?v=R3QQQtf7zWU&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=2"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 			>
 				<img class="youtube" src="../../assets/images/training-2.png" alt="YouTube video" />
 			</a>

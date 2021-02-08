@@ -5,7 +5,7 @@
 			If you want to
 			<a
 				href="https://umep-workshop.readthedocs.io/en/latest/GettingData/SUEWS4.html"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 				class="nowrap"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
@@ -24,7 +24,7 @@
 			the ERA5 download and using the pre-processor on some example data.
 			<a
 				href="https://www.youtube.com/watch?v=31hhG2xoFKQ&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=6"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 			>
 				<img class="youtube" src="../../assets/images/training-6.png" />
 			</a>

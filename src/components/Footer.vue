@@ -6,10 +6,10 @@
 	>
 		<p>
 			Copyright &copy;
-			<a href="https://www.the-iea.org" target="_blank">
+			<a href="https://www.the-iea.org" target="_blank" rel="noopener noreferrer">
 				The Institute for Environmental Analytics</a
 			>,
-			<a href="https://www.reading.ac.uk" target="_blank">
+			<a href="https://www.reading.ac.uk" target="_blank" rel="noopener noreferrer">
 				University of Reading</a>
 			2021
 		</p>
@@ -18,16 +18,16 @@
 			<a href="mailto:viewpoint@the-iea.org">viewpoint@the-iea.org</a>
 		</p>
 		<div class="logo-wrapper">
-			<a href="https://www.newton-gcrf.org/" target="_blank">
+			<a href="https://www.newton-gcrf.org/" target="_blank" rel="noopener noreferrer">
 				<img alt="Newton Fund" src="../assets/images/nf-logo.png" />
 			</a>
-			<a id="mo-logo" href="https://www.metoffice.gov.uk/weather/climate/science" target="_blank">
+			<a id="mo-logo" href="https://www.metoffice.gov.uk/weather/climate/science" target="_blank" rel="noopener noreferrer">
 				<img alt="UK Met Office" src="../assets/images/mo-logo.png" />
 			</a>
-			<a :href="urlCMA" target="_blank">
+			<a :href="urlCMA" target="_blank" rel="noopener noreferrer">
 				<img alt="CMA" src="../assets/images/cma-logo.png" />
 			</a>
-			<a id="iap-logo" :href="urlIAP" target="_blank">
+			<a id="iap-logo" :href="urlIAP" target="_blank" rel="noopener noreferrer">
 				<img alt="IAP" src="../assets/images/iap-logo.png" />
 			</a>
 		</div>

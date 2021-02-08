@@ -4,7 +4,7 @@
 		<p>
 			<a
 				href="https://umep-workshop.readthedocs.io/en/latest/GettingData/QGIS2.html"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 				class="nowrap"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
@@ -15,7 +15,7 @@
 			This can then be used with these
 			<a
 				href="https://umep-workshop.readthedocs.io/en/latest/GettingData/GettingData.html"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 				class="nowrap"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
@@ -25,7 +25,7 @@
 		<p>
 			<a
 				href="https://www.youtube.com/watch?v=nJ5oG5KFnNk&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=5"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 			>
 				<img class="youtube" src="../../assets/images/training-5.png" alt="YouTube video" />
 			</a>

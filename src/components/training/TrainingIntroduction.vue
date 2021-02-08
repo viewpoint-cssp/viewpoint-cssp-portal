@@ -9,7 +9,7 @@
 			the tutorials.
 			<a
 				href="https://umep-docs.readthedocs.io/en/latest/Introduction.html"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 				class="nowrap"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
@@ -41,7 +41,7 @@
 			things, please see the
 			<a
 				href="https://umep-docs.readthedocs.io/projects/tutorial/en/latest/index.html"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 				class="nowrap"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
@@ -54,7 +54,7 @@
 			All links are to the
 			<a
 				href="https://umep-docs.readthedocs.io/en/latest/index.html"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 				class="nowrap"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
@@ -62,7 +62,7 @@
 			> or the
 			<a
 				href="https://umep-workshop.readthedocs.io/en/latest/index.html"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 				class="nowrap"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
@@ -70,7 +70,7 @@
 			>. The video links are to the 			
 			<a
 				href="https://www.youtube.com/channel/UCTPkXncD3ghb5ZTdZe_u7gA"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 				class="nowrap"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>

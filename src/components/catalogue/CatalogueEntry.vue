@@ -52,13 +52,13 @@
 				</tr>
 				<tr class="row-hover" v-if="selectedEntry.doi">
 					<td class="field-label clickable">
-						<a :href="`https://doi.org/${selectedEntry.doi}`" target="_blank" class="nowrap">
+						<a :href="`https://doi.org/${selectedEntry.doi}`" target="_blank" rel="noopener noreferrer" class="nowrap">
 							DOI
 							<font-awesome-icon icon="external-link-alt" class="link-icon"></font-awesome-icon>
 						</a>
 					</td>
 					<td class="field-value">
-						<a :href="`https://doi.org/${selectedEntry.doi}`" target="_blank">
+						<a :href="`https://doi.org/${selectedEntry.doi}`" target="_blank" rel="noopener noreferrer">
 							{{ selectedEntry.doi }}
 						</a>
 					</td>
@@ -69,13 +69,13 @@
 				</tr>
 				<tr class="row-hover" v-if="selectedEntry.url">
 					<td class="field-label clickable">
-						<a :href="selectedEntry.url" target="_blank" class="nowrap">
+						<a :href="selectedEntry.url" target="_blank" rel="noopener noreferrer" class="nowrap">
 							URL
 							<font-awesome-icon icon="external-link-alt" class="link-icon"></font-awesome-icon>
 						</a>
 					</td>
 					<td class="field-value">
-						<a :href="selectedEntry.url" target="_blank">
+						<a :href="selectedEntry.url" target="_blank" rel="noopener noreferrer">
 							{{ selectedEntry.url }}
 						</a>
 					</td>

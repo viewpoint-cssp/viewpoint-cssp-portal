@@ -6,7 +6,7 @@
 			please watch this tutorial on YouTube.
 			<a
 				href="https://www.youtube.com/watch?v=bvZOOYZ0QOU&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=9"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 			>
 				<img class="youtube" src="../../assets/images/training-9.png" />
 			</a>
@@ -35,7 +35,7 @@
 		<p>
 			<a
 				href="https://umep-workshop.readthedocs.io/en/latest/Jupyter/JN0.html#jupyter-notebook-extensions"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
 				Find out about extensions</a
@@ -44,7 +44,7 @@
 		<p>
 			<a
 				href="https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/install.html"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 			>
 				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
 				How to install the extensions</a
@@ -57,14 +57,14 @@
 		<p class="flex-wrapper">
 			<a
 				href="https://www.youtube.com/watch?v=FZ1aNbH178Y&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=10"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 				alt="First basics on using Jupyter Notebook"
 			>
 				<img class="youtube" src="../../assets/images/training-10.png" />
 			</a>
 			<a
 				href="https://www.youtube.com/watch?v=Ts5DC5-5xVw&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=11"
-				target="_blank"
+				target="_blank" rel="noopener noreferrer"
 				alt="Second basics on using Jupyter Notebook"
 			>
 				<img class="youtube" src="../../assets/images/training-11.png" />

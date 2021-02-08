@@ -12,7 +12,7 @@
 				<a
 					class="title english"
 					:href="require(`../assets/pdfs/${doc.enPdf}.pdf`)"
-					target="_blank"
+					target="_blank" rel="noopener noreferrer"
 					v-if="doc.enPdf"
 				>
 					<p class="draft" v-if="doc.enDraft">Draft</p>
@@ -36,7 +36,7 @@
 				<a
 					class="title mandarin"
 					:href="require(`../assets/pdfs/${doc.cnPdf}.pdf`)"
-					target="_blank"
+					target="_blank" rel="noopener noreferrer"
 					v-if="doc.cnPdf"
 				>
 					<p class="draft" v-if="doc.cnDraft">Draft</p>
