@@ -24,10 +24,10 @@
 			<a id="mo-logo" href="https://www.metoffice.gov.uk/weather/climate/science" target="_blank">
 				<img alt="UK Met Office" src="../assets/images/mo-logo.png" />
 			</a>
-			<a href="https://data.cma.cn/en" target="_blank">
+			<a :href="urlCMA" target="_blank">
 				<img alt="CMA" src="../assets/images/cma-logo.png" />
 			</a>
-			<a id="iap-logo" href="http://english.iap.cas.cn/" target="_blank">
+			<a id="iap-logo" :href="urlIAP" target="_blank">
 				<img alt="IAP" src="../assets/images/iap-logo.png" />
 			</a>
 		</div>
@@ -49,7 +49,9 @@ export default {
 	},
 	data() {
 		return {
-			timeout: null
+			timeout: null,
+			urlCMA: 'http://www.cma.gov.cn/en2014/',
+			urlIAP: 'http://english.iap.cas.cn/'
 		}
 	},
 	methods: {
@@ -70,6 +72,11 @@ export default {
 		}
 	},
 	mounted() {
+		// change URLs to Chinese version if possible 
+		if (navigator && navigator.language && navigator.language.indexOf('CN') >= 0) {
+			this.urlCMA = 'http://www.cma.gov.cn/'
+			this.urlIAP = 'http://www.iap.cas.cn/'
+		}
 		// check whether the required CSS vars exist
 		if (!document.documentElement.style.getPropertyValue('--vpOrange')) {
 			document.documentElement.style.setProperty('--vpCoolGrey', '#d9d8d6')
