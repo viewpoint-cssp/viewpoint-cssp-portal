@@ -65,6 +65,9 @@ const appPages = [
 	'Resources',
 	'Training',
 	'Explainers',
+	'Briefing',
+	'Videos',
+	'Handbook',
 	'Glossary'
 ]
 
@@ -95,14 +98,10 @@ export default {
 						{ page: 'Explainers' },
 						{
 							page: 'Briefing',
-							label: 'Briefing notes',
-							disabled: true
+							label: 'Briefing notes'
 						},
-						{ page: 'Videos', disabled: true },
-						{
-							page: 'Handbook',
-							disabled: true
-						}
+						{ page: 'Videos' },
+						{ page: 'Handbook' }
 					]
 				},
 				{ page: 'Glossary' }

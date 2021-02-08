@@ -21,6 +21,9 @@ import Demonstrators from './components/Demonstrators.vue'
 import Resources from './components/Resources.vue'
 import Training from './components/Training.vue'
 import Explainers from './components/Explainers.vue'
+import Briefing from './components/Briefing.vue'
+import Videos from './components/Videos.vue'
+import Handbook from './components/Handbook.vue'
 import Glossary from './components/Glossary.vue'
 
 // NOTE This is defined here AND in NavMenu.vue in order to allow that 
@@ -33,6 +36,9 @@ const appPages = [
 	'Resources',
 	'Training',
 	'Explainers',
+	'Briefing',
+	'Videos',
+	'Handbook',
 	'Glossary'
 ]
 
@@ -48,6 +54,9 @@ export default {
 		Resources,
 		Training,
 		Explainers,
+		Briefing,
+		Videos,
+		Handbook,
 		Glossary
 	},
 	data() {
