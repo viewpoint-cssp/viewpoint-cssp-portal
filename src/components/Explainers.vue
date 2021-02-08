@@ -142,7 +142,10 @@ export default {
 				},
 				{
 					enTitle:
-						'Flood footprint assessment a new approach for flood-induced indirect economic impact measurement and post-flood recovery'
+						'Flood footprint assessment: a new approach for flood-induced indirect economic impact measurement and post-flood recovery',
+					enPdf: 
+						'11 Flood footprint assessment a new approach for flood-induced indirect economic impact',
+					enDraft: true
 				},
 				{
 					png: true,
