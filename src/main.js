@@ -3,7 +3,6 @@ import App from './App.vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
 	faBackward,
-	faBookOpen,
 	faCaretDown,
 	faCaretRight,
 	faChevronLeft,
@@ -12,6 +11,7 @@ import {
 	faCompressArrowsAlt,
 	faExpandArrowsAlt,
 	faExternalLinkAlt,
+	faFilePdf,
 	faForward,
 	faTimes
 } from '@fortawesome/free-solid-svg-icons'
@@ -20,7 +20,6 @@ import VShowSlide from 'v-show-slide'
 
 library.add(
 	faBackward,
-	faBookOpen,
 	faCaretDown,
 	faCaretRight,
 	faChevronLeft,
@@ -29,6 +28,7 @@ library.add(
 	faCompressArrowsAlt,
 	faExpandArrowsAlt,
 	faExternalLinkAlt,
+	faFilePdf,
 	faForward,
 	faTimes
 )

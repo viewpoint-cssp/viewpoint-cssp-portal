@@ -4,25 +4,27 @@
 		<div class="wrapper">
 			<div
 				class="button-panel"
-				:class="{ hidden: !showPanel(i) }"
-				v-show-slide="showPanel(i)"
 				v-for="(doc, i) in pdfs"
 				:key="i"
 				:ref="`panel-${i}`"
 			>
 				<h2>{{ i + 1 }}</h2>
-				<div
+				<a
 					class="title english"
-					:class="{ clickable: doc.enPdf }"
-					@click="togglePdf(i, 'en')"
+					:href="require(`../assets/pdfs/${doc.enPdf}.pdf`)"
+					target="_blank"
+					v-if="doc.enPdf"
 				>
 					<p class="draft" v-if="doc.enDraft">Draft</p>
 					<h3>{{ doc.enTitle }}</h3>
 					<font-awesome-icon
-						icon="book-open"
-						:class="{ expanded: showPdf(i, 'en') }"
+						icon="file-pdf"
 						v-if="doc.enPdf"
 					></font-awesome-icon>
+				</a>
+				<div class="title" v-else>
+					<p class="draft" v-if="doc.enDraft">Draft</p>
+					<h3>{{ doc.enTitle }}</h3>
 				</div>
 				<img
 					:src="
@@ -31,10 +33,11 @@
 						}`)
 					"
 				/>
-				<div
+				<a
 					class="title mandarin"
-					:class="{ clickable: doc.cnPdf }"
-					@click="togglePdf(i, 'cn')"
+					:href="require(`../assets/pdfs/${doc.cnPdf}.pdf`)"
+					target="_blank"
+					v-if="doc.cnPdf"
 				>
 					<p class="draft" v-if="doc.cnDraft">Draft</p>
 					<h3 v-if="doc.cnTitle" lang="zh-cn">{{ doc.cnTitle }}</h3>
@@ -42,27 +45,17 @@
 						TODO: 'Not available in Mandarin' in Mandarin!
 					</p>
 					<font-awesome-icon
-						icon="book-open"
-						:class="{ expanded: showPdf(i, 'cn') }"
+						icon="file-pdf"
 						v-if="doc.cnPdf"
 					></font-awesome-icon>
+				</a>
+				<div class="title" v-else>
+					<p class="draft" v-if="doc.cnDraft">Draft</p>
+					<h3 v-if="doc.cnTitle" lang="zh-cn">{{ doc.cnTitle }}</h3>
+					<p v-else lang="zh-cn">
+						TODO: 'Not available in Mandarin' in Mandarin!
+					</p>
 				</div>
-			</div>
-			<div 
-				class="pdf" 
-				v-show-slide="expandedIndex >= 0"
-				@slide-open-end="afterIframe(expandedIndex)"
-				@slide-close-end="afterIframe(iframeIndex)"
-			>
-				<font-awesome-icon
-					icon="times"
-					class="close-icon"
-					@click="togglePdf(expandedIndex, expandedLang)"
-				></font-awesome-icon>
-				<iframe
-					:class="{ hidden: expandedIndex < 0 }"
-					:src="require(`../assets/pdfs/${expandedPdf}.pdf`)"
-				></iframe>
 			</div>
 		</div>
 	</div>
@@ -90,10 +83,7 @@ export default {
 						'Increasing flash floods in a drying climate: dual challenges facing Southwest China',
 					enPdf:
 						'Increasing flash floods in a drying climate dual challenges facing Southwest China No2',
-					enDraft: true,
-					cnTitle: `Test of Mandarin version (actually it's the first one in English)!`,
-					cnPdf: 'Investigating heatwaves in China under climate',
-					cnDraft: true
+					enDraft: true
 				},
 				{
 					enTitle:
@@ -171,47 +161,7 @@ export default {
 					enPdf: 'VIEWpoint Explainer extreme_rainfall No14',
 					enDraft: true
 				}
-			],
-			expandedIndex: -1,
-			expandedLang: 'en',
-			expandedPdf: 'Investigating heatwaves in China under climate',
-			iframeIndex: -1
-		}
-	},
-	methods: {
-		showPanel(index) {
-			return this.expandedIndex < 0 || this.expandedIndex == index
-		},
-		showPdf(index, lang) {
-			return this.expandedIndex == index && this.expandedLang == lang
-		},
-		togglePdf(index, lang) {
-			const pdf = this.pdfs[index][`${lang}Pdf`]
-			if (this.expandedIndex == index && this.expandedLang == lang) {
-				// clicked for same PDF as that displayed so toggle it closed 
-				this.expandedIndex = -1
-			} else if (pdf) {
-				// new PDF (or language changed) so open
-				this.expandedPdf = pdf
-				this.expandedIndex = index
-				this.expandedLang = lang
-			} else {
-				// an invalid PDF has been clicked
-				this.expandedIndex = -1
-			}
-		},
-		afterIframe(index) {
-			let offsetTop = 0
-			let panel = this.$refs[`panel-${index}`]
-			if (panel) {
-				offsetTop = panel[0].offsetTop
-			}
-			if ('scrollBehavior' in document.documentElement.style) {
-				window.scrollTo({ top: offsetTop, behavior: 'smooth'})
-			} else {
-				panel[0].scrollIntoView(true)
-			}
-			this.iframeIndex = this.expandedIndex
+			]
 		}
 	},
 	mounted() {
@@ -246,15 +196,13 @@ export default {
 	justify-content: space-between;
 	align-items: stretch;
 }
-.button-panel.hidden {
-	padding: 0;
-}
 
 .button-panel:nth-of-type(odd) {
 	background: var(--primaryLightest);
 }
 
 .button-panel div,
+.button-panel a,
 .button-panel h3,
 .button-panel p {
 	background: transparent;
@@ -281,6 +229,10 @@ export default {
 	display: flex;
 	flex-direction: column;
 	position: relative; /* for .draft */
+	text-decoration: none;
+}
+.button-panel .title:focus {
+	outline: none;
 }
 
 .button-panel .draft {
@@ -292,19 +244,15 @@ export default {
 	opacity: 0.1;
 }
 
-.button-panel .title .fa-book-open {
+.button-panel .title .fa-file-pdf {
 	background: transparent;
 	align-self: flex-end;
 	margin-top: auto;
 	font-size: 24px;
-	transition: transform 0.2s linear;
-}
-.button-panel .title .fa-book-open.expanded {
-	transform: rotate(180deg);
 }
 
-.button-panel .title.clickable:hover h3,
-.button-panel .title.clickable:hover .fa-book-open path {
+.button-panel a.title:hover h3,
+.button-panel a.title:hover .fa-file-pdf path {
 	color: var(--vpOrange);
 }
 
@@ -317,58 +265,14 @@ export default {
 	align-self: flex-start;
 }
 
-.pdf {
-	display: flex;
-	flex-direction: column;
-	background: var(--vpPeach);
-	position: relative;
-}
-
-.pdf .fa-times {
-	position: absolute;
-	top: 12px;
-	right: 32px;
-	font-size: 32px;
-	background: transparent;
-	cursor: pointer;
-}
-.pdf .fa-times:hover path {
-	color: var(--vpOrange);
-}
-
-iframe {
-	width: 800px;
-	min-height: 1200px; /* Chrome, EdgeHTML */
-	margin: 12px auto;
-	border-color: var(--vpOrange);
-	box-shadow: 5px 5px 5px var(--vpDark);
-}
-
-iframe.hidden {
-	min-height: 0;
-	margin: 0;
-	border: none;
-}
-
 @media (max-width: 1007px) {
 	.button-panel {
 		padding: 8px 32px 8px 16px;
-	}
-	iframe {
-		margin: 8px auto;
-	}
-}
-@media (max-width: 800px) {
-	iframe {
-		width: 100%;
 	}
 }
 @media (max-width: 640x) {
 	.button-panel {
 		padding: 4px 16px 4px 8px;
-	}
-	iframe {
-		margin: 4px auto;
 	}
 }
 </style>
