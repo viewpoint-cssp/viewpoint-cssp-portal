@@ -36,7 +36,7 @@
 				</tr>
 				<tr v-if="selectedEntry.journal">
 					<td class="field-label">Journal</td>
-					<td class="field-value">{{ selectedEntry.journal }}</td>
+					<td class="field-value break-word">{{ selectedEntry.journal }}</td>
 				</tr>
 				<tr v-if="selectedEntry.volume">
 					<td class="field-label">Volume</td>
@@ -82,24 +82,24 @@
 				</tr>
 				<tr v-if="selectedEntry.publisher">
 					<td class="field-label">Publisher</td>
-					<td class="field-value">{{ selectedEntry.publisher }}</td>
+					<td class="field-value break-word">{{ selectedEntry.publisher }}</td>
 				</tr>
 				<tr v-if="selectedEntry.editor">
 					<td class="field-label">Editor(s)</td>
-					<td class="field-value">{{ selectedEntry.editor }}</td>
+					<td class="field-value break-word">{{ selectedEntry.editor }}</td>
 				</tr>
 				<tr v-if="selectedEntry.notes">
 					<td class="field-label">Notes</td>
-					<td class="field-value" v-if="selectedEntry.htmlNotes" v-html="selectedEntry.notes"></td>
-					<td class="field-value" v-else>{{ selectedEntry.notes }}</td>
+					<td class="field-value break-word" v-if="selectedEntry.htmlNotes" v-html="selectedEntry.notes"></td>
+					<td class="field-value break-word" v-else>{{ selectedEntry.notes }}</td>
 				</tr>
 				<tr v-if="selectedEntry.authors && selectedEntry.authors.length == 1">
 					<td class="field-label">Author</td>
-					<td class="field-value">{{ selectedEntry.authors[0] }}</td>
+					<td class="field-value break-word">{{ selectedEntry.authors[0] }}</td>
 				</tr>
 				<tr v-if="selectedEntry.authors && selectedEntry.authors.length == 2">
 					<td class="field-label">Authors</td>
-					<td class="field-value">
+					<td class="field-value break-word">
 						{{ selectedEntry.authors[0] }} and <br/> 
 						{{ selectedEntry.authors[1] }}
 					</td>
@@ -116,12 +116,12 @@
 							class="collapse-icon" 
 						></font-awesome-icon>
 					</td>
-					<td class="field-value" v-if="showAllAuthors">
+					<td class="field-value break-word" v-if="showAllAuthors">
 						<span v-for="(author, i) in selectedEntry.authors" :key="`author-${i}`">
 							<br v-if="i > 0" />{{ author }}
 						</span>
 					</td>
-					<td class="field-value" v-else>
+					<td class="field-value break-word" v-else>
 						{{ selectedEntry.authors[0] }} and 
 						{{ selectedEntry.authors.length - 1 }} others
 					</td>
@@ -246,6 +246,9 @@ td.field-label a {
 td.field-value {
 	padding: 2px 24px 2px 4px;
 	word-break: break-all;
+}
+td.field-value.break-word {
+	word-break: break-word;
 }
 
 tr.row-hover td,
