@@ -4,22 +4,17 @@ This is the VIEWpoint-CSSP portal. It is a work-in-progress.
 
 -   Completed:
     -   skeleton of website
-    -   navigation (although some nav menu options are disabled)
+    -   navigation (components also available for use in SUHI and WRM)
     -   links to SUHI and WRM demonstrators
+    -   catalogue
+    -   about page
+    -   skeleton of training materials
+    -   draft explainers
+    -   proof of concept for glossary
 -   To do list includes (in no particular order and possibly incomplete):
-    -   incorporate the catalogue currently hosted stand-alone on the-iea repo
-    -   test ease-of-deployment of NavMenu.vue andFull name for demonstrators
-        Footer.vue in SUHI and WRM repos
-    -   define and build the training materials page(s)
-    -   build and enable (or remove from nav options)
-        -   explainers
-        -   videos
-        -   handbook
-    -   add logos and their hyperlinks in footer
-    -   create an about page based on WeChat documents and add link to nav
-        options
+    -   add IEA and UoR logos in footer
     -   translations where required
-    -   possible requirement to reduce physical size of images
+    -   review all images and reduce physical size
     -   further browser and responsiveness testing
 
 ## Project setup
@@ -40,7 +35,17 @@ npm run serve
 npm run build
 ```
 
-## Builds for serving on GitHub Pages
+### Lints and fixes files
+
+```
+npm run lint
+```
+
+### Customize configuration
+
+See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## Building for serving on GitHub Pages
 
 -   **Important** Requires a `gh-pages` branch in the repo.
 -   This does an `npm run build` and then commits and pushes to the `gh-pages`
@@ -51,12 +56,19 @@ npm run build
 bash deploy.sh
 ```
 
-### Lints and fixes files
+## Generating the JSON from Zotero
 
-```
-npm run lint
-```
+-   In Zotero, select the Export Menu option from the File menu.
+    -   Select the BibLaTeX option and ensure the character encoding is Unicode
+        (UTF-8).
+-   Check the filenames and paths for the source .bib and the target .js in
+    `convert_bib_to_json.py` are correct and run.
 
-### Customize configuration
+-   Move the generated .js file to this repo's /src/js directory if the path
+    wasn't set explicitly.
+    -   Rename the file to `VIEWpoint-json.js` if required (it is case
+        sensitive).
+-   **Don't forget** to update the repo with the changes.
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+-   **To update the website**, follow the instruction above to rebuild for
+    serving on GitHub Pages. (The process should not take many minutes.)
