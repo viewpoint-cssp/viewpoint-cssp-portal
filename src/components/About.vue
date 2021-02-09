@@ -208,7 +208,7 @@ a {
 }
 a:lang(zh-cn) {
 	text-decoration: underline;
-	color: var(--primary);
+	color: var(--mandarinAnchor);
 }
 a:hover,
 a:hover svg path {

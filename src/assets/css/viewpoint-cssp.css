@@ -6,6 +6,7 @@
 	--vpGreen: #41695b; /* Which is rgb(65, 105, 91) */
 	--vpPeach: #ffc56d;
 	--vpOrange: #ff671d;
+	--mandarinAnchor: #9d5f3d; /* between --vpOrange and --vpDark */
 	--whiteDefault: white;
 	--whiteHover: rgba(255, 255, 255, 0.75);
 	--whiteDisabled: rgba(255, 255, 255, 0.5);
