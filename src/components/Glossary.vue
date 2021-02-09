@@ -48,8 +48,9 @@ export default {
 		csv()
 			.fromString(`enText,enDesc,cnText,cnDesc,comments\n${csvRaw}`)
 			.then(jsonObj => {
+				const firstText = jsonObj[0].enText // 'English'
 				this.glossary = jsonObj.sort((a, b) => {
-					if (a.enText == 'English') { // title always at the top
+					if (a.enText == firstText) { // title always at the top
 						return -1
 					} else if (!a.enText) { // blank ones always at the bottom
 						return 1
@@ -60,6 +61,20 @@ export default {
 					}
 					return 0
 				})
+				if (this.glossary[0].enText != firstText) {
+					// The above works to keep the title row at the top for FF but not Chrome or Edge
+					let i = 0
+					for (i = 1; i < this.glossary.length; i++) {
+						if (this.glossary[i].enText == firstText) {
+							break
+						}
+					}
+					if (i && i < this.glossary.length) {
+						const firstObj = this.glossary[i]
+						this.glossary.splice(i, 1)
+						this.glossary.splice(0, 0, firstObj)
+					}
+				}
 			})
 	}
 }
