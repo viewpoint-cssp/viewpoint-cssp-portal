@@ -37,8 +37,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Number: 7\nPublisher: Multidisciplinary Digital Publishing Institute",
-        "htmlNotes": false
+        "notes": "Number: 7<br />Publisher: Multidisciplinary Digital Publishing Institute",
+        "htmlNotes": true
     },
     {
         "id": "zhao_strong_2019",
@@ -138,8 +138,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Number: 7\nPublisher: European Geosciences Union",
-        "htmlNotes": false
+        "notes": "Number: 7<br />Publisher: European Geosciences Union",
+        "htmlNotes": true
     },
     {
         "id": "vu_assessing_2019",
@@ -214,7 +214,7 @@ export const json = [
             "AEROSOLS",
             "AIR QUALITY",
             "EMULATORS",
-            "{ERF}",
+            "ERF",
             "PERTURBED PARAMETER ENSEMBLE",
             "RADIATIVE FORCING",
             "UNCERTAINTY"
@@ -455,7 +455,7 @@ export const json = [
         "keywords": [
             "AIR QUALITY",
             "CLIMATE",
-            "{CMIP}6",
+            "CMIP6",
             "LONG TERM RISKS",
             "OZONE",
             "RADIATIVE FORCING"
@@ -527,8 +527,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Number: 8\nPublisher: Multidisciplinary Digital Publishing Institute",
-        "htmlNotes": false
+        "notes": "Number: 8<br />Publisher: Multidisciplinary Digital Publishing Institute",
+        "htmlNotes": true
     },
     {
         "id": "zuo_wetter_2019",
@@ -1332,8 +1332,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Number: 1\nPublisher: Nature Publishing Group",
-        "htmlNotes": false
+        "notes": "Number: 1<br />Publisher: Nature Publishing Group",
+        "htmlNotes": true
     },
     {
         "id": "warren_observed_2020",
@@ -1441,7 +1441,7 @@ export const json = [
             "ENERGY",
             "3D RADIATIVE TRANSFER",
             "ATMOSPHERIC CORRECTION",
-            "{DART}",
+            "DART",
             "EMISSIVITY CORRECTION",
             "GROUND-BASED THERMOGRAPHY",
             "URBAN METEOROLOGY"
@@ -1486,8 +1486,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Number: 1\nPublisher: Multidisciplinary Digital Publishing Institute",
-        "htmlNotes": false
+        "notes": "Number: 1<br />Publisher: Multidisciplinary Digital Publishing Institute",
+        "htmlNotes": true
     },
     {
         "id": "yan_eastward_2020",
@@ -1496,8 +1496,8 @@ export const json = [
         "title": "Eastward shift and extension of ENSO-induced tropical precipitation anomalies under global warming",
         "year": "2020",
         "journal": "Science Advances",
-        "abstract": "During El Niño events, increased precipitation occurs over the equatorial central eastern Pacific, corresponding to enhanced convective heating that modulates global climate by exciting atmospheric teleconnections. These precipitation anomalies are projected to shift and extend eastward in response to global warming. We show that this predicted change is caused by narrowing of the meridional span of the underlying El Niño–related sea surface temperature (SST) anomalies that leads to intensification of the meridional gradient of the SST anomalies, strengthening boundary-layer moisture convergence over the equatorial eastern Pacific, and enhancing local positive precipitation anomalies. The eastward shift and extension of these anomalies also intensify and extend eastward negative precipitation anomalies over the tropical western North Pacific, by strengthening equatorward advection of low mean moist enthalpy. Changes in El Niño–induced tropical precipitation anomalies suggest that, under global warming, El Niño events decay faster after their peak phase, thus shortening their duration.\nUnder global warming, ENSO-driven precipitation anomalies over central eastern Pacific shift eastward because of narrowing ENSO SSTA.\nUnder global warming, ENSO-driven precipitation anomalies over central eastern Pacific shift eastward because of narrowing ENSO SSTA.",
-        "htmlAbstract": false,
+        "abstract": "During El Niño events, increased precipitation occurs over the equatorial central eastern Pacific, corresponding to enhanced convective heating that modulates global climate by exciting atmospheric teleconnections. These precipitation anomalies are projected to shift and extend eastward in response to global warming. We show that this predicted change is caused by narrowing of the meridional span of the underlying El Niño–related sea surface temperature (SST) anomalies that leads to intensification of the meridional gradient of the SST anomalies, strengthening boundary-layer moisture convergence over the equatorial eastern Pacific, and enhancing local positive precipitation anomalies. The eastward shift and extension of these anomalies also intensify and extend eastward negative precipitation anomalies over the tropical western North Pacific, by strengthening equatorward advection of low mean moist enthalpy. Changes in El Niño–induced tropical precipitation anomalies suggest that, under global warming, El Niño events decay faster after their peak phase, thus shortening their duration.<br />Under global warming, ENSO-driven precipitation anomalies over central eastern Pacific shift eastward because of narrowing ENSO SSTA.<br />Under global warming, ENSO-driven precipitation anomalies over central eastern Pacific shift eastward because of narrowing ENSO SSTA.",
+        "htmlAbstract": true,
         "authors": [
             "Yan, Zixiang",
             "Wu, Bo",
@@ -1520,8 +1520,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Publisher: American Association for the Advancement of Science\nSection: Research Article",
-        "htmlNotes": false
+        "notes": "Publisher: American Association for the Advancement of Science<br />Section: Research Article",
+        "htmlNotes": true
     },
     {
         "id": "ren_decomposing_2020",
@@ -1714,8 +1714,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Number: 7\nPublisher: Multidisciplinary Digital Publishing Institute",
-        "htmlNotes": false
+        "notes": "Number: 7<br />Publisher: Multidisciplinary Digital Publishing Institute",
+        "htmlNotes": true
     },
     {
         "id": "archibald_description_2020",
@@ -1798,7 +1798,7 @@ export const json = [
             "SURFACE TEMPERATURE",
             "ARCTIC OSCILLATION",
             "NORTH ATLANTIC OSCILLATION",
-            "{QBO}",
+            "QBO",
             "TELECONNECTIONS"
         ],
         "publisher": null,
@@ -1878,8 +1878,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Number: 24\nPublisher: Multidisciplinary Digital Publishing Institute",
-        "htmlNotes": false
+        "notes": "Number: 24<br />Publisher: Multidisciplinary Digital Publishing Institute",
+        "htmlNotes": true
     },
     {
         "id": "ren_anthropogenic_2020",
@@ -1983,7 +1983,7 @@ export const json = [
         "url": "https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2019GL086903",
         "keywords": [
             "STRATOSPHERE",
-            "{QBO}",
+            "QBO",
             "LONG TERM RISKS",
             "CLIMATE CHANGE"
         ],
@@ -2360,7 +2360,7 @@ export const json = [
         "actualType": "Book Section",
         "title": "Analysis of Atlantic Tropical Cyclone Landfall Forecasts in Coupled GCMs on Seasonal and Decadal Timescales",
         "year": "2017",
-        "journal": "Unknown",
+        "journal": null,
         "abstract": "In this chapter we present advances in forecasting Atlantic tropical cyclone (TC) landfall statistics at both seasonal and multi-annual timescales using coupled global climate models. First, we demonstrate potential for forecasting TC landfall frequency on seasonal timescales using the Met Office seasonal forecast system, GloSea5, in some regions: statistically significant skill is found in the Caribbean and moderate skill is found for Florida. In contrast, low skill is found along the US Coast as a whole. We show that the skill over the Caribbean is likely due to a good model response to El Niño–Southern Oscillation (ENSO) forcing. Lack of skill along the US Coast may be due to a weaker influence from ENSO compounded by a low bias in model storm tracks crossing the US coastline. Secondly, we demonstrate that it is possible to construct reliable 4-year mean forecasts of landfalling hurricane numbers in the Atlantic using initialised global climate models to predict an index that relies on subpolar gyre temperature and subtropical sea level pressure, two quantities with links to hurricane activity. Furthermore, we give evidence that the forecast system anticipates large changes in at least one of the two components of this index, which suggests that the technique could be used to forecast shifts between active and inactive regimes of hurricane activity in the Atlantic.",
         "htmlAbstract": false,
         "authors": [
@@ -2631,8 +2631,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Number: 11\nPublisher: Nature Publishing Group",
-        "htmlNotes": false
+        "notes": "Number: 11<br />Publisher: Nature Publishing Group",
+        "htmlNotes": true
     },
     {
         "id": "williamson_atmospheric_2017",
@@ -3364,8 +3364,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Number: 1\nPublisher: Nature Publishing Group",
-        "htmlNotes": false
+        "notes": "Number: 1<br />Publisher: Nature Publishing Group",
+        "htmlNotes": true
     },
     {
         "id": "noauthor_summer_nodate",
@@ -3373,7 +3373,7 @@ export const json = [
         "actualType": "Web Page",
         "title": "Summer North Atlantic Oscillation (SNAO) variability on decadal to palaeoclimate time scales",
         "year": null,
-        "journal": "Unknown",
+        "journal": null,
         "abstract": null,
         "htmlAbstract": false,
         "authors": [],
@@ -3471,10 +3471,10 @@ export const json = [
     {
         "id": "collins_hurricanes_2017",
         "type": "collection",
-        "actualType": "collection",
+        "actualType": "Book",
         "title": "Hurricanes and Climate Change: Volume 3",
         "year": "2017",
-        "journal": "Unknown",
+        "journal": null,
         "abstract": "This book provides research that shows tropical cyclones are more powerful than in the past with the most dramatic increases occurring over the North Atlantic and with the strongest hurricanes. Although such increases are correlated with warming oceans and are consistent with the thermodynamic theory of hurricane intensity, there remains doubt about the interpretation, integrity, and meaning of these results. Arising from the 5th International Summit on Hurricanes and Climate Change, this book contains new research on topics related to hurricanes and climate change. Bringing together international leading academics and researchers on various sides of the debate, the book discusses new research and expresses opinions about what is happening and what might happen in the future with regard to regional and global hurricane (tropical cyclone) activity.",
         "htmlAbstract": false,
         "authors": [],
@@ -3520,8 +3520,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Publisher: American Meteorological Society\nSection: Journal of Climate",
-        "htmlNotes": false
+        "notes": "Publisher: American Meteorological Society<br />Section: Journal of Climate",
+        "htmlNotes": true
     },
     {
         "id": "camp_verification_2020",
@@ -3619,8 +3619,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Publisher: American Meteorological Society\nSection: Journal of Climate",
-        "htmlNotes": false
+        "notes": "Publisher: American Meteorological Society<br />Section: Journal of Climate",
+        "htmlNotes": true
     },
     {
         "id": "jia_changes_2020",
@@ -3979,8 +3979,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Publisher: American Meteorological Society\nSection: Journal of Climate",
-        "htmlNotes": false
+        "notes": "Publisher: American Meteorological Society<br />Section: Journal of Climate",
+        "htmlNotes": true
     },
     {
         "id": "jiang_high-resolution_2020",
@@ -4275,8 +4275,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Publisher: American Meteorological Society\nSection: Journal of Climate",
-        "htmlNotes": false
+        "notes": "Publisher: American Meteorological Society<br />Section: Journal of Climate",
+        "htmlNotes": true
     },
     {
         "id": "archibald_changes_2020",
@@ -4344,8 +4344,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Publisher: American Meteorological Society\nSection: Journal of Climate",
-        "htmlNotes": false
+        "notes": "Publisher: American Meteorological Society<br />Section: Journal of Climate",
+        "htmlNotes": true
     },
     {
         "id": "guo_impact_2020",
@@ -4442,7 +4442,7 @@ export const json = [
         "url": "https://rmets.onlinelibrary.wiley.com/doi/abs/10.1002/joc.6800",
         "keywords": [
             "DYNAMICAL DOWNSCALING",
-            "{CWRF}",
+            "CWRF",
             "EAST ASIAN SUMMER MONSOON",
             "LAND-OCEAN THERMAL CONTRAST",
             "REGIONAL CLIMATE MODEL"
@@ -4478,8 +4478,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Number: 1\nPublisher: Nature Publishing Group",
-        "htmlNotes": false
+        "notes": "Number: 1<br />Publisher: Nature Publishing Group",
+        "htmlNotes": true
     },
     {
         "id": "peace_effect_2020",
@@ -4543,7 +4543,7 @@ export const json = [
             "LONG TERM RISKS",
             "DROUGHT",
             "FINANCIAL SERVICES",
-            "{CMIP}6 HINDCASTS",
+            "CMIP6 HINDCASTS",
             "ENSEMBLE PREDICTION SKILLS",
             "PROBABILISTIC PREDICTIONS"
         ],
@@ -4591,8 +4591,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Publisher: American Meteorological Society\nSection: Weather, Climate, and Society",
-        "htmlNotes": false
+        "notes": "Publisher: American Meteorological Society<br />Section: Weather, Climate, and Society",
+        "htmlNotes": true
     },
     {
         "id": "regayre_value_2020",
@@ -4921,7 +4921,7 @@ export const json = [
             "LONG TERM RISKS",
             "CLIMATE CHANGE",
             "DROUGHT",
-            "{PRECIS}",
+            "PRECIS",
             "YANGZI RIVER DELTA"
         ],
         "publisher": null,
@@ -4970,8 +4970,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Publisher: National Academy of Sciences\nSection: Physical Sciences",
-        "htmlNotes": false
+        "notes": "Publisher: National Academy of Sciences<br />Section: Physical Sciences",
+        "htmlNotes": true
     },
     {
         "id": "carminati_insights_2020",
@@ -5083,7 +5083,7 @@ export const json = [
         "url": "https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2020GL088662",
         "keywords": [
             "CYCLONES AND STORMS",
-            "{CMIP}6",
+            "CMIP6",
             "LONG TERM RISKS",
             "FUTURE CHANGE",
             "HIGH RESOLUTION",
@@ -5170,8 +5170,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Publisher: American Meteorological Society\nSection: Journal of Climate",
-        "htmlNotes": false
+        "notes": "Publisher: American Meteorological Society<br />Section: Journal of Climate",
+        "htmlNotes": true
     },
     {
         "id": "chen_emergent_2020",
@@ -5203,8 +5203,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Number: 1\nPublisher: Nature Publishing Group",
-        "htmlNotes": false
+        "notes": "Number: 1<br />Publisher: Nature Publishing Group",
+        "htmlNotes": true
     },
     {
         "id": "rostron_impact_2020",
@@ -5412,8 +5412,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Publisher: American Meteorological Society\nSection: Bulletin of the American Meteorological Society",
-        "htmlNotes": false
+        "notes": "Publisher: American Meteorological Society<br />Section: Bulletin of the American Meteorological Society",
+        "htmlNotes": true
     },
     {
         "id": "noauthor_unlocking_nodate",
@@ -5421,7 +5421,7 @@ export const json = [
         "actualType": "Web Page",
         "title": "Unlocking Pre-1850 Instrumental Meteorological Records: A Global Inventory in: Bulletin of the American Meteorological Society Volume 100 Issue 12 (2019)",
         "year": null,
-        "journal": "Unknown",
+        "journal": null,
         "abstract": null,
         "htmlAbstract": false,
         "authors": [],
@@ -5443,7 +5443,7 @@ export const json = [
         "actualType": "Conference Paper",
         "title": "UMEP - An integrated tool for urban climatology and climate sensitive planning applications",
         "year": "2014",
-        "journal": "Unknown",
+        "journal": null,
         "abstract": "The urban climate is influenced by processes taking place at a range of different scales. Based on application (e.g. land surface or thermal comfort modelling), the appropriate scale has to be considered to make accurate estimation of the phenomena examined. Furthermore, the interaction of processes taking place at different scales makes it important to accurately couple and understand the different scale dependent processes controlling the urban climate and thus outdoor thermal comfort. In this paper UMEP (Urban Multi-scale Environmental Predictor), an integrated tool for urban climatology and climate sensitive planning applications is presented. The tool can be used for a variety of applications related to outdoor thermal comfort, urban energy consumption, climate change mitigation etc. The tool consists of a coupled modelling system which combines \" state of the art \" 1D and 2D models related to the processes essential for scale independent urban climate estimations. MODELLING CONCEPTS The modelling system contained within UMEP is designed to run from the street canyon to city scale (10 0-10 5 m) depending on the application. This is the range of scales that need to be understood in most urban climate, architectural and urban planning projects. The model is able to estimate a number of variables that relate to, for example, spatial variations of urban surface energy exchanges, boundary layer developments. Currently, the following main models that are coupled in UMEP are (Fig. 1): 1. The SOLWEIG-model (SOlar and LongWave Environmental Irradiance Geometry model) which simulates spatial variations of 3D radiation fluxes and mean radiant temperature T mrt in complex urban settings. The model requires a limited number of inputs, such as shortwave radiation, ambient air temperature, humidity, urban geometry and vegetation cover (e.g. Lindberg et al. 2008; Lindberg and Grimmond 2011). SOLWEIG is also able to model shadow patterns which is important information requested by urban planners and architects. A solar energy model, SEBE (Solar Energy on Building Envelopes) will also be incorporated in the modelling system. 2. SUEWS (Surface Urban Energy and Water Balance Scheme), a model able to simulate the urban radiation, energy and water balances using only commonly meteorological variables and information about the surface cover (e.g. Grimmond and Oke 2002; Järvi et al. 2011) and snowmelt (Järvi et al. 2014). 3. BLUEWS (Boundary Layer Urban Energy Water Scheme) is a Convective Boundary Layer (CBL) model (Cleugh and Grimmond 2001) that has been previously coupled to SUEWS (Onomura et al. 2014). From the coupling of the two models it is possible to generate the site-specific input data needed for the calculations made in SOLWEIG i.e. air temperature, radiation and humidity. BLUEWS operates on the local to meso scale (Onomura et al. 2014). 4. LUCY (Large scale Urban Consumption of energY model) simulates all the components of anthropogenic heat flux (Q F) on a global scale which is often ignored or roughly estimated in other energy balance models (Allen et al. 2011; Lindberg et al. 2013). BLUEWS includes options",
         "htmlAbstract": false,
         "authors": [
@@ -5723,7 +5723,7 @@ export const json = [
             "PRECIPITATION AND FLOODING",
             "TROPICAL CYCLONE",
             "DESTRUCTIVE POTENTIAL",
-            "{SST} ANOMALY"
+            "SST ANOMALY"
         ],
         "publisher": null,
         "editor": null,
@@ -5813,13 +5813,13 @@ export const json = [
         "keywords": [
             "CITIES",
             "URBAN CHALLENGES",
-            "{CLM}",
+            "CLM",
             "EDDY COVARIANCE",
             "HIGH-LATITUDE",
             "STABILITY",
-            "{SUEWS}",
+            "SUEWS",
             "SURFACE ENERGY BALANCE",
-            "{SURFEX}",
+            "SURFEX",
             "URBAN"
         ],
         "publisher": null,
@@ -6077,8 +6077,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Publisher: Taylor & Francis\n_eprint: https://doi.org/10.1080/16742834.2016.1141658",
-        "htmlNotes": false
+        "notes": "Publisher: Taylor & Francis<br />_eprint: https://doi.org/10.1080/16742834.2016.1141658",
+        "htmlNotes": true
     },
     {
         "id": "suckling_empirical_2017",
@@ -6293,9 +6293,9 @@ export const json = [
             "URBAN CHALLENGES",
             "ENERGY",
             "WATER RESOURCES",
-            "{SUEWS}",
+            "SUEWS",
             "EVAPORATION",
-            "{UK} CITIES",
+            "UK CITIES",
             "URBAN ENERGY BALANCE",
             "URBAN WATER BALANCE"
         ],
@@ -6361,7 +6361,7 @@ export const json = [
             "CYCLONES AND STORMS",
             "PREDICTABILITY",
             "STORM TRACK ACTIVITY",
-            "SUBSEASONAL {AO}/{NAO} VARIABILITY",
+            "SUBSEASONAL AO/NAO VARIABILITY",
             "SYNOPTIC EDDY FEEDBACK",
             "TROPOSPHERE–STRATOSPHERE COUPLING"
         ],
@@ -6725,8 +6725,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Number: 1\nPublisher: Nature Publishing Group",
-        "htmlNotes": false
+        "notes": "Number: 1<br />Publisher: Nature Publishing Group",
+        "htmlNotes": true
     },
     {
         "id": "zhou_gmmip_2016",
@@ -6979,12 +6979,12 @@ export const json = [
             "CITIES",
             "URBAN CHALLENGES",
             "PRECIPITATION AND FLOODING",
-            "{SUEWS}",
+            "SUEWS",
             "DOWNSCALING",
             "LAND SURFACE MODEL",
             "PRECIPITATION",
             "URBAN HYDROLOGY",
-            "{WFDEI}"
+            "WFDEI"
         ],
         "publisher": null,
         "editor": null,
@@ -7229,8 +7229,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Number: 1\nPublisher: Nature Publishing Group",
-        "htmlNotes": false
+        "notes": "Number: 1<br />Publisher: Nature Publishing Group",
+        "htmlNotes": true
     },
     {
         "id": "bartlett_differences_2018",
@@ -7293,7 +7293,7 @@ export const json = [
             "INTENSITY",
             "NIÑO INDICES",
             "PERSISTENCE BARRIER",
-            "TWO TYPES OF {ENSO}"
+            "TWO TYPES OF ENSO"
         ],
         "publisher": null,
         "editor": null,
@@ -7535,8 +7535,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Number: 1\nPublisher: Nature Publishing Group",
-        "htmlNotes": false
+        "notes": "Number: 1<br />Publisher: Nature Publishing Group",
+        "htmlNotes": true
     },
     {
         "id": "liu_improving_2017",
@@ -7560,8 +7560,8 @@ export const json = [
         "keywords": [
             "SURFACE TEMPERATURE",
             "ANALOGUE-BASED CORRECTION",
-            "{CFSV}2",
-            "{ENSO}",
+            "CFSV2",
+            "ENSO",
             "FORECAST ERRORS",
             "PREDICTION"
         ],
@@ -7726,14 +7726,14 @@ export const json = [
             "CYCLONES AND STORMS",
             "PRECIPITATION AND FLOODING",
             "EAST ASIA MONSOON",
-            "{HADGEM}3-{GC}2",
+            "HADGEM3-GC2",
             "HIGH-RESOLUTION MODELLING",
             "INTRA-SEASONAL OSCILLATION"
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Publisher: Taylor & Francis\n_eprint: https://doi.org/10.1080/16000870.2017.1354661",
-        "htmlNotes": false
+        "notes": "Publisher: Taylor & Francis<br />_eprint: https://doi.org/10.1080/16000870.2017.1354661",
+        "htmlNotes": true
     },
     {
         "id": "baklanov_urban_2018",
@@ -7807,7 +7807,7 @@ export const json = [
             "CITY PLANNING",
             "ENERGY PARTITIONING",
             "POPULATION GROWTH",
-            "{SUEWS} MODEL",
+            "SUEWS MODEL",
             "SURFACE ENERGY BALANCE"
         ],
         "publisher": null,
@@ -7938,8 +7938,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Number: 1\nPublisher: Nature Publishing Group",
-        "htmlNotes": false
+        "notes": "Number: 1<br />Publisher: Nature Publishing Group",
+        "htmlNotes": true
     },
     {
         "id": "neal_description_2017",
@@ -8106,8 +8106,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Number: 1\nPublisher: Nature Publishing Group",
-        "htmlNotes": false
+        "notes": "Number: 1<br />Publisher: Nature Publishing Group",
+        "htmlNotes": true
     },
     {
         "id": "lindberg_urban_2017",
@@ -8984,8 +8984,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Number: 1\nPublisher: Nature Publishing Group",
-        "htmlNotes": false
+        "notes": "Number: 1<br />Publisher: Nature Publishing Group",
+        "htmlNotes": true
     },
     {
         "id": "zhao_interannual_2018",
@@ -9120,8 +9120,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Number: 7715\nPublisher: Nature Publishing Group",
-        "htmlNotes": false
+        "notes": "Number: 7715<br />Publisher: Nature Publishing Group",
+        "htmlNotes": true
     },
     {
         "id": "duan_assessing_2018",
@@ -9592,14 +9592,14 @@ export const json = [
         "keywords": [
             "SURFACE TEMPERATURE",
             "FORCING",
-            "CHANGES OF WINTER {NAO} VARIABILITY",
+            "CHANGES OF WINTER NAO VARIABILITY",
             "MERIDIONAL TEMPERATURE GRADIENT",
             "RESPONSE"
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Number: 1\nPublisher: Multidisciplinary Digital Publishing Institute",
-        "htmlNotes": false
+        "notes": "Number: 1<br />Publisher: Multidisciplinary Digital Publishing Institute",
+        "htmlNotes": true
     },
     {
         "id": "kotthaus_atmospheric_2018",
@@ -9624,10 +9624,10 @@ export const json = [
             "CITIES",
             "URBAN CHALLENGES",
             "AIR QUALITY",
-            "{ABL}",
-            "{ALC}",
+            "ABL",
+            "ALC",
             "BOUNDARY-LAYER CLOUDS",
-            "{CABAM}",
+            "CABAM",
             "CEILOMETER",
             "MIXED LAYER HEIGHT",
             "URBAN BOUNDARY LAYER"
@@ -9659,13 +9659,13 @@ export const json = [
         "keywords": [
             "CITIES",
             "URBAN CHALLENGES",
-            "{ABL}",
-            "{ALC}",
+            "ABL",
+            "ALC",
             "BOUNDARY-LAYER CLOUDS",
-            "{CABAM}",
+            "CABAM",
             "CEILOMETER",
             "MIXED LAYER HEIGHT",
-            "{AMDAR}"
+            "AMDAR"
         ],
         "publisher": null,
         "editor": null,
@@ -9765,7 +9765,7 @@ export const json = [
             "URBAN CHALLENGES",
             "AIR QUALITY",
             "LIDAR FORWARD OPERATOR",
-            "{ALC}",
+            "ALC",
             "AEROSOLS",
             "DATA ASSIMILATION",
             "NUMERICAL WEATHER PREDICTION",
@@ -9845,10 +9845,10 @@ export const json = [
         "keywords": [
             "URBAN CHALLENGES",
             "SURFACE TEMPERATURE",
-            "{DART}",
+            "DART",
             "GROUND-BASED THERMOGRAPHY",
             "URBAN METEOROLOGY",
-            "{COSMO}",
+            "COSMO",
             "IMAGE CLASSIFICATION",
             "SENSOR VIEW MODELLING",
             "THERMOGRAPHIC CAMERA MODELLING",
@@ -9885,8 +9885,8 @@ export const json = [
             "PRECIPITATION AND FLOODING",
             "EAST ASIAN SUMMER MONSOON",
             "SEASONAL FORECAST",
-            "{BCC}\\_CSM1.1M",
-            "{GLOSEA}5",
+            "BCC_CSM1.1M",
+            "GLOSEA5",
             "MODEL EVALUATION",
             "STATISTICAL DOWNSCALING"
         ],
@@ -9951,12 +9951,12 @@ export const json = [
             "URBAN CHALLENGES",
             "WATER RESOURCES",
             "PRECIPITATION AND FLOODING",
-            "{SUEWS}",
+            "SUEWS",
             "DENSIFICATION",
             "URBAN HYDROLOGY",
             "URBAN HYDROMETEOROLOGY",
             "URBANIZATION",
-            "{WATCH}"
+            "WATCH"
         ],
         "publisher": null,
         "editor": null,
@@ -10060,8 +10060,8 @@ export const json = [
             "EXTREME EVENTS",
             "CLIMATE CHANGE",
             "PRECIPITATION",
-            "+1.5DEGREE {SIGNC} WARMING",
-            "+2.0DEGREE {SIGNC} WARMING",
+            "+1.5DEGREE SIGNC WARMING",
+            "+2.0DEGREE SIGNC WARMING",
             "ASIAN-AUSTRALIAN MONSOON REGION",
             "TEMPERATURE"
         ],
@@ -10114,8 +10114,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Number: 1\nPublisher: Nature Publishing Group",
-        "htmlNotes": false
+        "notes": "Number: 1<br />Publisher: Nature Publishing Group",
+        "htmlNotes": true
     },
     {
         "id": "stephan_interannual_2018",
@@ -10272,8 +10272,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Number: 1\nPublisher: Nature Publishing Group",
-        "htmlNotes": false
+        "notes": "Number: 1<br />Publisher: Nature Publishing Group",
+        "htmlNotes": true
     },
     {
         "id": "turnock_impact_2018",
@@ -11108,11 +11108,11 @@ export const json = [
             "AIR QUALITY",
             "SURFACE TEMPERATURE",
             "LONG TERM RISKS",
-            "{AMOC} FORCING",
+            "AMOC FORCING",
             "ANTHROPOGENIC AEROSOLS",
             "ATLANTIC MULTIDECADAL VARIABILITY",
             "ATMOSPHERE-OCEAN INTERACTIONS",
-            "{CESM}1 MODEL",
+            "CESM1 MODEL",
             "NORTH ATLANTIC CLIMATE"
         ],
         "publisher": null,
@@ -11228,10 +11228,10 @@ export const json = [
         "keywords": [
             "PRECIPITATION AND FLOODING",
             "TROPICAL RAINFALL",
-            "{ENSO}",
+            "ENSO",
             "ENSEMBLE",
-            "{NAO}",
-            "{PNA}",
+            "NAO",
+            "PNA",
             "SEASONA PREDICTION"
         ],
         "publisher": null,
@@ -11470,8 +11470,8 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Number: 6\nPublisher: Nature Publishing Group",
-        "htmlNotes": false
+        "notes": "Number: 6<br />Publisher: Nature Publishing Group",
+        "htmlNotes": true
     },
     {
         "id": "wang_impact_2019",
@@ -12001,7 +12001,7 @@ export const json = [
         ],
         "publisher": null,
         "editor": null,
-        "notes": "Number: 1\nPublisher: Nature Publishing Group",
-        "htmlNotes": false
+        "notes": "Number: 1<br />Publisher: Nature Publishing Group",
+        "htmlNotes": true
     }
 ]

@@ -19,7 +19,7 @@ def cleanUp(bibString):
     Sadly, I can't find anything to get this parser to do this so
     this tries to remove known LaTeX markup from the passed string
     and returns the the cleaned up string as 'content' and a flag
-    to show whether it appears
+    to show whether it appears to have HTML markup in or not
     '''
     if not bibString:
         return { 'content': null, 'html': false }
@@ -40,8 +40,8 @@ def cleanUp(bibString):
         cleanContent 
         .replace('\\textless', '<') 
         .replace('\\textgreater', '>')
-        .replace('\\n', '<br />')
-        .replace('\\t', '')
+        .replace('\n', '<br />')
+        .replace('\t', '')
     )
     return { 
         'content': htmlContent.replace('\\', ''),
@@ -73,6 +73,7 @@ def make_json(bibFile, jsonFile):
         actualType = {
             'article' : 'Journal Article',
             'book': 'Book',
+            'collection': 'Book',
             'incollection': 'Book Section',
             'inproceedings': 'Conference Paper',
             'online': 'Web Page'
@@ -86,10 +87,9 @@ def make_json(bibFile, jsonFile):
             if entry['type'] in actualType:
                 entry['actualType'] = actualType[entry['type']]
             else:
-                entry['actualType'] = entry['type']
+                entry['actualType'] = entry['type'][0].upper() + entry['type'][1:]
             if 'title' in item:
-                title = cleanUp(item['title'])
-                entry['title'] = title['content']
+                entry['title'] = cleanUp(item['title'])['content']
             else:
                 entry['title'] = None
             if 'date' in item:
@@ -97,10 +97,11 @@ def make_json(bibFile, jsonFile):
             else:
                 entry['year'] = None
             if 'journaltitle' in item:
-                journal = cleanUp(item['journaltitle'])
-                entry['journal'] = journal['content']
-            else:
+                entry['journal'] = cleanUp(item['journaltitle'])['content']
+            elif item['ENTRYTYPE'] == 'article':
                 entry['journal'] = 'Unknown'
+            else:
+                entry['journal'] = None
             if 'abstract' in item:
                 abstract = cleanUp(item['abstract'])
                 entry['abstract'] = abstract['content']
@@ -109,8 +110,8 @@ def make_json(bibFile, jsonFile):
                 entry['abstract'] = None
                 entry['htmlAbstract'] = False
             if 'author' in item:
-                authors = cleanUp(item['author'])
-                entry['authors'] = authors['content'].split(' and ')
+                authors = cleanUp(item['author'])['content']
+                entry['authors'] = authors.split(' and ')
             else:
                 entry['authors'] = []
             if 'volume' in item:
@@ -138,15 +139,16 @@ def make_json(bibFile, jsonFile):
             else:
                 entry['url'] = None
             if 'keywords' in item:
-                entry['keywords'] = item['keywords'].upper().replace('LONG-TERM', 'LONG TERM').split(', ')
+                keywords = cleanUp(item['keywords'])['content']
+                entry['keywords'] = keywords.upper().replace('LONG-TERM', 'LONG TERM').split(', ')
             else:
                 entry['keywords'] = []
             if 'publisher' in item:
-                entry['publisher'] = item['publisher']
+                entry['publisher'] = cleanUp(item['publisher'])['content']
             else:
                 entry['publisher'] = None
             if 'editor' in item:
-                entry['editor'] = item['editor']
+                entry['editor'] = cleanUp(item['editor'])['content']
             else:
                 entry['editor'] = None
             if 'note' in item:
@@ -171,7 +173,7 @@ if __name__ == '__main__':
     # filenames should include path if not in the same directory
     bibFile = r'VIEWpoint-jan2021-bibLaTeX.bib'
     #jsonFile = r'../src/js/VIEWpoint-json.js'
-    jsonFile = r'VIEWpoint-json.js'
+    jsonFile = r'VIEWpoint-bib-json.js'
       
     make_json(bibFile, jsonFile)
 
