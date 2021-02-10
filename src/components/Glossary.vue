@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import csvRaw from 'raw-loader!../assets/data/glossary.csv'
+import csvRaw from 'raw-loader!../../public/glossary.csv' // in public for ease of maintenance
 import Banner from './Banner.vue'
 
 export default {

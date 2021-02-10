@@ -45,30 +45,74 @@ npm run lint
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-## Building for serving on GitHub Pages
-
--   **Important** Requires a `gh-pages` branch in the repo.
--   This does an `npm run build` and then commits and pushes to the `gh-pages`
-    branch of the repo.
--   Don't forget to remove `/dist` from `.gitignore` before running.
+## Serving on GitHub Pages
 
 ```
 bash deploy.sh
 ```
 
-## Generating the JSON from Zotero
+-   **Important** Requires the `gh-pages` branch in the repo.
+-   This does an `npm run build` and then commits and pushes to the `gh-pages`
+    branch of the repo.
+-   Don't forget to remove `/dist` from `.gitignore` before running.
+
+## Generating the Catalogue JSON from Zotero
+
+The conversion routine has been written in Python and can be found in the
+`python` directory.
 
 -   In Zotero, select the Export Menu option from the File menu.
-    -   Select the BibLaTeX option and ensure the character encoding is Unicode
-        (UTF-8).
--   Check the filenames and paths for the source .bib and the target .js in
-    `convert_bib_to_json.py` are correct and run.
 
--   Move the generated .js file to this repo's /src/js directory if the path
-    wasn't set explicitly.
-    -   Rename the file to `VIEWpoint-json.js` if required (it is case
-        sensitive).
--   **Don't forget** to update the repo with the changes.
+    -   Use the BibLaTeX option and ensure the character encoding is Unicode
+        (UTF-8). Leave the other options unchecked.
 
--   **To update the website**, follow the instruction above to rebuild for
-    serving on GitHub Pages. (The process should not take many minutes.)
+-   Check the filenames and paths are correct for the source `.bib` and the
+    target `.txt` in `convert_bib_to_json.py` and run the program.
+
+    -   To show it's working, it echoes the expected number of entries, the
+        entry IDs as they're being converted, and ends with a count of the
+        converted entries - which should match the first number.
+
+-   Move or copy the generated `.txt` file to this repo's `/public` directory if
+    the path wasn't set explicitly.
+
+    -   Rename the file to `catalogue.txt` if required.
+
+-   **Don't forget to update the repo** with these changes. Although it is not
+    necessary to rebuild the website to update the Catalogue, it is important to
+    keep the repo up-to-date in case someone ever needs to rebuild the website.
+
+-   **To update the website**
+
+    -   Either just copy `catalogue.txt` into the root of the `gh-pages` branch
+        of the repo
+    -   Or follow the instruction above to rebuild for serving on GitHub Pages.
+    -   Check the website to ensure the Catalogue has the expected number of
+        entries. You may need to do a hard refresh (shift-F5), just in case the
+        page has been cached in your browser.
+
+## Generating the Glossary from a spreadsheet
+
+-   Remove any unnecessary rows and columns from the worksheet to leave a header
+    row and the glossary rows. The column headers themselves can be anything but
+    the expected columns are:
+    -   the term in English,
+    -   its definition in English,
+    -   the term translated into Mandarin,
+    -   a fuller explanation in Mandarin,
+    -   any comments.
+-   Save the worksheet as a CSV file called `glossary.csv` in this repo's
+    `/public` directory.
+
+-   **Don't forget to update the repo** with the change. Although it is not
+    necessary to rebuild the website to update the Glossary, it is important to
+    keep the repo up-to-date in case someone ever needs to rebuild the website.
+
+-   **To update the website**
+
+    -   Either just copy `glossary.csv` into the root of the `gh-pages` branch
+        of the repo
+    -   Or follow the instruction above to rebuild for serving on GitHub Pages.
+    -   Check the website to ensure the Glossary has been updated. You may need
+        to do a hard refresh (shift-F5), just in case the page has been cached
+        in your browser.

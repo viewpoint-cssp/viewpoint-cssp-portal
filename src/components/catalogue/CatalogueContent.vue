@@ -115,7 +115,7 @@
 </template>
 
 <script>
-import { json } from '../../js/VIEWpoint-json.js'
+import jsonRaw from 'raw-loader!../../../public/catalogue.txt' // in public for ease of maintenance
 import CatalogueEntry from './CatalogueEntry.vue'
 import CatalogueFilter from './CatalogueFilter.vue'
 
@@ -130,6 +130,7 @@ export default {
 	},
 	data() {
 		return {
+			catalogue: [],
 			tagList: [
 				'Surface temperature',
 				'Precipitation and flooding',
@@ -157,9 +158,6 @@ export default {
 		}
 	},
 	computed: {
-		catalogue() {
-			return [...json]
-		},
 		sortedCatalogue() {
 			let cat = [...this.catalogue]
 			if (this.filterSettings.chars) {
@@ -386,6 +384,9 @@ export default {
 				}
 			}
 		}
+	},
+	mounted() {
+		this.catalogue = JSON.parse(jsonRaw)
 	}
 }
 </script>

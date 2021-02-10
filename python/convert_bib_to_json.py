@@ -163,7 +163,6 @@ def make_json(bibFile, jsonFile):
     print(len(data))
     
     with open(jsonFile, 'w', encoding='utf-8') as jsonf:
-        jsonf.write('export const json = ')
         jsonf.write(json.dumps(data, indent=4, ensure_ascii=False))
           
 # endDef make_json
@@ -172,8 +171,8 @@ if __name__ == '__main__':
 
     # filenames should include path if not in the same directory
     bibFile = r'VIEWpoint-jan2021-bibLaTeX.bib'
-    #jsonFile = r'../src/js/VIEWpoint-json.js'
-    jsonFile = r'VIEWpoint-bib-json.js'
+    #jsonFile = r'../public/catalogue.txt'
+    jsonFile = r'catalogue.txt'
       
     make_json(bibFile, jsonFile)
 

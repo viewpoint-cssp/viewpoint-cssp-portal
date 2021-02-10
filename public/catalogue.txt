@@ -1,4 +1,4 @@
-export const json = [
+[
     {
         "id": "sun_index-based_2019",
         "type": "article",
