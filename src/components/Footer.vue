@@ -103,7 +103,7 @@ export default {
 			this.urlIAP = 'http://www.iap.cas.cn/'
 		}
 		// check whether the required CSS vars exist
-		if (!document.documentElement.style.getPropertyValue('--vpOrange')) {
+		if (!getComputedStyle(document.documentElement).getPropertyValue('--vpOrange')) {
 			document.documentElement.style.setProperty('--vpCoolGrey', '#d9d8d6')
 			document.documentElement.style.setProperty('--vpDark', '#4d5858')
 			document.documentElement.style.setProperty('--vpOrange', '#ff671d')
