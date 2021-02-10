@@ -9,9 +9,9 @@ import {
 	faChevronRight,
 	faComment,
 	faCompressArrowsAlt,
+	faDownload,
 	faExpandArrowsAlt,
 	faExternalLinkAlt,
-	faFilePdf,
 	faForward,
 	faTimes
 } from '@fortawesome/free-solid-svg-icons'
@@ -26,9 +26,9 @@ library.add(
 	faChevronRight,
 	faComment,
 	faCompressArrowsAlt,
+	faDownload,
 	faExpandArrowsAlt,
 	faExternalLinkAlt,
-	faFilePdf,
 	faForward,
 	faTimes
 )

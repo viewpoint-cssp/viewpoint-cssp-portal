@@ -10,15 +10,16 @@
 			>
 				<h2>{{ i + 1 }}</h2>
 				<a
-					class="title english"
+					class="title english clickable"
 					:href="require(`../assets/pdfs/${doc.enPdf}.pdf`)"
+					:download="`${doc.enPdf}.pdf`"
 					target="_blank" rel="noopener noreferrer"
 					v-if="doc.enPdf"
 				>
 					<p class="draft" v-if="doc.enDraft">Draft</p>
 					<h3>{{ doc.enTitle }}</h3>
 					<font-awesome-icon
-						icon="file-pdf"
+						icon="download"
 						v-if="doc.enPdf"
 					></font-awesome-icon>
 				</a>
@@ -32,10 +33,12 @@
 							doc.png ? 'png' : 'jpg'
 						}`)
 					"
+					:class="doc.imgPosition"
 				/>
 				<a
-					class="title mandarin"
+					class="title mandarin clickable"
 					:href="require(`../assets/pdfs/${doc.cnPdf}.pdf`)"
+					:download="`${doc.cnPdf}.pdf`"
 					target="_blank" rel="noopener noreferrer"
 					v-if="doc.cnPdf"
 				>
@@ -45,7 +48,7 @@
 						TODO: 'Not available in Mandarin' in Mandarin!
 					</p>
 					<font-awesome-icon
-						icon="file-pdf"
+						icon="download"
 						v-if="doc.cnPdf"
 					></font-awesome-icon>
 				</a>
@@ -83,14 +86,16 @@ export default {
 						'Increasing flash floods in a drying climate: dual challenges facing Southwest China',
 					enPdf:
 						'Increasing flash floods in a drying climate dual challenges facing Southwest China No2',
-					enDraft: true
+					enDraft: true,
+					imgPosition: 'bottom'
 				},
 				{
 					enTitle:
 						'Investigating TPV tracking: comparison between modern and conventional methods',
 					enPdf:
 						'DRAFT Investigating TPV Tracking Comparison Between Modern and Conventional Methods Exp No3',
-					enDraft: true
+					enDraft: true,
+					imgPosition: 'bottom'
 				},
 				{
 					enTitle: 'What will shape future Beijing haze events?',
@@ -99,7 +104,8 @@ export default {
 					cnTitle: '什么会影响北京未来的雾霾事件？',
 					cnPdf:
 						'Mandarin Explainer No4 What will shape future Beijing Haze events',
-					cnDraft: true
+					cnDraft: true,
+					imgPosition: 'bottom'
 				},
 				{
 					enTitle: 'Efficient assessments of Chinese Fengyun-3 satellites instruments to improve weather forecast',
@@ -114,7 +120,8 @@ export default {
 				{
 					enTitle: 'Arup climate risk tool',
 					enPdf: 'Arup Climate Risk Tool v6 No 6',
-					enDraft: true
+					enDraft: true,
+					imgPosition: 'top'
 				},
 				{
 					enTitle: `High-resolution revolution brings insight into China's climate`,
@@ -145,7 +152,8 @@ export default {
 						'Flood footprint assessment: a new approach for flood-induced indirect economic impact measurement and post-flood recovery',
 					enPdf: 
 						'11 Flood footprint assessment a new approach for flood-induced indirect economic impact',
-					enDraft: true
+					enDraft: true,
+					imgPosition: 'top'
 				},
 				{
 					png: true,
@@ -162,7 +170,8 @@ export default {
 					enTitle:
 						'Robust increase in extreme summer rainfall intensity during the past four decades observed in China',
 					enPdf: 'VIEWpoint Explainer extreme_rainfall No14',
-					enDraft: true
+					enDraft: true,
+					imgPosition: 'top'
 				}
 			]
 		}
@@ -247,7 +256,7 @@ export default {
 	opacity: 0.1;
 }
 
-.button-panel .title .fa-file-pdf {
+.button-panel .title .fa-download {
 	background: transparent;
 	align-self: flex-end;
 	margin-top: auto;
@@ -255,7 +264,7 @@ export default {
 }
 
 .button-panel a.title:hover h3,
-.button-panel a.title:hover .fa-file-pdf path {
+.button-panel a.title:hover .fa-download path {
 	color: var(--vpOrange);
 }
 
@@ -267,6 +276,12 @@ export default {
 	object-fit: cover;
 	object-position: center;
 	align-self: flex-start;
+}
+.button-panel img.top {
+	object-position: top;
+}
+.button-panel img.bottom {
+	object-position: bottom;
 }
 
 @media (max-width: 1007px) {
