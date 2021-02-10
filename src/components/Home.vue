@@ -94,6 +94,8 @@ export default {
 
 <style scoped>
 .about {
+	max-width: 1358px;
+	margin: 0 auto;
 	padding: 64px;
 }
 .about hr {

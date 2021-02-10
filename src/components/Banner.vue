@@ -1,8 +1,14 @@
 <template>
 	<div class="banner">
-		<img id="logo" alt="VIEWpoint logo" src="../assets/images/logo.png" />
-		<h1 v-if="enTitle">{{ enTitle }}</h1>
-		<h1 v-if="cnTitle">{{ cnTitle }}</h1>
+		<div>
+			<img
+				id="logo"
+				alt="VIEWpoint logo"
+				src="../assets/images/logo.png"
+			/>
+			<h1 v-if="enTitle">{{ enTitle }}</h1>
+			<h1 v-if="cnTitle">{{ cnTitle }}</h1>
+		</div>
 	</div>
 </template>
 
@@ -22,12 +28,14 @@ export default {
 	background-position: center;
 	background-size: cover;
 	background-attachment: fixed;
-	/*height: 50vh;
-	min-height: 250px;
-	max-height: 450px;
-	padding: 32px 64px;*/
 	height: 280px;
 	padding: 12px 64px;
+}
+
+.banner div {
+	max-width: 1358px;
+	margin: 0 auto;
+	background: transparent;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -42,7 +50,7 @@ export default {
 	color: var(--vpOrange);
 }
 
-@supports (-ms-ime-align:auto) { 
+@supports (-ms-ime-align: auto) {
 	/* EdgeHTML is jerky if 'fixed' so set it to scroll up with the rest of the page */
 	.banner {
 		background-attachment: scroll;

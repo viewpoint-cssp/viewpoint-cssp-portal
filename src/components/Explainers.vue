@@ -264,7 +264,8 @@ export default {
 	min-width: calc((100% - 56px) * 0.2); /* 20%; */
 	max-height: 130px;
 	margin: 0 32px;
-	object-fit: fill;
+	object-fit: cover;
+	object-position: center;
 	align-self: flex-start;
 }
 
