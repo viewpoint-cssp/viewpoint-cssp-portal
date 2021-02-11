@@ -11,24 +11,32 @@
 			></font-awesome-icon>
 		</div>
 		<div class="settings">
-			<table class="filter-on">
-				<tr>
-					<td>
-						<label for="input-chars"><h3>Filter on</h3></label>
-					</td>
-					<td>
-						<input
-							id="input-chars"
-							type="text"
-							placeholder='Use "phrases" and words'
-							autocomplete="off"
-							spellcheck="false"
-							v-model="searchString"
-						/>
-					</td>
-				</tr>
-			</table>
-			<div class="search-in-list">
+			<div class="filter-on">
+				<label for="input-chars"><h3>Filter on</h3></label>
+				<input
+					id="input-chars"
+					type="text"
+					placeholder='Use "phrases" and words'
+					autocomplete="off"
+					spellcheck="false"
+					v-model="searchString"
+				/>
+				<div
+					class="caret clickable"
+					@click="showSearchInList = !showSearchInList"
+				>
+					<font-awesome-icon
+						icon="caret-down"
+						class="filter-icon"
+						:class="{ expanded: showSearchInList }"
+					></font-awesome-icon>
+				</div>
+			</div>
+			<div 
+				class="search-in-list" 
+				:class="{ visible: showSearchInList }"
+				v-show-slide="showSearchInList"
+			>
 				<div
 					class="keyword"
 					:class="{ selected: searchTitle }"
@@ -69,8 +77,73 @@
 					Reset
 				</button>
 			</div>
-			<h3>Themes ({{ selectedTags.length }} selected)</h3>
-			<div class="keyword-list">
+			<div class="filter-section">
+				<h3>Publication years</h3>
+				<div
+					class="keyword"
+					:class="{
+						selected: selectedYears.length == 0
+					}"
+					@click="toggleAnyYear"
+				>
+					Any
+					<p v-html="tickOrCross(selectedYears.length == 0)"></p>
+				</div>
+				<div class="caret clickable" @click="showYears = !showYears">
+					<font-awesome-icon
+						icon="caret-down"
+						class="filter-icon"
+						:class="{ expanded: showYears }"
+					></font-awesome-icon>
+				</div>
+			</div>
+			<div
+				class="keyword-list"
+				:class="{ visible: showYears }"
+				v-show-slide="showYears"
+			>
+				<div
+					v-for="(year, i) in yearList"
+					:key="`year-${i}`"
+					class="keyword"
+					:class="{
+						selected: selectedYears.includes(yearList[i])
+					}"
+					@click="toggleYear(year)"
+				>
+					{{ year }}
+					<p
+						v-html="
+							tickOrCross(selectedYears.includes(yearList[i]))
+						"
+					></p>
+				</div>
+			</div>
+			<div class="filter-section">
+				<h3>Themes ({{ selectedTags.length }} selected)</h3>
+				<div
+					class="keyword"
+					:class="{
+						selected: selectedTags.length == 0
+					}"
+					@click="toggleAnyTag"
+				>
+					Any
+					<p v-html="tickOrCross(selectedTags.length == 0)"></p>
+				</div>
+				<div class="caret clickable" @click="showTags = !showTags">
+					<font-awesome-icon
+						icon="caret-down"
+						class="filter-icon"
+						:class="{ expanded: showTags }"
+					></font-awesome-icon>
+				</div>
+			</div>
+			<div 
+				class="keyword-list" 				
+				:class="{ visible: showTags }"
+				v-show-slide="showTags"
+			>
 				<div
 					v-for="(tag, i) in allTags"
 					:key="`tag-${i}`"
@@ -84,18 +157,13 @@
 				>
 					{{ tag }}
 					<p
-						v-html="tickOrCross(
-							selectedTags.includes(allTags[i].toUpperCase())
-						)"
+						v-html="
+							tickOrCross(
+								selectedTags.includes(allTags[i].toUpperCase())
+							)
+						"
 					></p>
 				</div>
-				<button
-					class="reset-button"
-					@click="selectedTags = []"
-					:disabled="selectedTags.length == 0"
-				>
-					Reset
-				</button>
 			</div>
 			<div class="buttons">
 				<button
@@ -105,7 +173,7 @@
 					Apply filter
 				</button>
 				<button
-					@click="$emit('setFilter', {})"
+					@click="clearFilter"
 					:data-disabled="!filterSet"
 				>
 					Clear filter
@@ -120,6 +188,7 @@ export default {
 	name: 'CatalogueFilter',
 	props: {
 		tagList: Array,
+		yearList: Array,
 		filterSettings: Object,
 		count: Number
 	},
@@ -132,18 +201,29 @@ export default {
 			searchAuthor: true,
 			searchTags: true,
 			allTags: [],
-			selectedTags: []
+			selectedTags: [],
+			showTags: false,
+			showSearchInList: false,
+			allYears: [],
+			selectedYears: [],
+			showYears: false
 		}
 	},
 	computed: {
 		filterSet() {
-			return this.searchString || this.selectedTags.length
+			return (
+				this.searchString ||
+				this.selectedTags.length ||
+				this.selectedYears.length
+			)
 		},
 		currentFilterCount() {
 			if (
 				this.filterSettings.chars ||
 				(this.filterSettings.themes &&
-					this.filterSettings.themes.length > 0)
+					this.filterSettings.themes.length > 0) ||
+				(this.filterSettings.years &&
+					this.filterSettings.years.length > 0)
 			) {
 				return `Entries found: ${this.count}`
 			}
@@ -160,23 +240,43 @@ export default {
 			this.filterChanged =
 				this.filterChanged ||
 				this.searchTitle != this.filterSettings.fields.includes('title')
+			this.showSearchInList =
+				!this.searchTitle ||
+				!this.searchAbstract ||
+				!this.searchAuthor ||
+				!this.searchTags
 		},
 		searchAbstract() {
 			this.filterChanged =
 				this.filterChanged ||
 				this.searchAbstract !=
 					this.filterSettings.fields.includes('abstract')
+			this.showSearchInList =
+				!this.searchTitle ||
+				!this.searchAbstract ||
+				!this.searchAuthor ||
+				!this.searchTags
 		},
 		searchAuthor() {
 			this.filterChanged =
 				this.filterChanged ||
 				this.searchAuthor !=
 					this.filterSettings.fields.includes('author')
+			this.showSearchInList =
+				!this.searchTitle ||
+				!this.searchAbstract ||
+				!this.searchAuthor ||
+				!this.searchTags
 		},
 		searchTags() {
 			this.filterChanged =
 				this.filterChanged ||
 				this.searchTags != this.filterSettings.fields.includes('tags')
+			this.showSearchInList =
+				!this.searchTitle ||
+				!this.searchAbstract ||
+				!this.searchAuthor ||
+				!this.searchTags
 		},
 		selectedTags() {
 			if (!this.filterChanged) {
@@ -202,6 +302,31 @@ export default {
 					}
 				})
 			}
+		},
+		selectedYears() {
+			if (!this.filterChanged) {
+				const newCount = this.selectedYears.length
+				const origCount = this.filterSettings.years
+					? this.filterSettings.years.length
+					: 0
+				if (newCount != origCount) {
+					this.filterChanged = true
+				}
+			}
+			if (!this.filterChanged) {
+				this.selectedYears.map(newYear => {
+					if (!this.filterSettings.years.includes(newYear)) {
+						this.filterChanged = true
+					}
+				})
+			}
+			if (!this.filterChanged) {
+				this.filterSettings.years.map(origYear => {
+					if (!this.selectedYears.includes(origYear)) {
+						this.filterChanged = true
+					}
+				})
+			}
 		}
 	},
 	methods: {
@@ -215,6 +340,16 @@ export default {
 			this.searchAuthor = true
 			this.searchTags = true
 		},
+		toggleAnyTag() {
+			if (this.selectedTags.length == 0) {
+				// clicking 'Any' when 'Any' is selected toggles the list visiblity
+				this.showTags = !this.showTags
+			} else {
+				// clicking 'Any' when 'Any' is not selected clears and closes the list
+				this.selectedTags = []
+				this.showTags = false
+			}
+		},
 		toggleTag(tag) {
 			const ucTag = tag.toUpperCase()
 			if (this.selectedTags.includes(ucTag)) {
@@ -222,6 +357,36 @@ export default {
 			} else {
 				this.selectedTags.push(ucTag)
 			}
+		},
+		toggleAnyYear() {
+			if (this.selectedYears.length == 0) {
+				// clicking 'Any' when 'Any' is selected toggles the list visiblity
+				this.showYears = !this.showYears
+			} else {
+				// clicking 'Any' when 'Any' is not selected clears and closes the list
+				this.selectedYears = []
+				this.showYears = false
+			}
+		},
+		toggleYear(year) {
+			if (this.selectedYears.includes(year)) {
+				this.selectedYears.splice(this.selectedYears.indexOf(year), 1)
+			} else {
+				this.selectedYears.push(year)
+			}
+		},
+		clearFilter() {
+			this.searchString = ''
+			this.searchTitle = true
+			this.searchAbstract = true
+			this.searchAuthor = true
+			this.searchTags = true
+			this.showSearchInList = false
+			this.selectedYears = []
+			this.showYears = false
+			this.selectedTags = []
+			this.showTags = false
+			this.$emit('setFilter', {})
 		},
 		applyFilter() {
 			const newFilter = {}
@@ -251,7 +416,15 @@ export default {
 			if (this.selectedTags.length) {
 				newFilter.themes = [...this.selectedTags]
 			}
+			if (this.selectedYears.length) {
+				newFilter.years = [...this.selectedYears]
+			}
 			this.$emit('setFilter', newFilter)
+		},
+		keyUp(key) {
+			if (key.code === 'Enter') {
+				this.applyFilter()
+			}
 		}
 	},
 	created() {
@@ -266,16 +439,30 @@ export default {
 			)
 			this.searchAuthor = this.filterSettings.fields.includes('author')
 			this.searchTags = this.filterSettings.fields.includes('tags')
+			this.showSearchInList =
+				!this.searchTitle ||
+				!this.searchAbstract ||
+				!this.searchAuthor ||
+				!this.searchTags
 		}
 		if (this.filterSettings.themes) {
 			this.selectedTags = [...this.filterSettings.themes]
+			this.showTags = true
 		}
+		if (this.filterSettings.years) {
+			this.selectedYears = [...this.filterSettings.years]
+			this.showYears = true
+		}
+		document.addEventListener('keyup', this.keyUp) // listen for an enter key
 		this.$nextTick(() => {
 			const input = document.getElementsByTagName('input')
 			if (input.length > 0) {
 				input[0].focus()
 			}
 		})
+	},
+	beforeDestroy() {
+		document.removeEventListener('keyup', this.keyUp)
 	}
 }
 </script>
@@ -289,10 +476,11 @@ export default {
 }
 
 .header {
-	margin: 2px;
+	margin: 0 2px 2px 2px;
+	border-top: 2px solid var(--vpCoolGrey);
 	padding: 8px 16px;
 	position: sticky;
-	top: 2px;
+	top: 0;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -300,6 +488,7 @@ export default {
 	background: var(--vpDark);
 	color: var(--whiteDefault);
 	cursor: pointer;
+	z-index: 1; /* needed to force transformed .caret behind .header */
 }
 
 .header span {
@@ -328,14 +517,54 @@ h3 {
 	color: var(--vpDark);
 }
 
-table.filter-on {
+.filter-on,
+.filter-section {
 	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.filter-section {
+	justify-content: flex-start;
+}
+
+.filter-on label {
+	width: 80px;
+	flex-shrink: 0;
 }
 
 #input-chars {
 	width: 100%;
 	padding: 4px 8px;
 	background: var(--primaryLightest);
+}
+
+.caret {
+	width: 36px;
+	flex-shrink: 0;
+	text-align: center;
+}
+
+.filter-section h3 {
+	margin-right: 8px;
+	flex-shrink: 0;
+}
+
+.clickable:hover h3,
+.clickable:hover .fa-caret-down path,
+.caret:hover .fa-caret-down path {
+	color: var(--vpOrange);
+}
+.fa-caret-down {
+	font-size: 24px;
+}
+.fa-caret-down {
+	transition: transform 0.4s linear;
+}
+.fa-caret-down.expanded {
+	transform: rotate(180deg);
 }
 
 .search-in-list,
@@ -357,8 +586,12 @@ table.filter-on {
 }
 
 .keyword-list {
-	margin-top: 12px;
 	align-items: flex-start;
+}
+
+.search-in-list.visible,
+.keyword-list.visible {
+	margin-bottom: 8px;
 }
 
 .keyword {

@@ -95,6 +95,7 @@
 				<CatalogueFilter
 					class="rh-panel"
 					:tagList="tagList"
+					:yearList="yearList"
 					:filterSettings="filterSettings"
 					:count="sortedCatalogue.length"
 					v-if="showFilter"
@@ -255,6 +256,11 @@ export default {
 					return keyMatches.length > 0
 				})
 			}
+			if (this.filterSettings.years) {
+				cat = cat.filter(c => {
+					return c.year && this.filterSettings.years.includes(c.year)
+				})
+			}
 			const sorted = cat.sort((a, b) => {
 				if (this.sortBy !== 'title') {
 					let aVal, bVal
@@ -279,15 +285,30 @@ export default {
 					}
 				}
 				if (a.title.toUpperCase() < b.title.toUpperCase()) {
-					return (this.sortDirection == 'asc' || this.sortBy !== 'title') ? -1 : 1
+					return this.sortDirection == 'asc' ||
+						this.sortBy !== 'title'
+						? -1
+						: 1
 				}
 				if (a.title.toUpperCase() > b.title.toUpperCase()) {
-					return (this.sortDirection == 'asc' || this.sortBy !== 'title') ? 1 : -1
+					return this.sortDirection == 'asc' ||
+						this.sortBy !== 'title'
+						? 1
+						: -1
 				}
 				return 0
 			})
 			this.$emit('updateCount', sorted.length)
 			return sorted
+		},
+		yearList() {
+			let years = new Set()
+			this.catalogue.map(cat => {
+				if (cat.year) {
+					years.add(cat.year)
+				}
+			})
+			return Array.from(years).sort()
 		},
 		selectedId() {
 			if (this.clickedId) {
@@ -326,6 +347,15 @@ export default {
 					this.scrollRowIntoView()
 				})
 			}
+		},
+		showFilter() {
+			let el
+			if (this.showFilter) {
+				el = document.getElementsByClassName('settings')[0]
+			}
+			if (el) {
+				el.scrollIntoView(false)
+			}
 		}
 	},
 	methods: {
@@ -339,7 +369,7 @@ export default {
 			}
 		},
 		rhChanged(el) {
-			// once the rh panel has toggled between the entry and the filter, 
+			// once the rh panel has toggled between the entry and the filter,
 			// ensure its contents are scrolled to the top again
 			el.scrollIntoView(true)
 		},
@@ -362,22 +392,29 @@ export default {
 				if (typeof el.scrollIntoViewIfNeeded == 'function') {
 					el.scrollIntoViewIfNeeded(false) // not FireFox or EdgeHTML - and not smooth behaviour!
 				} else {
-					const canScrollTo = (typeof el.scrollTo == 'function') // Firefox = true, EdgeHTML = false
+					const canScrollTo = typeof el.scrollTo == 'function' // Firefox = true, EdgeHTML = false
 					const elBounds = el.getBoundingClientRect()
 					const ctr = el.parentElement.parentElement // the scrollable div.cat-table-wrapper
 					const ctrBounds = ctr.getBoundingClientRect()
 					const offset = 41 // height of sticky header row
-					if (elBounds.top < (ctrBounds.top + offset)) {
+					if (elBounds.top < ctrBounds.top + offset) {
 						if (canScrollTo) {
-							ctr.scrollTo({ top: el.offsetTop - offset, behavior: 'smooth'})
+							ctr.scrollTo({
+								top: el.offsetTop - offset,
+								behavior: 'smooth'
+							})
 						} else {
 							ctr.scrollTop = el.offsetTop - offset
 						}
 					}
-					if ((elBounds.bottom) > ctrBounds.bottom) {
+					if (elBounds.bottom > ctrBounds.bottom) {
 						if (canScrollTo) {
-							el.scrollIntoView({behavior: "smooth", block: "end"})
-						} else { // testing for scrollTo to pick up EdgeHTML
+							el.scrollIntoView({
+								behavior: 'smooth',
+								block: 'end'
+							})
+						} else {
+							// testing for scrollTo to pick up EdgeHTML
 							el.scrollIntoView(false)
 						}
 					}
