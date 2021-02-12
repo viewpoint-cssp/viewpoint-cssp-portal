@@ -56,4 +56,23 @@ export default {
 		background-attachment: scroll;
 	}
 }
+
+@media print {
+	.banner {
+		background-image: none;
+		height: 100px;
+	}
+	.banner div {
+		flex-direction: row-reverse;
+		align-items: flex-end;
+	}
+	.banner #logo {
+		height: 80px;
+		width: auto;
+	}
+	.banner h1 {
+		font-size: 2rem;
+		margin: 0;
+	}
+}
 </style>

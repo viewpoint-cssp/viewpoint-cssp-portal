@@ -112,4 +112,10 @@ export default {
 .fade-leave-to {
 	opacity: 0;
 }
+
+@media print {
+	.app-fixed {
+		display: none !important;
+	}
+}
 </style>
