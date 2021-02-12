@@ -149,8 +149,7 @@ export default {
 				'--glossaryCommentsWidth',
 				`${Math.ceil(tableWidth * 0.2)}px`
 			)
-			console.log(buffer, window.innerWidth, tableWidth, Math.ceil(tableWidth * 0.2))
-			// randomly decide whether to toggle to the narrow table layout
+			// randomly decide at 720px whether to toggle to the narrow table layout
 			if (tableWidth < 720) {
 				this.narrowPage = true
 			} else {
