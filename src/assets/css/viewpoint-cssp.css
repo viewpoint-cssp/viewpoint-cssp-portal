@@ -201,6 +201,25 @@ td {
 	white-space: nowrap;
 }
 
+.about-page {
+	max-width: 1358px;
+	margin: 0 auto;
+	padding: 32px 64px;
+}
+.about-page hr {
+	margin-bottom: 32px;
+}
+.about-page p {
+	margin-bottom: 16px;
+}
+.about-page p:lang(zh-cn) {
+	font-style: italic;
+	opacity: 0.95;
+}
+.about-page a:hover {
+	color: var(--vpOrange);
+}
+
 @media (max-width: 1007px) {
 	*,
 	h1,
@@ -215,6 +234,9 @@ td {
 	a:visited,
 	button {
 		font-size: var(--fontSizeMedium);
+	}
+	.about-page {
+		padding: 16px 32px;
 	}
 }
 @media (max-width: 640px) {
@@ -232,9 +254,15 @@ td {
 	button {
 		font-size: var(--fontSizeSmall);
 	}
+	.about-page {
+		padding: 8px 16px;
+	}
 }
 @media (max-width: 520px) {
 	* {
 		scrollbar-width: none;
+	}
+	.about-page {
+		padding: 8px;
 	}
 }

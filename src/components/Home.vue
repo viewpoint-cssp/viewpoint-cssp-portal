@@ -3,7 +3,7 @@
 		<Banner
 			enTitle="A showcase for the Climate Science for Service Partnership with China"
 		></Banner>
-		<div class="about">
+		<div class="about-page">
 			<h2>VIEWpoint and CSSP China</h2>
 			<hr />
 			<p>
@@ -93,19 +93,8 @@ export default {
 </script>
 
 <style scoped>
-.about {
-	max-width: 1358px;
-	margin: 0 auto;
+.about-page {
 	padding: 64px;
-}
-.about hr {
-	margin-bottom: 32px;
-}
-.about p {
-	margin-bottom: 16px;
-}
-.about a:hover {
-	color: var(--vpOrange);
 }
 
 .button-panel {

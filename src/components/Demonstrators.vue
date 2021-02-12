@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<Banner class="banner-style" enTitle="Demonstrators"></Banner>
-		<div class="about">
+		<div class="about-page">
 			<h2>About the demonstrators</h2>
 			<hr />
 			<p>
@@ -76,25 +76,6 @@ export default {
 	.banner-style {
 		box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.8);
 	}
-}
-
-.about {
-	max-width: 1358px;
-	margin: 0 auto;
-	padding: 64px;
-}
-.about hr {
-	margin-bottom: 32px;
-}
-.about p {
-	margin-bottom: 16px;
-}
-.about p:lang(zh-cn) {
-	font-style: italic;
-	opacity: 0.95;
-}
-.about a:hover {
-	color: var(--vpOrange);
 }
 
 .button-panel {
