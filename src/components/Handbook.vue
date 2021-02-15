@@ -1,54 +1,71 @@
 <template>
 	<div>
 		<Banner class="banner-style" enTitle="Handbook"></Banner>
-		<div id="placeholder">
-			<p>Placeholder for Handbook</p>
+		<div class="about-page">
+			<h2>About the handbook</h2>
+			<hr />
+			<p>
+				Some description about the handbook.
+			</p>
+			<p lang="zh-cn">TODO: Mandarin here?</p>
+			<a 
+				class="download"
+				:href="require('../assets/pdfs/placeholder.pdf')"
+				download="VIEWpoint handbook.pdf"
+				target="_blank" rel="noopener noreferrer"
+			>
+				<button>
+					<font-awesome-icon icon="download"></font-awesome-icon>
+					Download the handbook
+				</button>
+			</a>
+		</div>
+		<div class="slider-wrapper">
+			<div class="left-shadow"></div>
+			<div class="right-shadow"></div>
+			<slider 
+				class="slider"
+				animation="normal"
+				:autoplay=false
+			>
+				<slider-item v-for="(page, i) in pages" :key="i">
+					<img class="youtube" :src="page" alt="YouTube video" />
+				</slider-item>
+			</slider>
 		</div>
 	</div>
 </template>
 
 <script>
 import Banner from './Banner.vue'
+import { Slider, SliderItem } from 'vue-easy-slider'
 
 export default {
 	name: 'Handbook',
 	components: {
-		Banner
+		Banner,
+		Slider,
+		SliderItem
 	},
 	data() {
-		return {}
+		return {
+			pages: [
+				require('../assets/images/training-1.png'),
+				require('../assets/images/training-2.png'),
+				require('../assets/images/training-3.png'),
+				require('../assets/images/training-4.png'),
+				require('../assets/images/training-5.png'),
+				require('../assets/images/training-6.png')
+			]
+		}
 	},
 	methods: {
-		resized() {
-			// recalculate placeholder using 100vh and deducting height of this banner
-			// AND App.vue's NavMenu and Footer (since this component sits between them)
-			let usedHeight = 0
-			const banner = document.getElementsByClassName('banner')
-			if (banner) {
-				usedHeight += banner[0].getBoundingClientRect().height
-			}
-			const appFixed = document.getElementsByClassName('app-fixed')
-			if (appFixed) {
-				for (let i = 0; i < appFixed.length; i++) {
-					usedHeight += appFixed[i].getBoundingClientRect().height
-				}
-			}
-			if (usedHeight) {
-				document.getElementById(
-					'placeholder'
-				).style.height = `${window.innerHeight - usedHeight}px`
-			}
+		clicked() {
+
 		}
 	},
 	mounted() {
 		this.$el.parentElement.scrollIntoView(true)
-		this.resized() /* reset size of placeholder immediately on loading */
-		window.addEventListener('resize', this.resized)
-		window.addEventListener('orientationchange', this.resized)
-	},
-	beforeDestroy() {
-		window.removeEventListener('resize', this.resized)
-		window.removeEventListener('orientationchange', this.resized)
 	}
 }
 </script>
@@ -65,15 +82,58 @@ export default {
 	}
 }
 
-#placeholder {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
+.fa-download {
+	background: transparent;
 }
-#placeholder p {
-	font-size: 3rem;
-	letter-spacing: 12px;
-	line-height: 1;
-	opacity: 0.25;
+
+.fa-download path {
+	color: var(--whiteDefault);
 }
+
+.slider-wrapper,
+.slider {
+	height: 409px !important;
+	width: 728px !important;
+}
+
+.slider-wrapper {
+	margin: 32px auto;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+	position: relative;
+}
+.slider-wrapper .left-shadow, .slider-wrapper .right-shadow {
+	position: absolute;
+	width: 40%;
+	height: 10px;
+	content: ' ';
+	left: 12px;
+	bottom: 12px;
+	background: transparent;
+	transform: skew(-5deg) rotate(-5deg);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.9);
+} 
+.slider-wrapper .right-shadow {
+	left: auto;
+	right: 12px;
+	transform: skew(5deg) rotate(5deg);
+}
+
+.slider >>> .slider-indicators {
+	background: transparent;
+}
+
+.slider >>> .slider-btn:hover {
+	background: rgba(0, 0, 0, 0.1);
+	box-shadow: none;
+}
+
+.slider >>> .slider-icon {
+	background: transparent;
+	border-color: var(--whiteDefault);
+	border-width: 4px;
+}
+.slider >>> .slider-btn:hover .slider-icon {
+	border-color: var(--vpOrange) !important;
+}
+
 </style>
