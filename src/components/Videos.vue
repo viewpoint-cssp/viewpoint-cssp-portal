@@ -5,9 +5,38 @@
 			<h2>About the videos</h2>
 			<hr />
 			<p>
-				TODO: Some description about the videos.
+				TODO: This paragraph should be a nice description about the
+				videos but, for the moment, this page is just to prove we can
+				embed JWPlayer videos into the page.
 			</p>
 			<p lang="zh-cn">TODO: Mandarin here?</p>
+			<div
+				style="max-width:640px;margin:0 auto;border:1px solid var(--text);padding:4px 8px;"
+			>
+				<div class="exclamation">!</div>
+				<p style="display:inline;">
+					There's a couple of things to note:
+				</p>
+				<ul>
+					<li>
+						The image is the <strong>thumbnail</strong> that I think
+						is generated automatically when the video is uploaded
+						but we can change those thumbnails. As it stands, these
+						seem to be a bit dark.
+					</li>
+					<li>
+						When you right-click you get an
+						<strong>&quot;About this video&quot;</strong> option
+						which shows the title and duration. This <i>might</i> be
+						able to contain any edited title and description we put
+						against the video - but I couldn't get that to work
+						(maybe I just didn't give it a chance to refresh
+						properly). However, if it is simply showing the title of
+						the uploaded .mp4, we need to be careful (and
+						consistent) in our <strong>file names</strong>.
+					</li>
+				</ul>
+			</div>
 		</div>
 		<div class="video-wrapper">
 			<div class="video" v-for="(video, i) in videos" :key="i">
@@ -66,7 +95,7 @@ export default {
 				)
 				document.documentElement.style.setProperty(
 					'--iframeHeight',
-					`${Math.floor(width / 16 * 9)}px`
+					`${Math.floor((width / 16) * 9)}px`
 				)
 				// and set the src to itself again to force a refresh
 				const iframes = document.getElementsByTagName('iframe')
@@ -99,6 +128,17 @@ export default {
 	.banner-style {
 		box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.8);
 	}
+}
+
+.exclamation {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	border-radius: 12px;
+	background: var(--vpOrange);
+	color: white;
+	font-weight: bold;
+	text-align: center;
 }
 
 .video-wrapper {
