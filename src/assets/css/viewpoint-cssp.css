@@ -25,6 +25,7 @@
 	--minTrainingHeight: 484px;
 	--leftTrainingWidth: 360px;
 	--rightTrainingWidth: calc(1920px - 360px);
+	--gotopBottom: 6px;
 	--fontSizeMedium: 0.925rem; /* for 641px to 1007px */
 	--fontSizeSmall: 0.85rem; /* up to 640px */
 }

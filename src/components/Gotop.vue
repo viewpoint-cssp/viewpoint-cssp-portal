@@ -17,10 +17,10 @@ export default {
 	methods: {
 		showHideButton() {
 			let display = 'none'
+			const navFtr = document.getElementsByClassName('app-fixed')
 			if (!window.matchMedia('(max-width: 640px)').matches) {
 				// (wider res only) show button once the navMenu and banner are off the screen
 				let bannerHeight = 0
-				const navFtr = document.getElementsByClassName('app-fixed')
 				if (navFtr) {
 					bannerHeight += navFtr[0].getBoundingClientRect().height
 				}
@@ -28,17 +28,35 @@ export default {
 				if (banner) {
 					bannerHeight += banner[0].getBoundingClientRect().height
 				}
-				if (document.getElementById('app').getBoundingClientRect().y < (0 - bannerHeight)) {
+				if (
+					document.getElementById('app').getBoundingClientRect().y <
+					0 - bannerHeight
+				) {
 					display = 'block'
 				}
 			}
 			document.getElementsByClassName(
 				'gotop-button'
 			)[0].style.display = display
+			// if button would be on the footer
+			if (display == 'block' && navFtr.length > 1) {
+				let bottom = 6
+				if (
+					navFtr[1].getBoundingClientRect().top < window.innerHeight
+				) {
+					bottom +=
+						window.innerHeight -
+						navFtr[1].getBoundingClientRect().top
+				}
+				document.documentElement.style.setProperty(
+					'--gotopBottom',
+					`${bottom}px`
+				)
+			}
 		},
 		scrollTop() {
 			if ('scrollBehavior' in document.documentElement.style) {
-				window.scrollTo({ top: 0, behavior: 'smooth'})
+				window.scrollTo({ top: 0, behavior: 'smooth' })
 			} else {
 				// EdgeHTML scrolls to top by scrolling the .nav-menu into view
 				const navFtr = document.getElementsByClassName('app-fixed')
@@ -60,7 +78,7 @@ export default {
 .gotop-button {
 	display: none;
 	position: fixed;
-	bottom: 6px;
+	bottom: var(--gotopBottom);
 	right: 10px;
 	background-color: var(--vpGreen);
 	color: var(--whiteDefault);
