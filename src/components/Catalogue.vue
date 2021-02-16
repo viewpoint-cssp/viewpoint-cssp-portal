@@ -165,11 +165,11 @@ img#logo {
 .header-right p {
 	text-align: right;
 	margin-right: 32px;
-	color: var(--vpCoolGrey);
+	color: var(--vpDark);
 }
 
 h1.filter {
-	color: var(--vpCoolGrey);
+	color: var(--vpDark);
 	cursor: pointer;
 }
 h1.filter:hover {
@@ -177,7 +177,7 @@ h1.filter:hover {
 }
 
 h1.filter path {
-	fill: var(--vpCoolGrey);
+	fill: var(--vpDark);
 }
 h1.filter:hover path {
 	fill: var(--vpOrange);

@@ -459,6 +459,12 @@ export default {
 .cat-table th:not(.sort):hover {
 	color: var(--whiteHover);
 }
+.cat-table th.sort:hover {
+	color: var(--vpOrange);
+}
+.cat-table th.sort:hover .fa-caret-down path {
+	color: var(--vpOrange);
+}
 
 .column-header {
 	display: flex;
