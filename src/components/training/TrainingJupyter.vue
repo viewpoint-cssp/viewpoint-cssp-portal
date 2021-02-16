@@ -54,7 +54,7 @@
 		<p>
 			These two tutorials on YouTube have advanced tips on using Jupyter Notebook:
 		</p>
-		<p class="flex-wrapper">
+		<p>
 			<a
 				href="https://www.youtube.com/watch?v=FZ1aNbH178Y&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=10"
 				target="_blank" rel="noopener noreferrer"
@@ -62,6 +62,8 @@
 			>
 				<img class="youtube" src="../../assets/images/training-10.png" />
 			</a>
+		</p>
+		<p>
 			<a
 				href="https://www.youtube.com/watch?v=Ts5DC5-5xVw&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=11"
 				target="_blank" rel="noopener noreferrer"
@@ -98,10 +100,4 @@ export default {
 </script>
 
 <style scoped>
-.flex-wrapper {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	flex-wrap: wrap;
-}
 </style>
