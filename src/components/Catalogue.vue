@@ -3,6 +3,7 @@
 		<div class="banner">
 			<div class="header-left">
 				<img id="logo" src="../assets/images/logo.png" />
+				<h1>Catalogue</h1>
 			</div>
 			<div class="header-right">
 				<p>{{ count }} entries</p>
@@ -122,6 +123,10 @@ export default {
 	align-items: flex-end;
 }
 
+.banner div {
+	background: transparent;
+}
+
 .header-left {
 	display: flex;
 	flex-direction: row;
@@ -134,27 +139,27 @@ img#logo {
 	background: transparent;
 }
 
-.banner h1 {
-	background: transparent;
+.header-left h1 {
+	align-self: flex-end;
+	margin: 0 0 4px 32px;
 	color: var(--vpOrange);
-	margin: 0 32px 4px 32px;
-}
-
-.banner p,
-.banner svg {
-	background: transparent;
-}
-
-.banner div {
-	background: transparent;
-	display: flex;
-	flex-direction: column;
 }
 
 .header-right {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
+}
+
+.header-right h1 {
+	background: transparent;
+	color: var(--vpOrange);
+	margin: 0 32px 4px 32px;
+}
+
+.header-right p,
+.header-right svg {
+	background: transparent;
 }
 
 .header-right p {

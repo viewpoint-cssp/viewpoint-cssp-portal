@@ -3,6 +3,7 @@
 		<div class="banner">
 			<div class="header-left">
 				<img id="logo" src="../assets/images/logo.png" />
+				<h1>Training materials</h1>
 			</div>
 		</div>
 		<div class="training-handbook">
@@ -376,6 +377,12 @@ img#logo {
 	padding: 4px 0 4px 32px;
 	height: 60px;
 	background: transparent;
+}
+
+.banner h1 {
+	align-self: flex-end;
+	margin: 0 0 4px 32px;
+	color: var(--vpOrange);
 }
 
 .training-handbook {
