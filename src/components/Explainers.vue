@@ -61,16 +61,19 @@
 				</div>
 			</div>
 		</div>
+		<Gotop></Gotop>
 	</div>
 </template>
 
 <script>
 import Banner from './Banner.vue'
+import Gotop from './Gotop.vue'
 
 export default {
 	name: 'Explainers',
 	components: {
-		Banner
+		Banner,
+		Gotop
 	},
 	data() {
 		return {

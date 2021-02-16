@@ -155,24 +155,24 @@
 				的中英研究与创新合作基金资助。
 			</p>
 		</div>
+		<Gotop></Gotop>
 	</div>
 </template>
 
 <script>
 import Banner from './Banner.vue'
+import Gotop from './Gotop.vue'
 
 export default {
 	name: 'About',
 	components: {
-		Banner
+		Banner,
+		Gotop
 	}
 }
 </script>
 
 <style scoped>
-.about {
-}
-
 .banner-style {
 	background-image: url('../assets/images/about.png');
 	background-blend-mode: soft-light;
