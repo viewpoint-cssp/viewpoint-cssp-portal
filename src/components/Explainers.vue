@@ -179,8 +179,34 @@ export default {
 			]
 		}
 	},
+	methods: {
+		scrollCursor() {
+			const anchors = document.getElementsByTagName('a')
+			for (let a = 0; a < anchors.length; a++) {
+				anchors[a].classList.add('scroll-cursor')
+			}
+		},
+		pointerCursor() {
+			const anchors = document.getElementsByTagName('a')
+			for (let a = 0; a < anchors.length; a++) {
+				anchors[a].classList.remove('scroll-cursor')
+			}
+		}
+	},
 	mounted() {
 		this.$el.parentElement.scrollIntoView(true)
+		if (navigator.userAgent.indexOf('Firefox/') < 0) {
+			// this is only here because Chrome and Edge don't correctly refresh 
+			// :hover state as elements are moved under the cursor while scrolling
+			document.addEventListener('scroll', this.scrollCursor)
+			document.addEventListener('mousemove', this.pointerCursor)
+		}
+	},
+	beforeDestroy() {
+		if (navigator.userAgent.indexOf('Firefox/') < 0) {
+			document.removeEventListener('scroll', this.scrollCursor)
+			document.removeEventListener('mousemove', this.pointerCursor)
+		}
 	}
 }
 </script>
@@ -264,6 +290,10 @@ export default {
 	align-self: flex-end;
 	margin-top: auto;
 	font-size: 24px;
+}
+
+.button-panel a.scroll-cursor {
+	cursor: ns-resize;
 }
 
 .button-panel a.title:hover h3,

@@ -88,6 +88,35 @@ export default {
 	name: 'Home',
 	components: {
 		Banner
+	},
+	methods: {
+		scrollCursor() {
+			const buttons = document.getElementsByClassName('button-panel')
+			for (let b = 0; b < buttons.length; b++) {
+				buttons[b].classList.add('scroll-cursor')
+			}
+		},
+		pointerCursor() {
+			const buttons = document.getElementsByClassName('button-panel')
+			for (let b = 0; b < buttons.length; b++) {
+				buttons[b].classList.remove('scroll-cursor')
+			}
+		}
+	},
+	mounted() {
+		this.$el.parentElement.scrollIntoView(true)
+		if (navigator.userAgent.indexOf('Firefox/') < 0) {
+			// this is only here because Chrome and Edge don't correctly refresh 
+			// :hover state as elements are moved under the cursor while scrolling
+			document.addEventListener('scroll', this.scrollCursor)
+			document.addEventListener('mousemove', this.pointerCursor)
+		}
+	},
+	beforeDestroy() {
+		if (navigator.userAgent.indexOf('Firefox/') < 0) {
+			document.removeEventListener('scroll', this.scrollCursor)
+			document.removeEventListener('mousemove', this.pointerCursor)
+		}
 	}
 }
 </script>
@@ -104,9 +133,13 @@ export default {
 	cursor: pointer;
 	transition: background 0.2s ease-in-out;
 }
+.button-panel.scroll-cursor {
+	cursor: ns-resize;
+}
 .button-panel:nth-of-type(odd) {
 	background: var(--primaryLightest);
 }
+
 .button-content {
 	background: transparent;
 	display: flex;
@@ -119,6 +152,7 @@ export default {
 	font-style: italic;
 	opacity: 0.95;
 }
+
 .button-item {
 	width: 50%;
 	max-width: 400px;
