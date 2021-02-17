@@ -58,9 +58,7 @@ export default {
 			} else if (page == 'wrm') {
 				location.href = 'https://the-iea.github.io/viewpoint-wrm'
 			}
-		}
-	},
-	methods: {
+		},
 		scrollCursor() {
 			const buttons = document.getElementsByClassName('button-panel')
 			for (let b = 0; b < buttons.length; b++) {
