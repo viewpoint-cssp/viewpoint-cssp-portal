@@ -17,172 +17,174 @@
 			<div
 				class="selected-page-button"
 				:class="{ selected: selectedPage == 'cities' }"
-				@click="changePage('cities')"
+				@click="selectedPage = 'cities'"
 			>
 				City climates
 			</div>
 			<div
 				class="selected-page-button"
 				:class="{ selected: selectedPage == 'findings' }"
-				@click="changePage('findings')"
+				@click="selectedPage = 'findings'"
 			>
 				Research findings
 			</div>
 			<div
 				class="selected-page-button"
 				:class="{ selected: selectedPage == 'climate' }"
-				@click="changePage('climate')"
+				@click="selectedPage = 'climate'"
 			>
 				Climate tools
 			</div>
 			<div
 				class="selected-page-button"
 				:class="{ selected: selectedPage == 'renewables' }"
-				@click="changePage('renewables')"
+				@click="selectedPage = 'renewables'"
 			>
 				Renewable energy tools
 			</div>
 		</div>
-		<div class="video-panel" v-show-slide="selectedPage == 'cities'">
-			<p class="text english">
-				What is special about city climates? Cities are living things,
-				always growing and changing, needing to adapt to the needs of
-				their populations and to an ever-changing climate, which may
-				threaten the city. These three short clips cover the topics of
-				urban climate, climate change resilience for city infrastructure
-				and data use for mapping urban areas.
-			</p>
-			<p class="text mandarin" lang="zh-cn">
-				TODO: Mandarin here?
-			</p>
-			<div class="video-wrapper">
-				<div
-					v-for="lang in ['en', 'cn']"
-					:key="`city-${lang}`"
-					class="video-column"
-					:class="{ english: lang == 'en', mandarin: lang == 'cn' }"
-				>
+		<transition name="fade" mode="out-in">
+			<div class="video-panel" v-if="selectedPage == 'cities'">
+				<p class="text english">
+					What is special about city climates? Cities are living things,
+					always growing and changing, needing to adapt to the needs of
+					their populations and to an ever-changing climate, which may
+					threaten the city. These three short clips cover the topics of
+					urban climate, climate change resilience for city infrastructure
+					and data use for mapping urban areas.
+				</p>
+				<p class="text mandarin" lang="zh-cn">
+					TODO: Mandarin here?
+				</p>
+				<div class="video-wrapper">
 					<div
-						class="video"
-						v-for="(video, i) in toolVideos[lang]"
-						:key="`city-${lang}-${i}`"
+						v-for="lang in ['en', 'cn']"
+						:key="`city-${lang}`"
+						class="video-column"
+						:class="{ english: lang == 'en', mandarin: lang == 'cn' }"
 					>
-						<iframe
-							:src="setSrc(video.id)"
-							:title="video.title"
-							frameborder="0"
-							scrolling="auto"
-							allowfullscreen
-						></iframe>
+						<div
+							class="video"
+							v-for="(video, i) in toolVideos[lang]"
+							:key="`city-${lang}-${i}`"
+						>
+							<iframe
+								:src="setSrc(video.id)"
+								:title="video.title"
+								frameborder="0"
+								scrolling="auto"
+								allowfullscreen
+							></iframe>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="video-panel" v-show-slide="selectedPage == 'findings'">
-			<p class="text english">
-				Hear directly from researchers in CSSP China on their
-				collaborative UK-China work and the fascinating findings. Dr
-				Liang Guo and Dr Nick Klingaman talk about tracing the sources
-				of moisture that fall as rain and snow over China. Dr Buwen Dong
-				talks about analysing heatwaves in China and his predictions for
-				the second half of this century.
-			</p>
-			<p class="text mandarin" lang="zh-cn">
-				TODO: Mandarin here?
-			</p>
-			<div class="video-wrapper">
-				<div
-					v-for="lang in ['en', 'cn']"
-					:key="`coll-${lang}`"
-					class="video-column"
-					:class="{ english: lang == 'en', mandarin: lang == 'cn' }"
-				>
+			<div class="video-panel" v-else-if="selectedPage == 'findings'">
+				<p class="text english">
+					Hear directly from researchers in CSSP China on their
+					collaborative UK-China work and the fascinating findings. Dr
+					Liang Guo and Dr Nick Klingaman talk about tracing the sources
+					of moisture that fall as rain and snow over China. Dr Buwen Dong
+					talks about analysing heatwaves in China and his predictions for
+					the second half of this century.
+				</p>
+				<p class="text mandarin" lang="zh-cn">
+					TODO: Mandarin here?
+				</p>
+				<div class="video-wrapper">
 					<div
-						class="video"
-						v-for="(video, i) in toolVideos[lang]"
-						:key="`coll-${lang}-${i}`"
+						v-for="lang in ['en', 'cn']"
+						:key="`coll-${lang}`"
+						class="video-column"
+						:class="{ english: lang == 'en', mandarin: lang == 'cn' }"
 					>
-						<iframe
-							:src="setSrc(video.id)"
-							:title="video.title"
-							frameborder="0"
-							scrolling="auto"
-							allowfullscreen
-						></iframe>
+						<div
+							class="video"
+							v-for="(video, i) in toolVideos[lang]"
+							:key="`coll-${lang}-${i}`"
+						>
+							<iframe
+								:src="setSrc(video.id)"
+								:title="video.title"
+								frameborder="0"
+								scrolling="auto"
+								allowfullscreen
+							></iframe>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="video-panel" v-show-slide="selectedPage == 'climate'">
-			<p class="text english">
-				For those who want to explore their own hands-on information,
-				CSSP China has produced practical tools for businesses, planners
-				and decision-makers to use directly to find out more about the
-				current and future climate. Here are three videos summarising
-				three different tools which are tailored specifically for
-				infrastructure and cities.
-			</p>
-			<p class="text mandarin" lang="zh-cn">
-				TODO: Mandarin here?
-			</p>
-			<div class="video-wrapper">
-				<div
-					v-for="lang in ['en', 'cn']"
-					:key="`tool-${lang}`"
-					class="video-column"
-					:class="{ english: lang == 'en', mandarin: lang == 'cn' }"
-				>
+			<div class="video-panel" v-else-if="selectedPage == 'climate'">
+				<p class="text english">
+					For those who want to explore their own hands-on information,
+					CSSP China has produced practical tools for businesses, planners
+					and decision-makers to use directly to find out more about the
+					current and future climate. Here are three videos summarising
+					three different tools which are tailored specifically for
+					infrastructure and cities.
+				</p>
+				<p class="text mandarin" lang="zh-cn">
+					TODO: Mandarin here?
+				</p>
+				<div class="video-wrapper">
 					<div
-						class="video"
-						v-for="(video, i) in toolVideos[lang]"
-						:key="`tool-${lang}-${i}`"
+						v-for="lang in ['en', 'cn']"
+						:key="`tool-${lang}`"
+						class="video-column"
+						:class="{ english: lang == 'en', mandarin: lang == 'cn' }"
 					>
-						<iframe
-							:src="setSrc(video.id)"
-							:title="video.title"
-							frameborder="0"
-							scrolling="auto"
-							allowfullscreen
-						></iframe>
+						<div
+							class="video"
+							v-for="(video, i) in toolVideos[lang]"
+							:key="`tool-${lang}-${i}`"
+						>
+							<iframe
+								:src="setSrc(video.id)"
+								:title="video.title"
+								frameborder="0"
+								scrolling="auto"
+								allowfullscreen
+							></iframe>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="video-panel" v-show-slide="selectedPage == 'renewables'">
-			<p class="text english">
-				Enabling renewable energy systems are at the heart of our
-				net-zero future and the climate is a key part of efficient and
-				beneficial solutions. Hear about three tools and services from
-				scientists and engineers within the CSSP China project revealing
-				information on the next season and the next decades to help
-				planning and operation.
-			</p>
-			<p class="text mandarin" lang="zh-cn">
-				TODO: Mandarin here?
-			</p>
-			<div class="video-wrapper">
-				<div
-					v-for="lang in ['en', 'cn']"
-					:key="`re-${lang}`"
-					class="video-column"
-					:class="{ english: lang == 'en', mandarin: lang == 'cn' }"
-				>
+			<div class="video-panel" v-else>
+				<p class="text english">
+					Enabling renewable energy systems are at the heart of our
+					net-zero future and the climate is a key part of efficient and
+					beneficial solutions. Hear about three tools and services from
+					scientists and engineers within the CSSP China project revealing
+					information on the next season and the next decades to help
+					planning and operation.
+				</p>
+				<p class="text mandarin" lang="zh-cn">
+					TODO: Mandarin here?
+				</p>
+				<div class="video-wrapper">
 					<div
-						class="video"
-						v-for="(video, i) in reVideos[lang]"
-						:key="`re-${lang}-${i}`"
+						v-for="lang in ['en', 'cn']"
+						:key="`re-${lang}`"
+						class="video-column"
+						:class="{ english: lang == 'en', mandarin: lang == 'cn' }"
 					>
-						<iframe
-							:src="setSrc(video.id)"
-							:title="video.title"
-							frameborder="0"
-							scrolling="auto"
-							allowfullscreen
-						></iframe>
+						<div
+							class="video"
+							v-for="(video, i) in reVideos[lang]"
+							:key="`re-${lang}-${i}`"
+						>
+							<iframe
+								:src="setSrc(video.id)"
+								:title="video.title"
+								frameborder="0"
+								scrolling="auto"
+								allowfullscreen
+							></iframe>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</transition>
 		<Gotop></Gotop>
 	</div>
 </template>
@@ -200,7 +202,6 @@ export default {
 	data() {
 		return {
 			selectedPage: 'cities',
-			nextPage: '',
 			cityVideos: {
 				en: [
 					{
@@ -326,14 +327,6 @@ export default {
 	methods: {
 		setSrc(id) {
 			return `https://cdn.jwplayer.com/players/${id}-NocosEfA.html`
-		},
-		changePage(newPage) {
-			// because we're using v-show-slide, this slides the current one away
-			// and only then slides the new one in after the transition period
-			this.selectedPage = ''
-			setTimeout(() => {
-				this.selectedPage = newPage
-			}, 300)
 		},
 		resized() {
 			// JWPlayer suggests 640 by 360 soooo...
@@ -498,6 +491,18 @@ p.text:lang(zh-cn) {
 iframe {
 	width: var(--iframeWidth);
 	height: var(--iframeHeight);
+}
+
+.fade-enter-active {
+	transition: all 0.5s ease-out;
+}
+.fade-leave-active {
+	transition: all 0.3s ease-out;
+}
+.fade-enter,
+.fade-leave-to {
+	height: 0;
+	opacity: 0;
 }
 
 @media (max-width: 1007px) {
