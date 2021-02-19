@@ -16,6 +16,7 @@ export default {
 	name: 'Gotop',
 	methods: {
 		showHideButton() {
+			if (document.getElementsByClassName('gotop-button').length == 0) return // just in case!
 			let display = 'none'
 			const navFtr = document.getElementsByClassName('app-fixed')
 			if (!window.matchMedia('(max-width: 640px)').matches) {

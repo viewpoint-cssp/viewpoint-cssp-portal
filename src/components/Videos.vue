@@ -17,174 +17,248 @@
 			<div
 				class="selected-page-button"
 				:class="{ selected: selectedPage == 'cities' }"
-				@click="selectedPage = 'cities'"
+				@click="selectPage('cities')"
 			>
-				City climates
+				<p>City climates</p>
+				<p lang="zh-cn">TODO: Mandarin</p>
 			</div>
 			<div
 				class="selected-page-button"
 				:class="{ selected: selectedPage == 'findings' }"
-				@click="selectedPage = 'findings'"
+				@click="selectPage('findings')"
 			>
-				Research findings
+				<p>Research findings</p>
+				<p lang="zh-cn">TODO: Mandarin</p>
 			</div>
 			<div
 				class="selected-page-button"
 				:class="{ selected: selectedPage == 'climate' }"
-				@click="selectedPage = 'climate'"
+				@click="selectPage('climate')"
 			>
-				Climate tools
+				<p>Climate tools</p>
+				<p lang="zh-cn">TODO: Mandarin</p>
 			</div>
 			<div
 				class="selected-page-button"
 				:class="{ selected: selectedPage == 'renewables' }"
-				@click="selectedPage = 'renewables'"
+				@click="selectPage('renewables')"
 			>
-				Renewable energy tools
+				<p>Renewable energy tools</p>
+				<p lang="zh-cn">TODO: Mandarin</p>
 			</div>
 		</div>
-		<transition name="fade" mode="out-in">
-			<div class="video-panel" v-if="selectedPage == 'cities'">
-				<p class="text english">
-					What is special about city climates? Cities are living things,
-					always growing and changing, needing to adapt to the needs of
-					their populations and to an ever-changing climate, which may
-					threaten the city. These three short clips cover the topics of
-					urban climate, climate change resilience for city infrastructure
-					and data use for mapping urban areas.
-				</p>
-				<p class="text mandarin" lang="zh-cn">
-					TODO: Mandarin here?
-				</p>
-				<div class="video-wrapper">
+		<div
+			id="cities"
+			class="video-panel"
+			v-show-slide:500:ease-in-out="selectedPage == 'cities'"
+		>
+			<p class="text english">
+				What is special about city climates? Cities are living things,
+				always growing and changing, needing to adapt to the needs of
+				their populations and to an ever-changing climate, which may
+				threaten the city. These three short clips cover the topics of
+				urban climate, climate change resilience for city infrastructure
+				and data use for mapping urban areas.
+			</p>
+			<p class="text mandarin" lang="zh-cn">
+				TODO: Mandarin here?
+			</p>
+			<div class="video-wrapper">
+				<div
+					v-for="lang in Object.keys(cityVideos)"
+					:key="`city-${lang}`"
+					class="video-column"
+					:class="{ english: lang == 'en', mandarin: lang == 'cn' }"
+				>
 					<div
-						v-for="lang in ['en', 'cn']"
-						:key="`city-${lang}`"
-						class="video-column"
-						:class="{ english: lang == 'en', mandarin: lang == 'cn' }"
+						class="video"
+						v-for="(video, i) in cityVideos[lang]"
+						:key="`city-${lang}-${i}`"
 					>
-						<div
-							class="video"
-							v-for="(video, i) in toolVideos[lang]"
-							:key="`city-${lang}-${i}`"
-						>
-							<iframe
-								:src="setSrc(video.id)"
-								:title="video.title"
-								frameborder="0"
-								scrolling="auto"
-								allowfullscreen
-							></iframe>
+						<iframe
+							:src="setSrc(video.id, video.altId)"
+							:title="video.title"
+							:data-id="video.id"
+							:data-alt-id="video.altId"
+							frameborder="0"
+							scrolling="auto"
+							allowfullscreen
+							v-if="video.id || video.altId"
+						></iframe>
+						<div class="no-video" v-else>
+							<h2 :lang="lang == 'cn' ? 'zh-cn' : ''">
+								{{ video.title }}
+							</h2>
+							<p class="watermark">
+								<font-awesome-icon
+									icon="video-slash"
+								></font-awesome-icon>
+								No video
+							</p>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="video-panel" v-else-if="selectedPage == 'findings'">
-				<p class="text english">
-					Hear directly from researchers in CSSP China on their
-					collaborative UK-China work and the fascinating findings. Dr
-					Liang Guo and Dr Nick Klingaman talk about tracing the sources
-					of moisture that fall as rain and snow over China. Dr Buwen Dong
-					talks about analysing heatwaves in China and his predictions for
-					the second half of this century.
-				</p>
-				<p class="text mandarin" lang="zh-cn">
-					TODO: Mandarin here?
-				</p>
-				<div class="video-wrapper">
+		</div>
+		<div
+			id="findings"
+			class="video-panel"
+			v-show-slide:500:ease-in-out="selectedPage == 'findings'"
+		>
+			<p class="text english">
+				Hear directly from researchers in CSSP China on their
+				collaborative UK-China work and the fascinating findings. Dr
+				Liang Guo and Dr Nick Klingaman talk about tracing the sources
+				of moisture that fall as rain and snow over China. Dr Buwen Dong
+				talks about analysing heatwaves in China and his predictions for
+				the second half of this century.
+			</p>
+			<p class="text mandarin" lang="zh-cn">
+				TODO: Mandarin here?
+			</p>
+			<div class="video-wrapper">
+				<div
+					v-for="lang in Object.keys(collaborationVideos)"
+					:key="`coll-${lang}`"
+					class="video-column"
+					:class="{ english: lang == 'en', mandarin: lang == 'cn' }"
+				>
 					<div
-						v-for="lang in ['en', 'cn']"
-						:key="`coll-${lang}`"
-						class="video-column"
-						:class="{ english: lang == 'en', mandarin: lang == 'cn' }"
+						class="video"
+						v-for="(video, i) in collaborationVideos[lang]"
+						:key="`coll-${lang}-${i}`"
 					>
-						<div
-							class="video"
-							v-for="(video, i) in toolVideos[lang]"
-							:key="`coll-${lang}-${i}`"
-						>
-							<iframe
-								:src="setSrc(video.id)"
-								:title="video.title"
-								frameborder="0"
-								scrolling="auto"
-								allowfullscreen
-							></iframe>
+						<iframe
+							:src="setSrc(video.id, video.altId)"
+							:title="video.title"
+							:data-id="video.id"
+							:data-alt-id="video.altId"
+							frameborder="0"
+							scrolling="auto"
+							allowfullscreen
+							v-if="video.id || video.altId"
+						></iframe>
+						<div class="no-video" v-else>
+							<h2 :lang="lang == 'cn' ? 'zh-cn' : ''">
+								{{ video.title }}
+							</h2>
+							<p class="watermark">
+								<font-awesome-icon
+									icon="video-slash"
+								></font-awesome-icon>
+								No video
+							</p>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="video-panel" v-else-if="selectedPage == 'climate'">
-				<p class="text english">
-					For those who want to explore their own hands-on information,
-					CSSP China has produced practical tools for businesses, planners
-					and decision-makers to use directly to find out more about the
-					current and future climate. Here are three videos summarising
-					three different tools which are tailored specifically for
-					infrastructure and cities.
-				</p>
-				<p class="text mandarin" lang="zh-cn">
-					TODO: Mandarin here?
-				</p>
-				<div class="video-wrapper">
+		</div>
+		<div
+			id="climate"
+			class="video-panel"
+			v-show-slide:500:ease-in-out="selectedPage == 'climate'"
+		>
+			<p class="text english">
+				For those who want to explore their own hands-on information,
+				CSSP China has produced practical tools for businesses, planners
+				and decision-makers to use directly to find out more about the
+				current and future climate. Here are three videos summarising
+				three different tools which are tailored specifically for
+				infrastructure and cities.
+			</p>
+			<p class="text mandarin" lang="zh-cn">
+				TODO: Mandarin here?
+			</p>
+			<div class="video-wrapper">
+				<div
+					v-for="lang in Object.keys(toolVideos)"
+					:key="`tool-${lang}`"
+					class="video-column"
+					:class="{ english: lang == 'en', mandarin: lang == 'cn' }"
+				>
 					<div
-						v-for="lang in ['en', 'cn']"
-						:key="`tool-${lang}`"
-						class="video-column"
-						:class="{ english: lang == 'en', mandarin: lang == 'cn' }"
+						class="video"
+						v-for="(video, i) in toolVideos[lang]"
+						:key="`tool-${lang}-${i}`"
 					>
-						<div
-							class="video"
-							v-for="(video, i) in toolVideos[lang]"
-							:key="`tool-${lang}-${i}`"
-						>
-							<iframe
-								:src="setSrc(video.id)"
-								:title="video.title"
-								frameborder="0"
-								scrolling="auto"
-								allowfullscreen
-							></iframe>
+						<iframe
+							:src="setSrc(video.id, video.altId)"
+							:title="video.title"
+							:data-id="video.id"
+							:data-alt-id="video.altId"
+							frameborder="0"
+							scrolling="auto"
+							allowfullscreen
+							v-if="video.id || video.altId"
+						></iframe>
+						<div class="no-video" v-else>
+							<h2 :lang="lang == 'cn' ? 'zh-cn' : ''">
+								{{ video.title }}
+							</h2>
+							<p class="watermark">
+								<font-awesome-icon
+									icon="video-slash"
+								></font-awesome-icon>
+								No video
+							</p>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="video-panel" v-else>
-				<p class="text english">
-					Enabling renewable energy systems are at the heart of our
-					net-zero future and the climate is a key part of efficient and
-					beneficial solutions. Hear about three tools and services from
-					scientists and engineers within the CSSP China project revealing
-					information on the next season and the next decades to help
-					planning and operation.
-				</p>
-				<p class="text mandarin" lang="zh-cn">
-					TODO: Mandarin here?
-				</p>
-				<div class="video-wrapper">
+		</div>
+		<div
+			id="renewables"
+			class="video-panel"
+			v-show-slide:500:ease-in-out="selectedPage == 'renewables'"
+		>
+			<p class="text english">
+				Enabling renewable energy systems are at the heart of our
+				net-zero future and the climate is a key part of efficient and
+				beneficial solutions. Hear about three tools and services from
+				scientists and engineers within the CSSP China project revealing
+				information on the next season and the next decades to help
+				planning and operation.
+			</p>
+			<p class="text mandarin" lang="zh-cn">
+				TODO: Mandarin here?
+			</p>
+			<div class="video-wrapper">
+				<div
+					v-for="lang in Object.keys(reVideos)"
+					:key="`re-${lang}`"
+					class="video-column"
+					:class="{ english: lang == 'en', mandarin: lang == 'cn' }"
+				>
 					<div
-						v-for="lang in ['en', 'cn']"
-						:key="`re-${lang}`"
-						class="video-column"
-						:class="{ english: lang == 'en', mandarin: lang == 'cn' }"
+						class="video"
+						v-for="(video, i) in reVideos[lang]"
+						:key="`re-${lang}-${i}`"
 					>
-						<div
-							class="video"
-							v-for="(video, i) in reVideos[lang]"
-							:key="`re-${lang}-${i}`"
-						>
-							<iframe
-								:src="setSrc(video.id)"
-								:title="video.title"
-								frameborder="0"
-								scrolling="auto"
-								allowfullscreen
-							></iframe>
+						<iframe
+							:src="setSrc(video.id, video.altId)"
+							:title="video.title"
+							:data-id="video.id"
+							:data-alt-id="video.altId"
+							frameborder="0"
+							scrolling="auto"
+							allowfullscreen
+							v-if="video.id || video.altId"
+						></iframe>
+						<div class="no-video" v-else>
+							<h2 :lang="lang == 'cn' ? 'zh-cn' : ''">
+								{{ video.title }}
+							</h2>
+							<p class="watermark">
+								<font-awesome-icon
+									icon="video-slash"
+								></font-awesome-icon>
+								No video
+							</p>
 						</div>
 					</div>
 				</div>
 			</div>
-		</transition>
+		</div>
 		<Gotop></Gotop>
 	</div>
 </template>
@@ -201,132 +275,158 @@ export default {
 	},
 	data() {
 		return {
+			altId: false,
 			selectedPage: 'cities',
+			zIndex: 1,
 			cityVideos: {
 				en: [
 					{
-						id: '0WGfTYf0',
-						title: 'Buwen Heatwaves 02 Chn Sub V2 Social'
+						id: '',
+						altId: '',
+						title: 'Quick guide to urban climate'
 					},
 					{
-						id: '0WGfTYf0',
-						title: 'Buwen Heatwaves 02 Chn Sub V2 Social'
+						id: '',
+						altId: '',
+						title: 'Futureproofing cities'
 					},
 					{
-						id: '0WGfTYf0',
-						title: 'Buwen Heatwaves 02 Chn Sub V2 Social'
+						id: '',
+						altId: '',
+						title: 'Mapping and modelling cities'
 					}
 				],
 				cn: [
 					{
-						id: '0WGfTYf0',
-						title: 'Buwen Heatwaves 02 Chn Sub V2 Social'
+						id: '',
+						altId: '',
+						title: 'Quick guide to urban climate'
 					},
 					{
-						id: '0WGfTYf0',
-						title: 'Buwen Heatwaves 02 Chn Sub V2 Social'
+						id: '',
+						altId: '',
+						title: 'Futureproofing cities'
 					},
 					{
-						id: '0WGfTYf0',
-						title: 'Buwen Heatwaves 02 Chn Sub V2 Social'
+						id: '',
+						altId: '',
+						title: 'Mapping and modelling cities'
 					}
 				]
 			},
 			collaborationVideos: {
 				en: [
 					{
-						id: '0WGfTYf0',
-						title: 'Buwen Heatwaves 02 Chn Sub V2 Social'
+						id: '',
+						altId: '',
+						title: 'The water accounting tool'
 					},
 					{
 						id: '0WGfTYf0',
-						title: 'Buwen Heatwaves 02 Chn Sub V2 Social'
-					},
-					{
-						id: '0WGfTYf0',
-						title: 'Buwen Heatwaves 02 Chn Sub V2 Social'
-					}
-				],
-				cn: [
-					{
-						id: '0WGfTYf0',
-						title: 'Buwen Heatwaves 02 Chn Sub V2 Social'
-					},
-					{
-						id: '0WGfTYf0',
-						title: 'Buwen Heatwaves 02 Chn Sub V2 Social'
-					},
-					{
-						id: '0WGfTYf0',
-						title: 'Buwen Heatwaves 02 Chn Sub V2 Social'
+						altId: 'Vv6fBT2P',
+						title:
+							'The evidence on past, present and future heatwaves in China'
 					}
 				]
 			},
 			toolVideos: {
 				en: [
 					{
-						id: '0WGfTYf0',
-						title: 'Buwen Heatwaves 02 Chn Sub V2 Social'
+						id: '',
+						altId: '',
+						title: 'City packs and urban heat service'
 					},
 					{
-						id: '0WGfTYf0',
-						title: 'Buwen Heatwaves 02 Chn Sub V2 Social'
+						id: '',
+						altId: '',
+						title: 'Visualising the surface urban heat island'
 					},
 					{
-						id: '0WGfTYf0',
-						title: 'Buwen Heatwaves 02 Chn Sub V2 Social'
+						id: '',
+						altId: '',
+						title: 'Climate risk assessments for infrastructure'
 					}
 				],
 				cn: [
 					{
-						id: '0WGfTYf0',
-						title: 'Buwen Heatwaves 02 Chn Sub V2 Social'
+						id: '',
+						altId: '',
+						title: 'City packs and urban heat service'
 					},
 					{
-						id: '0WGfTYf0',
-						title: 'Buwen Heatwaves 02 Chn Sub V2 Social'
+						id: '',
+						altId: '',
+						title: 'Visualising the surface urban heat island'
 					},
 					{
-						id: '0WGfTYf0',
-						title: 'Buwen Heatwaves 02 Chn Sub V2 Social'
+						id: '',
+						altId: '',
+						title: 'Climate risk assessments for infrastructure'
 					}
 				]
 			},
 			reVideos: {
 				en: [
 					{
-						id: '0WGfTYf0',
-						title: 'Buwen Heatwaves 02 Chn Sub V2 Social'
+						id: '',
+						altId: '',
+						title:
+							'Seasonal forecasts for the Yangtze and wind farms'
 					},
 					{
-						id: '0WGfTYf0',
-						title: 'Buwen Heatwaves 02 Chn Sub V2 Social'
+						id: '',
+						altId: '',
+						title: 'Met Office example for renewables'
 					},
 					{
-						id: '0WGfTYf0',
-						title: 'Buwen Heatwaves 02 Chn Sub V2 Social'
+						id: '',
+						altId: '',
+						title: 'RE-SAT'
 					}
 				],
 				cn: [
 					{
-						id: '0WGfTYf0',
-						title: 'Buwen Heatwaves 02 Chn Sub V2 Social'
+						id: '',
+						altId: '',
+						title:
+							'Seasonal forecasts for the Yangtze and wind farms'
 					},
 					{
-						id: '0WGfTYf0',
-						title: 'Buwen Heatwaves 02 Chn Sub V2 Social'
+						id: '',
+						altId: '',
+						title: 'Met Office example for renewables'
 					},
 					{
-						id: '0WGfTYf0',
-						title: 'Buwen Heatwaves 02 Chn Sub V2 Social'
+						id: '',
+						altId: '',
+						title: 'RE-SAT'
 					}
 				]
 			}
 		}
 	},
+	watch: {
+		altId() {
+			const iframes = document.getElementsByTagName('iframe')
+			for (let i = 0; i < iframes.length; i++) {
+				const src = this.setSrc(
+					iframes[i].attributes['data-id'],
+					iframes[i].attributes['data-alt-id']
+				)
+				if (src) {
+					iframes[i].src = src
+				}
+			}
+		}
+	},
 	methods: {
-		setSrc(id) {
-			return `https://cdn.jwplayer.com/players/${id}-NocosEfA.html`
+		setSrc(id, altId) {
+			// set the source video depending on whether normal or altId mode is selected
+			const video = this.altId && altId ? altId : id
+			return `https://cdn.jwplayer.com/players/${video}-NocosEfA.html`
+		},
+		selectPage(page) {
+			this.selectedPage = page
 		},
 		resized() {
 			// JWPlayer suggests 640 by 360 soooo...
@@ -340,8 +440,7 @@ export default {
 				const style = window.getComputedStyle(panel[0])
 				width =
 					parseInt(style.width) -
-					(parseInt(style.paddingLeft) +
-						parseInt(style.paddingRight))
+					(parseInt(style.paddingLeft) + parseInt(style.paddingRight))
 			}
 			// determine margin, border and padding for the .video divs
 			const video = document.getElementsByClassName('video')
@@ -428,12 +527,19 @@ export default {
 .selected-page-button {
 	padding: 8px 16px;
 	background: transparent;
+}
+.selected-page-button p {
+	background: transparent;
 	color: var(--whiteDisabled);
 }
-.selected-page-button.selected {
+.selected-page-button p:lang(zh-cn) {
+	font-style: italic;
+	opacity: 0.95;
+}
+.selected-page-button.selected p {
 	color: var(--whiteDefault);
 }
-.selected-page-button:not(disabled):not(.selected):hover {
+.selected-page-button:not(disabled):not(.selected):hover p {
 	color: var(--whiteHover);
 }
 .selected-page-button:not(disabled) {
@@ -471,7 +577,7 @@ p.text:lang(zh-cn) {
 	margin: 24px 0;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: flex-start;
 }
 
@@ -485,24 +591,31 @@ p.text:lang(zh-cn) {
 .video {
 	border: 1px solid var(--vpDark);
 	margin: 2px;
-	padding: 12px;
+	padding: 10px;
 }
 
-iframe {
+/* both need border to and .no-video needs addition margin-bottom to 'fix' 
+   problem with .video height for .no-video not matching that for iframe! */
+iframe,
+.no-video {
 	width: var(--iframeWidth);
 	height: var(--iframeHeight);
+	border: 2px solid transparent;
 }
 
-.fade-enter-active {
-	transition: all 0.5s ease-out;
+.no-video {
+	margin-bottom: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
 }
-.fade-leave-active {
-	transition: all 0.3s ease-out;
-}
-.fade-enter,
-.fade-leave-to {
-	height: 0;
-	opacity: 0;
+
+.no-video p.watermark {
+	font-size: 64px;
+	font-weight: bold;
+	letter-spacing: 8px;
+	opacity: 0.1;
 }
 
 @media (max-width: 1007px) {

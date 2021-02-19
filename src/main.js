@@ -14,7 +14,8 @@ import {
 	faExpandArrowsAlt,
 	faExternalLinkAlt,
 	faForward,
-	faTimes
+	faTimes,
+	faVideoSlash
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VShowSlide from 'v-show-slide'
@@ -32,7 +33,8 @@ library.add(
 	faExpandArrowsAlt,
 	faExternalLinkAlt,
 	faForward,
-	faTimes
+	faTimes,
+	faVideoSlash
 )
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
