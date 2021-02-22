@@ -13,8 +13,8 @@
 		</div>
 		<div class="button-panel" @click="$emit('goTo', 'Training')">
 			<div class="button-content">
-				<img class="button-item" src="../assets/images/training.jpg" />
-				<div class="button-item">
+				<div class="button-item image"><img src="../assets/images/training.jpg" /></div>
+				<div class="button-item desc">
 					<h3>Training materials</h3>
 					<p>TODO: Lots of lovely things to learn.</p>
 					<p lang="zh-cn">TODO: Mandarin here?</p>
@@ -23,8 +23,8 @@
 		</div>
 		<div class="button-panel" @click="$emit('goTo', 'Explainers')">
 			<div class="button-content">
-				<img class="button-item" src="../assets/images/resources.jpg" />
-				<div class="button-item">
+				<div class="button-item image"><img src="../assets/images/explainers.jpg" /></div>
+				<div class="button-item desc">
 					<h3>Explainers</h3>
 					<p>TODO: Explain the explainers.</p>
 					<p lang="zh-cn">TODO: Mandarin here?</p>
@@ -33,8 +33,8 @@
 		</div>
 		<div class="button-panel" @click="$emit('goTo', 'Briefing')">
 			<div class="button-content">
-				<img class="button-item" src="../assets/images/resources.jpg" />
-				<div class="button-item">
+				<div class="button-item image"><img src="../assets/images/briefing.jpg" /></div>
+				<div class="button-item desc">
 					<h3>Briefing notes</h3>
 					<p>TODO: Brief description.</p>
 					<p lang="zh-cn">TODO: Mandarin here?</p>
@@ -43,8 +43,8 @@
 		</div>
 		<div class="button-panel" @click="$emit('goTo', 'Videos')">
 			<div class="button-content">
-				<img class="button-item" src="../assets/images/resources.jpg" />
-				<div class="button-item">
+				<div class="button-item image"><img src="../assets/images/videos.jpg" /></div>
+				<div class="button-item desc">
 					<h3>Videos</h3>
 					<p>TODO: Look here!</p>
 					<p lang="zh-cn">TODO: Mandarin here?</p>
@@ -53,8 +53,8 @@
 		</div>
 		<div class="button-panel" @click="$emit('goTo', 'Handbook')">
 			<div class="button-content">
-				<img class="button-item" src="../assets/images/resources.jpg" />
-				<div class="button-item">
+				<div class="button-item image"><img src="../assets/images/handbook.jpg" /></div>
+				<div class="button-item desc">
 					<h3>Handbook</h3>
 					<p>TODO: Handy summary.</p>
 					<p lang="zh-cn">TODO: Mandarin here?</p>
@@ -111,13 +111,8 @@ export default {
 <style scoped>
 .banner-style {
 	background-image: url('../assets/images/resources.jpg');
-	background-blend-mode: soft-light;
-}
-@supports (-ms-ime-align: auto) {
-	/* EdgeHTML since background-blend-style doesn't work, use a white box 'shadow' to lighten */
-	.banner-style {
-		box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.8);
-	}
+	background-position: bottom;
+	box-shadow: inset 0 0 0 1000px rgba(217, 216, 214, 0.8);
 }
 
 .button-panel {
@@ -153,22 +148,31 @@ export default {
 	margin: 0 16px;
 	border: 2px solid transparent;
 }
-img.button-item {
+.button-item.image {
 	height: 250px;
+	background: rgba(65, 105, 91, 0.5); /*var(--vpGreen);*/
+}
+.button-item img {
+	height: 100%;
+	width: 100%;
 	object-fit: cover;
-	object-position: top left;
+	mix-blend-mode: luminosity;
+	filter: blur(0.5px) grayscale(100%) opacity(0.5);
 	border-color: var(--vpGreen);
 }
-div.button-item {
+.button-item.desc {
 	padding: 16px 32px;
 	background: var(--vpGreen);
 	color: var(--vpCoolGrey);
 }
-div.button-item * {
+.button-item.desc * {
 	background: transparent;
 	color: currentColor;
 }
-.button-panel:nth-of-type(odd) div.button-item {
+.button-panel:nth-of-type(odd) .button-item.image {
+	background: rgba(90, 121, 121, 0.5); /*var(--vpDark);*/
+}
+.button-panel:nth-of-type(odd) .button-item.desc {
 	background: var(--vpDark);
 }
 .button-panel:nth-of-type(even) div.button-content {
@@ -182,13 +186,33 @@ div.button-item * {
 	border-color: var(--vpOrange) !important;
 	box-shadow: 5px 5px 10px var(--vpDark);
 }
-.button-panel:hover div.button-item * {
+.button-panel:hover .button-item.desc * {
 	color: whitesmoke;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1007px) {
+	.about-page,
 	.button-panel {
 		padding: 32px;
+	}
+	.button-item {
+		margin: 8px;
+	}
+	.button-item.desc {
+		padding: 8px 16px;
+	}
+}
+
+@media (max-width: 768px) {
+	.about-page,
+	.button-panel {
+		padding: 16px;
+	}
+	.button-item {
+		margin: 4px;
+	}
+	.button-item.desc {
+		padding: 4px 8px;
 	}
 }
 </style>

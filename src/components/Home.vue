@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<Banner
+		<Banner class="banner-style"
 			enTitle="A showcase for the Climate Science for Service Partnership with China"
 		></Banner>
 		<div class="about-page">
@@ -31,8 +31,8 @@
 		</div>
 		<div class="button-panel" @click="$emit('goTo', 'About')">
 			<div class="button-content">
-				<img class="button-item" src="../assets/images/about.png" />
-				<div class="button-item">
+				<div class="button-item image"><img src="../assets/images/about.jpg" /></div>
+				<div class="button-item desc">
 					<h3>About VIEWpoint</h3>
 					<p>
 						TODO: Short summary here?.
@@ -43,8 +43,8 @@
 		</div>
 		<div class="button-panel" @click="$emit('goTo', 'Catalogue')">
 			<div class="button-content">
-				<img class="button-item" src="../assets/images/catalogue.jpg" />
-				<div class="button-item">
+				<div class="button-item image"><img src="../assets/images/catalogue.jpg" /></div>
+				<div class="button-item desc">
 					<h3>Catalogue of CSSP China Papers</h3>
 					<p>
 						All 300+ journal papers published through CSSP China
@@ -57,8 +57,8 @@
 		</div>
 		<div class="button-panel" @click="$emit('goTo', 'Demonstrators')">
 			<div class="button-content">
-				<img class="button-item" src="../assets/images/demonstrators.jpg" />
-				<div class="button-item">
+				<div class="button-item image"><img src="../assets/images/demonstrators.jpg" /></div>
+				<div class="button-item desc">
 					<h3>Demonstrators</h3>
 					<p>
 						TODO: Online demonstrators of CSSP China projects, including
@@ -70,8 +70,8 @@
 		</div>
 		<div class="button-panel" @click="$emit('goTo', 'Training')">
 			<div class="button-content">
-				<img class="button-item" src="../assets/images/training.jpg" />
-				<div class="button-item">
+				<div class="button-item image"><img src="../assets/images/training.jpg" /></div>
+				<div class="button-item desc">
 					<h3>Training materials</h3>
 					<p>TODO: Lots of lovely things to learn.</p>
 					<p lang="zh-cn">TODO: Mandarin here?</p>
@@ -122,6 +122,11 @@ export default {
 </script>
 
 <style scoped>
+.banner-style {
+	background-position: top;
+	box-shadow: inset 0 0 0 1000px rgba(217, 216, 214, 0.5);
+}
+
 .about-page {
 	padding: 64px;
 }
@@ -159,20 +164,30 @@ export default {
 	margin: 0 16px;
 	border: 2px solid transparent;
 }
-img.button-item {
+.button-item.image {
 	height: 250px;
-	object-fit: cover;
+	background: rgba(65, 105, 91, 0.5); /*var(--vpGreen);*/
 }
-div.button-item {
+.button-item img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	mix-blend-mode: luminosity;
+	filter: blur(0.5px) grayscale(100%) opacity(0.5);
+}
+.button-item.desc {
 	padding: 16px 32px;
 	background: var(--vpGreen);
 	color: var(--vpCoolGrey);
 }
-div.button-item * {
+.button-item.desc * {
 	background: transparent;
 	color: currentColor;
 }
-.button-panel:nth-of-type(odd) div.button-item {
+.button-panel:nth-of-type(odd) .button-item.image {
+	background: rgba(90, 121, 121, 0.5); /*var(--vpDark);*/
+}
+.button-panel:nth-of-type(odd) .button-item.desc {
 	background: var(--vpDark);
 }
 .button-panel:nth-of-type(even) div.button-content {
@@ -186,13 +201,33 @@ div.button-item * {
 	border-color: var(--vpOrange);
 	box-shadow: 5px 5px 10px var(--vpDark);
 }
-.button-panel:hover div.button-item * {
+.button-panel:hover .button-item.desc * {
 	color: whitesmoke;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1007px) {
+	.about-page,
 	.button-panel {
 		padding: 32px;
+	}
+	.button-item {
+		margin: 8px;
+	}
+	.button-item.desc {
+		padding: 8px 16px;
+	}
+}
+
+@media (max-width: 768px) {
+	.about-page,
+	.button-panel {
+		padding: 16px;
+	}
+	.button-item {
+		margin: 4px;
+	}
+	.button-item.desc {
+		padding: 4px 8px;
 	}
 }
 </style>

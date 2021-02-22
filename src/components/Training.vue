@@ -357,9 +357,11 @@ export default {
 
 .banner {
 	width: 100vw;
-	background-image: url('../assets/images/banner.png');
+	background-image: url('../assets/images/training.jpg');
 	background-position: center;
 	background-size: cover;
+	background-blend-mode: luminosity;
+	box-shadow: inset 0 0 0 1000px rgba(217, 216, 214, 0.8);
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;

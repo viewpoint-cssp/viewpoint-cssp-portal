@@ -24,10 +24,11 @@ export default {
 
 <style scoped>
 .banner {
-	background-image: url('../assets/images/banner.png');
+	background-image: url('../assets/images/banner.jpg');
 	background-position: center;
 	background-size: cover;
 	background-attachment: fixed;
+	background-blend-mode: luminosity;
 	height: 280px;
 	padding: 12px 64px;
 }
@@ -54,6 +55,12 @@ export default {
 	/* EdgeHTML is jerky if 'fixed' so set it to scroll up with the rest of the page */
 	.banner {
 		background-attachment: scroll;
+	}
+}
+
+@media (max-width: 640px) {
+	.banner {
+		height: 180px;
 	}
 }
 

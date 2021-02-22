@@ -12,20 +12,20 @@
 		</div>
 		<div class="button-panel" @click="goTo('suhi')">
 			<div class="button-content">
-				<div class="button-item">
+				<div class="button-item desc">
 					<h3>Surface Urban Heat Island</h3>
 					<p>
 						Intro...
 					</p>
 					<p lang="zh-cn">TODO: Mandarin here?</p>
 				</div>
-				<img class="button-item" src="../assets/images/suhi.png" />
+				<div class="button-item image"><img src="../assets/images/suhi.png" /></div>
 			</div>
 		</div>
 		<div class="button-panel" @click="goTo('wrm')">
 			<div class="button-content">
-				<img class="button-item" src="../assets/images/wrm.png" />
-				<div class="button-item">
+				<div class="button-item image"><img src="../assets/images/wrm.png" /></div>
+				<div class="button-item desc">
 					<h3>Water Resources Management</h3>
 					<p>
 						A prototype dashboard to investigate the impact of
@@ -93,13 +93,8 @@ export default {
 <style scoped>
 .banner-style {
 	background-image: url('../assets/images/demonstrators.jpg');
-	background-blend-mode: soft-light;
-}
-@supports (-ms-ime-align: auto) {
-	/* EdgeHTML since background-blend-style doesn't work, use a white box 'shadow' to lighten */
-	.banner-style {
-		box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.8);
-	}
+	background-position: bottom;
+	box-shadow: inset 0 0 0 1000px rgba(217, 216, 214, 0.7);
 }
 
 .button-panel {
@@ -135,26 +130,31 @@ export default {
 	margin: 0 16px;
 	border: 2px solid transparent;
 }
-img.button-item {
+.button-item.image {
 	height: 250px;
-	object-fit: cover;
-	object-position: top left;
+	background: var(--vpCoolGrey);
 	border-color: var(--vpGreen);
 }
-div.button-item {
+.button-item img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	opacity: 0.6;
+}
+.button-item.desc {
 	padding: 16px 32px;
 	background: var(--vpGreen);
 	color: var(--vpCoolGrey);
 }
-div.button-item * {
+.button-item.desc * {
 	background: transparent;
 	color: currentColor;
 }
 
-.button-panel:nth-of-type(odd) div.button-item {
+.button-panel:nth-of-type(odd) .button-item.desc {
 	background: var(--vpDark);
 }
-.button-panel:nth-of-type(odd) img.button-item {
+.button-panel:nth-of-type(odd) .button-item.image {
 	border-color: var(--vpDark);
 }
 .button-panel:hover {
@@ -165,13 +165,33 @@ div.button-item * {
 	border-color: var(--vpOrange) !important;
 	box-shadow: 5px 5px 10px var(--vpDark);
 }
-.button-panel:hover div.button-item * {
+.button-panel:hover .button-item.desc * {
 	color: whitesmoke;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1007px) {
+	.about-page,
 	.button-panel {
 		padding: 32px;
+	}
+	.button-item {
+		margin: 8px;
+	}
+	.button-item.desc {
+		padding: 8px 16px;
+	}
+}
+
+@media (max-width: 768px) {
+	.about-page,
+	.button-panel {
+		padding: 16px;
+	}
+	.button-item {
+		margin: 4px;
+	}
+	.button-item.desc {
+		padding: 4px 8px;
 	}
 }
 </style>

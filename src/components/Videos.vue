@@ -508,14 +508,9 @@ export default {
 
 <style scoped>
 .banner-style {
-	background-image: url('../assets/images/resources.jpg');
-	background-blend-mode: soft-light;
-}
-@supports (-ms-ime-align: auto) {
-	/* EdgeHTML since background-blend-style doesn't work, use a white box 'shadow' to lighten */
-	.banner-style {
-		box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.8);
-	}
+	background-image: url('../assets/images/videos.jpg');
+	background-position: bottom;
+	box-shadow: inset 0 0 0 1000px rgba(217, 216, 214, 0.5);
 }
 
 .selected-page {
