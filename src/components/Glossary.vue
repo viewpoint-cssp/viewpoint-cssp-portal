@@ -281,7 +281,8 @@ div.glossary-comments a:hover svg path {
 }
 
 table {
-	margin: 12px 64px;
+	max-width: min(calc(100% - 24px), 1230px);
+	margin: 12px auto;
 }
 
 tr:nth-of-type(even) {

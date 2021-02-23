@@ -59,11 +59,6 @@ export default {
 			]
 		}
 	},
-	methods: {
-		clicked() {
-
-		}
-	},
 	mounted() {
 		this.$el.parentElement.scrollIntoView(true)
 	}
@@ -87,8 +82,8 @@ export default {
 
 .slider-wrapper,
 .slider {
-	height: 409px !important;
 	width: 728px !important;
+	height: 409px !important;
 }
 
 .slider-wrapper {
@@ -131,4 +126,19 @@ export default {
 	border-color: var(--vpOrange) !important;
 }
 
+@media (max-width: 784px) {
+	.slider-wrapper {
+		display: none;
+	}
+	.about-page {
+		display: flex;
+		flex-direction: column;
+	}
+	.about-page a {
+		align-self: center;
+	}
+	.about-page a button {
+		padding: 32px;
+	}
+}
 </style>

@@ -176,6 +176,12 @@ export default {
 	.button-item {
 		margin: 8px;
 	}
+	.button-item.image {
+		height: auto;
+	}
+	.button-item img {
+		object-fit: contain;
+	}
 	.button-item.desc {
 		padding: 8px 16px;
 	}

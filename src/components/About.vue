@@ -209,4 +209,16 @@ a:hover,
 a:hover svg path {
 	color: var(--vpOrange);
 }
+
+@media (max-width: 1007px) {
+	.about-content {
+		width: 88%;
+	}
+}
+
+@media (max-width: 648px) {
+	.about-content {
+		width: 92%;
+	}
+}
 </style>

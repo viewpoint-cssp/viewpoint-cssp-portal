@@ -232,7 +232,12 @@ export default {
 
 .button-panel {
 	width: 100%;
-	padding: 12px 64px 12px 32px;
+	max-width: 1358px;
+	margin: 0 auto;
+	border: 0 solid var(--primaryLightest);
+	border-left-width: 1px;
+	border-right-width: 1px;
+	padding: 12px 32px;
 	transition: background 0.2s ease-in-out;
 	display: flex;
 	flex-direction: row;
@@ -321,12 +326,27 @@ export default {
 
 @media (max-width: 1007px) {
 	.button-panel {
-		padding: 8px 32px 8px 16px;
+		padding: 12px 16px;
 	}
 }
-@media (max-width: 640x) {
+
+@media (max-width: 820px) {
+	.button-panel img {
+		height: auto;
+		align-self: stretch;
+		margin: 0 16px;
+	}
+}
+
+@media (max-width: 640px) {
 	.button-panel {
-		padding: 4px 16px 4px 8px;
+		padding: 8px;
+	}
+	.button-panel h2 {
+		width: 32px;
+	}
+	.button-panel img {
+		margin: 0 8px;
 	}
 }
 </style>

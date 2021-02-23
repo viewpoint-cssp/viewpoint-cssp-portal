@@ -1,13 +1,15 @@
 <template>
 	<div class="banner">
-		<div>
+		<div class="content">
 			<img
 				id="logo"
 				alt="VIEWpoint logo"
 				src="../assets/images/logo.png"
 			/>
-			<h1 v-if="enTitle">{{ enTitle }}</h1>
-			<h1 v-if="cnTitle">{{ cnTitle }}</h1>
+			<div class="h1-wrapper">
+				<h1 v-if="enTitle">{{ enTitle }}</h1>
+				<h1 lang="zh-cn" v-if="cnTitle">{{ cnTitle }}</h1>
+			</div>
 		</div>
 	</div>
 </template>
@@ -35,20 +37,34 @@ export default {
 
 .banner div {
 	max-width: 1358px;
-	margin: 0 auto;
 	background: transparent;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
+
+.banner div.content {
+	margin: 0 auto;
+}
+
 .banner #logo {
 	background: transparent;
 	width: 50%;
 	align-self: flex-end;
 }
-.banner h1 {
+
+.banner div.h1-wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+.h1-wrapper h1 {
 	width: 50%;
 	color: var(--vpOrange);
+}
+.h1-wrapper h1:lang(zh-cn) {
+	text-align: right;
 }
 
 @supports (-ms-ime-align: auto) {
@@ -58,9 +74,23 @@ export default {
 	}
 }
 
-@media (max-width: 640px) {
+@media (max-width: 1007px) {
+	.banner {
+		height: 200px;
+		padding: 8px 32px;
+	}
+}
+
+@media (max-width: 792px) {
 	.banner {
 		height: 180px;
+		padding: 8px 32px;
+	}
+}
+
+@media (max-width: 640px) {
+	.banner {
+		height: 150px;
 	}
 }
 
@@ -77,7 +107,7 @@ export default {
 		height: 80px;
 		width: auto;
 	}
-	.banner h1 {
+	.banner div.h1-wrapper h1 {
 		font-size: 2rem;
 		margin: 0;
 	}
