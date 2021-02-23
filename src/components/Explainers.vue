@@ -80,29 +80,29 @@ export default {
 			pdfs: [
 				{
 					enTitle:
-						'Investigating heatwaves in China under climate change – unchartered waters',
-					enPdf: 'Investigating heatwaves in China under climate',
+						'Investigating heatwaves in China under climate change',
+					enPdf: 'E01-en-investigating-heatwaves',
 					enDraft: true
 				},
 				{
 					enTitle:
 						'Increasing flash floods in a drying climate: dual challenges facing Southwest China',
 					enPdf:
-						'Increasing flash floods in a drying climate dual challenges facing Southwest China No2',
+						'E02-en-increasing-flash-floods',
 					enDraft: true,
 					imgPosition: 'bottom'
 				},
 				{
 					enTitle:
-						'Investigating TPV tracking: comparison between modern and conventional methods',
+						'Tibetan Plateau Vortices: a comparison of tracking methods',
 					enPdf:
-						'DRAFT Investigating TPV Tracking Comparison Between Modern and Conventional Methods Exp No3',
+						'E03-en-tibetan-plateau-vortices',
 					enDraft: true,
 					imgPosition: 'bottom'
 				},
 				{
-					enTitle: 'What will shape future Beijing haze events?',
-					enPdf: 'Explainer_Beijing_haze_No 4',
+					enTitle: 'What will shape future Beijing haze events and air quality?',
+					enPdf: 'E04-en-beijing-haze',
 					enDraft: true,
 					cnTitle: '什么会影响北京未来的雾霾事件？',
 					cnPdf:
@@ -111,8 +111,8 @@ export default {
 					imgPosition: 'bottom'
 				},
 				{
-					enTitle: 'Efficient assessments of Chinese Fengyun-3 satellites instruments to improve weather forecast',
-					enPdf: 'Explainer No 5 Chinese_satellite_instrument',
+					enTitle: 'Efficient assessments of Chinese Fengyun-3 satellite instruments to improve weather forecasts',
+					enPdf: 'E05-en-satellite-instrument',
 					enDraft: true,
 					cnTitle:
 						'高效评估中国风云三号卫星仪器，借以 提高天气预报质量',
@@ -128,53 +128,59 @@ export default {
 				},
 				{
 					enTitle: `High-resolution revolution brings insight into China's climate`,
-					enPdf: `High-Resolution Revolution Brings Insight into China's Climate No 7`,
+					enPdf: `E07-en-high-resolution`,
 					enDraft: true
 				},
 				{
-					png: true,
 					enTitle:
-						'Safer operation for urban rail transport with an integrated wind risk warning system',
+						'Safer operation for urban rail transport: wind risk warning system',
 					enPdf:
-						'8 Safer operation for urban rail transport with integrated wind ri',
+						'E08-en-urban-rail-transport',
 					enDraft: true
 				},
 				{
 					enTitle:
-						'A promising outlook for skilful seasonal forecast for energy sectors in China',
+						'A promising outlook: skilful seasonal forecasts for energy sectors in China',
 					enPdf:
-						'Explainer_promising outlook for skilful seasonal forecast for energy sectors_No 9',
+						'E09-en-seasonal-forecast',
 					enDraft: true
 				},
 				{
 					enTitle:
-						'Correcting urban bias in large-scale temperature records in China'
+						'Correcting urban bias in large-scale temperature records in China',
+					enPdf: 'E10-en-correcting-urban-bias',
+					enDraft: true
 				},
 				{
 					enTitle:
-						'Flood footprint assessment: a new approach for flood-induced indirect economic impact measurement and post-flood recovery',
+						'Flood footprint assessment: a new approach for impacts and recovery',
 					enPdf: 
-						'11 Flood footprint assessment a new approach for flood-induced indirect economic impact',
+						'E11-en-flood-footprint-assessment',
 					enDraft: true,
 					imgPosition: 'top'
 				},
 				{
-					png: true,
-					enTitle: 'The China Framework for Climate Services (CFCS)',
-					enPdf: 'China Framework for Climate services No12 HG',
+					enTitle: 'Working together: the China Framework for Climate Services (CFCS)',
+					enPdf: 'E12-en-working-together',
 					enDraft: true
 				},
 				{
-					enTitle: 'Wake characteristics of tall buildings in a realistic urban canopy',
-					enPdf: 'Wake characteristics of tall buildings No13 (HG)',
+					enTitle: 'Examining airflow around tall buildings using a 3D model',
+					enPdf: 'E13-en-examining-airflow',
 					enDraft: true
 				},
 				{
 					enTitle:
-						'Robust increase in extreme summer rainfall intensity during the past four decades observed in China',
-					enPdf: 'VIEWpoint Explainer extreme_rainfall No14',
+						'Increasing summer rainfall intensity during the past four decades observed in China',
+					enPdf: 'E14-en-increasing-summer-rainfall',
 					enDraft: true,
 					imgPosition: 'top'
+				},
+				{
+					enTitle:
+						'Daily satellite monitoring of crop drought conditions: developing a service',
+					enPdf: 'E15-en-daily-satellite-monitoring',
+					enDraft: true
 				}
 			]
 		}
@@ -299,7 +305,7 @@ export default {
 .button-panel img {
 	width: calc((100% - 56px) * 0.2); /* 20%; */
 	min-width: calc((100% - 56px) * 0.2); /* 20%; */
-	max-height: 130px;
+	height: 130px;
 	margin: 0 32px;
 	object-fit: cover;
 	object-position: center;
