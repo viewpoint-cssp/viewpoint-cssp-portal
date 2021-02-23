@@ -41,24 +41,23 @@
 					<td class="desc mandarin" lang="zh-cn">
 						{{ definition.cnDesc }}
 					</td>
-					<td
-						class="glossary-comments"
-						lang="zh-cn"
-					>
-						<div 
+					<td class="glossary-comments" lang="zh-cn">
+						<div
+							class="glossary-comments suppressed"
+							v-if="definition.comments && suppressComments"
+						>
+							See original spreadsheet
+						</div>
+						<div
 							class="glossary-comments"
 							lang="zh-cn"
-							v-if="
+							v-else-if="
 								definition.comments &&
 									definition.comments.indexOf('href=') > 0
 							"
 							v-html="definition.comments"
 						></div>
-						<div
-							class="glossary-comments"
-							lang="zh-cn"
-							v-else
-						>
+						<div class="glossary-comments" lang="zh-cn" v-else>
 							{{ definition.comments }}
 						</div>
 					</td>
@@ -84,13 +83,25 @@
 						{{ definition.enText }}
 					</td>
 					<td class="narrow">
-						<div v-if="definition.enDesc">{{ definition.enDesc }}</div>
-						<div v-if="definition.cnText" lang="zh-cn">{{ definition.cnText }}</div>
-						<div v-if="definition.cnDesc" lang="zh-cn">{{ definition.cnDesc }}</div>
-						<div 
+						<div v-if="definition.enDesc">
+							{{ definition.enDesc }}
+						</div>
+						<div v-if="definition.cnText" lang="zh-cn">
+							{{ definition.cnText }}
+						</div>
+						<div v-if="definition.cnDesc" lang="zh-cn">
+							{{ definition.cnDesc }}
+						</div>
+						<div
+							class="glossary-comments suppressed"
+							v-if="definition.comments && suppressComments"
+						>
+							See original spreadsheet
+						</div>
+						<div
 							class="glossary-comments"
 							lang="zh-cn"
-							v-if="
+							v-else-if="
 								definition.comments &&
 									definition.comments.indexOf('href=') > 0
 							"
@@ -134,12 +145,13 @@ export default {
 		return {
 			header: {},
 			glossary: [],
-			narrowPage: false
+			narrowPage: false,
+			suppressComments: true
 		}
 	},
 	methods: {
 		resized() {
-			// recalculate --glossaryCommentsWidth based on window innerWidth 
+			// recalculate --glossaryCommentsWidth based on window innerWidth
 			// less table buffers and borders since table may not return
 			// correct width when this is done (even after $nextTick)
 			let buffer = 64
@@ -158,7 +170,6 @@ export default {
 			} else {
 				this.narrowPage = false
 			}
-
 		}
 	},
 	mounted() {
@@ -187,7 +198,7 @@ export default {
 					return 0
 				})
 				if (this.glossary[0].enText != firstText) {
-					// The above sort logic works to keep the title row 
+					// The above sort logic works to keep the title row
 					// at the top for FF but not Chrome or Edge
 					let i = 0
 					for (i = 1; i < this.glossary.length; i++) {
@@ -214,8 +225,11 @@ export default {
 						for (let i = 0; i < parts.length; i++) {
 							if (parts[i].indexOf('http') == 0) {
 								const url = parts[i]
-								const aAttrib = 'target="_blank" rel="noopener noreferrer"'
-								parts[i] = `<a href="${url}" ${aAttrib}>${iconSvg} ${url}</a>`
+								const aAttrib =
+									'target="_blank" rel="noopener noreferrer"'
+								parts[
+									i
+								] = `<a href="${url}" ${aAttrib}>${iconSvg} ${url}</a>`
 							}
 						}
 						a.comments = parts.join(' ')
@@ -295,6 +309,12 @@ div.glossary-comments {
 	background: transparent;
 }
 
+div.glossary-comments.suppressed {
+	font-size: 0.9rem;
+	font-style: italic;
+	opacity: 0.5;
+}
+
 td {
 	padding: 8px 16px;
 	vertical-align: top;
@@ -327,7 +347,7 @@ th.narrow div {
 	table {
 		margin: 8px 24px;
 	}
-	th, 
+	th,
 	td {
 		padding: 4px 8px;
 	}
@@ -337,23 +357,36 @@ th.narrow div {
 	table {
 		margin: 4px 8px;
 	}
-	th, 
+	th,
 	td {
 		padding: 2px 4px;
 	}
 }
 
 @media print {
-	.about-page {
+	.about-page,
+	.gotop-button {
 		display: none !important;
 	}
 	table {
 		margin: 8px 12px;
 	}
+	thead,
+	tr {
+		border: 2px solid var(--vpDark);
+	}
 	th,
 	td {
 		padding: 4px 8px;
 		font-size: 0.8rem;
+		border-right: 1px solid var(--vpDarkImage) !important;
+	}
+	td:last-of-type {
+		border-right: none;
+	}
+	div.glossary-comments {
+		width: 150px;
+		font-size: 0.7rem;
 	}
 }
 </style>
