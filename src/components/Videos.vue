@@ -627,7 +627,9 @@ iframe,
 }
 
 @media (max-width: 1007px) {
-	.selected-page,
+	.selected-page  {
+		padding: 0 32px;
+	}
 	.video-panel,
 	div.text {
 		padding: 16px 32px;
@@ -640,7 +642,9 @@ iframe,
 	}
 }
 @media (max-width: 640px) {
-	.selected-page,
+	.selected-page  {
+		padding: 0 16px;
+	}
 	.video-panel,
 	div.text {
 		padding: 8px 16px;
@@ -650,6 +654,9 @@ iframe,
 	}
 }
 @media (max-width: 520px) {
+	.selected-page  {
+		padding: 0 8px;
+	}
 	.video-panel,
 	div.text {
 		padding: 8px;
