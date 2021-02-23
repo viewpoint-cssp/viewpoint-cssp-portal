@@ -13,7 +13,8 @@
 					class="title english clickable"
 					:href="require(`../assets/pdfs/${doc.enPdf}.pdf`)"
 					:download="`${doc.enPdf}.pdf`"
-					target="_blank" rel="noopener noreferrer"
+					target="_blank"
+					rel="noopener noreferrer"
 					v-if="doc.enPdf"
 				>
 					<p class="draft" v-if="doc.enDraft">Draft</p>
@@ -39,7 +40,8 @@
 					class="title mandarin clickable"
 					:href="require(`../assets/pdfs/${doc.cnPdf}.pdf`)"
 					:download="`${doc.cnPdf}.pdf`"
-					target="_blank" rel="noopener noreferrer"
+					target="_blank"
+					rel="noopener noreferrer"
 					v-if="doc.cnPdf"
 				>
 					<p class="draft" v-if="doc.cnDraft">Draft</p>
@@ -87,21 +89,20 @@ export default {
 				{
 					enTitle:
 						'Increasing flash floods in a drying climate: dual challenges facing Southwest China',
-					enPdf:
-						'E02-en-increasing-flash-floods',
+					enPdf: 'E02-en-increasing-flash-floods',
 					enDraft: true,
 					imgPosition: 'bottom'
 				},
 				{
 					enTitle:
 						'Tibetan Plateau Vortices: a comparison of tracking methods',
-					enPdf:
-						'E03-en-tibetan-plateau-vortices',
+					enPdf: 'E03-en-tibetan-plateau-vortices',
 					enDraft: true,
 					imgPosition: 'bottom'
 				},
 				{
-					enTitle: 'What will shape future Beijing haze events and air quality?',
+					enTitle:
+						'What will shape future Beijing haze events and air quality?',
 					enPdf: 'E04-en-beijing-haze',
 					enDraft: true,
 					cnTitle: '什么会影响北京未来的雾霾事件？',
@@ -111,7 +112,8 @@ export default {
 					imgPosition: 'bottom'
 				},
 				{
-					enTitle: 'Efficient assessments of Chinese Fengyun-3 satellite instruments to improve weather forecasts',
+					enTitle:
+						'Efficient assessments of Chinese Fengyun-3 satellite instruments to improve weather forecasts',
 					enPdf: 'E05-en-satellite-instrument',
 					enDraft: true,
 					cnTitle:
@@ -134,15 +136,13 @@ export default {
 				{
 					enTitle:
 						'Safer operation for urban rail transport: wind risk warning system',
-					enPdf:
-						'E08-en-urban-rail-transport',
+					enPdf: 'E08-en-urban-rail-transport',
 					enDraft: true
 				},
 				{
 					enTitle:
 						'A promising outlook: skilful seasonal forecasts for energy sectors in China',
-					enPdf:
-						'E09-en-seasonal-forecast',
+					enPdf: 'E09-en-seasonal-forecast',
 					enDraft: true
 				},
 				{
@@ -154,18 +154,19 @@ export default {
 				{
 					enTitle:
 						'Flood footprint assessment: a new approach for impacts and recovery',
-					enPdf: 
-						'E11-en-flood-footprint-assessment',
+					enPdf: 'E11-en-flood-footprint-assessment',
 					enDraft: true,
 					imgPosition: 'top'
 				},
 				{
-					enTitle: 'Working together: the China Framework for Climate Services (CFCS)',
+					enTitle:
+						'Working together: the China Framework for Climate Services (CFCS)',
 					enPdf: 'E12-en-working-together',
 					enDraft: true
 				},
 				{
-					enTitle: 'Examining airflow around tall buildings using a 3D model',
+					enTitle:
+						'Examining airflow around tall buildings using a 3D model',
 					enPdf: 'E13-en-examining-airflow',
 					enDraft: true
 				},
@@ -202,7 +203,7 @@ export default {
 	mounted() {
 		this.$el.parentElement.scrollIntoView(true)
 		if (navigator.userAgent.indexOf('Firefox/') < 0) {
-			// this is only here because Chrome and Edge don't correctly refresh 
+			// this is only here because Chrome and Edge don't correctly refresh
 			// :hover state as elements are moved under the cursor while scrolling
 			document.addEventListener('scroll', this.scrollCursor)
 			document.addEventListener('mousemove', this.pointerCursor)
