@@ -19,12 +19,12 @@
 					</p>
 					<p lang="zh-cn">TODO: Mandarin here?</p>
 				</div>
-				<div class="button-item image"><img src="../assets/images/suhi.png" /></div>
+				<div class="button-item image"><img src="../assets/images/suhi-laptop.png" /></div>
 			</div>
 		</div>
 		<div class="button-panel" @click="goTo('wrm')">
 			<div class="button-content">
-				<div class="button-item image"><img src="../assets/images/wrm.png" /></div>
+				<div class="button-item image"><img src="../assets/images/wrm-laptop.png" /></div>
 				<div class="button-item desc">
 					<h3>Water Resources Management</h3>
 					<p>
@@ -170,7 +170,6 @@ export default {
 }
 
 @media (max-width: 1007px) {
-	.about-page,
 	.button-panel {
 		padding: 32px;
 	}
@@ -183,7 +182,6 @@ export default {
 }
 
 @media (max-width: 768px) {
-	.about-page,
 	.button-panel {
 		padding: 16px;
 	}
