@@ -170,7 +170,7 @@ export default {
 	color: currentColor;
 }
 .button-panel:nth-of-type(odd) .button-item.image {
-	background: rgba(90, 121, 121, 0.5); /*var(--vpDark);*/
+	background: var(--vpDarkImage);
 }
 .button-panel:nth-of-type(odd) .button-item.desc {
 	background: var(--vpDark);
