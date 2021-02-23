@@ -13,6 +13,7 @@
 			</p>
 			<p lang="zh-cn">TODO: Mandarin here?</p>
 		</div>
+		<div class="selected-page-wrapper">
 		<div class="selected-page">
 			<div
 				class="selected-page-button"
@@ -46,6 +47,7 @@
 				<p>Renewable energy tools</p>
 				<p lang="zh-cn">TODO: Mandarin</p>
 			</div>
+		</div>
 		</div>
 		<div
 			id="cities"
@@ -513,15 +515,26 @@ export default {
 	box-shadow: inset 0 0 0 1000px rgba(217, 216, 214, 0.5);
 }
 
-.selected-page {
+.selected-page-wrapper {
+	width: 100%;
+	background: var(--vpDark);
 	border: 2px solid var(--vpCoolGrey);
+}
+.selected-page {
+	max-width: 1358px;
+	margin: 0 auto;
+	padding: 0 64px; 
 	display: flex;
 	flex-direction: row;
-	background: var(--vpDark);
+	background: transparent;
 }
 .selected-page-button {
-	padding: 8px 16px;
+	margin-right: 32px;
+	padding: 8px 0;
 	background: transparent;
+}
+.selected-page-button:last-of-type {
+	margin-right: 0;
 }
 .selected-page-button p {
 	background: transparent;
@@ -614,6 +627,7 @@ iframe,
 }
 
 @media (max-width: 1007px) {
+	.selected-page,
 	.video-panel,
 	div.text {
 		padding: 16px 32px;
@@ -626,9 +640,13 @@ iframe,
 	}
 }
 @media (max-width: 640px) {
+	.selected-page,
 	.video-panel,
 	div.text {
 		padding: 8px 16px;
+	}
+	.no-video p.watermark {
+		letter-spacing: normal;
 	}
 }
 @media (max-width: 520px) {
