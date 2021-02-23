@@ -191,7 +191,6 @@ export default {
 }
 
 @media (max-width: 1007px) {
-	.about-page,
 	.button-panel {
 		padding: 32px;
 	}
@@ -204,7 +203,6 @@ export default {
 }
 
 @media (max-width: 768px) {
-	.about-page,
 	.button-panel {
 		padding: 16px;
 	}
