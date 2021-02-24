@@ -69,7 +69,8 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	background-color: var(--primaryLightest);
-	overflow: auto;
+	overflow-y: auto;
+	overflow-x: hidden;
 	scroll-behavior: smooth;
 }
 
