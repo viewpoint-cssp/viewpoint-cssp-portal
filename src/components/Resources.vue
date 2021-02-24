@@ -1,8 +1,6 @@
 <template>
 	<div>
-		<Banner class="banner-style"
-			enTitle="Resources"
-		></Banner>
+		<Banner class="banner-style" enTitle="Resources"></Banner>
 		<div class="about-page">
 			<h2>About the resources</h2>
 			<hr />
@@ -11,53 +9,22 @@
 			</p>
 			<p lang="zh-cn">TODO: Mandarin here?</p>
 		</div>
-		<div class="button-panel" @click="$emit('goTo', 'Training')">
+		<div
+			v-for="page in pages"
+			:key="page.pageName"
+			class="button-panel"
+			@click="$emit('goTo', page.pageName)"
+		>
 			<div class="button-content">
-				<div class="button-item image"><img src="../assets/images/training.jpg" /></div>
-				<div class="button-item desc">
-					<h3>Training materials</h3>
-					<p>TODO: Lots of lovely things to learn.</p>
-					<p lang="zh-cn">TODO: Mandarin here?</p>
+				<div class="button-item image">
+					<img
+						:src="require(`../assets/images/${page.imageName}.jpg`)"
+					/>
 				</div>
-			</div>
-		</div>
-		<div class="button-panel" @click="$emit('goTo', 'Explainers')">
-			<div class="button-content">
-				<div class="button-item image"><img src="../assets/images/explainers.jpg" /></div>
 				<div class="button-item desc">
-					<h3>Explainers</h3>
-					<p>TODO: Explain the explainers.</p>
-					<p lang="zh-cn">TODO: Mandarin here?</p>
-				</div>
-			</div>
-		</div>
-		<div class="button-panel" @click="$emit('goTo', 'Briefing')">
-			<div class="button-content">
-				<div class="button-item image"><img src="../assets/images/briefing.jpg" /></div>
-				<div class="button-item desc">
-					<h3>Briefing notes</h3>
-					<p>TODO: Brief description.</p>
-					<p lang="zh-cn">TODO: Mandarin here?</p>
-				</div>
-			</div>
-		</div>
-		<div class="button-panel" @click="$emit('goTo', 'Videos')">
-			<div class="button-content">
-				<div class="button-item image"><img src="../assets/images/videos.jpg" /></div>
-				<div class="button-item desc">
-					<h3>Videos</h3>
-					<p>TODO: Look here!</p>
-					<p lang="zh-cn">TODO: Mandarin here?</p>
-				</div>
-			</div>
-		</div>
-		<div class="button-panel" @click="$emit('goTo', 'Handbook')">
-			<div class="button-content">
-				<div class="button-item image"><img src="../assets/images/handbook.jpg" /></div>
-				<div class="button-item desc">
-					<h3>Handbook</h3>
-					<p>TODO: Handy summary.</p>
-					<p lang="zh-cn">TODO: Mandarin here?</p>
+					<h3>{{ page.title }}</h3>
+					<p>{{ page.enDesc }}</p>
+					<p lang="zh-cn">{{ page.cnDesc }}</p>
 				</div>
 			</div>
 		</div>
@@ -76,6 +43,47 @@ export default {
 	components: {
 		Banner
 	},
+	data() {
+		return {
+			pages: [
+				{
+					pageName: 'Training',
+					imageName: 'training',
+					title: 'Training materials',
+					enDesc: 'TODO: Lots of lovely things to learn',
+					cnDesc: 'TODO: Mandarin here?'
+				},
+				{
+					pageName: 'Explainers',
+					imageName: 'explainers',
+					title: 'Explainers',
+					enDesc: 'TODO: Explain the explainers.',
+					cnDesc: 'TODO: Mandarin here?'
+				},
+				{
+					pageName: 'Briefing',
+					imageName: 'briefing',
+					title: 'Briefing notes',
+					enDesc: 'TODO: Brief description.',
+					cnDesc: 'TODO: Mandarin here?'
+				},
+				{
+					pageName: 'Videos',
+					imageName: 'videos',
+					title: 'Videos',
+					enDesc: 'TODO: Look here!',
+					cnDesc: 'TODO: Mandarin here?'
+				},
+				{
+					pageName: 'Handbook',
+					imageName: 'handbook',
+					title: 'Handbook',
+					enDesc: 'TODO: Handy summary.',
+					cnDesc: 'TODO: Mandarin here?'
+				}
+			]
+		}
+	},
 	methods: {
 		scrollCursor() {
 			const buttons = document.getElementsByClassName('button-panel')
@@ -93,7 +101,7 @@ export default {
 	mounted() {
 		this.$el.parentElement.scrollIntoView(true)
 		if (navigator.userAgent.indexOf('Firefox/') < 0) {
-			// this is only here because Chrome and Edge don't correctly refresh 
+			// this is only here because Chrome and Edge don't correctly refresh
 			// :hover state as elements are moved under the cursor while scrolling
 			document.addEventListener('scroll', this.scrollCursor)
 			document.addEventListener('mousemove', this.pointerCursor)

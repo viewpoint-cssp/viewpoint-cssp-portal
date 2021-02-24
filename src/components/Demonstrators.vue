@@ -10,29 +10,22 @@
 			</p>
 			<p lang="zh-cn">TODO: Mandarin here?</p>
 		</div>
-		<div class="button-panel" @click="goTo('suhi')">
+		<div
+			v-for="page in pages"
+			:key="page.pageName"
+			class="button-panel"
+			@click="goTo(page.pageName)"
+		>
 			<div class="button-content">
-				<div class="button-item desc">
-					<h3>Surface Urban Heat Island</h3>
-					<p>
-						Intro...
-					</p>
-					<p lang="zh-cn">TODO: Mandarin here?</p>
+				<div class="button-item image">
+					<img
+						:src="require(`../assets/images/${page.imageName}.png`)"
+					/>
 				</div>
-				<div class="button-item image"><img src="../assets/images/suhi-laptop.png" /></div>
-			</div>
-		</div>
-		<div class="button-panel" @click="goTo('wrm')">
-			<div class="button-content">
-				<div class="button-item image"><img src="../assets/images/wrm-laptop.png" /></div>
 				<div class="button-item desc">
-					<h3>Water Resources Management</h3>
-					<p>
-						A prototype dashboard to investigate the impact of
-						climate change and water abstraction on the Upper Yellow
-						River basin.
-					</p>
-					<p lang="zh-cn">TODO: Mandarin here?</p>
+					<h3>{{ page.title }}</h3>
+					<p>{{ page.enDesc }}</p>
+					<p lang="zh-cn">{{ page.cnDesc }}</p>
 				</div>
 			</div>
 		</div>
@@ -50,6 +43,27 @@ export default {
 	name: 'Demonstrators',
 	components: {
 		Banner
+	},
+	data() {
+		return {
+			pages: [
+				{
+					pageName: 'suhi',
+					imageName: 'suhi-laptop',
+					title: 'Surface Urban Heat Island',
+					enDesc: 'Intro...',
+					cnDesc: 'TODO: Mandarin here?'
+				},
+				{
+					pageName: 'wrm',
+					imageName: 'wrm-laptop',
+					title: 'Water Resources Management',
+					enDesc:
+						'A prototype dashboard to investigate the impact of climate change and water abstraction on the Upper Yellow River basin.',
+					cnDesc: 'TODO: Mandarin here?'
+				}
+			]
+		}
 	},
 	methods: {
 		goTo(page) {
@@ -75,7 +89,7 @@ export default {
 	mounted() {
 		this.$el.parentElement.scrollIntoView(true)
 		if (navigator.userAgent.indexOf('Firefox/') < 0) {
-			// this is only here because Chrome and Edge don't correctly refresh 
+			// this is only here because Chrome and Edge don't correctly refresh
 			// :hover state as elements are moved under the cursor while scrolling
 			document.addEventListener('scroll', this.scrollCursor)
 			document.addEventListener('mousemove', this.pointerCursor)
@@ -109,6 +123,9 @@ export default {
 }
 .button-panel:nth-of-type(odd) {
 	background: var(--primaryLightest);
+}
+.button-panel:nth-of-type(odd) div.button-content {
+	flex-direction: row-reverse;
 }
 
 .button-content {

@@ -1,6 +1,7 @@
 <template>
 	<div>
-		<Banner class="banner-style"
+		<Banner
+			class="banner-style"
 			enTitle="A showcase for the Climate Science for Service Partnership with China"
 		></Banner>
 		<div class="about-page">
@@ -11,8 +12,10 @@
 				world-class collaborative scientific research of the
 				<a
 					href="https://www.metoffice.gov.uk/research/approach/collaboration/newton/cssp-china/index"
-					target="_blank" rel="noopener noreferrer"
-				>CSSP China</a>
+					target="_blank"
+					rel="noopener noreferrer"
+					>CSSP China</a
+				>
 				(Climate Science for Service Partnership China) programme.
 				VIEWpoint has created tools, demonstrators, articles and videos
 				to make research outputs more accessible to a wider audience,
@@ -29,52 +32,22 @@
 				</span>
 			</p>
 		</div>
-		<div class="button-panel" @click="$emit('goTo', 'About')">
+		<div
+			v-for="page in pages"
+			:key="page.pageName"
+			class="button-panel"
+			@click="$emit('goTo', page.pageName)"
+		>
 			<div class="button-content">
-				<div class="button-item image"><img src="../assets/images/about.jpg" /></div>
-				<div class="button-item desc">
-					<h3>About VIEWpoint</h3>
-					<p>
-						TODO: Short summary here?.
-					</p>
-					<p lang="zh-cn">TODO: Mandarin here?</p>
+				<div class="button-item image">
+					<img
+						:src="require(`../assets/images/${page.imageName}.jpg`)"
+					/>
 				</div>
-			</div>
-		</div>
-		<div class="button-panel" @click="$emit('goTo', 'Catalogue')">
-			<div class="button-content">
-				<div class="button-item image"><img src="../assets/images/catalogue.jpg" /></div>
 				<div class="button-item desc">
-					<h3>Catalogue of CSSP China Papers</h3>
-					<p>
-						All 300+ journal papers published through CSSP China
-						have been organised into a searchable catalogue,
-						organised by theme.
-					</p>
-					<p lang="zh-cn">TODO: Mandarin here?</p>
-				</div>
-			</div>
-		</div>
-		<div class="button-panel" @click="$emit('goTo', 'Demonstrators')">
-			<div class="button-content">
-				<div class="button-item image"><img src="../assets/images/demonstrators.jpg" /></div>
-				<div class="button-item desc">
-					<h3>Demonstrators</h3>
-					<p>
-						TODO: Online demonstrators of CSSP China projects, including
-						...
-					</p>
-					<p lang="zh-cn">TODO: Mandarin here?</p>
-				</div>
-			</div>
-		</div>
-		<div class="button-panel" @click="$emit('goTo', 'Training')">
-			<div class="button-content">
-				<div class="button-item image"><img src="../assets/images/training.jpg" /></div>
-				<div class="button-item desc">
-					<h3>Training materials</h3>
-					<p>TODO: Lots of lovely things to learn.</p>
-					<p lang="zh-cn">TODO: Mandarin here?</p>
+					<h3>{{ page.title }}</h3>
+					<p>{{ page.enDesc }}</p>
+					<p lang="zh-cn">{{ page.cnDesc }}</p>
 				</div>
 			</div>
 		</div>
@@ -88,6 +61,42 @@ export default {
 	name: 'Home',
 	components: {
 		Banner
+	},
+	data() {
+		return {
+			pages: [
+				{
+					pageName: 'About',
+					imageName: 'about',
+					title: 'About VIEWpoint',
+					enDesc: 'TODO: Short summary here.',
+					cnDesc: 'TODO: Mandarin here?'
+				},
+				{
+					pageName: 'Catalogue',
+					imageName: 'catalogue',
+					title: 'Catalogue of CSSP China Papers',
+					enDesc:
+						'All 300+ journal papers published through CSSP China have been organised into a searchable catalogue, organised by theme.',
+					cnDesc: 'TODO: Mandarin here?'
+				},
+				{
+					pageName: 'Demonstrators',
+					imageName: 'demonstrators',
+					title: 'Demonstrators',
+					enDesc:
+						'TODO: Online demonstrators of CSSP China projects, including ...',
+					cnDesc: 'TODO: Mandarin here?'
+				},
+				{
+					pageName: 'Training',
+					imageName: 'training',
+					title: 'Training materials',
+					enDesc: 'TODO: Lots of lovely things to learn',
+					cnDesc: 'TODO: Mandarin here?'
+				}
+			]
+		}
 	},
 	methods: {
 		scrollCursor() {
@@ -104,9 +113,9 @@ export default {
 		}
 	},
 	mounted() {
-		this.$el.parentElement.scrollIntoView(true)
+		//this.$el.parentElement.scrollIntoView(true)
 		if (navigator.userAgent.indexOf('Firefox/') < 0) {
-			// this is only here because Chrome and Edge don't correctly refresh 
+			// this is only here because Chrome and Edge don't correctly refresh
 			// :hover state as elements are moved under the cursor while scrolling
 			document.addEventListener('scroll', this.scrollCursor)
 			document.addEventListener('mousemove', this.pointerCursor)
@@ -195,7 +204,6 @@ export default {
 }
 .button-panel:hover {
 	background: var(--bannerGrey);
-	/*border-color: var(--vpOrange);*/
 }
 .button-panel:hover .button-item {
 	border-color: var(--vpOrange);
@@ -204,6 +212,24 @@ export default {
 .button-panel:hover .button-item.desc * {
 	color: whitesmoke;
 }
+
+/* for zooming image on hover * /
+.button-item.image {
+	position: relative;
+	overflow: hidden;
+}
+.button-item.image img {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	transition: width 0.3s ease-in-out 0s;
+	transition-property: width;
+}
+.button-panel:hover .button-item.image img {
+	width: 110%;
+}
+/* end of styling to zoom on hover */
 
 @media (max-width: 1007px) {
 	.about-page,
