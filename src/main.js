@@ -14,6 +14,7 @@ import {
 	faExpandArrowsAlt,
 	faExternalLinkAlt,
 	faForward,
+	faLink,
 	faTimes,
 	faVideoSlash
 } from '@fortawesome/free-solid-svg-icons'
@@ -33,6 +34,7 @@ library.add(
 	faExpandArrowsAlt,
 	faExternalLinkAlt,
 	faForward,
+	faLink,
 	faTimes,
 	faVideoSlash
 )

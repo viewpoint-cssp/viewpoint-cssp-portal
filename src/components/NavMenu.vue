@@ -83,7 +83,16 @@ export default {
 			options: [
 				{ page: 'Home' },
 				{ page: 'About' },
-				{ page: 'Catalogue' },
+				{ 
+					page: 'Resources',
+					options: [
+						{ page: 'Handbook' },
+						{ page: 'Explainers' },
+						{ page: 'Briefing', label: 'Briefing notes' },
+						{ page: 'Videos' },
+						{ page: 'Training', label: 'Training materials' }
+					]
+				},
 				{
 					page: 'Demonstrators',
 					options: [
@@ -91,19 +100,7 @@ export default {
 						{ page: 'wrm', label: 'Water Resources Management' }
 					]
 				},
-				{ 
-					page: 'Resources',
-					options: [
-						{ page: 'Training', label: 'Training materials' },
-						{ page: 'Explainers' },
-						{
-							page: 'Briefing',
-							label: 'Briefing notes'
-						},
-						{ page: 'Videos' },
-						{ page: 'Handbook' }
-					]
-				},
+				{ page: 'Catalogue' },
 				{ page: 'Glossary' }
 			],
 			timeout: null,

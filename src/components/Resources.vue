@@ -5,7 +5,17 @@
 			<h2>About the resources</h2>
 			<hr />
 			<p>
-				TODO: Some description about the different resources.
+				VIEWpoint draws together research from hundreds of scientists in
+				the UK and China. Here we present a range of condensed
+				information in plain language, based on the science and vast
+				expertise. The original research can be found directly in the
+				<span class="goto nowrap" @click="$emit('goTo', 'Catalogue')">
+					<font-awesome-icon
+						icon="link"
+					></font-awesome-icon>
+					<strong>Catalogue</strong></span
+				>
+				of publications.
 			</p>
 			<p lang="zh-cn">TODO: Mandarin here?</p>
 		</div>
@@ -28,6 +38,7 @@
 				</div>
 			</div>
 		</div>
+		<Gotop></Gotop>
 	</div>
 </template>
 
@@ -37,48 +48,55 @@ At the moment this looks and works very similar to Home.vue. That may change.
 If it doesn't, the styling could go into the .css or simplify by using new component(s)?
 */
 import Banner from './Banner.vue'
+import Gotop from './Gotop.vue'
 
 export default {
 	name: 'Resources',
 	components: {
-		Banner
+		Banner,
+		Gotop
 	},
 	data() {
 		return {
 			pages: [
 				{
-					pageName: 'Training',
-					imageName: 'training',
-					title: 'Training materials',
-					enDesc: 'TODO: Lots of lovely things to learn',
+					pageName: 'Handbook',
+					imageName: 'handbook',
+					title: 'Handbook',
+					enDesc:
+						'A collection of articles compiling highlights of several years of the CSSP China project, including behind the scenes interviews with world-leading scientists.',
 					cnDesc: 'TODO: Mandarin here?'
 				},
 				{
 					pageName: 'Explainers',
 					imageName: 'explainers',
 					title: 'Explainers',
-					enDesc: 'TODO: Explain the explainers.',
+					enDesc:
+						'One-page summaries of CSSP China research work, each covering the importance and approach to investigating the topic, with links to the original publications.',
 					cnDesc: 'TODO: Mandarin here?'
 				},
 				{
 					pageName: 'Briefing',
 					imageName: 'briefing',
 					title: 'Briefing notes',
-					enDesc: 'TODO: Brief description.',
+					enDesc:
+						'Each note collates a range of information sources on one pressing topic, clearly summarising the underlying issues, relevance and recommendations of the scientific evidence.',
 					cnDesc: 'TODO: Mandarin here?'
 				},
 				{
 					pageName: 'Videos',
 					imageName: 'videos',
 					title: 'Videos',
-					enDesc: 'TODO: Look here!',
+					enDesc:
+						'A range of short videos from scientists and engineers in CSSP China, sharing their expertise in concise and engaging ways.',
 					cnDesc: 'TODO: Mandarin here?'
 				},
 				{
-					pageName: 'Handbook',
-					imageName: 'handbook',
-					title: 'Handbook',
-					enDesc: 'TODO: Handy summary.',
+					pageName: 'Training',
+					imageName: 'training',
+					title: 'Training materials',
+					enDesc:
+						'For those interested in the urban climate, here is a sequence of videos to introduce the hands-on use of the Urban Multi-scale Environmental Predictor (UMEP) software.',
 					cnDesc: 'TODO: Mandarin here?'
 				}
 			]
@@ -121,6 +139,21 @@ export default {
 	background-image: url('../assets/images/resources.jpg');
 	background-position: bottom;
 	box-shadow: inset 0 0 0 1000px rgba(217, 216, 214, 0.8);
+}
+
+span.goto {
+	cursor: pointer;
+}
+span.goto:hover,
+span.goto:hover strong,
+span.goto:hover svg path {
+	color: var(--vpOrange);
+}
+
+.fa-link {
+	font-size: 0.9rem;
+	margin-right: 0.1rem;
+	transform: translateY(-0.1rem);
 }
 
 .button-panel {
@@ -199,6 +232,9 @@ export default {
 }
 
 @media (max-width: 1007px) {
+	.fa-link {
+		font-size: 0.75rem;
+	}
 	.button-panel {
 		padding: 32px;
 	}

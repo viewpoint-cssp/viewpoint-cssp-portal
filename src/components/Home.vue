@@ -51,16 +51,19 @@
 				</div>
 			</div>
 		</div>
+		<Gotop></Gotop>
 	</div>
 </template>
 
 <script>
 import Banner from './Banner.vue'
+import Gotop from './Gotop.vue'
 
 export default {
 	name: 'Home',
 	components: {
-		Banner
+		Banner,
+		Gotop
 	},
 	data() {
 		return {
@@ -69,15 +72,14 @@ export default {
 					pageName: 'About',
 					imageName: 'about',
 					title: 'About VIEWpoint',
-					enDesc: 'TODO: Short summary here.',
+					enDesc: 'Find out more about how and why these materials were created as part of a global scientific collaboration.',
 					cnDesc: 'TODO: Mandarin here?'
 				},
 				{
-					pageName: 'Catalogue',
-					imageName: 'catalogue',
-					title: 'Catalogue of CSSP China Papers',
-					enDesc:
-						'All 300+ journal papers published through CSSP China have been organised into a searchable catalogue, organised by theme.',
+					pageName: 'Resources',
+					imageName: 'resources',
+					title: 'Resources',
+					enDesc: 'A variety of accessible information to browse on climate science and addressing the challenges of climate change.',
 					cnDesc: 'TODO: Mandarin here?'
 				},
 				{
@@ -85,14 +87,15 @@ export default {
 					imageName: 'demonstrators',
 					title: 'Demonstrators',
 					enDesc:
-						'TODO: Online demonstrators of CSSP China projects, including ...',
+						'Explore climate datasets for yourself with easy-to-use interfaces to engage directly with the current and potential future scenarios.',
 					cnDesc: 'TODO: Mandarin here?'
 				},
 				{
-					pageName: 'Training',
-					imageName: 'training',
-					title: 'Training materials',
-					enDesc: 'TODO: Lots of lovely things to learn',
+					pageName: 'Catalogue',
+					imageName: 'catalogue',
+					title: 'Catalogue of CSSP China published papers',
+					enDesc:
+						'The full suite of scientific peer-reviewed publications organised into a searchable catalogue and can be filtered by themes.',
 					cnDesc: 'TODO: Mandarin here?'
 				}
 			]
