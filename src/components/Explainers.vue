@@ -35,6 +35,8 @@
 						}`)
 					"
 					:class="doc.imgPosition"
+					:alt="doc.imgAlt"
+					:title="getTooltip(doc)"
 				/>
 				<a
 					class="title mandarin clickable"
@@ -84,109 +86,121 @@ export default {
 					enTitle:
 						'Investigating heatwaves in China under climate change',
 					enPdf: 'E01-en-investigating-heatwaves',
-					enDraft: true
+					imgCredit: 'Kaijia, Unsplash'
 				},
 				{
 					enTitle:
 						'Increasing flash floods in a drying climate: dual challenges facing Southwest China',
 					enPdf: 'E02-en-increasing-flash-floods',
-					enDraft: true,
-					imgPosition: 'bottom'
+					imgPosition: 'bottom',
+					imgCredit: 'Chan Xiao (NCC, CMA)',
+					imgAlt: 'Rural area in Yunnan Province, Southwest China'
 				},
 				{
 					enTitle:
 						'Tibetan Plateau Vortices: a comparison of tracking methods',
 					enPdf: 'E03-en-tibetan-plateau-vortices',
-					enDraft: true,
-					imgPosition: 'bottom'
+					imgPosition: 'bottom',
+					imgCredit: 'Unsplash',
+					imgAlt: 'Tibetan Plateau'
 				},
 				{
 					enTitle:
 						'What will shape future Beijing haze events and air quality?',
 					enPdf: 'E04-en-beijing-haze',
-					enDraft: true,
 					cnTitle: '什么会影响北京未来的雾霾事件？',
 					cnPdf:
 						'Mandarin Explainer No4 What will shape future Beijing Haze events',
 					cnDraft: true,
-					imgPosition: 'bottom'
+					imgPosition: 'bottom',
+					imgCredit: 'Pixabay.com',
+					imgAlt: 'Beijing haze event at Palace Museum\n北京故宫博物院雾霾事件'
 				},
 				{
 					enTitle:
 						'Efficient assessments of Chinese Fengyun-3 satellite instruments to improve weather forecasts',
 					enPdf: 'E05-en-satellite-instrument',
-					enDraft: true,
 					cnTitle:
 						'高效评估中国风云三号卫星仪器，借以 提高天气预报质量',
 					cnPdf:
 						'Mandarin Explainer No 5 Efficient assessments of Chin',
-					cnDraft: true
+					cnDraft: true,
+					imgCredit: 'WikiImages,Pixabay',
+					imgAlt: 'Satellite image of Earth'
 				},
 				{
 					enTitle: 'Arup climate risk tool',
 					enPdf: 'Arup Climate Risk Tool v6 No 6',
 					enDraft: true,
-					imgPosition: 'top'
+					imgPosition: 'top',
+					imgCredit: 'Erdenebayar Bayansan Pixabay'
 				},
 				{
 					enTitle: `High-resolution revolution brings insight into China's climate`,
 					enPdf: `E07-en-high-resolution`,
-					enDraft: true
+					imgCredit: 'Darwit, Unsplash'
 				},
 				{
 					enTitle:
 						'Safer operation for urban rail transport: wind risk warning system',
 					enPdf: 'E08-en-urban-rail-transport',
-					enDraft: true
+					imgCredit: 'PublicDomainPictures, Pixabay'
 				},
 				{
 					enTitle:
 						'A promising outlook: skilful seasonal forecasts for energy sectors in China',
 					enPdf: 'E09-en-seasonal-forecast',
-					enDraft: true
+					imgCredit: 'Vista Wei, Unsplash',
+					imgAlt: 'Wind farm in Xinyang, China'
 				},
 				{
 					enTitle:
 						'Correcting urban bias in large-scale temperature records in China',
 					enPdf: 'E10-en-correcting-urban-bias',
-					enDraft: true
+					imgCredit: 'wei zhu, Pixabay',
+					imgAlt: 'Shanghai'
 				},
 				{
 					enTitle:
 						'Flood footprint assessment: a new approach for impacts and recovery',
 					enPdf: 'E11-en-flood-footprint-assessment',
-					enDraft: true,
-					imgPosition: 'top'
+					imgCredit: 'Jéan Béller, Unsplash'
 				},
 				{
 					enTitle:
 						'Working together: the China Framework for Climate Services (CFCS)',
-					enPdf: 'E12-en-working-together',
-					enDraft: true
+					enPdf: 'E12-en-working-together'
 				},
 				{
 					enTitle:
 						'Examining airflow around tall buildings using a 3D model',
 					enPdf: 'E13-en-examining-airflow',
-					enDraft: true
+					imgCredit: 'Li Yang, Unsplash',
+					imgAlt: 'Beijing cityscape'
 				},
 				{
 					enTitle:
 						'Increasing summer rainfall intensity during the past four decades observed in China',
 					enPdf: 'E14-en-increasing-summer-rainfall',
-					enDraft: true,
-					imgPosition: 'top'
+					imgPosition: 'top',
+					imgCredit: 'Pexels, Pixabay'
 				},
 				{
 					enTitle:
 						'Daily satellite monitoring of crop drought conditions: developing a service',
 					enPdf: 'E15-en-daily-satellite-monitoring',
-					enDraft: true
+					imgCredit: 'Pixabay',
+					imgAlt: 'Maize growing'
 				}
 			]
 		}
 	},
 	methods: {
+		getTooltip(doc) {
+			let alt = doc.imgAlt || ''
+			let credit = doc.imgCredit ? `Image 图片来源: ${doc.imgCredit}` : ''
+			return (alt && credit) ? `${alt}\n${credit}` : alt + credit
+		},
 		scrollCursor() {
 			const anchors = document.getElementsByTagName('a')
 			for (let a = 0; a < anchors.length; a++) {
