@@ -200,6 +200,7 @@ export default {
 
 .selected-page {
 	border: 2px solid var(--vpCoolGrey);
+	padding: 0.5px 0; /* to match table header height */
 	position: sticky;
 	top: 0;
 	z-index: 10;

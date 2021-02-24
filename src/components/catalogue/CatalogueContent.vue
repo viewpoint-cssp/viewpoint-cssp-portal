@@ -442,6 +442,13 @@ export default {
 	overflow-y: scroll;
 }
 
+.cat-table tr.header {
+	/* this is needed (as well as on .cat-table th) to 
+	   stop characters appearing above the title row */
+	position: sticky;
+	top: 0;
+}
+
 .cat-table th {
 	padding: 8px 16px;
 	cursor: pointer;

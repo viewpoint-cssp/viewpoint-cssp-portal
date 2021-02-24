@@ -478,7 +478,7 @@ export default {
 .header {
 	margin: 0 2px 2px 2px;
 	border-top: 2px solid var(--vpCoolGrey);
-	padding: 8px 16px;
+	padding: 8.5px 16px; /* extra 0.5 matches table header height */
 	position: sticky;
 	top: 0;
 	display: flex;
