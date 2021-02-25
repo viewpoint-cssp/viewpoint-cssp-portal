@@ -2,8 +2,11 @@ import Vue from 'vue'
 import App from './App.vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
+	faArrowsAltH,
+	faArrowsAltV,
 	faBackward,
 	faCaretDown,
+	faCaretLeft,
 	faCaretRight,
 	faChevronLeft,
 	faChevronRight,
@@ -15,6 +18,7 @@ import {
 	faExternalLinkAlt,
 	faForward,
 	faLink,
+	faListAlt,
 	faTimes,
 	faVideoSlash
 } from '@fortawesome/free-solid-svg-icons'
@@ -22,8 +26,11 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VShowSlide from 'v-show-slide'
 
 library.add(
+	faArrowsAltH,
+	faArrowsAltV,
 	faBackward,
 	faCaretDown,
+	faCaretLeft,
 	faCaretRight,
 	faChevronLeft,
 	faChevronRight,
@@ -35,6 +42,7 @@ library.add(
 	faExternalLinkAlt,
 	faForward,
 	faLink,
+	faListAlt,
 	faTimes,
 	faVideoSlash
 )
