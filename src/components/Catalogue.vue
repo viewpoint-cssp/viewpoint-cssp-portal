@@ -92,6 +92,25 @@ export default {
 				'--leftCatalogueWidth',
 				`${window.innerWidth - rhWidth}px`
 			)
+			/* This is to stop table content appearing above the column titles when scrolling!
+			A narrow (opaque) div is placed in a fixed position over the top of .cat-table-wrapper.
+			It's width is the panel width less the scrollbar width (hence its clientWidth).
+			It only needs to be 2px (FF) but Chrome seems to need 2.3px and Edge 2.5px. Other 
+			browsers untested. And that extra 0.5px means the right hand panel needs a similar div. */
+			const wrapper = document.getElementsByClassName('cat-table-wrapper')
+			if (wrapper.length) {
+				document.documentElement.style.setProperty(
+					'--leftCatalogueBlockerWidth',
+					`${wrapper[0].clientWidth}px`
+				)
+			}
+			const rhPanel = document.getElementsByClassName('rh-panel')
+			if (rhPanel.length) {
+				document.documentElement.style.setProperty(
+					'--rightCatalogueBlockerWidth',
+					`${rhPanel[0].clientWidth}px`
+				)
+			}
 		}
 	},
 	mounted() {

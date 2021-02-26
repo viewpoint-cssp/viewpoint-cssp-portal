@@ -91,6 +91,7 @@
 					</tr>
 				</table>
 			</div>
+			<div class="top-blocker left"></div>
 			<transition name="fade" mode="out-in">
 				<CatalogueFilter
 					class="rh-panel"
@@ -111,6 +112,7 @@
 					v-else
 				></CatalogueEntry>
 			</transition>
+			<div class="top-blocker right"></div>
 		</div>
 	</div>
 </template>
@@ -433,6 +435,7 @@ export default {
 .entries {
 	display: flex;
 	flex-direction: row;
+	position: relative; /* for .top-blocker */
 }
 
 .cat-table-wrapper {
@@ -440,13 +443,6 @@ export default {
 	height: var(--catalogueHeight);
 	overflow-x: hidden;
 	overflow-y: scroll;
-}
-
-.cat-table tr.header {
-	/* this is needed (as well as on .cat-table th) to 
-	   stop characters appearing above the title row */
-	position: sticky;
-	top: 0;
 }
 
 .cat-table th {
@@ -531,6 +527,27 @@ th.sort .sort-icon {
 
 .cat-table tr:hover td.no-entries {
 	background: var(--primaryLightest);
+}
+
+/* This is to stop table content appearing above the column titles when scrolling!
+A narrow (opaque) div is placed in a fixed position over the top of .cat-table-wrapper.
+It only needs to be 2px (FF) but Chrome seems to need 2.3px and Edge 2.5px. Other 
+browsers untested.
+And that extra 0.5px means the right hand panel needs a similar div (which also
+has to be forced to the top for Edge and Chrome). */
+.top-blocker {
+	position: absolute;
+	top: 0;
+	height: 2.5px; 
+}
+.top-blocker.left {
+	left: 0;
+	width: var(--leftCatalogueBlockerWidth);
+}
+.top-blocker.right {
+	left: var(--leftCatalogueWidth);
+	width: var(--rightCatalogueBlockerWidth);
+	z-index: 10;
 }
 
 .et-al {
