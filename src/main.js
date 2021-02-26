@@ -5,6 +5,7 @@ import {
 	faArrowsAltH,
 	faArrowsAltV,
 	faBackward,
+	faBookOpen,
 	faCaretDown,
 	faCaretLeft,
 	faCaretRight,
@@ -19,16 +20,21 @@ import {
 	faForward,
 	faLink,
 	faListAlt,
+	faSlash,
 	faTimes,
 	faVideoSlash
 } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import {
+	FontAwesomeIcon,
+	FontAwesomeLayers
+} from '@fortawesome/vue-fontawesome'
 import VShowSlide from 'v-show-slide'
 
 library.add(
 	faArrowsAltH,
 	faArrowsAltV,
 	faBackward,
+	faBookOpen,
 	faCaretDown,
 	faCaretLeft,
 	faCaretRight,
@@ -43,10 +49,12 @@ library.add(
 	faForward,
 	faLink,
 	faListAlt,
+	faSlash,
 	faTimes,
 	faVideoSlash
 )
 Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component('font-awesome-layers', FontAwesomeLayers)
 
 Vue.use(VShowSlide)
 
