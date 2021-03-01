@@ -156,7 +156,7 @@ export default {
 			// correct width when this is done (even after $nextTick)
 			let buffer = 64
 			const table = document.getElementsByTagName('table')
-			if (table) {
+			if (table.length) {
 				buffer = table[0].getBoundingClientRect().x
 			}
 			let tableWidth = window.innerWidth - (2 * (buffer + 1))
@@ -170,10 +170,11 @@ export default {
 			} else {
 				this.narrowPage = false
 			}
+			// and set table margins to auto for centering
+			table[0].classList.add('center')
 		}
 	},
-	mounted() {
-		this.$el.parentElement.scrollIntoView(true)
+	created() {
 		const csv = require('csvtojson')
 		csv()
 			.fromString(`enText,enDesc,cnText,cnDesc,comments\n${csvRaw}`)
@@ -235,7 +236,10 @@ export default {
 						a.comments = parts.join(' ')
 					})
 			})
-		this.resized() /* set size-based CSS var immediately on loading */
+	},
+	mounted() {
+		this.$el.parentElement.scrollIntoView(true)
+		this.resized() // immediately set size-based CSS var immediately on loading
 		window.addEventListener('resize', this.resized)
 		window.addEventListener('orientationchange', this.resized)
 	},
@@ -282,7 +286,12 @@ div.glossary-comments a:hover svg path {
 
 table {
 	max-width: min(calc(100% - 24px), 1230px);
-	margin: 12px auto;
+	margin: 12px 64px;
+}
+
+table.center {
+	margin-left: auto;
+	margin-right: auto;
 }
 
 tr:nth-of-type(even) {
