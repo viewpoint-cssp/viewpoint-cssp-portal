@@ -26,7 +26,7 @@ export default {
 					bannerHeight += navFtr[0].getBoundingClientRect().height
 				}
 				const banner = document.getElementsByClassName('banner')
-				if (banner) {
+				if (banner.length) {
 					bannerHeight += banner[0].getBoundingClientRect().height
 				}
 				if (

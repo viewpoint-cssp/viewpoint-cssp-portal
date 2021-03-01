@@ -308,7 +308,7 @@ export default {
 			// App.vue's NavMenu and Footer (since this component sits between them)
 			let usedHeight = 0
 			const appFixed = document.getElementsByClassName('app-fixed')
-			if (appFixed) {
+			if (appFixed.length) {
 				for (let i = 0; i < appFixed.length; i++) {
 					usedHeight += appFixed[i].getBoundingClientRect().height
 				}

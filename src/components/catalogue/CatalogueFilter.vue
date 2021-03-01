@@ -456,7 +456,7 @@ export default {
 		document.addEventListener('keyup', this.keyUp) // listen for an enter key
 		this.$nextTick(() => {
 			const input = document.getElementsByTagName('input')
-			if (input.length > 0) {
+			if (input.length) {
 				input[0].focus()
 			}
 		})
