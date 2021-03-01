@@ -29,47 +29,32 @@
 					<font-awesome-icon
 						icon="backward"
 						class="toggle-icon"
-						:disabled="pageIndex == 0"
+						:disabled="onFirstPage"
 						@click="moveToIndex(0)"
 						title="Go to first page"
 					></font-awesome-icon>
 					<font-awesome-icon
 						icon="caret-left"
 						class="toggle-icon"
-						:disabled="pageIndex == 0"
-						@click="moveToIndex(pageIndex - 1)"
+						:disabled="onFirstPage"
+						@click="showMode == 'sides' ? sideIndex = sideIndex - 1 : spreadIndex = spreadIndex - 1"
 						title="Go to previous page"
 					></font-awesome-icon>
 					<p>
-						<span v-if="showMode == 'sides'">
-							Page {{ pageIndex + 1 }}
-						</span>
-						<span v-else-if="pageIndex == 0">
-							Page {{ pageNumber }}
-						</span>
-						<span v-else>
-							Pages {{ pageNumber }}/{{ pageNumber * 1 + 1 }}
-						</span>
-						of 
-						<span v-if="showMode == 'sides'">
-							{{ sides.length }}
-						</span>
-						<span v-else>
-							{{ spreads.length * 2 - 1 }}
-						</span>
+						{{ pageNumber }} of {{ this.sides.length }}
 					</p>
 					<font-awesome-icon
 						icon="caret-right"
 						class="toggle-icon"
-						:disabled="pageIndex == pageCount - 1"
-						@click="moveToIndex(pageIndex + 1)"
+						:disabled="onLastPage"
+						@click="showMode == 'sides' ? sideIndex = sideIndex + 1 : spreadIndex = spreadIndex + 1"
 						title="Go to next page"
 					></font-awesome-icon>
 					<font-awesome-icon
 						icon="forward"
 						class="toggle-icon"
-						:disabled="pageIndex == pageCount - 1"
-						@click="moveToIndex(pageCount - 1)"
+						:disabled="onLastPage"
+						@click="showMode == 'sides' ? sideIndex = sides.length - 1 : spreadIndex = spreads.length - 1"
 						title="Go to last page"
 					></font-awesome-icon>
 					<div class="contents-selector" v-if="sections.length">
@@ -134,13 +119,14 @@
 			<div class="shadow left-shadow"></div>
 			<div class="shadow right-shadow"></div>
 			<slider
-				v-model="pageIndex"
+				v-model="sideIndex"
 				class="slider sides"
 				animation="normal"
 				:autoplay="false"
 				nextBtnLabel="Next page"
 				prevBtnLabel="Previous page"
 				@change="changedToPage"
+				:key="`sides-${renderKey}`"
 				v-if="showMode == 'sides'"
 			>
 				<slider-item v-for="(file, i) in sides" :key="i">
@@ -148,13 +134,14 @@
 				</slider-item>
 			</slider>
 			<slider
-				v-model="pageIndex"
+				v-model="spreadIndex"
 				class="slider"
 				animation="normal"
 				:autoplay="false"
 				nextBtnLabel="Next page"
 				prevBtnLabel="Previous page"
 				@change="changedToPage"
+				:key="`spreads-${renderKey}`"
 				v-else
 			>
 				<slider-item v-for="(file, i) in spreads" :key="i">
@@ -182,6 +169,7 @@ export default {
 			sides: [],
 			showMode: 'spreads',
 			nextIndex: 0,
+			// TODO define these once handbook is finalised
 			sections: [
 				{ name: 'Introduction by the MetOffice', spreads: 4, sides: 7},
 				{ name: 'Using the Handbook', spreads: 5, sides: 9 },
@@ -190,102 +178,119 @@ export default {
 				{ name: 'Demonstrators', spreads: 27, sides: 54 },
 				{ name: 'Briefing notes', spreads: 28, sides: 55 }
 			],
-			pageCount: 0,
-			pageIndex: 0,
-			pageNumber: 1,
+			// sideIndex and spreadIndex needed to try to stop  
+			// multiple pages becoming visible at the same time
+			sideIndex: 0,
+			spreadIndex: 0,
 			showContents: false,
 			fullWidth: false,
-			narrowPage: false
+			narrowPage: false,
+			renderKey: 1
+		}
+	},
+	computed: {
+		pageNumber() {
+			if (this.showMode == 'sides') {
+				return `${this.narrowPage ? '' : 'Page '}${this.sideIndex + 1}`
+			} else if (this.spreadIndex == 0) {
+				return `${this.narrowPage ? '' : 'Page '}1`
+			} else {
+				return `${this.narrowPage ? '' : 'Pages '}${this.spreadIndex * 2}/${this.spreadIndex * 2 + 1}`
+			}
 		}
 	},
 	watch: {
 		fullWidth() {
 			this.resized()
 		},
-		pageIndex() {
-			if (this.showMode == 'sides') {
-				this.pageNumber = this.pageIndex + 1
-			} else {
-				this.pageNumber = this.pageIndex ? this.pageIndex * 2 : 1
-			}
-			// somehow more than one slider-item can be visible
-			// - this tries to fix it!
+		sideIndex() {
+			this.checkPages()
+		},
+		spreadIndex() {
+			this.checkPages()
+		}
+	},
+	methods: {
+		checkPages() {
+			// frustratingly more than one slider-item can become visible at the same time
+			// probably relating to toggling between spreads and sides  
+			// having the renderKey may have resolved this but keep this here just in case!
+			let index = this.showMode == 'sides' ? this.sideIndex : this.spreadIndex
 			this.$nextTick(() => {
 				const items = document.getElementsByClassName('slider-item')
-				let count = 0
+				let visible = []
 				for (let i = 0; i < items.length; i++) {
-					if (items[i].style.display != 'none') count += 1
+					if (items[i].style.display !== 'none') visible.push(i)
 				}
-				if (count > 1) {
-					alert('found ' + count + ' visible slider-item')
-					console.warn('error', items.length, count)
-					count = 0
+				if (visible.length > 1) {
+					//alert(`${visible.length} pages visible in ${this.showMode}`)
+					console.log(this.showMode, 'visible pages', visible)
+					visible = []
 					for (let i = 0; i < items.length; i++) {
-						if (items[i].style.display != 'none') {
-							if (i != this.pageIndex) {
+						if (items[i].style.display !== 'none') {
+							if (i != index) {
 								items[i].style.display = 'none'
 							} else {
 								items[i].style.display = ''
-								count += 1
+								visible.push(i)
 							}
 						}
 					}
-					console.log('fixed', items.length, count)
 				}
 			})
 		},
-		/*pageNumber() {
-			if (this.showMode == 'sides') {
-				this.moveToIndex(this.pageNumber - 1)
-			} else {
-				this.moveToIndex(Math.floor(this.pageNumber / 2))
-			}
-		}*/
-	},
-	methods: {
 		changeMode() {
-			// determine the page to go to once the mode has changed
-			let nextIndex = 0
-			if (this.pageIndex > 0) {
-				if (this.showMode == 'sides') {
-					nextIndex = Math.ceil(this.pageIndex / 2)
-				} else {
-					nextIndex = this.pageIndex * 2 - 1
-				}
-			}
-			// change the mode
 			if (this.showMode == 'sides') {
-				this.pageCount = this.spreads.length
+				// will become two-page spreads so update index
+				this.spreadIndex = !this.sideIndex ? 0 : Math.ceil(this.sideIndex / 2) 
 				this.showMode = 'spreads'
 			} else {
-				this.pageCount = this.sides.length
+				// will become single sides so update index
+				this.sideIndex = !this.spreadIndex ? 0 : this.spreadIndex * 2 - 1
 				this.showMode = 'sides'
 			}
-			this.$nextTick(() => {
-				// go to the right page
-				if (nextIndex) {
-					this.moveToIndex(nextIndex)
-				}
-			})
-			// and force rescaling
+			// force rerender to ensure only the required page is visible!
+			this.renderKey += 1 
+			// force rescaling
 			this.resized()
 		},
-		moveToIndex(index) {
-			if (index >= 0 && index < this.pageCount) {
-				this.pageIndex = index
-				this.showContents = false
+		onFirstPage() {
+			if (this.showMode == 'sides') {
+				return this.sideIndex == 0
+			} else {
+				return this.spreadsIndex == 0
 			}
+		},
+		onLastPage() {
+			if (this.showMode == 'sides') {
+				return this.sideIndex == this.sides.length - 1
+			} else {
+				return this.spreadsIndex == this.spreads.length - 1
+			}
+		},
+		moveToIndex(index) {
+			if (this.showMode == 'sides') {
+				if (index >= 0 && index < this.sides.length - 1) {
+					this.sideIndex = index
+				}
+			} else {
+				if (index >= 0 && index < this.spreads.length - 1) {
+					this.spreadIndex = index
+				}
+			}
+			this.showContents = false
 		},
 		changedToPage(index) {
 			const shadow = document.getElementsByClassName('shadow')
 			const buttons = document.getElementsByClassName('slider-btn')
 			if (shadow.length < 2 || buttons.length < 2) return // just in case!
+			const lastIndex = this.showMode == 'sides' ? this.sides.length - 1 : this.spreads.length - 1
 			if (index == 0) {
 				shadow[0].classList.add('hidden')
 				shadow[1].classList.remove('hidden')
 				buttons[0].classList.add('transparent')
 				buttons[1].classList.remove('transparent')
-			} else if (index == this.pageCount - 1) {
+			} else if (index == lastIndex) {
 				shadow[0].classList.remove('hidden')
 				shadow[1].classList.add('hidden')
 				buttons[0].classList.remove('transparent')
@@ -298,7 +303,31 @@ export default {
 			}
 		},
 		resized() {
-			// default size is 1024 x 724 (landscape 2-page spread)
+			if (window.matchMedia('(max-width: 756px)').matches) {
+				// less than 724px + 16px either side is narrow 
+				if (!this.narrowPage) {
+					// when first becames too narrow, change to fullwidth single page view
+					this.narrowPage = true
+					this.showMode = 'sides'
+					this.fullWidth = true // TODO use this to hide buttons?
+					this.changedWidth = 0
+				}
+			} else if (!window.matchMedia('(max-width: 1056px)').matches) {
+				// more than 1024px + 16px either side is wide 
+				if (this.narrowPage) {
+					// when first no longer narrow, change to two page spreads and normal width view
+					this.narrowPage = false
+					this.showMode = 'spreads'
+					this.fullWidth = false
+					this.changedWidth = 0
+				}
+			} else if (this.narrowPage) {
+				// when first no longer narrow (more than 724px + 16px and less than 1024 + 16px), 
+				// just change flag without changing view
+				this.narrowPage = false
+				this.changedWidth = 0
+			}
+			// default size of .jpg is 1024 x 724 (landscape 2-page spread)
 			const ratio = (this.showMode == 'sides' ? 512 : 1024) / 724
 			let width
 			let height
@@ -337,7 +366,7 @@ export default {
 		}
 	},
 	mounted() {
-		// load pages
+		// load page images
 		for (let i = 1; i < 34; i++) {
 			this.spreads.push(
 				require(`../assets/images/DRAFT_06_VP Handbook_SS Feb 221024_${i}.jpg`)
@@ -351,8 +380,13 @@ export default {
 				)
 			}
 		}
-		this.pageCount = this.showMode == 'sides' ? this.sides.length : this.spreads.length
-		this.changedToPage(this.pageIndex) // will remove left-shadow if on first page
+		// force removal of left-shadow if index is on first page
+		if (this.showMode == 'sides') {
+			this.changedToPage(this.sideIndex) 
+		} else {
+			this.changedToPage(this.spreadIndex) 
+		}
+		// ... before the usual mounted() functionality
 		this.$el.parentElement.scrollIntoView(true)
 		this.resized() /* reset size-based CSS vars immediately on loading */
 		window.addEventListener('resize', this.resized)
@@ -384,6 +418,7 @@ a.download,
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
+	margin-top: 16px;
 }
 
 .toggles {
@@ -599,7 +634,19 @@ ul.contents-list.show-contents {
 	background: var(--vpOrange);
 }
 
-@media (max-width: 784px) {
+@media (max-width: 1007px) {
+	.toggle-wrapper {
+		margin-top: 8px;
+	}
+}
+
+@media (max-width: 640px) {
+	.toggle-wrapper {
+		margin-top: 4px;
+	}
+}
+
+@media (max-width: 362px) {
 	.toggle-wrapper,
 	.slider-wrapper {
 		display: none;
