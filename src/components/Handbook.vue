@@ -116,8 +116,8 @@
 			</div>
 		</div>
 		<div class="slider-wrapper">
-			<div class="shadow left-shadow"></div>
-			<div class="shadow right-shadow"></div>
+			<div class="shadow left-shadow" :class="showMode"></div>
+			<div class="shadow right-shadow" :class="showMode"></div>
 			<slider
 				v-model="sideIndex"
 				class="slider sides"
@@ -148,6 +148,7 @@
 					<img :src="file" :alt="`Handbook spread ${i + 1}`" />
 				</slider-item>
 			</slider>
+			<div class="center-fold" v-if="showMode == 'xspreads'"></div>
 		</div>
 	</div>
 </template>
@@ -223,8 +224,7 @@ export default {
 					if (items[i].style.display !== 'none') visible.push(i)
 				}
 				if (visible.length > 1) {
-					//alert(`${visible.length} pages visible in ${this.showMode}`)
-					console.log(this.showMode, 'visible pages', visible)
+					console.info(this.showMode, 'visible pages', visible)
 					visible = []
 					for (let i = 0; i < items.length; i++) {
 						if (items[i].style.display !== 'none') {
@@ -253,6 +253,8 @@ export default {
 			this.renderKey += 1 
 			// force rescaling
 			this.resized()
+			// and check the shadows!
+			this.changedToPage(this.showMode == 'sides' ? this.sideIndex : this.spreadIndex)
 		},
 		onFirstPage() {
 			if (this.showMode == 'sides') {
@@ -285,12 +287,14 @@ export default {
 			const buttons = document.getElementsByClassName('slider-btn')
 			if (shadow.length < 2 || buttons.length < 2) return // just in case!
 			const lastIndex = this.showMode == 'sides' ? this.sides.length - 1 : this.spreads.length - 1
-			if (index == 0) {
+			if (index == 0 || (this.showMode == 'sides' && index % 2 == 0)) {
+				// first page or even pages in single page view only needs shadow on right side
 				shadow[0].classList.add('hidden')
 				shadow[1].classList.remove('hidden')
 				buttons[0].classList.add('transparent')
 				buttons[1].classList.remove('transparent')
-			} else if (index == lastIndex) {
+			} else if (index == lastIndex || (this.showMode == 'sides' && index % 2 == 1)) {
+				// last page or odd pages in single page view only needs shadow on left side
 				shadow[0].classList.remove('hidden')
 				shadow[1].classList.add('hidden')
 				buttons[0].classList.remove('transparent')
@@ -489,7 +493,7 @@ ul.contents-list {
 	top: 30px;
 	left: -18px;
 	width: max-content;
-	z-index: 100;
+	z-index: 101;
 	padding: 8px;
 	background: var(--vpDark);
 	display: flex;
@@ -547,6 +551,9 @@ ul.contents-list.show-contents {
 	background: transparent;
 	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.9);
 }
+.slider-wrapper .shadow.sides {
+	width: 80%;
+}
 .slider-wrapper .left-shadow {
 	left: 12px;
 	transform: skew(var(--leftShadowSkew)) rotate(var(--leftShadowSkew));
@@ -557,6 +564,16 @@ ul.contents-list.show-contents {
 }
 .slider-wrapper .shadow.hidden {
 	visibility: hidden;
+}
+.slider-wrapper .center-fold {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 1px;
+	background: rgba(0, 0, 0, 0.1);
+	height: 100%;
+	z-index: 100;
+	box-shadow: 5px 0 5px rgba(0, 0, 0, 0.2), -5px 0 5px rgba(0, 0, 0, 0.2);
 }
 
 .slider >>> .slider-item {
@@ -605,6 +622,9 @@ ul.contents-list.show-contents {
 .slider >>> .slider-btn.transparent {
 	background: transparent;
 }
+.slider >>> .slider-btn.transparent .slider-icon {
+	opacity: 0.1;
+}
 
 .slider >>> .slider-btn:hover {
 	background: var(--primaryLighter); /*rgba(0, 0, 0, 0.1);*/
@@ -618,6 +638,7 @@ ul.contents-list.show-contents {
 }
 .slider >>> .slider-btn:hover .slider-icon {
 	border-color: var(--vpOrange) !important;
+	opacity: 1;
 }
 
 .slider >>> .slider-indicators {
