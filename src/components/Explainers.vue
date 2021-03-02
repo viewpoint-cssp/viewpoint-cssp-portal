@@ -129,9 +129,8 @@ export default {
 					imgAlt: 'Satellite image of Earth'
 				},
 				{
-					enTitle: 'Arup climate risk tool',
-					enPdf: 'Arup Climate Risk Tool v6 No 6',
-					enDraft: true,
+					enTitle: 'Arup climate risk tool: protecting your infrastructure under climate change',
+					enPdf: 'E06-en-arup-climate-risk',
 					imgPosition: 'top',
 					imgCredit: 'Erdenebayar Bayansan Pixabay'
 				},
