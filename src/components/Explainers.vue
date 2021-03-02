@@ -1,6 +1,18 @@
 <template>
 	<div>
 		<Banner class="banner-style" enTitle="Explainers"></Banner>
+		<div class="about-page">
+			<h2>What are Explainers?</h2>
+			<hr />
+			<p>
+				Explainers are one-page summaries of CSSP China research work.
+				Each explainer covers the importance and approach to investigating
+				the topic and includes links to the original publications.
+			</p>
+			<p lang="zh-cn">
+				TODO: Mandarin here?
+			</p>
+		</div>
 		<div class="wrapper">
 			<div
 				class="button-panel"
@@ -114,7 +126,8 @@ export default {
 					cnDraft: true,
 					imgPosition: 'bottom',
 					imgCredit: 'Pixabay.com',
-					imgAlt: 'Beijing haze event at Palace Museum\n北京故宫博物院雾霾事件'
+					imgAlt:
+						'Beijing haze event at Palace Museum\n北京故宫博物院雾霾事件'
 				},
 				{
 					enTitle:
@@ -129,7 +142,8 @@ export default {
 					imgAlt: 'Satellite image of Earth'
 				},
 				{
-					enTitle: 'Arup climate risk tool: protecting your infrastructure under climate change',
+					enTitle:
+						'Arup climate risk tool: protecting your infrastructure under climate change',
 					enPdf: 'E06-en-arup-climate-risk',
 					imgPosition: 'top',
 					imgCredit: 'Erdenebayar Bayansan Pixabay'
@@ -198,7 +212,7 @@ export default {
 		getTooltip(doc) {
 			let alt = doc.imgAlt || ''
 			let credit = doc.imgCredit ? `Image 图片来源: ${doc.imgCredit}` : ''
-			return (alt && credit) ? `${alt}\n${credit}` : alt + credit
+			return alt && credit ? `${alt}\n${credit}` : alt + credit
 		},
 		scrollCursor() {
 			const anchors = document.getElementsByTagName('a')

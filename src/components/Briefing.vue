@@ -1,6 +1,19 @@
 <template>
 	<div>
 		<Banner class="banner-style" enTitle="Briefing Notes"></Banner>
+		<div class="about-page">
+			<h2>What is a Briefing note?</h2>
+			<hr />
+			<p>
+				A briefing note is a collation from a range of information
+				sources a pressing topic. Each note clearly summarises the
+				underlying issues, relevance and recommendations of the
+				scientific evidence.
+			</p>
+			<p lang="zh-cn">
+				TODO: Mandarin here?
+			</p>
+		</div>
 		<div class="wrapper">
 			<div
 				class="button-panel"
@@ -81,7 +94,7 @@ export default {
 			pdfs: [
 				{
 					enTitle:
-						'Why is it so important to control sulphate aerosols? A complex role in a warming climate', 
+						'Why is it so important to control sulphate aerosols? A complex role in a warming climate',
 					enPdf: 'Briefing paper _ sulphate aerosol_02 Dec_final_SS',
 					enDraft: true,
 					imgCredit: 'Paweł Czerwiński, Unsplash',
@@ -90,7 +103,8 @@ export default {
 				{
 					enTitle:
 						'Urban flood control in coastal mega cities: an application to Shanghai',
-					enPdf: 'Briefing paper_urban flood control_02 December_final_SS',
+					enPdf:
+						'Briefing paper_urban flood control_02 December_final_SS',
 					enDraft: true,
 					imgCredit: ' Kelly Sikkema, Unsplash',
 					imgAlt: 'Urban Flood'
@@ -102,7 +116,7 @@ export default {
 		getTooltip(doc) {
 			let alt = doc.imgAlt || ''
 			let credit = doc.imgCredit ? `Image 图片来源: ${doc.imgCredit}` : ''
-			return (alt && credit) ? `${alt}\n${credit}` : alt + credit
+			return alt && credit ? `${alt}\n${credit}` : alt + credit
 		},
 		scrollCursor() {
 			const anchors = document.getElementsByTagName('a')
