@@ -2,17 +2,17 @@
 	<div>
 		<Banner class="banner-style" enTitle="Briefing Notes"></Banner>
 		<div class="about-page">
-			<h2>What is a Briefing note?</h2>
-			<hr />
-			<p>
-				A briefing note is a collation from a range of information
-				sources a pressing topic. Each note clearly summarises the
-				underlying issues, relevance and recommendations of the
-				scientific evidence.
-			</p>
-			<p lang="zh-cn">
-				TODO: Mandarin here?
-			</p>
+			<div class="bilingual">
+				<p>
+					Each briefing note collates a range of information sources
+					on one pressing topic, clearly summarising the underlying
+					issues, relevance and recommendations of the scientific
+					evidence.
+				</p>
+				<p lang="zh-cn">
+					TODO: Mandarin here?
+				</p>
+			</div>
 		</div>
 		<div class="wrapper">
 			<div
@@ -186,10 +186,6 @@ export default {
 .button-panel p {
 	background: transparent;
 	margin-top: 0;
-}
-.button-panel p:lang(zh-cn) {
-	font-style: italic;
-	opacity: 0.95;
 }
 
 .button-panel h2 {

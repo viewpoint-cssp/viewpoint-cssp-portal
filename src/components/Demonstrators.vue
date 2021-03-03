@@ -2,13 +2,13 @@
 	<div>
 		<Banner class="banner-style" enTitle="Demonstrators"></Banner>
 		<div class="about-page">
-			<h2>About the demonstrators</h2>
-			<hr />
-			<p>
-				Some description about demonstrators, what they are, why these
-				were selected.
-			</p>
-			<p lang="zh-cn">TODO: Mandarin here?</p>
+			<div class="bilingual">
+				<p>
+					Some description about demonstrators, what they are, why these
+					were selected.
+				</p>
+				<p lang="zh-cn">TODO: Mandarin here?</p>
+			</div>
 		</div>
 		<div
 			v-for="page in pages"
@@ -137,8 +137,6 @@ export default {
 }
 .button-content p:lang(zh-cn) {
 	margin-top: 12px;
-	font-style: italic;
-	opacity: 0.95;
 }
 
 .button-item {

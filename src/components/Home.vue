@@ -7,30 +7,36 @@
 		<div class="about-page">
 			<h2>VIEWpoint and CSSP China</h2>
 			<hr />
-			<p>
-				The VIEWpoint project seeks to maximise the impact of the
-				world-class collaborative scientific research of the
-				<a
-					href="https://www.metoffice.gov.uk/research/approach/collaboration/newton/cssp-china/index"
-					target="_blank"
-					rel="noopener noreferrer"
-					>CSSP China</a
-				>
-				(Climate Science for Service Partnership China) programme.
-				VIEWpoint has created tools, demonstrators, articles and videos
-				to make research outputs more accessible to a wider audience,
-				including government, industry and the public.
-			</p>
-			<p>
-				<span lang="zh-cn">“新观点”</span> (VIEWpoint)
-				<span lang="zh-cn">
-					项目旨在最大化地发挥“中英气候科学到服务伙伴关系计划”
-				</span>
-				(CSSP China: Climate Science for Service Partnership China)
-				<span lang="zh-cn">
-					的世界级科研合作的影响力。通过创建工具、演示、文章和视频，“新观点”项目让包括政府、企业和公众等在内的不同群体更易获得研究成果。
-				</span>
-			</p>
+			<div class="bilingual">
+				<p>
+					The VIEWpoint project seeks to maximise the impact of the
+					world-class collaborative scientific research of the
+					<a
+						href="https://www.metoffice.gov.uk/research/approach/collaboration/newton/cssp-china/index"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<font-awesome-icon
+							icon="external-link-alt"
+						></font-awesome-icon
+						>&nbsp;CSSP China (Climate Science for Service
+						Partnership China)</a
+					> programme. VIEWpoint has created tools, demonstrators,
+					articles and videos to make research outputs more accessible
+					to a wider audience, including government, industry and the
+					public.
+				</p>
+				<p lang="zh-cn">
+					“新观点” (VIEWpoint) 项目旨在最大化地发挥“中英气候科学到服务伙伴关系计划”
+					<a
+						href="https://www.metoffice.gov.uk/research/approach/collaboration/newton/cssp-china/index"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						(CSSP China: Climate Science for Service Partnership China)</a
+					> 的世界级科研合作的影响力。通过创建工具、演示、文章和视频，“新观点”项目让包括政府、企业和公众等在内的不同群体更易获得研究成果。
+				</p>
+			</div>
 		</div>
 		<div
 			v-for="page in pages"
@@ -72,14 +78,16 @@ export default {
 					pageName: 'About',
 					imageName: 'about',
 					title: 'About VIEWpoint',
-					enDesc: 'Find out more about how and why these materials were created as part of a global scientific collaboration.',
+					enDesc:
+						'Find out more about how and why these materials were created as part of a global scientific collaboration.',
 					cnDesc: 'TODO: Mandarin here?'
 				},
 				{
 					pageName: 'Resources',
 					imageName: 'resources',
 					title: 'Resources',
-					enDesc: 'A variety of accessible information to browse on climate science and addressing the challenges of climate change.',
+					enDesc:
+						'A variety of accessible information to browse on climate science and addressing the challenges of climate change.',
 					cnDesc: 'TODO: Mandarin here?'
 				},
 				{
@@ -135,12 +143,24 @@ export default {
 
 <style scoped>
 .banner-style {
-	background-position: top;
 	box-shadow: inset 0 0 0 1000px rgba(217, 216, 214, 0.5);
 }
 
 .about-page {
 	padding: 64px;
+}
+
+.about-page a {
+	text-decoration: none;
+	outline: 0;
+}
+.about-page a:lang(zh-cn) {
+	text-decoration: underline;
+	color: var(--mandarinAnchor);
+}
+.about-page a:hover,
+.about-page a:hover svg path {
+	color: var(--vpOrange);
 }
 
 .button-panel {
@@ -166,8 +186,6 @@ export default {
 }
 .button-content p:lang(zh-cn) {
 	margin-top: 12px;
-	font-style: italic;
-	opacity: 0.95;
 }
 
 .button-item {

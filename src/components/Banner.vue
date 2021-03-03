@@ -27,7 +27,7 @@ export default {
 <style scoped>
 .banner {
 	background-image: url('../assets/images/banner.jpg');
-	background-position: center;
+	background-position: bottom;
 	background-size: cover;
 	background-attachment: fixed;
 	background-blend-mode: luminosity;

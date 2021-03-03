@@ -2,69 +2,72 @@
 	<div>
 		<Banner class="banner-style" enTitle="Videos"></Banner>
 		<div class="about-page">
-			<h2>About the videos</h2>
-			<hr />
-			<p>
-				Here are a range of short videos highlighting the excellent
-				science and services developed in CSSP China. From understanding
-				more about climate issues for our urban landscapes, to specific
-				tools and information allowing the exploration of future climate
-				threats across China, from next season to the coming decades.
-			</p>
-			<p lang="zh-cn">TODO: Mandarin here?</p>
+			<div class="bilingual">
+				<p>
+					Here are a range of short videos highlighting the excellent
+					science and services developed in CSSP China. From
+					understanding more about climate issues for our urban
+					landscapes, to specific tools and information allowing the
+					exploration of future climate threats across China, from
+					next season to the coming decades.
+				</p>
+				<p lang="zh-cn">TODO: Mandarin here?</p>
+			</div>
 		</div>
 		<div class="selected-page-wrapper">
-		<div class="selected-page">
-			<div
-				class="selected-page-button"
-				:class="{ selected: selectedPage == 'cities' }"
-				@click="selectPage('cities')"
-			>
-				<p>City climates</p>
-				<p lang="zh-cn">TODO: Mandarin</p>
+			<div class="selected-page">
+				<div
+					class="selected-page-button"
+					:class="{ selected: selectedPage == 'cities' }"
+					@click="selectPage('cities')"
+				>
+					<p>City climates</p>
+					<p lang="zh-cn">TODO: Mandarin</p>
+				</div>
+				<div
+					class="selected-page-button"
+					:class="{ selected: selectedPage == 'findings' }"
+					@click="selectPage('findings')"
+				>
+					<p>Research findings</p>
+					<p lang="zh-cn">TODO: Mandarin</p>
+				</div>
+				<div
+					class="selected-page-button"
+					:class="{ selected: selectedPage == 'climate' }"
+					@click="selectPage('climate')"
+				>
+					<p>Climate tools</p>
+					<p lang="zh-cn">TODO: Mandarin</p>
+				</div>
+				<div
+					class="selected-page-button"
+					:class="{ selected: selectedPage == 'renewables' }"
+					@click="selectPage('renewables')"
+				>
+					<p>Renewable energy tools</p>
+					<p lang="zh-cn">TODO: Mandarin</p>
+				</div>
 			</div>
-			<div
-				class="selected-page-button"
-				:class="{ selected: selectedPage == 'findings' }"
-				@click="selectPage('findings')"
-			>
-				<p>Research findings</p>
-				<p lang="zh-cn">TODO: Mandarin</p>
-			</div>
-			<div
-				class="selected-page-button"
-				:class="{ selected: selectedPage == 'climate' }"
-				@click="selectPage('climate')"
-			>
-				<p>Climate tools</p>
-				<p lang="zh-cn">TODO: Mandarin</p>
-			</div>
-			<div
-				class="selected-page-button"
-				:class="{ selected: selectedPage == 'renewables' }"
-				@click="selectPage('renewables')"
-			>
-				<p>Renewable energy tools</p>
-				<p lang="zh-cn">TODO: Mandarin</p>
-			</div>
-		</div>
 		</div>
 		<div
 			id="cities"
 			class="video-panel"
 			v-show-slide:500:ease-in-out="selectedPage == 'cities'"
 		>
-			<p class="text english">
-				What is special about city climates? Cities are living things,
-				always growing and changing, needing to adapt to the needs of
-				their populations and to an ever-changing climate, which may
-				threaten the city. These three short clips cover the topics of
-				urban climate, climate change resilience for city infrastructure
-				and data use for mapping urban areas.
-			</p>
-			<p class="text mandarin" lang="zh-cn">
-				TODO: Mandarin here?
-			</p>
+			<div class="bilingual">
+				<p class="text english">
+					What is special about city climates? Cities are living things,
+					always growing and changing, needing to adapt to the needs of
+					their populations and to an ever-changing climate, which may
+					threaten the city. These three short clips cover the topics of
+					urban climate, climate change resilience for city infrastructure
+					and data use for mapping urban areas.
+				</p>
+				<p class="text mandarin" lang="zh-cn">
+					TODO: Mandarin here?
+				</p>
+			</div>
 			<div class="video-wrapper">
 				<div
 					v-for="lang in Object.keys(cityVideos)"
@@ -107,17 +110,19 @@
 			class="video-panel"
 			v-show-slide:500:ease-in-out="selectedPage == 'findings'"
 		>
-			<p class="text english">
-				Hear directly from researchers in CSSP China on their
-				collaborative UK-China work and the fascinating findings. Dr
-				Liang Guo and Dr Nick Klingaman talk about tracing the sources
-				of moisture that fall as rain and snow over China. Dr Buwen Dong
-				talks about analysing heatwaves in China and his predictions for
-				the second half of this century.
-			</p>
-			<p class="text mandarin" lang="zh-cn">
-				TODO: Mandarin here?
-			</p>
+			<div class="bilingual">
+				<p class="text english">
+					Hear directly from researchers in CSSP China on their
+					collaborative UK-China work and the fascinating findings. Dr
+					Liang Guo and Dr Nick Klingaman talk about tracing the sources
+					of moisture that fall as rain and snow over China. Dr Buwen Dong
+					talks about analysing heatwaves in China and his predictions for
+					the second half of this century.
+				</p>
+				<p class="text mandarin" lang="zh-cn">
+					TODO: Mandarin here?
+				</p>
+			</div>
 			<div class="video-wrapper">
 				<div
 					v-for="lang in Object.keys(collaborationVideos)"
@@ -160,17 +165,19 @@
 			class="video-panel"
 			v-show-slide:500:ease-in-out="selectedPage == 'climate'"
 		>
-			<p class="text english">
-				For those who want to explore their own hands-on information,
-				CSSP China has produced practical tools for businesses, planners
-				and decision-makers to use directly to find out more about the
-				current and future climate. Here are three videos summarising
-				three different tools which are tailored specifically for
-				infrastructure and cities.
-			</p>
-			<p class="text mandarin" lang="zh-cn">
-				TODO: Mandarin here?
-			</p>
+			<div class="bilingual">
+				<p class="text english">
+					For those who want to explore their own hands-on information,
+					CSSP China has produced practical tools for businesses, planners
+					and decision-makers to use directly to find out more about the
+					current and future climate. Here are three videos summarising
+					three different tools which are tailored specifically for
+					infrastructure and cities.
+				</p>
+				<p class="text mandarin" lang="zh-cn">
+					TODO: Mandarin here?
+				</p>
+			</div>
 			<div class="video-wrapper">
 				<div
 					v-for="lang in Object.keys(toolVideos)"
@@ -213,17 +220,19 @@
 			class="video-panel"
 			v-show-slide:500:ease-in-out="selectedPage == 'renewables'"
 		>
-			<p class="text english">
-				Enabling renewable energy systems are at the heart of our
-				net-zero future and the climate is a key part of efficient and
-				beneficial solutions. Hear about three tools and services from
-				scientists and engineers within the CSSP China project revealing
-				information on the next season and the next decades to help
-				planning and operation.
-			</p>
-			<p class="text mandarin" lang="zh-cn">
-				TODO: Mandarin here?
-			</p>
+			<div class="bilingual">
+				<p class="text english">
+					Enabling renewable energy systems are at the heart of our
+					net-zero future and the climate is a key part of efficient and
+					beneficial solutions. Hear about three tools and services from
+					scientists and engineers within the CSSP China project revealing
+					information on the next season and the next decades to help
+					planning and operation.
+				</p>
+				<p class="text mandarin" lang="zh-cn">
+					TODO: Mandarin here?
+				</p>
+			</div>
 			<div class="video-wrapper">
 				<div
 					v-for="lang in Object.keys(reVideos)"
@@ -518,16 +527,17 @@ export default {
 .selected-page-wrapper {
 	width: 100%;
 	background: var(--vpDark);
-	border: 2px solid var(--vpCoolGrey);
 }
+
 .selected-page {
 	max-width: 1358px;
 	margin: 0 auto;
-	padding: 0 64px; 
+	padding: 0 64px;
 	display: flex;
 	flex-direction: row;
 	background: transparent;
 }
+
 .selected-page-button {
 	margin-right: 32px;
 	padding: 8px 0;
@@ -539,10 +549,6 @@ export default {
 .selected-page-button p {
 	background: transparent;
 	color: var(--whiteDisabled);
-}
-.selected-page-button p:lang(zh-cn) {
-	font-style: italic;
-	opacity: 0.95;
 }
 .selected-page-button.selected p {
 	color: var(--whiteDefault);
@@ -568,16 +574,8 @@ export default {
 
 p.text {
 	max-width: 1358px;
-	margin: 0 auto;
+	margin: 32px auto 0 auto;
 	padding: 0 64px;
-}
-p.text.english {
-	margin-top: 32px;
-}
-p.text:lang(zh-cn) {
-	margin-top: 12px;
-	font-style: italic;
-	opacity: 0.95;
 }
 
 .video-wrapper {
@@ -627,11 +625,11 @@ iframe,
 }
 
 @media (max-width: 1007px) {
-	.selected-page  {
+	.selected-page {
 		padding: 0 32px;
 	}
 	.video-panel,
-	div.text {
+	p.text {
 		padding: 16px 32px;
 	}
 	.video-wrapper {
@@ -642,19 +640,22 @@ iframe,
 	}
 }
 @media (max-width: 640px) {
-	.selected-page  {
+	.selected-page {
 		padding: 0 16px;
 	}
 	.video-panel,
-	div.text {
+	p.text {
 		padding: 8px 16px;
+	}
+	p.text:lang(zh-cn) {
+		margin-top: 12px;
 	}
 	.no-video p.watermark {
 		letter-spacing: normal;
 	}
 }
 @media (max-width: 520px) {
-	.selected-page  {
+	.selected-page {
 		padding: 0 8px;
 	}
 	.video-panel,

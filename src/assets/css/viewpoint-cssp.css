@@ -1,3 +1,5 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500&display=swap');*/
+
 :root {
 	--vpCoolGrey: #d9d8d6;
 	--vpGrey: #c8c8c8;
@@ -20,6 +22,8 @@
 	--text: #4d5858; /* --vpDark not #212121; */
 	--font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
 		sans-serif;
+	/*--cn-font-family: 'Noto Sans SC', 'Segoe UI', Roboto, 'Helvetica Neue',
+		Arial, 'Noto Sans', sans-serif;*/
 	--catalogueHeight: 484px;
 	--leftCatalogueWidth: calc(1920px - 480px);
 	--rightCatalogueWidth: 480px;
@@ -104,6 +108,20 @@ a,
 a:visited {
 	font-size: 18px;
 }
+
+/**:lang(zh-cn) {
+	font-family: var(--cn-font-family);
+	line-height: 1.5rem;
+	letter-spacing: 0.05rem;
+	font-size: 0.9rem;
+	font-weight: 300;
+}
+h1:lang(zh-cn),
+h2:lang(zh-cn),
+h3:lang(zh-cn),
+th:lang(zh-cn) {
+	font-weight: 500;
+}*/
 
 input {
 	-webkit-appearance: none;
@@ -231,6 +249,17 @@ td {
 	color: var(--vpOrange);
 }
 
+.bilingual {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+.bilingual h2,
+.bilingual p {
+	width: 48%;
+}
+
 @media (max-width: 1007px) {
 	*,
 	h1,
@@ -267,6 +296,18 @@ td {
 	}
 	.about-page {
 		padding: 8px 16px;
+	}
+	.bilingual {
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+	}
+	.bilingual h2,
+	.bilingual p {
+		width: 100%;
+	}
+	.bilingual h2:lang(zh-cn) {
+		margin-top: 2px;
 	}
 }
 @media (max-width: 520px) {

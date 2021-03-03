@@ -2,54 +2,61 @@
 	<div>
 		<Banner class="banner-style" enTitle="Glossary"></Banner>
 		<div class="about-page">
-			<h2>About the glossary of terms</h2>
-			<hr />
-			<p>
-				This glossary provides suggested translations of climate science
-				terms from English to Mandarin. These terms have been collected
-				and reviewed by climate scientists working in the UK and China.
-			</p>
-			<p lang="zh-cn">
-				本术语表提供了气候科学术语英文至中文（普通话）的建议翻译。这些术语已由在英国和中国工作的气候科学家们收集并审阅。
-			</p>
-			<p>
-				The climate science terms in this glossary are those which are
-				commonly misunderstood by non-scientists or those which have
-				been difficult to translate into Mandarin from experience in
-				CSSP China. This glossary also provides translation for special
-				terms used for tools and products in CSSP China, which are
-				highlighted in green and have non-conventional definitions.
-			</p>
-			<p lang="zh-cn">
-				本术语表中的气候科学术语是那些通常被非专业人士误解的术语，或者是那些根据“气候科学支持服务伙伴关系中国项目
-				(CSSP
-				China)”的经验很难翻译为普通话的术语。本术语表还提供了“气候科学支持服务伙伴关系中国项目”中用于工具和产品的特殊术语的翻译，这些术语以绿色突出显示并且具有非常规定义。
-			</p>
-			<p>
-				We hope this glossary will be useful for those looking for
-				accurate English-Mandarin climate science translations. The
-				glossary can also be printed and used as a quick guide for
-				translators. It is important to note the language used in
-				climate science is constantly evolving and the precise
-				definition could change in the future.
-			</p>
-			<p lang="zh-cn">
-				我们希望本术语表对那些寻求准确地在气候科学方面进行英文-中文（普通话）的翻译的人员有所帮助。本术语表也可以打印，并用作翻译人员的快速指南。值得注意的是，气候科学中使用的语言正在不断发展，即使是精确的定义也可能会在将来改变。
-			</p>
-			<p>
-				If you have any additional suggestions for terms on this list,
-				please contact:
-				<a
-					href="mailto:jennifer.weeks@metoffice.gov.uk?subject='VIEWpoint glossary'"
-					>jennifer.weeks@metoffice.gov.uk</a
-				>.
-			</p>
-			<p lang="zh-cn">
-				如果您对本列表中的术语有其他建议，请联系：<a
-					href="mailto:jennifer.weeks@metoffice.gov.uk?subject='VIEWpoint glossary'"
-					>jennifer.weeks@metoffice.gov.uk</a
-				>。
-			</p>
+			<div class="bilingual">
+				<p>
+					This glossary provides suggested translations of climate science
+					terms from English to Mandarin. These terms have been collected
+					and reviewed by climate scientists working in the UK and China.
+				</p>
+				<p lang="zh-cn">
+					本术语表提供了气候科学术语英文至中文（普通话）的建议翻译。这些术语已由在英国和中国工作的气候科学家们收集并审阅。
+				</p>
+			</div>
+			<div class="bilingual">
+				<p>
+					The climate science terms in this glossary are those which are
+					commonly misunderstood by non-scientists or those which have
+					been difficult to translate into Mandarin from experience in
+					CSSP China. This glossary also provides translation for special
+					terms used for tools and products in CSSP China, which are
+					highlighted in green and have non-conventional definitions.
+				</p>
+				<p lang="zh-cn">
+					本术语表中的气候科学术语是那些通常被非专业人士误解的术语，或者是那些根据“气候科学支持服务伙伴关系中国项目
+					(CSSP
+					China)”的经验很难翻译为普通话的术语。本术语表还提供了“气候科学支持服务伙伴关系中国项目”中用于工具和产品的特殊术语的翻译，这些术语以绿色突出显示并且具有非常规定义。
+				</p>
+			</div>
+			<div class="bilingual">
+				<p>
+					We hope this glossary will be useful for those looking for
+					accurate English-Mandarin climate science translations. The
+					glossary can also be printed and used as a quick guide for
+					translators. It is important to note the language used in
+					climate science is constantly evolving and the precise
+					definition could change in the future.
+				</p>
+				<p lang="zh-cn">
+					我们希望本术语表对那些寻求准确地在气候科学方面进行英文-中文（普通话）的翻译的人员有所帮助。本术语表也可以打印，并用作翻译人员的快速指南。值得注意的是，气候科学中使用的语言正在不断发展，即使是精确的定义也可能会在将来改变。
+				</p>
+			</div>
+			<div class="bilingual">
+				<p>
+					If you have any additional suggestions for terms on this list,
+					please contact:
+					<a
+						href="mailto:jennifer.weeks@metoffice.gov.uk?subject='VIEWpoint glossary'"
+						>jennifer.weeks@metoffice.gov.uk</a
+					>.
+				</p>
+				<p lang="zh-cn">
+					如果您对本列表中的术语有其他建议，请联系：
+					<a
+						href="mailto:jennifer.weeks@metoffice.gov.uk?subject='VIEWpoint glossary'"
+						>jennifer.weeks@metoffice.gov.uk</a
+					> 。
+				</p>
+			</div>
 		</div>
 		<table v-if="!narrowPage">
 			<thead>

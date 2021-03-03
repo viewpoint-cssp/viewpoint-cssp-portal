@@ -2,12 +2,15 @@
 	<div>
 		<Banner class="banner-style" enTitle="Handbook"></Banner>
 		<div class="about-page">
-			<h2>About the handbook</h2>
-			<hr />
-			<p>
-				Some description about the handbook.
-			</p>
-			<p lang="zh-cn">TODO: Mandarin here?</p>
+			<div class="bilingual">
+				<p>
+					The handbook is a collection of articles compiling
+					highlights of several years of the CSSP China project,
+					including behind the scenes interviews with world-leading
+					scientists.
+				</p>
+				<p lang="zh-cn">TODO: Mandarin here?</p>
+			</div>
 			<a
 				class="download"
 				:href="
@@ -37,24 +40,34 @@
 						icon="caret-left"
 						class="toggle-icon"
 						:disabled="onFirstPage"
-						@click="showMode == 'sides' ? sideIndex = sideIndex - 1 : spreadIndex = spreadIndex - 1"
+						@click="
+							showMode == 'sides'
+								? (sideIndex = sideIndex - 1)
+								: (spreadIndex = spreadIndex - 1)
+						"
 						title="Go to previous page"
 					></font-awesome-icon>
-					<p>
-						{{ pageNumber }} of {{ this.sides.length }}
-					</p>
+					<p>{{ pageNumber }} of {{ this.sides.length }}</p>
 					<font-awesome-icon
 						icon="caret-right"
 						class="toggle-icon"
 						:disabled="onLastPage"
-						@click="showMode == 'sides' ? sideIndex = sideIndex + 1 : spreadIndex = spreadIndex + 1"
+						@click="
+							showMode == 'sides'
+								? (sideIndex = sideIndex + 1)
+								: (spreadIndex = spreadIndex + 1)
+						"
 						title="Go to next page"
 					></font-awesome-icon>
 					<font-awesome-icon
 						icon="forward"
 						class="toggle-icon"
 						:disabled="onLastPage"
-						@click="showMode == 'sides' ? sideIndex = sides.length - 1 : spreadIndex = spreads.length - 1"
+						@click="
+							showMode == 'sides'
+								? (sideIndex = sides.length - 1)
+								: (spreadIndex = spreads.length - 1)
+						"
 						title="Go to last page"
 					></font-awesome-icon>
 					<div class="contents-selector" v-if="sections.length">
@@ -91,26 +104,38 @@
 						rel="noopener noreferrer"
 						title="Download the handbook"
 					>
-						<font-awesome-icon icon="download" class="toggle-icon"></font-awesome-icon>
+						<font-awesome-icon
+							icon="download"
+							class="toggle-icon"
+						></font-awesome-icon>
 					</a>
 					<font-awesome-layers
 						class="toggle-icon"
 						:title="
-							`${showMode == 'sides' ? 'Show as two page spreads' : 'Show as individual pages'}`
+							`${
+								showMode == 'sides'
+									? 'Show as two page spreads'
+									: 'Show as individual pages'
+							}`
 						"
 						@click="changeMode"
 					>
-						<font-awesome-icon icon="book-open" class="toggle-icon"/>
+						<font-awesome-icon
+							icon="book-open"
+							class="toggle-icon"
+						></font-awesome-icon>
 						<font-awesome-icon
 							icon="slash"
 							v-show="showMode == 'spreads'"
-						/>
+						></font-awesome-icon>
 					</font-awesome-layers>
 					<font-awesome-icon
 						:icon="!fullWidth ? 'arrows-alt-h' : 'arrows-alt-v'"
 						class="toggle-icon boxed"
 						@click="fullWidth = !fullWidth"
-						:title="!fullWidth ? 'Make full width' : 'Make full height'"
+						:title="
+							!fullWidth ? 'Make full width' : 'Make full height'
+						"
 					></font-awesome-icon>
 				</div>
 			</div>
@@ -172,14 +197,14 @@ export default {
 			nextIndex: 0,
 			// TODO define these once handbook is finalised
 			sections: [
-				{ name: 'Introduction by the MetOffice', spreads: 4, sides: 7},
+				{ name: 'Introduction by the MetOffice', spreads: 4, sides: 7 },
 				{ name: 'Using the Handbook', spreads: 5, sides: 9 },
 				{ name: 'Explainers', spreads: 17, sides: 33 },
 				{ name: 'Infographics', spreads: 25, sides: 49 },
 				{ name: 'Demonstrators', spreads: 27, sides: 54 },
 				{ name: 'Briefing notes', spreads: 28, sides: 55 }
 			],
-			// sideIndex and spreadIndex needed to try to stop  
+			// sideIndex and spreadIndex needed to try to stop
 			// multiple pages becoming visible at the same time
 			sideIndex: 0,
 			spreadIndex: 0,
@@ -196,7 +221,8 @@ export default {
 			} else if (this.spreadIndex == 0) {
 				return `${this.narrowPage ? '' : 'Page '}1`
 			} else {
-				return `${this.narrowPage ? '' : 'Pages '}${this.spreadIndex * 2}/${this.spreadIndex * 2 + 1}`
+				return `${this.narrowPage ? '' : 'Pages '}${this.spreadIndex *
+					2}/${this.spreadIndex * 2 + 1}`
 			}
 		}
 	},
@@ -214,9 +240,10 @@ export default {
 	methods: {
 		checkPages() {
 			// frustratingly more than one slider-item can become visible at the same time
-			// probably relating to toggling between spreads and sides  
+			// probably relating to toggling between spreads and sides
 			// having the renderKey may have resolved this but keep this here just in case!
-			let index = this.showMode == 'sides' ? this.sideIndex : this.spreadIndex
+			let index =
+				this.showMode == 'sides' ? this.sideIndex : this.spreadIndex
 			this.$nextTick(() => {
 				const items = document.getElementsByClassName('slider-item')
 				let visible = []
@@ -242,19 +269,25 @@ export default {
 		changeMode() {
 			if (this.showMode == 'sides') {
 				// will become two-page spreads so update index
-				this.spreadIndex = !this.sideIndex ? 0 : Math.ceil(this.sideIndex / 2) 
+				this.spreadIndex = !this.sideIndex
+					? 0
+					: Math.ceil(this.sideIndex / 2)
 				this.showMode = 'spreads'
 			} else {
 				// will become single sides so update index
-				this.sideIndex = !this.spreadIndex ? 0 : this.spreadIndex * 2 - 1
+				this.sideIndex = !this.spreadIndex
+					? 0
+					: this.spreadIndex * 2 - 1
 				this.showMode = 'sides'
 			}
 			// force rerender to ensure only the required page is visible!
-			this.renderKey += 1 
+			this.renderKey += 1
 			// force rescaling
 			this.resized()
 			// and check the shadows!
-			this.changedToPage(this.showMode == 'sides' ? this.sideIndex : this.spreadIndex)
+			this.changedToPage(
+				this.showMode == 'sides' ? this.sideIndex : this.spreadIndex
+			)
 		},
 		onFirstPage() {
 			if (this.showMode == 'sides') {
@@ -286,14 +319,20 @@ export default {
 			const shadow = document.getElementsByClassName('shadow')
 			const buttons = document.getElementsByClassName('slider-btn')
 			if (shadow.length < 2 || buttons.length < 2) return // just in case!
-			const lastIndex = this.showMode == 'sides' ? this.sides.length - 1 : this.spreads.length - 1
+			const lastIndex =
+				this.showMode == 'sides'
+					? this.sides.length - 1
+					: this.spreads.length - 1
 			if (index == 0 || (this.showMode == 'sides' && index % 2 == 0)) {
 				// first page or even pages in single page view only needs shadow on right side
 				shadow[0].classList.add('hidden')
 				shadow[1].classList.remove('hidden')
 				buttons[0].classList.add('transparent')
 				buttons[1].classList.remove('transparent')
-			} else if (index == lastIndex || (this.showMode == 'sides' && index % 2 == 1)) {
+			} else if (
+				index == lastIndex ||
+				(this.showMode == 'sides' && index % 2 == 1)
+			) {
 				// last page or odd pages in single page view only needs shadow on left side
 				shadow[0].classList.remove('hidden')
 				shadow[1].classList.add('hidden')
@@ -308,7 +347,7 @@ export default {
 		},
 		resized() {
 			if (window.matchMedia('(max-width: 756px)').matches) {
-				// less than 724px + 16px either side is narrow 
+				// less than 724px + 16px either side is narrow
 				if (!this.narrowPage) {
 					// when first becames too narrow, change to fullwidth single page view
 					this.narrowPage = true
@@ -317,7 +356,7 @@ export default {
 					this.changedWidth = 0
 				}
 			} else if (!window.matchMedia('(max-width: 1056px)').matches) {
-				// more than 1024px + 16px either side is wide 
+				// more than 1024px + 16px either side is wide
 				if (this.narrowPage) {
 					// when first no longer narrow, change to two page spreads and normal width view
 					this.narrowPage = false
@@ -326,7 +365,7 @@ export default {
 					this.changedWidth = 0
 				}
 			} else if (this.narrowPage) {
-				// when first no longer narrow (more than 724px + 16px and less than 1024 + 16px), 
+				// when first no longer narrow (more than 724px + 16px and less than 1024 + 16px),
 				// just change flag without changing view
 				this.narrowPage = false
 				this.changedWidth = 0
@@ -336,14 +375,17 @@ export default {
 			let width
 			let height
 			if (this.fullWidth) {
-				// width is available browser width less 16px either side 
+				// width is available browser width less 16px either side
 				// (limited to the system maximum of 1358px)
 				width = Math.min(parseInt(window.innerWidth) - 32, 1358)
 				height = width / ratio
 			} else {
-				// height is available browser height less 8px top and bottom 
+				// height is available browser height less 8px top and bottom
 				// (limited to the maximum that would yield a width of 1358px)
-				height = Math.min(parseInt(window.innerHeight) - 16, 1358 / ratio)
+				height = Math.min(
+					parseInt(window.innerHeight) - 16,
+					1358 / ratio
+				)
 				width = height * ratio
 			}
 			document.documentElement.style.setProperty(
@@ -386,9 +428,9 @@ export default {
 		}
 		// force removal of left-shadow if index is on first page
 		if (this.showMode == 'sides') {
-			this.changedToPage(this.sideIndex) 
+			this.changedToPage(this.sideIndex)
 		} else {
-			this.changedToPage(this.spreadIndex) 
+			this.changedToPage(this.spreadIndex)
 		}
 		// ... before the usual mounted() functionality
 		this.$el.parentElement.scrollIntoView(true)
@@ -416,6 +458,12 @@ a.download,
 }
 .fa-download path {
 	color: var(--whiteDefault);
+}
+
+.about-page a {
+	display: table; /* fudge to get auto margins to center the button */
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .toggle-wrapper {
@@ -604,8 +652,10 @@ ul.contents-list.show-contents {
 	height: var(--handbookHeight);
 }
 .slider:not(.sides) >>> .slider-item:first-of-type img {
-	transform: scaleX(0.5); /* since cover is only one page wide, this will correct that width problem */
-	transform-origin: right top; /* and this will ensure it's on the right hand side */
+	/* since cover is only one page wide, this will correct that width problem */
+	transform: scaleX(0.5); 
+	/* and this will ensure it's on the right hand side */
+	transform-origin: right top; 
 }
 .slider.sides >>> .slider-item:first-of-type img {
 	clip-path: none; /* don't need to clip anything */

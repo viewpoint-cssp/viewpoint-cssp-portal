@@ -2,22 +2,22 @@
 	<div>
 		<Banner class="banner-style" enTitle="Resources"></Banner>
 		<div class="about-page">
-			<h2>About the resources</h2>
-			<hr />
-			<p>
-				VIEWpoint draws together research from hundreds of scientists in
-				the UK and China. Here we present a range of condensed
-				information in plain language, based on the science and vast
-				expertise. The original research can be found directly in the
-				<span class="goto nowrap" @click="$emit('goTo', 'Catalogue')">
-					<font-awesome-icon
-						icon="link"
-					></font-awesome-icon>
-					<strong>Catalogue</strong></span
-				>
-				of publications.
-			</p>
-			<p lang="zh-cn">TODO: Mandarin here?</p>
+			<div class="bilingual">
+				<p>
+					VIEWpoint draws together research from hundreds of scientists in
+					the UK and China. Here we present a range of condensed
+					information in plain language, based on the science and vast
+					expertise. The original research can be found directly in the
+					<span class="goto nowrap" @click="$emit('goTo', 'Catalogue')">
+						<font-awesome-icon
+							icon="link"
+						></font-awesome-icon>
+						<strong>Catalogue</strong></span
+					>
+					of publications.
+				</p>
+				<p lang="zh-cn">TODO: Mandarin here?</p>
+			</div>
 		</div>
 		<div
 			v-for="page in pages"
@@ -179,8 +179,6 @@ span.goto:hover svg path {
 }
 .button-content p:lang(zh-cn) {
 	margin-top: 12px;
-	font-style: italic;
-	opacity: 0.95;
 }
 
 .button-item {
