@@ -29,6 +29,7 @@ import {
 	FontAwesomeLayers
 } from '@fortawesome/vue-fontawesome'
 import VShowSlide from 'v-show-slide'
+import router from './routes.js'
 
 library.add(
 	faArrowsAltH,
@@ -61,5 +62,6 @@ Vue.use(VShowSlide)
 Vue.config.productionTip = false
 
 new Vue({
-	render: h => h(App)
+	render: h => h(App),
+	router
 }).$mount('#app')

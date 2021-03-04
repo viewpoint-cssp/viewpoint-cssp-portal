@@ -8,7 +8,7 @@
 					the UK and China. Here we present a range of condensed
 					information in plain language, based on the science and vast
 					expertise. The original research can be found directly in the
-					<span class="goto nowrap" @click="$emit('goTo', 'Catalogue')">
+					<span class="goto nowrap" @click="$router.push('catalogue')">
 						<font-awesome-icon
 							icon="link"
 						></font-awesome-icon>
@@ -23,7 +23,7 @@
 			v-for="page in pages"
 			:key="page.pageName"
 			class="button-panel"
-			@click="$emit('goTo', page.pageName)"
+			@click="$router.push(page.pageName.toLowerCase())"
 		>
 			<div class="button-content">
 				<div class="button-item image">

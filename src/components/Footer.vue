@@ -99,11 +99,11 @@ Use footer styling to position (eg absolute, at top left with any z-index)
 export default {
 	name: 'Footer',
 	props: {
-		portal: Boolean, // passed true only when component is called from viewpoint-cssp-portal's App.vue
 		forceIconsOnly: Boolean // passed true to use icons only regardless of browser width
 	},
 	data() {
 		return {
+			portal: false,
 			timeout: null,
 			urlCMA: 'http://www.cma.gov.cn/en2014/',
 			urlIAP: 'http://english.iap.cas.cn/',
@@ -136,6 +136,13 @@ export default {
 		}
 	},
 	mounted() {
+		// see whether this component is within the portal website or not
+		if (this.$router) {
+			const routes = this.$router.options.routes
+			if (routes.length > 0 && routes[routes.length - 1].name == 'VIEWpoint404') {
+				this.portal = true
+			}
+		}
 		// change URLs to Chinese version if possible
 		if (
 			navigator &&

@@ -58,28 +58,28 @@ Use .nav-menu to position (eg absolute, at top left with any z-index)
 // NOTE This is defined here AND in App.vue in order to allow this 
 // component to be copied stand-alone for inclusion in the demonstrators
 const appPages = [
-	'Home',
 	'About',
+	'Briefing',
 	'Catalogue',
 	'Demonstrators',
+	'Explainers',
+	'Glossary',
+	'Handbook',
+	'Home',
 	'Resources',
 	'Training',
-	'Explainers',
-	'Briefing',
-	'Videos',
-	'Handbook',
-	'Glossary'
+	'Videos'
 ]
 
 export default {
 	name: 'NavMenu',
 	props: {
 		navPage: String, // current page (see valid page names in options array below)
-		portal: Boolean, // passed true only when component is called from viewpoint-cssp-portal's App.vue
 		forceHamburger: Boolean // passed true to use hamburger/vertical menu regardless of browser width
 	},
 	data() {
 		return {
+			portal: false,
 			options: [
 				{ page: 'Home' },
 				{ page: 'About' },
@@ -139,14 +139,11 @@ export default {
 				this.showOptions = false
 			}
 			if (page == this.navPage) return
-			if (appPages.includes(page)) {
-				if (this.portal) {
-					this.$emit('goTo', page)
-				} else {
-					location.href =
-						'https://viewpoint-cssp.github.io/viewpoint-cssp-portal#' +
-						page.toLowerCase()
-				}
+			if (appPages.includes(page) && this.portal) {
+				this.$router.push(page.toLowerCase())
+			} else if (appPages.includes(page) && !this.portal) {
+				location.href =
+					`https://www.viewpoint-cssp.org/${page.toLowerCase()}`
 			} else if (page == 'suhi') {
 				location.href = 'https://the-iea.github.io/viewpoint-suhi'
 			} else if (page == 'wrm') {
@@ -170,10 +167,6 @@ export default {
 		},
 		resized() {
 			// NOTE this method is only ever called if !this.forceHamburger
-			// If options are Home, About, Catalogue, Demonstrators, Training 
-			// materials, Explainers, Videos & Handbook, 550px is about the threshold
-			// If options are Home, About, Catalogue, Demonstrators, Resources 
-			// & Glossary, 410px is about the threshold
 			if (window.matchMedia('(max-width: 410px)').matches) {
 				this.narrowPage = true
 			} else {
@@ -182,6 +175,13 @@ export default {
 		}
 	},
 	mounted() {
+		// see whether this component is within the portal website or not
+		if (this.$router) {
+			const routes = this.$router.options.routes
+			if (routes.length > 0 && routes[routes.length - 1].name == 'VIEWpoint404') {
+				this.portal = true
+			}
+		}
 		// check whether the required CSS vars exist
 		if (!getComputedStyle(document.documentElement).getPropertyValue('--vpOrange')) {
 			document.documentElement.style.setProperty('--vpCoolGrey', '#d9d8d6')

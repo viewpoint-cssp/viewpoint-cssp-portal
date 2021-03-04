@@ -42,7 +42,7 @@
 			v-for="page in pages"
 			:key="page.pageName"
 			class="button-panel"
-			@click="$emit('goTo', page.pageName)"
+			@click="$router.push(page.pageName.toLowerCase())"
 		>
 			<div class="button-content">
 				<div class="button-item image">
