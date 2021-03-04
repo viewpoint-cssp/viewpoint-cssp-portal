@@ -1,4 +1,3 @@
-const path = require('path')
 const webpack = require('webpack')
 
 module.exports = {
@@ -28,6 +27,7 @@ module.exports = {
 			})
 	},
 	lintOnSave: true,
-	publicPath:
-		process.env.NODE_ENV === 'production' ? '/viewpoint-cssp-portal/' : '/'
+	//publicPath: required for serving on github.io
+	//	process.env.NODE_ENV === 'production' ? '/viewpoint-cssp-portal/' : '/'
+	publicPath: '/'
 }
