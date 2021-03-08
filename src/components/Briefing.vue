@@ -94,20 +94,20 @@ export default {
 			pdfs: [
 				{
 					enTitle:
-						'Why is it so important to control sulphate aerosols? A complex role in a warming climate',
-					enPdf: 'Briefing paper _ sulphate aerosol_02 Dec_final_SS',
-					enDraft: true,
-					imgCredit: 'Paweł Czerwiński, Unsplash',
-					imgAlt: 'Man made Pollution'
-				},
-				{
-					enTitle:
 						'Urban flood control in coastal mega cities: an application to Shanghai',
 					enPdf:
 						'Briefing paper_urban flood control_02 December_final_SS',
 					enDraft: true,
 					imgCredit: ' Kelly Sikkema, Unsplash',
 					imgAlt: 'Urban Flood'
+				},
+				{
+					enTitle:
+						'Why is it so important to control sulphate aerosols? A complex role in a warming climate',
+					enPdf: 'Briefing paper _ sulphate aerosol_02 Dec_final_SS',
+					enDraft: true,
+					imgCredit: 'Paweł Czerwiński, Unsplash',
+					imgAlt: 'Man made Pollution'
 				}
 			]
 		}
