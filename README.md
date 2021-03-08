@@ -2,20 +2,14 @@
 
 This is the VIEWpoint-CSSP portal. It is a work-in-progress.
 
--   Completed:
-    -   skeleton of website
-    -   navigation (components also available for use in SUHI and WRM)
-    -   links to SUHI and WRM demonstrators
-    -   catalogue
-    -   about page
-    -   skeleton of training materials
-    -   draft explainers
-    -   proof of concept for glossary
 -   To do list includes (in no particular order and possibly incomplete):
-    -   add IEA and UoR logos in footer
     -   translations where required
     -   review all images and reduce physical size
-    -   further browser and responsiveness testing
+    -   continuing browser and responsiveness testing
+    -   final versions of PDFs, remove 'Draft's
+    -   video IDs, video resolution selector
+    -   add audiocast
+    -   proper page not found for invalid /page
 
 ## Project setup
 
