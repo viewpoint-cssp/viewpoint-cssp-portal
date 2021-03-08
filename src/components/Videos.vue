@@ -37,7 +37,7 @@
 					:class="{ selected: selectedPage == 'climate' }"
 					@click="selectPage('climate')"
 				>
-					<p>Climate tools</p>
+					<p>Infrastructure design</p>
 					<p lang="zh-cn">TODO: Mandarin</p>
 				</div>
 				<div
@@ -45,7 +45,7 @@
 					:class="{ selected: selectedPage == 'renewables' }"
 					@click="selectPage('renewables')"
 				>
-					<p>Renewable energy tools</p>
+					<p>Renewable energy</p>
 					<p lang="zh-cn">TODO: Mandarin</p>
 				</div>
 			</div>
