@@ -91,7 +91,7 @@ export default {
 						{ page: 'Explainers' },
 						{ page: 'Infographics' },
 						{ page: 'Briefing', label: 'Briefing notes' },
-						{ page: 'Videos' },
+						{ page: 'Videos', label: 'Videos and audiocasts' },
 						{ page: 'Training', label: 'Training materials' }
 					]
 				},

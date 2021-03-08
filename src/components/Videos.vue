@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<Banner class="banner-style" enTitle="Videos"></Banner>
+		<Banner class="banner-style" enTitle="Videos and audiocasts"></Banner>
 		<div class="about-page">
 			<div class="bilingual">
 				<p>
@@ -46,6 +46,14 @@
 					@click="selectPage('renewables')"
 				>
 					<p>Renewable energy</p>
+					<p lang="zh-cn">TODO: Mandarin</p>
+				</div>
+				<div
+					class="selected-page-button"
+					:class="{ selected: selectedPage == 'audiocasts' }"
+					@click="selectPage('audiocasts')"
+				>
+					<p>Audiocasts</p>
 					<p lang="zh-cn">TODO: Mandarin</p>
 				</div>
 			</div>
@@ -268,6 +276,20 @@
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
+		<div
+			id="audiocasts"
+			class="video-panel"
+			v-show-slide:500:ease-in-out="selectedPage == 'audiocasts'"
+		>
+			<div class="bilingual" style="margin-bottom:24px;">
+				<p class="text english">
+					Audiocast(s) will live here.
+				</p>
+				<p class="text mandarin" lang="zh-cn">
+					TODO: Mandarin here?
+				</p>
 			</div>
 		</div>
 		<Gotop></Gotop>
