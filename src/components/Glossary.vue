@@ -17,14 +17,12 @@
 					The climate science terms in this glossary are those which are
 					commonly misunderstood by non-scientists or those which have
 					been difficult to translate into Mandarin from experience in
-					CSSP China. This glossary also provides translation for special
-					terms used for tools and products in CSSP China, which are
-					highlighted in green and have non-conventional definitions.
+					CSSP China.
 				</p>
 				<p lang="zh-cn">
 					本术语表中的气候科学术语是那些通常被非专业人士误解的术语，或者是那些根据“气候科学支持服务伙伴关系中国项目
 					(CSSP
-					China)”的经验很难翻译为普通话的术语。本术语表还提供了“气候科学支持服务伙伴关系中国项目”中用于工具和产品的特殊术语的翻译，这些术语以绿色突出显示并且具有非常规定义。
+					China)”的经验很难翻译为普通话的术语。
 				</p>
 			</div>
 			<div class="bilingual">
@@ -46,14 +44,14 @@
 					please contact:
 					<a
 						href="mailto:jennifer.weeks@metoffice.gov.uk?subject='VIEWpoint glossary'"
-						>jennifer.weeks@metoffice.gov.uk</a
+						>WCSSPProgrammeOffice@metoffice.gov.uk</a
 					>.
 				</p>
 				<p lang="zh-cn">
 					如果您对本列表中的术语有其他建议，请联系：
 					<a
 						href="mailto:jennifer.weeks@metoffice.gov.uk?subject='VIEWpoint glossary'"
-						>jennifer.weeks@metoffice.gov.uk</a
+						>WCSSPProgrammeOffice@metoffice.gov.uk</a
 					> 。
 				</p>
 			</div>
