@@ -1,13 +1,13 @@
 <template>
 	<div id="app">
 		<NavMenu class="app-fixed" :navPage="navPage"></NavMenu>
-		<router-view>
-			<transition name="fade" mode="out-in">
+		<transition name="fade" mode="out-in">
+			<router-view>
 				<component 
 					:is="navPage" 
 				></component>
-			</transition>
-		</router-view>
+			</router-view>
+		</transition>
 		<Footer class="app-fixed"></Footer>
 	</div>
 </template>
@@ -22,6 +22,7 @@ import Demonstrators from './components/Demonstrators.vue'
 import Explainers from './components/Explainers.vue'
 import Handbook from './components/Handbook.vue'
 import Home from './components/Home.vue'
+import Infographics from './components/Infographics.vue'
 import Glossary from './components/Glossary.vue'
 import Resources from './components/Resources.vue'
 import Training from './components/Training.vue'
@@ -40,6 +41,7 @@ export default {
 		Glossary,
 		Handbook,
 		Home,
+		Infographics,
 		Resources,
 		Training,
 		Videos
