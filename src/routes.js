@@ -5,9 +5,10 @@ import Briefing from './components/Briefing.vue'
 import Catalogue from './components/Catalogue.vue'
 import Demonstrators from './components/Demonstrators.vue'
 import Explainers from './components/Explainers.vue'
+import Glossary from './components/Glossary.vue'
 import Handbook from './components/Handbook.vue'
 import Home from './components/Home.vue'
-import Glossary from './components/Glossary.vue'
+import Infographics from './components/Infographics.vue'
 import Resources from './components/Resources.vue'
 import Training from './components/Training.vue'
 import Videos from './components/Videos.vue'
@@ -61,6 +62,11 @@ const router = new VueRouter({
 			path: '/home',
 			name: 'Home',
 			component: Home
+		},
+		{
+			path: '/infographics',
+			name: 'Infographics',
+			component: Infographics
 		},
 		{
 			path: '/resources',

@@ -76,6 +76,14 @@ export default {
 					cnDesc: 'TODO: Mandarin here?'
 				},
 				{
+					pageName: 'Infographics',
+					imageName: 'infographics',
+					title: 'Infographics',
+					enDesc:
+						'What the infographics are all about.',
+					cnDesc: 'TODO: Mandarin here?'
+				},
+				{
 					pageName: 'Briefing',
 					imageName: 'briefing',
 					title: 'Briefing notes',
