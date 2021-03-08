@@ -3,7 +3,7 @@
 		<div class="banner">
 			<div class="header-left">
 				<img id="logo" src="../assets/images/logo.png" />
-				<h1>Catalogue</h1>
+				<h1>Catalogue of published papers</h1>
 			</div>
 			<div class="header-right">
 				<p>{{ count }} entries</p>
