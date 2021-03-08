@@ -12,18 +12,34 @@
 			</div>
 		</div>
 		<div class="flex-outer">
-			<div v-for="(group, g) in groupedPdfs" :key="`inner-${g}`" class="flex-inner">
-				<div v-for="(pdf, p) in group" :key="`div-${g}-${p}`" class="bilingual">
-					<a v-for="lang in langs" :key="`a-${g}-${p}-${lang}`"
+			<div
+				v-for="(group, g) in groupedPdfs"
+				:key="`inner-${g}`"
+				class="flex-inner"
+			>
+				<div
+					v-for="(pdf, p) in group"
+					:key="`div-${g}-${p}`"
+					class="bilingual"
+				>
+					<a
+						v-for="lang in pdf.langs"
+						:key="`a-${g}-${p}-${lang}`"
 						:href="require(`../assets/pdfs/${pdf[lang].pdf}.pdf`)"
 						:download="`${pdf[lang].pdf}.pdf`"
 						target="_blank"
 						rel="noopener noreferrer"
 						:title="pdf[lang].button"
 					>
-						<img :src="require(`../assets/images/${pdf[lang].img}.jpg`)" />
-						<button lang="lang == 'cn' ? 'zh-cn' : ''">{{ pdf[lang].button }}</button>
-						<img :src="require(`../assets/images/${lang}-flag.png`)" class="flag" />
+						<img
+							:src="
+								require(`../assets/images/${pdf[lang].img}.jpg`)
+							"
+						/>
+						<button lang="lang == 'cn' ? 'zh-cn' : ''">
+							{{ pdf[lang].button }}
+						</button>
+						<p class="draft" v-if="pdf[lang].draft">Draft</p>
 					</a>
 				</div>
 			</div>
@@ -44,54 +60,48 @@ export default {
 	},
 	data() {
 		return {
-			langs: [ 'en', 'cn' ],
 			pdfs: [
 				{
+					langs: ['en'],
 					en: {
 						pdf: 'I01-en-assessing-risk',
 						img: 'infographic-1',
-						button: `Assessing China's risk to climate related extremes`
-					},
-					cn: {
-						pdf: 'I01-en-assessing-risk',
-						img: 'infographic-1',
-						button: `Assessing China's risk to climate related extremes in Mandarin`
+						button: `Assessing China's risk to climate related extremes`,
+						draft: true
 					}
 				},
 				{
+					langs: ['en'],
 					en: {
 						pdf: 'I02-en-air-quality',
 						img: 'infographic-2',
-						button: 'Urban China Decadal Air Quality Service'
-					},
-					cn: {
-						pdf: 'I02-en-air-quality',
-						img: 'infographic-2',
-						button: 'Urban China Decadal Air Quality Service in Mandarin'
+						button: 'Urban China Decadal Air Quality Service',
+						draft: true
 					}
 				},
 				{
+					langs: ['en'],
 					en: {
 						pdf: 'I03-en-seasonal-forecast',
 						img: 'infographic-3',
-						button: 'Seasonal forecast service for the Yangtze River Basin'
-					},
-					cn: {
-						pdf: 'I03-en-seasonal-forecast',
-						img: 'infographic-3',
-						button: 'Seasonal forecast service for the Yangtze River Basin in Mandarin'
+						button:
+							'Seasonal forecast service for the Yangtze River Basin',
+						draft: true
 					}
 				},
 				{
+					langs: ['en', 'cn'],
 					en: {
 						pdf: 'I04-en-food-security',
 						img: 'infographic-4',
-						button: 'Food security in CSSP China'
+						button: 'Food security in CSSP China',
+						draft: true
 					},
 					cn: {
-						pdf: 'I04-en-food-security',
-						img: 'infographic-4',
-						button: 'Food security in CSSP China in Mandarin'
+						pdf: 'I04-cn-food-security',
+						img: 'infographic-4-cn',
+						button: '中英气候科学支持服务伙伴关系计划之粮食安全',
+						draft: true
 					}
 				}
 			]
@@ -164,9 +174,6 @@ a:hover img,
 button:hover {
 	box-shadow: 4px 4px 5px var(--primarySelected);
 }
-a:hover img.flag {
-	background: var(--vpOrange);
-}
 a:focus {
 	outline: none;
 }
@@ -176,23 +183,27 @@ button:active {
 	box-shadow: none;
 }
 
-img:not(.flag) {
+img {
 	width: 300px;
 	margin: 12px;
-}
-img.flag {
-	position: absolute;
-	top: 6px;
-	right: 6px;
-	width: 12%;
-	padding: 4px;
-	background: var(--vpGreen);
-	border-radius: 20px;
 }
 
 button {
 	cursor: pointer;
 	display: none;
+}
+
+p.draft {
+	position: absolute;
+	top: 40%;
+	left: 20%;
+	font-size: 64px;
+	font-weight: bold;
+	letter-spacing: 8px;
+	transform-origin: center;
+	transform: rotate(-30deg);
+	background: transparent;
+	color: var(--bannerGrey);
 }
 
 @media (max-width: 1300px) {
@@ -205,8 +216,9 @@ button {
 	.bilingual {
 		margin: 0 auto;
 	}
-	img:not(.flag) {
+	img {
 		width: 90%;
+		max-width: calc(50vw - 24px);
 	}
 }
 
@@ -216,5 +228,4 @@ button {
 		flex-direction: row;
 	}
 }
-
 </style>
