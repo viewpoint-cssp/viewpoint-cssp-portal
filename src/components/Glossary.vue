@@ -166,17 +166,21 @@
 			</tbody>
 		</table>
 		<div class="about-page attrib">
-			<h3>Acknowledgements</h3>
-			<h3 lang="zh-cn">致谢</h3>
-			<p>
-				We would like to thank all scientists involved in CSSP China who
-				contributed to the list. We would also like to thank Ms. Zheng
-				Lin (IAP), Prof. Yinlong Xu (CAAS) and Dr. Lei Huang (CMA) for
-				proofreading these terms.
-			</p>
-			<p lang="zh-cn">
-				我们要感谢所有参与“气候科学支持服务伙伴关系中国项目”的人员，他们为术语表中的术语列表做出了巨大贡献。我们还要感谢郑琳（音译）女士（中国科学院大气物理研究所，IAP）、徐银龙（音译）教授（中国农业科学院，CAAS）和黄磊（音译）博士（中国气象局，CMA）对这些术语的校对。
-			</p>
+			<div class="bilingual">
+				<h3>Acknowledgements</h3>
+				<h3 lang="zh-cn">致谢</h3>
+			</div>
+			<div class="bilingual">
+				<p>
+					We would like to thank all scientists involved in CSSP China who
+					contributed to the list. We would also like to thank Ms. Zheng
+					Lin (IAP), Prof. Yinlong Xu (CAAS) and Dr. Lei Huang (CMA) for
+					proofreading these terms.
+				</p>
+				<p lang="zh-cn">
+					我们要感谢所有参与“气候科学支持服务伙伴关系中国项目”的人员，他们为术语表中的术语列表做出了巨大贡献。我们还要感谢郑琳（音译）女士（中国科学院大气物理研究所，IAP）、徐银龙（音译）教授（中国农业科学院，CAAS）和黄磊（音译）博士（中国气象局，CMA）对这些术语的校对。
+				</p>
+			</div>
 		</div>
 		<Gotop></Gotop>
 	</div>
@@ -451,13 +455,23 @@ th.narrow div {
 	.gotop-button {
 		display: none !important;
 	}
+	.about-page.attrib {
+		display: flex;
+		flex-direction: row;
+	}
 	.about-page.attrib * {
 		font-size: 0.6rem;
 		margin: 0;
 	}
-	.about-page.attrib h3 {
+	.about-page.attrib .bilingual {
 		display: inline-block;
+	}
+	.about-page.attrib .bilingual h3 {
+		width: auto;
 		margin-right: 8px;
+	}
+	.about-page.attrib .bilingual p {
+		width: auto;
 	}
 	table {
 		margin: 8px 12px;
