@@ -14,6 +14,7 @@
 			v-for="page in pages"
 			:key="page.pageName"
 			class="button-panel"
+			:disabled="page.disabled"
 			@click="goTo(page.pageName)"
 		>
 			<div class="button-content">
@@ -61,6 +62,14 @@ export default {
 					enDesc:
 						'A prototype dashboard to investigate the impact of climate change and water abstraction on the Upper Yellow River basin.',
 					cnDesc: 'TODO: Mandarin here?'
+				},
+				{
+					pageName: 'verdant',
+					imageName: 'verdant-laptop',
+					title: 'Verdant',
+					enDesc: 'Intro...',
+					cnDesc: 'TODO: Mandarin here?',
+					disabled: true
 				}
 			]
 		}
@@ -115,8 +124,10 @@ export default {
 	width: 100%;
 	border: 1px solid transparent;
 	padding: 64px;
-	cursor: pointer;
 	transition: background 0.2s ease-in-out;
+}
+.button-panel:not([disabled]) {
+	cursor: pointer;
 }
 .button-panel.scroll-cursor {
 	cursor: ns-resize;
@@ -172,15 +183,15 @@ export default {
 .button-panel:nth-of-type(odd) .button-item.image {
 	border-color: var(--vpDark);
 }
-.button-panel:hover {
+.button-panel:not([disabled]):hover {
 	background: var(--bannerGrey);
 	/*border-color: var(--vpOrange);*/
 }
-.button-panel:hover .button-item {
+.button-panel:not([disabled]):hover .button-item {
 	border-color: var(--vpOrange) !important;
 	box-shadow: 5px 5px 10px var(--vpDark);
 }
-.button-panel:hover .button-item.desc * {
+.button-panel:not([disabled]):hover .button-item.desc * {
 	color: whitesmoke;
 }
 

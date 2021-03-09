@@ -99,7 +99,8 @@ export default {
 					page: 'Demonstrators',
 					options: [
 						{ page: 'suhi', label: 'Surface Urban Heat Island' },
-						{ page: 'wrm', label: 'Water Resources Management' }
+						{ page: 'wrm', label: 'Water Resources Management' },
+						{ page: 'verdant', label: 'Verdant', disabled: true }
 					]
 				},
 				{ page: 'Catalogue' },
