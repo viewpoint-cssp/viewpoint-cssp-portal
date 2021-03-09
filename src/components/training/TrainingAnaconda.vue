@@ -5,32 +5,18 @@
 			If you want to install a Python package manager and Jupyter notebook
 			please watch these tutorials.
 		</p>
-		<p>
-			<a
-				href="https://www.youtube.com/watch?v=AnPHtLf7gYc&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=12"
-				target="_blank" rel="noopener noreferrer"
-				alt="Downloading Anaconda3"
-			>
-				<img class="youtube" src="../../assets/images/training-12.png" />
-			</a>
-		</p>
-		<p>
-			<a
-				href="https://www.youtube.com/watch?v=qCZW5Esh3O8&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=13"
-				target="_blank" rel="noopener noreferrer"
-				alt="Installing Anaconda3"
-			>
-				<img class="youtube" src="../../assets/images/training-13.png" />
-			</a>
-		</p>
-		<p>
-			<a
-				href="https://www.youtube.com/watch?v=PG2laJaHNsU&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=14"
-				target="_blank" rel="noopener noreferrer"
-				alt="Launching Jupyter Notebook"
-			>
-				<img class="youtube" src="../../assets/images/training-14.png" />
-			</a>
+		<p v-for="(video, i) of videos" :key="i">
+			<iframe
+				:src="setSrc(video.id, video.altId)"
+				:title="video.title"
+				:data-id="video.id"
+				:data-alt-id="video.altId"
+				frameborder="0"
+				scrolling="auto"
+				allowfullscreen
+				v-if="video.id || video.altId"
+			></iframe>
+			<img class="youtube" :src="require(`../../assets/images/training-${video.img}.png`)" v-else />
 		</p>
 		<p>
 			<a
@@ -46,7 +32,29 @@
 
 <script>
 export default {
-	name: 'Anacoda'
+	name: 'Anacoda',
+	props: {
+		altId: Boolean
+	},
+	data() {
+		return {
+			videos: [
+				{ id: '', altId: '', title: 'Downloading Anaconda3', img: 12 },
+				{ id: '', altId: '', title: 'Installing Anaconda3', img: 13 },
+				{ id: '', altId: '', title: 'Launching Jupyter Notebook', img: 14 }
+			]
+		}
+	},
+	methods: {
+		setSrc(id, altId) {
+			// set the source video depending on whether normal or altId mode is selected
+			const video = this.altId && altId ? altId : id
+			return `https://cdn.jwplayer.com/players/${video}-NocosEfA.html`
+		}
+	},
+	mounted() {
+		this.$emit('resizePlayer')
+	}
 }
 </script>
 

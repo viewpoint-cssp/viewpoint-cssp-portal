@@ -3,21 +3,20 @@
 		<h1>Installing Jupyter Notebook</h1>
 		<p>
 			If you just want to install Jupyter Notebook as a standalone program, 
-			please watch this tutorial on YouTube.
-			<a
-				href="https://www.youtube.com/watch?v=bvZOOYZ0QOU&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=9"
-				target="_blank" rel="noopener noreferrer"
-			>
-				<img class="youtube" src="../../assets/images/training-9.png" />
-			</a>
-			<!--<iframe 
-				src="https://www.youtube.com/embed/bvZOOYZ0QOU?rel=0" 
-				allowfullscreen="" 
-				width="100%" 
-				height="350" 
+			please watch this tutorial on JWPlayer.
+		</p>
+		<p>
+			<iframe
+				:src="setSrc(video.id, video.altId)"
+				:title="video.title"
+				:data-id="video.id"
+				:data-alt-id="video.altId"
 				frameborder="0"
-				v-else
-			></iframe>-->
+				scrolling="auto"
+				allowfullscreen
+				v-if="video.id || video.altId"
+			></iframe>
+			<img class="youtube" src="../../assets/images/training-9.png" v-else />
 		</p>
 		<p>
 			The basics of Jupyter Notebooks are covered in this tutorial and include:
@@ -30,7 +29,7 @@
 		</p>
 		<hr />
 		<p>
-			Jupyter Notebook extensions (optional, but recommended): 
+			<strong>Jupyter Notebook extensions</strong> (optional, but recommended): 
 		</p>
 		<p>
 			<a
@@ -52,25 +51,20 @@
 		</p>
 		<hr />
 		<p>
-			These two tutorials on YouTube have advanced tips on using Jupyter Notebook:
+			These two tutorials on JWPlayer have advanced tips on using Jupyter Notebook:
 		</p>
-		<p>
-			<a
-				href="https://www.youtube.com/watch?v=FZ1aNbH178Y&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=10"
-				target="_blank" rel="noopener noreferrer"
-				alt="First basics on using Jupyter Notebook"
-			>
-				<img class="youtube" src="../../assets/images/training-10.png" />
-			</a>
-		</p>
-		<p>
-			<a
-				href="https://www.youtube.com/watch?v=Ts5DC5-5xVw&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=11"
-				target="_blank" rel="noopener noreferrer"
-				alt="Second basics on using Jupyter Notebook"
-			>
-				<img class="youtube" src="../../assets/images/training-11.png" />
-			</a>
+		<p v-for="(video, i) of basicsVideos" :key="i">
+			<iframe
+				:src="setSrc(video.id, video.altId)"
+				:title="video.title"
+				:data-id="video.id"
+				:data-alt-id="video.altId"
+				frameborder="0"
+				scrolling="auto"
+				allowfullscreen
+				v-if="video.id || video.altId"
+			></iframe>
+			<img class="youtube" :src="require(`../../assets/images/training-${video.img}.png`)" v-else />
 		</p>
 		<p>
 			These two tutorials cover these key points:
@@ -95,7 +89,26 @@
 
 <script>
 export default {
-	name: "Jupyter"
+	name: "Jupyter",
+	props: {
+		altId: Boolean
+	},
+	data() {
+		return {
+			video: { id: '', altId: '', title: 'Installing' },
+			basicsVideos: [
+				{ id: '', altId: '', title: 'First basics on using Jupyter Notebook', img: 10 },
+				{ id: '', altId: '', title: 'Second basics on using Jupyter Notebook', img: 11 }				
+			]
+		}
+	},
+	methods: {
+		setSrc(id, altId) {
+			// set the source video depending on whether normal or altId mode is selected
+			const video = this.altId && altId ? altId : id
+			return `https://cdn.jwplayer.com/players/${video}-NocosEfA.html`
+		}
+	}
 }
 </script>
 

@@ -22,6 +22,7 @@ import {
 	faListAlt,
 	faSlash,
 	faTimes,
+	faVideo,
 	faVideoSlash
 } from '@fortawesome/free-solid-svg-icons'
 import {
@@ -52,6 +53,7 @@ library.add(
 	faListAlt,
 	faSlash,
 	faTimes,
+	faVideo,
 	faVideoSlash
 )
 Vue.component('font-awesome-icon', FontAwesomeIcon)

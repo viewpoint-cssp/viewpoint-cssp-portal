@@ -193,7 +193,9 @@
 				<transition name="fade" mode="out-in">
 					<component 
 						:is="page" 
+						:altId="altId"
 						@skipTo="skipTo"
+						@resizePlayer="resizePlayer"
 					></component>
 				</transition>
 				<div class="page-bottom">
@@ -267,7 +269,8 @@ export default {
 				'TrainingWebServices',
 				'TrainingTutorials',
 				'TrainingReferences'
-			]
+			],
+			altId: false
 		}
 	},
 	watch: {
@@ -278,6 +281,18 @@ export default {
 				// EdgeHTML scrolls to top by scrolling the .nav-menu into view
 				const navFtr = document.getElementsByClassName('app-fixed')
 				navFtr[0].scrollIntoView(true)
+			}
+		},
+		altId() {
+			const iframes = document.getElementsByTagName('iframe')
+			for (let i = 0; i < iframes.length; i++) {
+				const src = this.setSrc(
+					iframes[i].attributes['data-id'],
+					iframes[i].attributes['data-alt-id']
+				)
+				if (src) {
+					iframes[i].src = src
+				}
 			}
 		}
 	},
@@ -339,6 +354,51 @@ export default {
 				'--leftTrainingWidth',
 				`${lhWidth}px`
 			)
+			this.resizePlayer()
+		},
+		resizePlayer() {
+			// JWPlayer suggests 640 by 360 soooo...
+			const oldWidth = document.documentElement.style.getPropertyValue(
+				'--playerWidth'
+			)
+			let width = parseInt(document.documentElement.style.getPropertyValue(
+				'--rightTrainingWidth'
+			)) // default is width of right hand panel
+			// get default amount of air either side (parent <p>'s margins)
+			let airPx = 64
+			if (window.matchMedia('(max-width: 645px)').matches) {
+				airPx = 32
+			}
+			// get width of any iframe's parent <p> less its padding and margins
+			const iframes = document.getElementsByTagName('iframe')
+			if (iframes.length) {
+				const parent = iframes[0].parentElement
+				width = Math.min(parent.getBoundingClientRect().width, width - airPx)
+			} else {
+				width = width - airPx
+			}
+			if (width > 640) {
+				width = 640
+			}
+			if (!oldWidth || width != parseInt(oldWidth)) {
+				document.documentElement.style.setProperty(
+					'--playerWidth',
+					`${width}px`
+				)
+				document.documentElement.style.setProperty(
+					'--playerHeight',
+					`${Math.floor((width / 16) * 9)}px`
+				)
+				// and set the src to itself again to force a refresh
+				this.$nextTick(() => {
+					for (let i = 0; i < iframes.length; i++) {
+						const src = iframes[i].src
+						if (src) {
+							iframes[i].src = src
+						}
+					}
+				})
+			}
 		}
 	},
 	mounted() {
@@ -451,6 +511,11 @@ hr {
 	margin: 16px 64px;
 }
 
+.page-content >>> p.boxed {
+	padding: 8px;
+	border: 1px solid var(--primaryDisabled);
+}
+
 .page-content >>> span.goto {
 	cursor: pointer;
 }
@@ -476,14 +541,16 @@ hr {
 	box-shadow: none;
 }
 
+.page-content >>> iframe {
+	width: var(--playerWidth);
+	height: var(--playerHeight);
+	margin-top: 8px;
+}
 .page-content >>> img.youtube {
 	display: block;
 	max-width: 360px;
 	margin-top: 8px;
 }
-/*.page-content >>> iframe {
-	margin-top: 12px;
-}*/
 
 .page-content >>> hr {
 	margin: 0 64px;

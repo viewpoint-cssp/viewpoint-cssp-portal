@@ -21,28 +21,43 @@
 		</p>
 		<p>
 			UMEP also has a Meteorological Pre-processor should you want to use
-			data available locally on your PC. This YouTube video works through
+			data available locally on your PC. This JWPlayer video works through
 			the ERA5 download and using the pre-processor on some example data.
-			<a
-				href="https://www.youtube.com/watch?v=31hhG2xoFKQ&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=6"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				<img class="youtube" src="../../assets/images/training-6.png" />
-			</a>
+			<iframe
+				:src="setSrc(video.id, video.altId)"
+				:title="video.title"
+				:data-id="video.id"
+				:data-alt-id="video.altId"
+				frameborder="0"
+				scrolling="auto"
+				allowfullscreen
+				v-if="video.id || video.altId"
+			></iframe>
+			<img class="youtube" src="../../assets/images/training-6.png" v-else />
 		</p>
 	</div>
 </template>
 
 <script>
 export default {
-	name: 'Data'
+	name: 'Data',
+	props: {
+		altId: Boolean
+	},
+	data() {
+		return {
+			video: { id: '', altId: '', title: 'Meteorological data' }
+		}
+	},
+	methods: {
+		setSrc(id, altId) {
+			// set the source video depending on whether normal or altId mode is selected
+			const video = this.altId && altId ? altId : id
+			return `https://cdn.jwplayer.com/players/${video}-NocosEfA.html`
+		}
+	}
 }
 </script>
 
 <style scoped>
-p.boxed {
-	padding: 8px;
-	border: 1px solid var(--primaryDisabled);
-}
 </style>

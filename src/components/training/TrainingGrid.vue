@@ -23,19 +23,39 @@
 			>.
 		</p>
 		<p>
-			<a
-				href="https://www.youtube.com/watch?v=nJ5oG5KFnNk&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=5"
-				target="_blank" rel="noopener noreferrer"
-			>
-				<img class="youtube" src="../../assets/images/training-5.png" alt="YouTube video" />
-			</a>
+			<iframe
+				:src="setSrc(video.id, video.altId)"
+				:title="video.title"
+				:data-id="video.id"
+				:data-alt-id="video.altId"
+				frameborder="0"
+				scrolling="auto"
+				allowfullscreen
+				v-if="video.id || video.altId"
+			></iframe>
+			<img class="youtube" src="../../assets/images/training-5.png" v-else />
 		</p>
 	</div>
 </template>
 
 <script>
 export default {
-	name: "Grid"
+	name: "Grid",
+	props: {
+		altId: Boolean
+	},
+	data() {
+		return {
+			video: { id: '', altId: '', title: 'Creating a grid' }
+		}
+	},
+	methods: {
+		setSrc(id, altId) {
+			// set the source video depending on whether normal or altId mode is selected
+			const video = this.altId && altId ? altId : id
+			return `https://cdn.jwplayer.com/players/${video}-NocosEfA.html`
+		}
+	}
 }
 </script>
 

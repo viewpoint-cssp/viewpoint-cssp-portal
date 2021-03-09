@@ -50,33 +50,6 @@
 			installation instructions. For more information, see the linked
 			pages.
 		</p>
-		<!--<p>
-			All links are to the
-			<a
-				href="https://umep-docs.readthedocs.io/en/latest/index.html"
-				target="_blank" rel="noopener noreferrer"
-				class="nowrap"
-			>
-				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
-				UMEP documentation website</a
-			> or the
-			<a
-				href="https://umep-workshop.readthedocs.io/en/latest/index.html"
-				target="_blank" rel="noopener noreferrer"
-				class="nowrap"
-			>
-				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
-				UMEP workshop website</a
-			>. The video links are to the 			
-			<a
-				href="https://www.youtube.com/channel/UCTPkXncD3ghb5ZTdZe_u7gA"
-				target="_blank" rel="noopener noreferrer"
-				class="nowrap"
-			>
-				<font-awesome-icon icon="external-link-alt"></font-awesome-icon>
-				UMEP channel on YouTube</a
-			>.
-		</p>-->
 	</div>
 </template>
 

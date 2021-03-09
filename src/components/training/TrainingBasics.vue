@@ -9,19 +9,39 @@
 				<font-awesome-icon icon="backward"></font-awesome-icon>&nbsp;
 				<strong>First Steps</strong></span
 			> section.
-			<a
-				href="https://www.youtube.com/watch?v=69sbn95sucI&amp;list=PLShSKbdF7w3339RUz3_5RtYwYOWuYfOzy&amp;index=4"
-				target="_blank" rel="noopener noreferrer"
-			>
-				<img class="youtube" src="../../assets/images/training-4.png" alt="YouTube video" />
-			</a>
+			<iframe
+				:src="setSrc(video.id, video.altId)"
+				title="Basics"
+				:data-id="video.id"
+				:data-alt-id="video.altId"
+				frameborder="0"
+				scrolling="auto"
+				allowfullscreen
+				v-if="video.id || video.altId"
+			></iframe>
+			<img class="youtube" src="../../assets/images/training-4.png" v-else />
 		</p>
 	</div>
 </template>
 
 <script>
 export default {
-	name: 'Basics'
+	name: 'Basics',
+	props: {
+		altId: Boolean
+	},
+	data() {
+		return {
+			video: { id: '', altId: '' }
+		}
+	},
+	methods: {
+		setSrc(id, altId) {
+			// set the source video depending on whether normal or altId mode is selected
+			const video = this.altId && altId ? altId : id
+			return `https://cdn.jwplayer.com/players/${video}-NocosEfA.html`
+		}
+	}
 }
 </script>
 
