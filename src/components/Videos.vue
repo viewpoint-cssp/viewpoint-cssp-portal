@@ -61,7 +61,10 @@
 		<div
 			id="cities"
 			class="video-panel"
-			v-show-slide:500:ease-in-out="selectedPage == 'cities'"
+			v-show-slide:500:ease-in="selectedPage == 'cities'"
+			:class="{ active: activePage.cities }"
+			@slide-open-end="activePage.cities = true"
+			@slide-close-start="activePage.cities = false"
 		>
 			<div class="bilingual">
 				<p class="text english">
@@ -116,7 +119,10 @@
 		<div
 			id="findings"
 			class="video-panel"
-			v-show-slide:500:ease-in-out="selectedPage == 'findings'"
+			v-show-slide:500:ease-in="selectedPage == 'findings'"
+			:class="{ active: activePage.findings }"
+			@slide-open-end="activePage.findings = true"
+			@slide-close-start="activePage.findings = false"
 		>
 			<div class="bilingual">
 				<p class="text english">
@@ -171,7 +177,10 @@
 		<div
 			id="climate"
 			class="video-panel"
-			v-show-slide:500:ease-in-out="selectedPage == 'climate'"
+			v-show-slide:500:ease-in="selectedPage == 'climate'"
+			:class="{ active: activePage.climate }"
+			@slide-open-end="activePage.climate = true"
+			@slide-close-start="activePage.climate = false"
 		>
 			<div class="bilingual">
 				<p class="text english">
@@ -226,7 +235,10 @@
 		<div
 			id="renewables"
 			class="video-panel"
-			v-show-slide:500:ease-in-out="selectedPage == 'renewables'"
+			v-show-slide:500:ease-in="selectedPage == 'renewables'"
+			:class="{ active: activePage.renewables }"
+			@slide-open-end="activePage.renewables = true"
+			@slide-close-start="activePage.renewables = false"
 		>
 			<div class="bilingual">
 				<p class="text english">
@@ -281,7 +293,10 @@
 		<div
 			id="audiocasts"
 			class="video-panel"
-			v-show-slide:500:ease-in-out="selectedPage == 'audiocasts'"
+			v-show-slide:500:ease-in="selectedPage == 'audiocasts'"
+			:class="{ active: activePage.audiocasts }"
+			@slide-open-end="activePage.audiocasts = true"
+			@slide-close-start="activePage.audiocasts = false"
 		>
 			<div class="bilingual" style="margin-bottom:24px;">
 				<p class="text english">
@@ -310,6 +325,13 @@ export default {
 		return {
 			altId: false,
 			selectedPage: 'cities',
+			activePage: {
+				cities: true,
+				findings: false,
+				climate: false,
+				renewables: false,
+				audiocasts: false
+			},
 			zIndex: 1,
 			cityVideos: {
 				en: [
@@ -586,9 +608,13 @@ export default {
 	width: 100%;
 	margin: 0 auto;
 	padding: 0 64px;
-}
-.video-panel:nth-of-type(odd) {
 	background: var(--primaryLightest);
+	opacity: 0.6;
+	transition: background 0.3s ease-in-out, opacity 0.1s ease-in-out;
+}
+.video-panel.active {
+	background: var(--vpCoolGrey);
+	opacity: 1;
 }
 .video-panel * {
 	background: transparent;
