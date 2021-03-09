@@ -30,6 +30,7 @@
 				</div>
 			</div>
 		</div>
+		<Gotop></Gotop>
 	</div>
 </template>
 
@@ -39,11 +40,13 @@ At the moment this looks and works very similar to Home.vue. That may change.
 If it doesn't, the styling could go into the .css or simplify by using new component(s)?
 */
 import Banner from './Banner.vue'
+import Gotop from './Gotop.vue'
 
 export default {
 	name: 'Demonstrators',
 	components: {
-		Banner
+		Banner,
+		Gotop
 	},
 	data() {
 		return {

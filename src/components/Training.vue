@@ -208,6 +208,7 @@
 				</div>
 			</div>
 		</div>
+		<Gotop></Gotop>
 	</div>
 </template>
 
@@ -225,6 +226,7 @@ import TrainingData from './training/TrainingData.vue'
 import TrainingWebServices from './training/TrainingWebServices.vue'
 import TrainingTutorials from './training/TrainingTutorials.vue'
 import TrainingReferences from './training/TrainingReferences.vue'
+import Gotop from './Gotop.vue'
 
 export default {
 	name: 'Training',
@@ -241,7 +243,8 @@ export default {
 		TrainingData,
 		TrainingWebServices,
 		TrainingTutorials,
-		TrainingReferences
+		TrainingReferences,
+		Gotop
 	},
 	data() {
 		return {
