@@ -85,6 +85,7 @@ const router = new VueRouter({
 		},
 		{
 			path: '*',
+			redirect: '/home',
 			name: 'VIEWpoint404'
 		}
 	]
