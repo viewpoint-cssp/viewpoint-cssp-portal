@@ -66,8 +66,7 @@ export default {
 					en: {
 						pdf: 'I01-en-assessing-risk',
 						img: 'infographic-1',
-						button: `Assessing China's risk to climate related extremes`,
-						draft: true
+						button: `Assessing China's risk to climate related extremes`
 					}
 				},
 				{
@@ -85,8 +84,7 @@ export default {
 						pdf: 'I03-en-seasonal-forecast',
 						img: 'infographic-3',
 						button:
-							'Seasonal forecast service for the Yangtze River Basin',
-						draft: true
+							'Seasonal forecast service for the Yangtze River Basin'
 					}
 				},
 				{
@@ -94,14 +92,12 @@ export default {
 					en: {
 						pdf: 'I04-en-food-security',
 						img: 'infographic-4',
-						button: 'Food security in CSSP China',
-						draft: true
+						button: 'Food security in CSSP China'
 					},
 					cn: {
 						pdf: 'I04-cn-food-security',
 						img: 'infographic-4-cn',
-						button: '中英气候科学支持服务伙伴关系计划之粮食安全',
-						draft: true
+						button: '中英气候科学支持服务伙伴关系计划之粮食安全'
 					}
 				}
 			]
