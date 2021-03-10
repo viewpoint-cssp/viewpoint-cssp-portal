@@ -103,7 +103,7 @@ export default {
 					imageName: 'catalogue',
 					title: 'Catalogue of CSSP China published papers',
 					enDesc:
-						'The full suite of scientific peer-reviewed publications organised into a searchable catalogue and can be filtered by themes.',
+						'The full suite of scientific peer-reviewed publications organised into a searchable catalogue which can be filtered by themes.',
 					cnDesc: 'TODO: Mandarin here?'
 				}
 			]
