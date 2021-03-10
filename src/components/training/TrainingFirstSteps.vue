@@ -18,14 +18,13 @@
 		<p>
 			This follow-along video should take approximately 30 minutes.
 			<iframe
-				:src="setSrc(video.id, video.altId)"
+				:src="`https://cdn.jwplayer.com/players/${video.id}-NocosEfA.html`"
 				:title="video.title"
 				:data-id="video.id"
-				:data-alt-id="video.altId"
 				frameborder="0"
 				scrolling="auto"
 				allowfullscreen
-				v-if="video.id || video.altId"
+				v-if="video.id"
 			></iframe>
 			<img class="youtube" src="../../assets/images/training-3.png" v-else />
 		</p>
@@ -35,20 +34,13 @@
 <script>
 export default {
 	name: "FirstSteps",
-	props: {
-		altId: Boolean
-	},
 	data() {
 		return {
-			video: { id: '', altId: '', title: 'First steps' }
+			video: { id: '', tite: 'First steps' }
 		}
 	},
-	methods: {
-		setSrc(id, altId) {
-			// set the source video depending on whether normal or altId mode is selected
-			const video = this.altId && altId ? altId : id
-			return `https://cdn.jwplayer.com/players/${video}-NocosEfA.html`
-		}
+	mounted() {
+		this.$emit('resizePlayer')
 	}
 }
 </script>

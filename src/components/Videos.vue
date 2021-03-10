@@ -68,12 +68,12 @@
 		>
 			<div class="bilingual">
 				<p class="text english">
-					What is special about city climates? Cities are living things,
-					always growing and changing, needing to adapt to the needs of
-					their populations and to an ever-changing climate, which may
-					threaten the city. These three short clips cover the topics of
-					urban climate, climate change resilience for city infrastructure
-					and data use for mapping urban areas.
+					What is special about city climates? Cities are living
+					things, always growing and changing, needing to adapt to the
+					needs of their populations and to an ever-changing climate,
+					which may threaten the city. These three short clips cover
+					the topics of urban climate, climate change resilience for
+					city infrastructure and data use for mapping urban areas.
 				</p>
 				<p class="text mandarin" lang="zh-cn">
 					TODO: Mandarin here?
@@ -92,14 +92,15 @@
 						:key="`city-${lang}-${i}`"
 					>
 						<iframe
-							:src="setSrc(video.id, video.altId)"
+							:src="
+								`https://cdn.jwplayer.com/players/${video.id}-NocosEfA.html`
+							"
 							:title="video.title"
 							:data-id="video.id"
-							:data-alt-id="video.altId"
 							frameborder="0"
 							scrolling="auto"
 							allowfullscreen
-							v-if="video.id || video.altId"
+							v-if="video.id"
 						></iframe>
 						<div class="no-video" v-else>
 							<h2 :lang="lang == 'cn' ? 'zh-cn' : ''">
@@ -128,10 +129,10 @@
 				<p class="text english">
 					Hear directly from researchers in CSSP China on their
 					collaborative UK-China work and the fascinating findings. Dr
-					Liang Guo and Dr Nick Klingaman talk about tracing the sources
-					of moisture that fall as rain and snow over China. Dr Buwen Dong
-					talks about analysing heatwaves in China and his predictions for
-					the second half of this century.
+					Liang Guo and Dr Nick Klingaman talk about tracing the
+					sources of moisture that fall as rain and snow over China.
+					Dr Buwen Dong talks about analysing heatwaves in China and
+					his predictions for the second half of this century.
 				</p>
 				<p class="text mandarin" lang="zh-cn">
 					TODO: Mandarin here?
@@ -150,14 +151,15 @@
 						:key="`coll-${lang}-${i}`"
 					>
 						<iframe
-							:src="setSrc(video.id, video.altId)"
+							:src="
+								`https://cdn.jwplayer.com/players/${video.id}-NocosEfA.html`
+							"
 							:title="video.title"
 							:data-id="video.id"
-							:data-alt-id="video.altId"
 							frameborder="0"
 							scrolling="auto"
 							allowfullscreen
-							v-if="video.id || video.altId"
+							v-if="video.id"
 						></iframe>
 						<div class="no-video" v-else>
 							<h2 :lang="lang == 'cn' ? 'zh-cn' : ''">
@@ -184,12 +186,12 @@
 		>
 			<div class="bilingual">
 				<p class="text english">
-					For those who want to explore their own hands-on information,
-					CSSP China has produced practical tools for businesses, planners
-					and decision-makers to use directly to find out more about the
-					current and future climate. Here are three videos summarising
-					three different tools which are tailored specifically for
-					infrastructure and cities.
+					For those who want to explore their own hands-on
+					information, CSSP China has produced practical tools for
+					businesses, planners and decision-makers to use directly to
+					find out more about the current and future climate. Here are
+					three videos summarising three different tools which are
+					tailored specifically for infrastructure and cities.
 				</p>
 				<p class="text mandarin" lang="zh-cn">
 					TODO: Mandarin here?
@@ -208,14 +210,15 @@
 						:key="`tool-${lang}-${i}`"
 					>
 						<iframe
-							:src="setSrc(video.id, video.altId)"
+							:src="
+								`https://cdn.jwplayer.com/players/${video.id}-NocosEfA.html`
+							"
 							:title="video.title"
 							:data-id="video.id"
-							:data-alt-id="video.altId"
 							frameborder="0"
 							scrolling="auto"
 							allowfullscreen
-							v-if="video.id || video.altId"
+							v-if="video.id"
 						></iframe>
 						<div class="no-video" v-else>
 							<h2 :lang="lang == 'cn' ? 'zh-cn' : ''">
@@ -243,11 +246,11 @@
 			<div class="bilingual">
 				<p class="text english">
 					Enabling renewable energy systems are at the heart of our
-					net-zero future and the climate is a key part of efficient and
-					beneficial solutions. Hear about three tools and services from
-					scientists and engineers within the CSSP China project revealing
-					information on the next season and the next decades to help
-					planning and operation.
+					net-zero future and the climate is a key part of efficient
+					and beneficial solutions. Hear about three tools and
+					services from scientists and engineers within the CSSP China
+					project revealing information on the next season and the
+					next decades to help planning and operation.
 				</p>
 				<p class="text mandarin" lang="zh-cn">
 					TODO: Mandarin here?
@@ -266,14 +269,15 @@
 						:key="`re-${lang}-${i}`"
 					>
 						<iframe
-							:src="setSrc(video.id, video.altId)"
+							:src="
+								`https://cdn.jwplayer.com/players/${video.id}-NocosEfA.html`
+							"
 							:title="video.title"
 							:data-id="video.id"
-							:data-alt-id="video.altId"
 							frameborder="0"
 							scrolling="auto"
 							allowfullscreen
-							v-if="video.id || video.altId"
+							v-if="video.id"
 						></iframe>
 						<div class="no-video" v-else>
 							<h2 :lang="lang == 'cn' ? 'zh-cn' : ''">
@@ -323,7 +327,6 @@ export default {
 	},
 	data() {
 		return {
-			altId: false,
 			selectedPage: 'cities',
 			activePage: {
 				cities: true,
@@ -332,39 +335,32 @@ export default {
 				renewables: false,
 				audiocasts: false
 			},
-			zIndex: 1,
 			cityVideos: {
 				en: [
 					{
 						id: '',
-						altId: '',
 						title: 'Quick guide to urban climate'
 					},
 					{
 						id: '',
-						altId: '',
 						title: 'Futureproofing cities'
 					},
 					{
 						id: '',
-						altId: '',
 						title: 'Mapping and modelling cities'
 					}
 				],
 				cn: [
 					{
 						id: '',
-						altId: '',
 						title: 'Quick guide to urban climate'
 					},
 					{
 						id: '',
-						altId: '',
 						title: 'Futureproofing cities'
 					},
 					{
 						id: '',
-						altId: '',
 						title: 'Mapping and modelling cities'
 					}
 				]
@@ -373,12 +369,10 @@ export default {
 				en: [
 					{
 						id: '',
-						altId: '',
 						title: 'The water accounting tool'
 					},
 					{
 						id: '0WGfTYf0',
-						altId: 'Vv6fBT2P',
 						title:
 							'The evidence on past, present and future heatwaves in China'
 					}
@@ -388,34 +382,28 @@ export default {
 				en: [
 					{
 						id: '',
-						altId: '',
 						title: 'City packs and urban heat service'
 					},
 					{
 						id: '',
-						altId: '',
 						title: 'Visualising the surface urban heat island'
 					},
 					{
 						id: '',
-						altId: '',
 						title: 'Climate risk assessments for infrastructure'
 					}
 				],
 				cn: [
 					{
 						id: '',
-						altId: '',
 						title: 'City packs and urban heat service'
 					},
 					{
 						id: '',
-						altId: '',
 						title: 'Visualising the surface urban heat island'
 					},
 					{
 						id: '',
-						altId: '',
 						title: 'Climate risk assessments for infrastructure'
 					}
 				]
@@ -424,62 +412,37 @@ export default {
 				en: [
 					{
 						id: '',
-						altId: '',
 						title:
 							'Seasonal forecasts for the Yangtze and wind farms'
 					},
 					{
 						id: '',
-						altId: '',
 						title: 'Met Office example for renewables'
 					},
 					{
 						id: '',
-						altId: '',
 						title: 'RE-SAT'
 					}
 				],
 				cn: [
 					{
 						id: '',
-						altId: '',
 						title:
 							'Seasonal forecasts for the Yangtze and wind farms'
 					},
 					{
 						id: '',
-						altId: '',
 						title: 'Met Office example for renewables'
 					},
 					{
 						id: '',
-						altId: '',
 						title: 'RE-SAT'
 					}
 				]
 			}
 		}
 	},
-	watch: {
-		altId() {
-			const iframes = document.getElementsByTagName('iframe')
-			for (let i = 0; i < iframes.length; i++) {
-				const src = this.setSrc(
-					iframes[i].attributes['data-id'],
-					iframes[i].attributes['data-alt-id']
-				)
-				if (src) {
-					iframes[i].src = src
-				}
-			}
-		}
-	},
 	methods: {
-		setSrc(id, altId) {
-			// set the source video depending on whether normal or altId mode is selected
-			const video = this.altId && altId ? altId : id
-			return `https://cdn.jwplayer.com/players/${video}-NocosEfA.html`
-		},
 		selectPage(page) {
 			this.selectedPage = page
 		},

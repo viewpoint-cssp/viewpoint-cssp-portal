@@ -24,14 +24,13 @@
 		</p>
 		<p>
 			<iframe
-				:src="setSrc(video.id, video.altId)"
+				:src="`https://cdn.jwplayer.com/players/${video.id}-NocosEfA.html`"
 				:title="video.title"
 				:data-id="video.id"
-				:data-alt-id="video.altId"
 				frameborder="0"
 				scrolling="auto"
 				allowfullscreen
-				v-if="video.id || video.altId"
+				v-if="video.id"
 			></iframe>
 			<img class="youtube" src="../../assets/images/training-5.png" v-else />
 		</p>
@@ -41,20 +40,13 @@
 <script>
 export default {
 	name: "Grid",
-	props: {
-		altId: Boolean
-	},
 	data() {
 		return {
-			video: { id: '', altId: '', title: 'Creating a grid' }
+			video: { id: '', tite: 'Creating a grid' }
 		}
 	},
-	methods: {
-		setSrc(id, altId) {
-			// set the source video depending on whether normal or altId mode is selected
-			const video = this.altId && altId ? altId : id
-			return `https://cdn.jwplayer.com/players/${video}-NocosEfA.html`
-		}
+	mounted() {
+		this.$emit('resizePlayer')
 	}
 }
 </script>

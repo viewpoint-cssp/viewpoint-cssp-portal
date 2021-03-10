@@ -7,14 +7,13 @@
 		</p>
 		<p>
 			<iframe
-				:src="setSrc(video.id, video.altId)"
+				:src="`https://cdn.jwplayer.com/players/${video.id}-NocosEfA.html`"
 				:title="video.title"
 				:data-id="video.id"
-				:data-alt-id="video.altId"
 				frameborder="0"
 				scrolling="auto"
 				allowfullscreen
-				v-if="video.id || video.altId"
+				v-if="video.id"
 			></iframe>
 			<img class="youtube" src="../../assets/images/training-9.png" v-else />
 		</p>
@@ -55,14 +54,13 @@
 		</p>
 		<p v-for="(video, i) of basicsVideos" :key="i">
 			<iframe
-				:src="setSrc(video.id, video.altId)"
+				:src="`https://cdn.jwplayer.com/players/${video.id}-NocosEfA.html`"
 				:title="video.title"
 				:data-id="video.id"
-				:data-alt-id="video.altId"
 				frameborder="0"
 				scrolling="auto"
 				allowfullscreen
-				v-if="video.id || video.altId"
+				v-if="video.id"
 			></iframe>
 			<img class="youtube" :src="require(`../../assets/images/training-${video.img}.png`)" v-else />
 		</p>
@@ -90,24 +88,17 @@
 <script>
 export default {
 	name: "Jupyter",
-	props: {
-		altId: Boolean
-	},
 	data() {
 		return {
-			video: { id: '', altId: '', title: 'Installing' },
+			video: { id: '', tite: 'Installing' },
 			basicsVideos: [
-				{ id: '', altId: '', title: 'First basics on using Jupyter Notebook', img: 10 },
-				{ id: '', altId: '', title: 'Second basics on using Jupyter Notebook', img: 11 }				
+				{ id: '', tite: 'First basics on using Jupyter Notebook', img: 10 },
+				{ id: '', tite: 'Second basics on using Jupyter Notebook', img: 11 }				
 			]
 		}
 	},
-	methods: {
-		setSrc(id, altId) {
-			// set the source video depending on whether normal or altId mode is selected
-			const video = this.altId && altId ? altId : id
-			return `https://cdn.jwplayer.com/players/${video}-NocosEfA.html`
-		}
+	mounted() {
+		this.$emit('resizePlayer')
 	}
 }
 </script>

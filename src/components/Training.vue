@@ -193,7 +193,6 @@
 				<transition name="fade" mode="out-in">
 					<component 
 						:is="page" 
-						:altId="altId"
 						@skipTo="skipTo"
 						@resizePlayer="resizePlayer"
 					></component>
@@ -269,8 +268,7 @@ export default {
 				'TrainingWebServices',
 				'TrainingTutorials',
 				'TrainingReferences'
-			],
-			altId: false
+			]
 		}
 	},
 	watch: {
@@ -281,18 +279,6 @@ export default {
 				// EdgeHTML scrolls to top by scrolling the .nav-menu into view
 				const navFtr = document.getElementsByClassName('app-fixed')
 				navFtr[0].scrollIntoView(true)
-			}
-		},
-		altId() {
-			const iframes = document.getElementsByTagName('iframe')
-			for (let i = 0; i < iframes.length; i++) {
-				const src = this.setSrc(
-					iframes[i].attributes['data-id'],
-					iframes[i].attributes['data-alt-id']
-				)
-				if (src) {
-					iframes[i].src = src
-				}
 			}
 		}
 	},

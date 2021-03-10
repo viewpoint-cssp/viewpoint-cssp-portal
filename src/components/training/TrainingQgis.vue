@@ -13,14 +13,13 @@
 		</p>
 		<p>
 			<iframe
-				:src="setSrc(qgisVideo.id, qgisVideo.altId)"
-				title="Installing QGIS"
+				:src="`https://cdn.jwplayer.com/players/${qgisVideo.id}-NocosEfA.html`"
+				:title="qgisVideo.title"
 				:data-id="qgisVideo.id"
-				:data-alt-id="qgisVideo.altId"
 				frameborder="0"
 				scrolling="auto"
 				allowfullscreen
-				v-if="qgisVideo.id || qgisVideo.altId"
+				v-if="qgisVideo.id"
 			></iframe>
 			<img class="youtube" src="../../assets/images/training-1.png" v-else />
 		</p>
@@ -36,14 +35,13 @@
 		</p>
 		<p>
 			<iframe
-				:src="setSrc(umepVideo.id, umepVideo.altId)"
-				title="Installing QGIS"
+				:src="`https://cdn.jwplayer.com/players/${umepVideo.id}-NocosEfA.html`"
+				:title="umepVideo.title"
 				:data-id="umepVideo.id"
-				:data-alt-id="umepVideo.altId"
 				frameborder="0"
 				scrolling="auto"
 				allowfullscreen
-				v-if="umepVideo.id || umepVideo.altId"
+				v-if="umepVideo.id"
 			></iframe>
 			<img class="youtube" src="../../assets/images/training-2.png" v-else />
 		</p>
@@ -53,21 +51,14 @@
 <script>
 export default {
 	name: "QGIS",
-	props: {
-		altId: Boolean
-	},
 	data() {
 		return {
-			qgisVideo: { id: '', altId: '' },
-			umepVideo: { id: '', altId: '' }
+			qgisVideo: { id: '', tite: 'Installing QGIS' },
+			umepVideo: { id: '', tite: 'Installing UMEP' }
 		}
 	},
-	methods: {
-		setSrc(id, altId) {
-			// set the source video depending on whether normal or altId mode is selected
-			const video = this.altId && altId ? altId : id
-			return `https://cdn.jwplayer.com/players/${video}-NocosEfA.html`
-		}
+	mounted() {
+		this.$emit('resizePlayer')
 	}
 }
 </script>

@@ -58,14 +58,13 @@
 		</p>
 		<p v-for="(video, i) of videos" :key="i">
 			<iframe
-				:src="setSrc(video.id, video.altId)"
+				:src="`https://cdn.jwplayer.com/players/${video.id}-NocosEfA.html`"
 				:title="video.title"
 				:data-id="video.id"
-				:data-alt-id="video.altId"
 				frameborder="0"
 				scrolling="auto"
 				allowfullscreen
-				v-if="video.id || video.altId"
+				v-if="video.id"
 			></iframe>
 		</p>
 	</div>
@@ -74,28 +73,18 @@
 <script>
 export default {
 	name: 'Background',
-	props: {
-		altId: Boolean
-	},
 	data() {
 		return {
 			videos: [
-				{ id: '', altId: '', title: 'Quick guide to urban climate' },
-				{ id: '', altId: '', title: 'Futureproofing cities' },
-				{ id: '', altId: '', title: 'Mapping and modelling cities' }
+				{ id: '', tite: 'Quick guide to urban climate' },
+				{ id: '', tite: 'Futureproofing cities' },
+				{ id: '', tite: 'Mapping and modelling cities' }
 			]
 		}
 	},
 	computed: {
 		noVideos() {
-			return this.videos.filter(a => a.id || a.altId).length == 0
-		}
-	},
-	methods: {
-		setSrc(id, altId) {
-			// set the source video depending on whether normal or altId mode is selected
-			const video = this.altId && altId ? altId : id
-			return `https://cdn.jwplayer.com/players/${video}-NocosEfA.html`
+			return this.videos.filter(a => a.id).length == 0
 		}
 	},
 	mounted() {

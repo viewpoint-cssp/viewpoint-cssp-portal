@@ -7,14 +7,13 @@
 		</p>
 		<p v-for="(video, i) of videos" :key="i">
 			<iframe
-				:src="setSrc(video.id, video.altId)"
+				:src="`https://cdn.jwplayer.com/players/${video.id}-NocosEfA.html`"
 				:title="video.title"
 				:data-id="video.id"
-				:data-alt-id="video.altId"
 				frameborder="0"
 				scrolling="auto"
 				allowfullscreen
-				v-if="video.id || video.altId"
+				v-if="video.id"
 			></iframe>
 			<img class="youtube" :src="require(`../../assets/images/training-${video.img}.png`)" v-else />
 		</p>
@@ -33,23 +32,13 @@
 <script>
 export default {
 	name: 'Anacoda',
-	props: {
-		altId: Boolean
-	},
 	data() {
 		return {
 			videos: [
-				{ id: '', altId: '', title: 'Downloading Anaconda3', img: 12 },
-				{ id: '', altId: '', title: 'Installing Anaconda3', img: 13 },
-				{ id: '', altId: '', title: 'Launching Jupyter Notebook', img: 14 }
+				{ id: '', tite: 'Downloading Anaconda3', img: 12 },
+				{ id: '', tite: 'Installing Anaconda3', img: 13 },
+				{ id: '', tite: 'Launching Jupyter Notebook', img: 14 }
 			]
-		}
-	},
-	methods: {
-		setSrc(id, altId) {
-			// set the source video depending on whether normal or altId mode is selected
-			const video = this.altId && altId ? altId : id
-			return `https://cdn.jwplayer.com/players/${video}-NocosEfA.html`
 		}
 	},
 	mounted() {
