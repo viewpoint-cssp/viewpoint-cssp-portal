@@ -1,15 +1,15 @@
 <template>
 	<div>
-		<Banner class="banner-style" enTitle="Videos and audiocasts"></Banner>
+		<Banner class="banner-style" enTitle="Videos"></Banner>
 		<div class="about-page">
 			<div class="bilingual">
 				<p>
-					Here are a range of short videos highlighting the excellent
-					science and services developed in CSSP China. From
-					understanding more about climate issues for our urban
-					landscapes, to specific tools and information allowing the
-					exploration of future climate threats across China, from
-					next season to the coming decades.
+					Here are a range of short videos and audio discussions
+					highlighting the excellent science and services developed in
+					CSSP China. From understanding more about climate issues for
+					our urban landscapes, to specific tools and information
+					allowing the exploration of future climate threats across
+					China, from next season to the coming decades.
 				</p>
 				<p lang="zh-cn">TODO: Mandarin here?</p>
 			</div>
@@ -50,10 +50,10 @@
 				</div>
 				<div
 					class="selected-page-button"
-					:class="{ selected: selectedPage == 'audiocasts' }"
-					@click="selectPage('audiocasts')"
+					:class="{ selected: selectedPage == 'audio' }"
+					@click="selectPage('audio')"
 				>
-					<p>Audiocasts</p>
+					<p>Audio discussions</p>
 					<p lang="zh-cn">TODO: Mandarin</p>
 				</div>
 			</div>
@@ -295,16 +295,16 @@
 			</div>
 		</div>
 		<div
-			id="audiocasts"
+			id="audio"
 			class="video-panel"
-			v-show-slide:500:ease-in="selectedPage == 'audiocasts'"
-			:class="{ active: activePage.audiocasts }"
-			@slide-open-end="activePage.audiocasts = true"
-			@slide-close-start="activePage.audiocasts = false"
+			v-show-slide:500:ease-in="selectedPage == 'audio'"
+			:class="{ active: activePage.audio }"
+			@slide-open-end="activePage.audio = true"
+			@slide-close-start="activePage.audio = false"
 		>
 			<div class="bilingual" style="margin-bottom:24px;">
 				<p class="text english">
-					Audiocast(s) will live here.
+					Audio discussions will live here.
 				</p>
 				<p class="text mandarin" lang="zh-cn">
 					TODO: Mandarin here?
@@ -333,7 +333,7 @@ export default {
 				findings: false,
 				climate: false,
 				renewables: false,
-				audiocasts: false
+				audio: false
 			},
 			cityVideos: {
 				en: [

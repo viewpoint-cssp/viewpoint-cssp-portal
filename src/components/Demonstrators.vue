@@ -4,8 +4,23 @@
 		<div class="about-page">
 			<div class="bilingual">
 				<p>
-					Some description about demonstrators, what they are, why these
-					were selected.
+					The CSSP China project has produced a wealth of excellent
+					research that has huge practical impact in understanding and
+					dealing with climate change. The new knowledge and data that
+					will form the basis of operational climate services, to be
+					delivered to users in many sectors of industry and
+					government across China and around the world.
+				</p>
+				<p lang="zh-cn">TODO: Mandarin here?</p>
+			</div>
+			<div class="bilingual">
+				<p>
+					Delivering climate services requires close cooperation and
+					co-design between service providers and end users, and so
+					the Institute for Environmental Analytics has developed a
+					set of demonstrators for the VIEWpoint project to act as a
+					showcase and to engage potential future climate services
+					users.
 				</p>
 				<p lang="zh-cn">TODO: Mandarin here?</p>
 			</div>

@@ -64,7 +64,7 @@ export default {
 					imageName: 'handbook',
 					title: 'Handbook',
 					enDesc:
-						'A collection of articles compiling highlights of several years of the CSSP China project, including behind the scenes interviews with world-leading scientists.',
+						'A collection of articles and highlights of several years of the CSSP China project, including interviews with world-leading scientists.',
 					cnDesc: 'TODO: Mandarin here?'
 				},
 				{
@@ -73,14 +73,6 @@ export default {
 					title: 'Explainers',
 					enDesc:
 						'One-page summaries of CSSP China research work, each covering the importance and approach to investigating the topic, with links to the original publications.',
-					cnDesc: 'TODO: Mandarin here?'
-				},
-				{
-					pageName: 'Infographics',
-					imageName: 'infographics',
-					title: 'Infographics',
-					enDesc:
-						'What the infographics are all about.',
 					cnDesc: 'TODO: Mandarin here?'
 				},
 				{
@@ -96,7 +88,15 @@ export default {
 					imageName: 'videos',
 					title: 'Videos',
 					enDesc:
-						'A range of short videos from scientists and engineers in CSSP China, sharing their expertise in concise and engaging ways.',
+						'A range of video and audio from specialists within CSSP China, sharing their expertise in concise and engaging ways.',
+					cnDesc: 'TODO: Mandarin here?'
+				},
+				{
+					pageName: 'Infographics',
+					imageName: 'infographics',
+					title: 'Infographics',
+					enDesc:
+						'Climate services and fundamental science distilled into attractive graphics, produced by the Met Office.',
 					cnDesc: 'TODO: Mandarin here?'
 				},
 				{
@@ -104,7 +104,7 @@ export default {
 					imageName: 'training',
 					title: 'Training materials',
 					enDesc:
-						'For those interested in the urban climate, here is a sequence of videos to introduce the hands-on use of the Urban Multi-scale Environmental Predictor (UMEP) software.',
+						'For those interested in the urban climate, here is training to introduce the hands-on use of the Urban Multi-scale Environmental Predictor (UMEP) software.',
 					cnDesc: 'TODO: Mandarin here?'
 				}
 			]

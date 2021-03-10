@@ -4,10 +4,9 @@
 		<div class="about-page">
 			<div class="bilingual">
 				<p>
-					The handbook is a collection of articles compiling
-					highlights of several years of the CSSP China project,
-					including behind the scenes interviews with world-leading
-					scientists.
+					A collection of articles and highlights of several years of
+					the CSSP China project, including interviews with
+					world-leading scientists.
 				</p>
 				<p lang="zh-cn">TODO: Mandarin here?</p>
 			</div>
@@ -653,9 +652,9 @@ ul.contents-list.show-contents {
 }
 .slider:not(.sides) >>> .slider-item:first-of-type img {
 	/* since cover is only one page wide, this will correct that width problem */
-	transform: scaleX(0.5); 
+	transform: scaleX(0.5);
 	/* and this will ensure it's on the right hand side */
-	transform-origin: right top; 
+	transform-origin: right top;
 }
 .slider.sides >>> .slider-item:first-of-type img {
 	clip-path: none; /* don't need to clip anything */

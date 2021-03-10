@@ -89,9 +89,9 @@ export default {
 					options: [
 						{ page: 'Handbook' },
 						{ page: 'Explainers' },
-						{ page: 'Infographics' },
 						{ page: 'Briefing', label: 'Briefing notes' },
-						{ page: 'Videos', label: 'Videos and audiocasts' },
+						{ page: 'Videos' },
+						{ page: 'Infographics' },
 						{ page: 'Training', label: 'Training materials' }
 					]
 				},

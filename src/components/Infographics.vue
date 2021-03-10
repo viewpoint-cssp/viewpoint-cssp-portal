@@ -4,7 +4,10 @@
 		<div class="about-page">
 			<div class="bilingual">
 				<p>
-					TODO: English description of infographics
+					The Met Office have produced these high quality infographics
+					as quick reference documents on important scientific topics
+					for China. They are an easy way to find out a lot on the
+					science in one place.
 				</p>
 				<p lang="zh-cn">
 					TODO: Mandarin here?
