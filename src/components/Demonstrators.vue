@@ -6,21 +6,32 @@
 				<p>
 					The CSSP China project has produced a wealth of excellent
 					research that has huge practical impact in understanding and
-					dealing with climate change. The new knowledge and data that
-					will form the basis of operational climate services, to be
-					delivered to users in many sectors of industry and
-					government across China and around the world.
+					dealing with climate change. The three data visualisations
+					available here allow hands-on exploration of research
+					outputs for mapping surface temperature, water resources or
+					crop stress for locations in China. These datasets have the
+					potential to form the basis of new operational climate
+					services.
 				</p>
 				<p lang="zh-cn">TODO: Mandarin here?</p>
 			</div>
 			<div class="bilingual">
 				<p>
-					Delivering climate services requires close cooperation and
-					co-design between service providers and end users, and so
-					the Institute for Environmental Analytics has developed a
-					set of demonstrators for the VIEWpoint project to act as a
-					showcase and to engage potential future climate services
-					users.
+					These demonstrators have been co-developed by the 
+					<a
+						href="https://www.the-iea.org"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<span class="nowrap">
+							<font-awesome-icon
+								icon="external-link-alt"
+							></font-awesome-icon>
+							Institute
+						</span>
+						for Environmental Analytics (IEA)</a
+					> based on user requirements
+					and the data provided by projects in CSSP China. 
 				</p>
 				<p lang="zh-cn">TODO: Mandarin here?</p>
 			</div>
@@ -136,6 +147,20 @@ export default {
 	background-image: url('../assets/images/demonstrators.jpg');
 	background-position: bottom;
 	box-shadow: inset 0 0 0 1000px rgba(217, 216, 214, 0.7);
+}
+
+a {
+	text-decoration: none;
+	outline: 0;
+}
+a:lang(zh-cn) {
+	text-decoration: underline;
+	color: var(--mandarinAnchor);
+}
+a:hover,
+a:hover span,
+a:hover svg path {
+	color: var(--vpOrange);
 }
 
 .button-panel {
