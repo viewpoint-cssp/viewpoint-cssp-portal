@@ -14,36 +14,69 @@
 				</p>
 			</div>
 		</div>
-		<div class="flex-outer">
+		<div class="wrapper">
 			<div
-				v-for="(group, g) in groupedPdfs"
-				:key="`inner-${g}`"
-				class="flex-inner"
+				class="button-panel"
+				v-for="(doc, i) in pdfs"
+				:key="i"
+				:ref="`panel-${i}`"
 			>
-				<div
-					v-for="(pdf, p) in group"
-					:key="`div-${g}-${p}`"
-					class="bilingual"
+				<h2>{{ i + 1 }}</h2>
+				<a
+					class="title english clickable"
+					:href="require(`../assets/pdfs/${doc.enPdf}.pdf`)"
+					:download="`${doc.enPdf}.pdf`"
+					target="_blank"
+					rel="noopener noreferrer"
+					v-if="doc.enPdf"
 				>
-					<a
-						v-for="lang in pdf.langs"
-						:key="`a-${g}-${p}-${lang}`"
-						:href="require(`../assets/pdfs/${pdf[lang].pdf}.pdf`)"
-						:download="`${pdf[lang].pdf}.pdf`"
-						target="_blank"
-						rel="noopener noreferrer"
-						:title="pdf[lang].button"
-					>
-						<img
-							:src="
-								require(`../assets/images/${pdf[lang].img}.jpg`)
-							"
-						/>
-						<button lang="lang == 'cn' ? 'zh-cn' : ''">
-							{{ pdf[lang].button }}
-						</button>
-						<p class="draft" v-if="pdf[lang].draft">Draft</p>
-					</a>
+					<p class="draft" v-if="doc.enDraft">Draft</p>
+					<h3>{{ doc.enTitle }}</h3>
+					<font-awesome-icon
+						icon="download"
+						v-if="doc.enPdf"
+					></font-awesome-icon>
+				</a>
+				<div class="title" v-else>
+					<p class="draft" v-if="doc.enDraft">Draft</p>
+					<h3>{{ doc.enTitle }}</h3>
+				</div>
+				<div 
+					class="img-wrapper"
+					:class="{ double: doc.cnPdf }"	
+				>
+					<img
+						:src="require(`../assets/images/${doc.img}.jpg`)"
+					/>
+					<img
+						:src="require(`../assets/images/${doc.img}-cn.jpg`)"
+						v-if="doc.cnPdf"
+					/>
+				</div>
+				<a
+					class="title mandarin clickable"
+					:href="require(`../assets/pdfs/${doc.cnPdf}.pdf`)"
+					:download="`${doc.cnPdf}.pdf`"
+					target="_blank"
+					rel="noopener noreferrer"
+					v-if="doc.cnPdf"
+				>
+					<p class="draft" v-if="doc.cnDraft">Draft</p>
+					<h3 v-if="doc.cnTitle" lang="zh-cn">{{ doc.cnTitle }}</h3>
+					<p v-else lang="zh-cn">
+						TODO: 'Not available in Mandarin' in Mandarin!
+					</p>
+					<font-awesome-icon
+						icon="download"
+						v-if="doc.cnPdf"
+					></font-awesome-icon>
+				</a>
+				<div class="title" v-else>
+					<p class="draft" v-if="doc.cnDraft">Draft</p>
+					<h3 v-if="doc.cnTitle" lang="zh-cn">{{ doc.cnTitle }}</h3>
+					<p v-else lang="zh-cn">
+						TODO: 'Not available in Mandarin' in Mandarin!
+					</p>
 				</div>
 			</div>
 		</div>
@@ -56,7 +89,7 @@ import Banner from './Banner.vue'
 import Gotop from './Gotop.vue'
 
 export default {
-	name: 'Infographics',
+	name: 'Briefing',
 	components: {
 		Banner,
 		Gotop
@@ -65,53 +98,37 @@ export default {
 		return {
 			pdfs: [
 				{
-					langs: ['en'],
-					en: {
-						pdf: 'I01-en-assessing-risk',
-						img: 'infographic-1',
-						button: `Assessing China's risk to climate related extremes`
-					}
+					img: 'infographic-1',
+					enPdf: 'I01-en-assessing-risk',
+					enTitle: `Assessing China's risk to climate related extremes`
 				},
 				{
-					langs: ['en'],
-					en: {
-						pdf: 'I02-en-air-quality',
-						img: 'infographic-2',
-						button: 'Urban China Decadal Air Quality Service',
-						draft: true
-					}
+					img: 'infographic-4',
+					enPdf: 'I04-en-food-security',
+					enTitle: 'Food security in CSSP China',
+					cnPdf: 'I04-cn-food-security',
+					cnTitle: '中英气候科学支持服务伙伴关系计划之粮食安全'
 				},
 				{
-					langs: ['en'],
-					en: {
-						pdf: 'I03-en-seasonal-forecast',
-						img: 'infographic-3',
-						button:
-							'Seasonal forecast service for the Yangtze River Basin'
-					}
+					img: 'infographic-3',
+					enPdf: 'I03-en-seasonal-forecast',
+					enTitle: 'Seasonal forecast service for the Yangtze River Basin'
 				},
 				{
-					langs: ['en', 'cn'],
-					en: {
-						pdf: 'I04-en-food-security',
-						img: 'infographic-4',
-						button: 'Food security in CSSP China'
-					},
-					cn: {
-						pdf: 'I04-cn-food-security',
-						img: 'infographic-4-cn',
-						button: '中英气候科学支持服务伙伴关系计划之粮食安全'
-					}
+					img: 'infographic-2',
+					enPdf: 'I02-en-air-quality',
+					enTitle: 'Urban China Decadal Air Quality Service',
+					cnPdf: 'I02-cn-air-quality',
+					cnTitle: '中国城市十年空气质量服务'
+				},
+				{
+					img: 'infographic-5',
+					enPdf: 'I05-en-urban',
+					enTitle: 'Urban Climate Services in CSSP China',
+					cnPdf: 'I05-cn-urban',
+					cnTitle: '中英气候科学服务伙伴关系计划 (CSSP)之中国城市气候服务'
 				}
 			]
-		}
-	},
-	computed: {
-		groupedPdfs() {
-			const group = []
-			group.push(this.pdfs.slice(0, 2))
-			group.push(this.pdfs.slice(2, 4))
-			return group
 		}
 	},
 	methods: {
@@ -153,78 +170,138 @@ export default {
 	box-shadow: inset 0 0 0 1000px rgba(217, 216, 214, 0.5);
 }
 
-.flex-outer,
-.flex-inner {
+.wrapper {
 	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: flex-start;
-	margin: 0 auto;
-}
-.flex-outer {
 	flex-direction: column;
 }
 
-a {
+.button-panel {
+	width: 100%;
+	max-width: 1358px;
+	margin: 0 auto;
+	border: 0 solid var(--primaryLightest);
+	border-left-width: 1px;
+	border-right-width: 1px;
+	padding: 12px 32px;
+	transition: background 0.2s ease-in-out;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: stretch;
+}
+
+.button-panel:nth-of-type(odd) {
+	background: var(--primaryLightest);
+}
+
+.button-panel div,
+.button-panel a,
+.button-panel h3,
+.button-panel p {
+	background: transparent;
+	margin-top: 0;
+}
+
+.button-panel h2 {
+	width: 56px; /* 4%; */
+	align-self: flex-start;
+	margin: 0 8px 0 0;
+	padding: 8px;
+	border-radius: 50%;
+	background: var(--vpOrange);
+	color: var(--vpCoolGrey);
+	text-align: center;
+}
+
+.button-panel .title {
+	width: calc((100% - 56px) * 0.4); /* 38%; */
+	display: flex;
+	flex-direction: column;
+	position: relative; /* for .draft */
 	text-decoration: none;
-	position: relative;
 }
-a:hover img,
-button:hover {
-	box-shadow: 4px 4px 5px var(--primarySelected);
-}
-a:focus {
+.button-panel .title:focus {
 	outline: none;
 }
-a:active img,
-button:active {
-	transform: translateY(1px);
-	box-shadow: none;
-}
 
-img {
-	width: 300px;
-	margin: 12px;
-}
-
-button {
-	cursor: pointer;
-	display: none;
-}
-
-p.draft {
+.button-panel .draft {
 	position: absolute;
-	top: 40%;
-	left: 20%;
 	font-size: 64px;
 	font-weight: bold;
 	letter-spacing: 8px;
-	transform-origin: center;
-	transform: rotate(-30deg);
+	transform: rotate(-30deg) translateY(12px);
+	opacity: 0.1;
+}
+
+.button-panel .title .fa-download {
 	background: transparent;
-	color: var(--bannerGrey);
+	align-self: flex-end;
+	margin-top: auto;
+	font-size: 24px;
 }
 
-@media (max-width: 1300px) {
-	.flex-inner {
-		flex-direction: column;
-	}
+.button-panel a.scroll-cursor {
+	cursor: ns-resize;
 }
 
-@media (max-width: 684px) {
-	.bilingual {
-		margin: 0 auto;
+.button-panel a.title:hover h3,
+.button-panel a.title:hover .fa-download path {
+	color: var(--vpOrange);
+}
+
+.button-panel .img-wrapper {	
+	width: calc((100% - 56px) * 0.2); /* 20% */
+	margin: 0 32px;
+	height: 170px;
+}
+.button-panel .img-wrapper.double {
+	padding-right: 50px; /* 2nd image is offset by 50px */
+	height: 195px; /* 2nd image is offset by 25px; */
+	position: relative; /* for 2nd image */
+}
+
+.button-panel img {
+	position: absolute;
+	width: 120px;
+}
+.button-panel img:nth-of-type(even) {
+	top: 25px;
+	left: 50px;
+}
+
+@media (max-width: 1007px) {
+	.button-panel {
+		padding: 12px 16px;
 	}
-	img {
-		width: 90%;
-		max-width: calc(50vw - 24px);
+	.button-panel .img-wrapper {	
+		margin: 0 16px;
+		height: 85px;
+	}
+	.button-panel .img-wrapper.double {
+		padding-right: 25px; /* 2nd image is offset by 25px */
+		height: 97px; /* 2nd image is offset by 12px; */
+	}
+	.button-panel img {
+		width: 60px;
+	}
+	.button-panel img:nth-of-type(even) {
+		top: 12px;
+		left: 25px;
 	}
 }
 
 @media (max-width: 640px) {
-	/* needed to override default .bilingual at 640px */
-	.bilingual {
-		flex-direction: row;
+	.button-panel {
+		padding: 8px;
+	}
+	.button-panel h2 {
+		width: 32px;
+	}
+	.button-panel img {
+		margin: 0 8px;
+	}
+	.button-panel img:nth-of-type(even) {
+		display: none;
 	}
 }
 </style>
