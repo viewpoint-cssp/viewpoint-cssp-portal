@@ -10,20 +10,36 @@
 				</p>
 				<p lang="zh-cn">TODO: Mandarin here?</p>
 			</div>
-			<a
-				class="download"
-				:href="
-					require('../assets/pdfs/DRAFT_06_VP Handbook_SS Feb 22.pdf')
-				"
-				download="VIEWpoint-handbook.pdf"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				<button>
-					<font-awesome-icon icon="download"></font-awesome-icon>
-					Download the handbook
-				</button>
-			</a>
+			<div class="download-buttons">
+				<a
+					class="download"
+					:href="
+						require('../assets/pdfs/DRAFT_06_VP Handbook_SS Feb 22.pdf')
+					"
+					download="VIEWpoint-handbook.pdf"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<button>
+						<font-awesome-icon icon="download"></font-awesome-icon>
+						Download the handbook
+					</button>
+				</a>
+				<a
+					class="download"
+					:href="
+						require('../assets/pdfs/DRAFT_06_VP Handbook_SS Feb 22.pdf')
+					"
+					download="VIEWpoint-handbook.pdf"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<button>
+						<font-awesome-icon icon="download"></font-awesome-icon>
+						Download in Chinese
+					</button>
+				</a>
+			</div>
 		</div>
 		<div class="toggle-wrapper">
 			<div class="toggles">
@@ -32,18 +48,14 @@
 						icon="backward"
 						class="toggle-icon"
 						:disabled="onFirstPage"
-						@click="moveToIndex(0)"
+						@click="moveToIndex('first')"
 						title="Go to first page"
 					></font-awesome-icon>
 					<font-awesome-icon
 						icon="caret-left"
 						class="toggle-icon"
 						:disabled="onFirstPage"
-						@click="
-							showMode == 'sides'
-								? (sideIndex = sideIndex - 1)
-								: (spreadIndex = spreadIndex - 1)
-						"
+						@click="moveToIndex('prev')"
 						title="Go to previous page"
 					></font-awesome-icon>
 					<p>{{ pageNumber }} of {{ this.sides.length }}</p>
@@ -51,22 +63,14 @@
 						icon="caret-right"
 						class="toggle-icon"
 						:disabled="onLastPage"
-						@click="
-							showMode == 'sides'
-								? (sideIndex = sideIndex + 1)
-								: (spreadIndex = spreadIndex + 1)
-						"
+						@click="moveToIndex('next')"
 						title="Go to next page"
 					></font-awesome-icon>
 					<font-awesome-icon
 						icon="forward"
 						class="toggle-icon"
 						:disabled="onLastPage"
-						@click="
-							showMode == 'sides'
-								? (sideIndex = sides.length - 1)
-								: (spreadIndex = spreads.length - 1)
-						"
+						@click="moveToIndex('last')"
 						title="Go to last page"
 					></font-awesome-icon>
 					<div class="contents-selector" v-if="sections.length">
@@ -93,8 +97,16 @@
 					</div>
 				</div>
 				<div class="other-toggles">
+					<img
+						src="../assets/images/en-flag.png"
+						@click="language = 'en'"
+					/>
+					<img
+						src="../assets/images/cn-flag.png"
+						@click="language = 'cn'"
+					/>
 					<a
-						class="download"
+						class="download TODO"
 						:href="
 							require('../assets/pdfs/DRAFT_06_VP Handbook_SS Feb 22.pdf')
 						"
@@ -110,6 +122,7 @@
 					</a>
 					<font-awesome-layers
 						class="toggle-icon"
+						@click="changeMode"
 						:title="
 							`${
 								showMode == 'sides'
@@ -117,7 +130,7 @@
 									: 'Show as individual pages'
 							}`
 						"
-						@click="changeMode"
+						v-if="!narrowPage"
 					>
 						<font-awesome-icon
 							icon="book-open"
@@ -135,6 +148,7 @@
 						:title="
 							!fullWidth ? 'Make full width' : 'Make full height'
 						"
+						v-if="!narrowPage"
 					></font-awesome-icon>
 				</div>
 			</div>
@@ -174,6 +188,9 @@
 			</slider>
 			<div class="center-fold" v-if="showMode == 'xspreads'"></div>
 		</div>
+		<div class="narrow-page">
+			<img :src="sides[0]" class="cover-page " />
+		</div>
 	</div>
 </template>
 
@@ -190,19 +207,12 @@ export default {
 	},
 	data() {
 		return {
+			language: 'en',
 			spreads: [],
 			sides: [],
 			showMode: 'spreads',
-			nextIndex: 0,
 			// TODO define these once handbook is finalised
-			sections: [
-				{ name: 'Introduction by the MetOffice', spreads: 4, sides: 7 },
-				{ name: 'Using the Handbook', spreads: 5, sides: 9 },
-				{ name: 'Explainers', spreads: 17, sides: 33 },
-				{ name: 'Infographics', spreads: 25, sides: 49 },
-				{ name: 'Demonstrators', spreads: 27, sides: 54 },
-				{ name: 'Briefing notes', spreads: 28, sides: 55 }
-			],
+			sections: [],
 			// sideIndex and spreadIndex needed to try to stop
 			// multiple pages becoming visible at the same time
 			sideIndex: 0,
@@ -226,6 +236,14 @@ export default {
 		}
 	},
 	watch: {
+		language() {
+			this.loadSpreads()
+			if (this.showMode == 'sides') {
+				this.sideIndex = Math.min(this.sideIndex, this.sides.length - 1)
+			} else {
+				this.spreadIndex = Math.min(this.spreadIndex, this.spreads.length - 1)
+			}
+		},
 		fullWidth() {
 			this.resized()
 		},
@@ -292,24 +310,48 @@ export default {
 			if (this.showMode == 'sides') {
 				return this.sideIndex == 0
 			} else {
-				return this.spreadsIndex == 0
+				return this.spreadIndex == 0
 			}
 		},
 		onLastPage() {
 			if (this.showMode == 'sides') {
 				return this.sideIndex == this.sides.length - 1
 			} else {
-				return this.spreadsIndex == this.spreads.length - 1
+				return this.spreadIndex == this.spreads.length - 1
 			}
 		},
 		moveToIndex(index) {
-			if (this.showMode == 'sides') {
-				if (index >= 0 && index < this.sides.length - 1) {
-					this.sideIndex = index
+			if (typeof index == 'number') {
+				if (this.showMode == 'sides') {
+					if (index >= 0 && index < this.sides.length - 1) {
+						this.sideIndex = index
+					}
+				} else {
+					if (index >= 0 && index < this.spreads.length - 1) {
+						this.spreadIndex = index
+					}
 				}
 			} else {
-				if (index >= 0 && index < this.spreads.length - 1) {
-					this.spreadIndex = index
+				if (this.showMode == 'sides') {
+					if (index == 'first') {
+						this.sideIndex = 0
+					} else if (index == 'prev' && this.sideIndex > 0) {
+						this.sideIndex = this.sideIndex - 1
+					} else if (index == 'next' && this.sideIndex < this.sides.length - 1) {
+						this.sideIndex = this.sideIndex + 1
+					} else if (index == 'last') {
+						this.sideIndex = this.sides.length - 1
+					}
+				} else {
+					if (index == 'first') {
+						this.spreadIndex = 0
+					} else if (index == 'prev' && this.spreadIndex > 0) {
+						this.spreadIndex = this.spreadIndex - 1
+					} else if (index == 'next' && this.spreadIndex < this.spreads.length - 1) {
+						this.spreadIndex = this.spreadIndex + 1
+					} else if (index == 'last') {
+						this.spreadIndex = this.spreads.length - 1
+					}
 				}
 			}
 			this.showContents = false
@@ -342,6 +384,49 @@ export default {
 				shadow[1].classList.remove('hidden')
 				buttons[0].classList.remove('transparent')
 				buttons[1].classList.remove('transparent')
+			}
+		},
+		loadSpreads() {
+			this.spreads = []
+			this.sides = []
+			this.sections = []
+			if (this.language == 'en') {
+				// TODO finalise JPGs
+				for (let i = 1; i < 34; i++) {
+					this.spreads.push(
+						require(`../assets/images/DRAFT_06_VP Handbook_SS Feb 221024_${i}.jpg`)
+					)
+					this.sides.push(
+						require(`../assets/images/DRAFT_06_VP Handbook_SS Feb 221024_${i}.jpg`)
+					)
+					if (i > 1) {
+						this.sides.push(
+							require(`../assets/images/DRAFT_06_VP Handbook_SS Feb 221024_${i}.jpg`)
+						)
+					}
+				}
+				// TODO determine sections
+				this.sections = [
+					{
+						name: 'Introduction by the MetOffice',
+						spreads: 4,
+						sides: 7
+					},
+					{ name: 'Using the Handbook', spreads: 5, sides: 9 },
+					{ name: 'Explainers', spreads: 17, sides: 33 },
+					{ name: 'Infographics', spreads: 25, sides: 49 },
+					{ name: 'Demonstrators', spreads: 27, sides: 54 },
+					{ name: 'Briefing notes', spreads: 28, sides: 55 }
+				]
+			} else {
+				// TODO finalise for Chinese version (currently just the draft front cover)
+				this.spreads.push(
+					require(`../assets/images/DRAFT_06_VP Handbook_SS Feb 221024_1.jpg`)
+				)
+				this.sides.push(
+					require(`../assets/images/DRAFT_06_VP Handbook_SS Feb 221024_1.jpg`)
+				)
+				// TODO don't forget the sections!
 			}
 		},
 		resized() {
@@ -411,20 +496,16 @@ export default {
 		}
 	},
 	mounted() {
-		// load page images
-		for (let i = 1; i < 34; i++) {
-			this.spreads.push(
-				require(`../assets/images/DRAFT_06_VP Handbook_SS Feb 221024_${i}.jpg`)
-			)
-			this.sides.push(
-				require(`../assets/images/DRAFT_06_VP Handbook_SS Feb 221024_${i}.jpg`)
-			)
-			if (i > 1) {
-				this.sides.push(
-					require(`../assets/images/DRAFT_06_VP Handbook_SS Feb 221024_${i}.jpg`)
-				)
-			}
+		// change default language to Chinese if possible
+		if (
+			navigator &&
+			navigator.language &&
+			navigator.language.indexOf('CN') >= 0
+		) {
+			this.language = 'cn'
 		}
+		// load page images for the language
+		this.loadSpreads()
 		// force removal of left-shadow if index is on first page
 		if (this.showMode == 'sides') {
 			this.changedToPage(this.sideIndex)
@@ -451,6 +532,13 @@ export default {
 	box-shadow: inset 0 0 0 1000px rgba(217, 216, 214, 0.8);
 }
 
+.download-buttons {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: stretch;
+}
+
 a.download,
 .fa-download {
 	background: transparent;
@@ -459,10 +547,15 @@ a.download,
 	color: var(--whiteDefault);
 }
 
-.about-page a {
-	display: table; /* fudge to get auto margins to center the button */
-	margin-left: auto;
-	margin-right: auto;
+.download-buttons a:first-of-type {
+	margin-right: 2px;
+}
+.download-buttons a:last-of-type {
+	margin-left: 2px;
+}
+
+.download-buttons button {
+	height: 100%;
 }
 
 .toggle-wrapper {
@@ -569,6 +662,12 @@ ul.contents-list.show-contents {
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: center;
+}
+
+.other-toggles img {
+	background: transparent;
+	width: 38px;
+	margin: 0 2px;
 }
 
 .fa-slash {
@@ -704,9 +803,23 @@ ul.contents-list.show-contents {
 	background: var(--vpOrange);
 }
 
+.narrow-page {
+	display: none;
+}
+.narrow-page img {
+	width: 60vw;
+	margin: 0 auto 8px auto;
+}
+
 @media (max-width: 1007px) {
 	.toggle-wrapper {
 		margin-top: 8px;
+	}
+	.page-toggles {
+		margin-left: 8px;
+	}
+	.other-toggles {
+		margin-right: 8px;
 	}
 }
 
@@ -714,22 +827,28 @@ ul.contents-list.show-contents {
 	.toggle-wrapper {
 		margin-top: 4px;
 	}
+	.page-toggles {
+		margin-left: 4px;
+	}
+	.other-toggles {
+		margin-right: 4px;
+	}
 }
 
-@media (max-width: 362px) {
-	.toggle-wrapper,
-	.slider-wrapper {
-		display: none;
-	}
+@media (max-width: 372px) {
 	.about-page {
 		display: flex;
 		flex-direction: column;
 	}
-	.about-page a {
-		align-self: center;
-	}
 	.about-page a button {
 		padding: 32px;
+	}
+	.toggle-wrapper,
+	.slider-wrapper {
+		display: none;
+	}
+	.narrow-page {
+		display: flex;
 	}
 }
 </style>
