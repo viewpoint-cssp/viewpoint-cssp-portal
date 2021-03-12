@@ -4,9 +4,13 @@
 		<div class="about-page">
 			<div class="bilingual">
 				<p>
-					A collection of articles and highlights of several years of
-					the CSSP China project, including interviews with
-					world-leading scientists.
+					Browse here for an overview and highlights of the CSSP China
+					project – available in Chinese and English. A collection of
+					expert interviews alongside succinct summaries of the
+					climate science and examples of the climate services. Find
+					out more about the work that has been produced
+					collaboratively over several years by hundreds of
+					researchers in China and the UK.
 				</p>
 				<p lang="zh-cn">TODO: Chinese here</p>
 			</div>
@@ -241,7 +245,10 @@ export default {
 			if (this.showMode == 'sides') {
 				this.sideIndex = Math.min(this.sideIndex, this.sides.length - 1)
 			} else {
-				this.spreadIndex = Math.min(this.spreadIndex, this.spreads.length - 1)
+				this.spreadIndex = Math.min(
+					this.spreadIndex,
+					this.spreads.length - 1
+				)
 			}
 		},
 		fullWidth() {
@@ -337,7 +344,10 @@ export default {
 						this.sideIndex = 0
 					} else if (index == 'prev' && this.sideIndex > 0) {
 						this.sideIndex = this.sideIndex - 1
-					} else if (index == 'next' && this.sideIndex < this.sides.length - 1) {
+					} else if (
+						index == 'next' &&
+						this.sideIndex < this.sides.length - 1
+					) {
 						this.sideIndex = this.sideIndex + 1
 					} else if (index == 'last') {
 						this.sideIndex = this.sides.length - 1
@@ -347,7 +357,10 @@ export default {
 						this.spreadIndex = 0
 					} else if (index == 'prev' && this.spreadIndex > 0) {
 						this.spreadIndex = this.spreadIndex - 1
-					} else if (index == 'next' && this.spreadIndex < this.spreads.length - 1) {
+					} else if (
+						index == 'next' &&
+						this.spreadIndex < this.spreads.length - 1
+					) {
 						this.spreadIndex = this.spreadIndex + 1
 					} else if (index == 'last') {
 						this.spreadIndex = this.spreads.length - 1

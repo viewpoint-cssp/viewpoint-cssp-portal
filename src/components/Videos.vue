@@ -74,6 +74,7 @@
 					which may threaten the city. These three short clips cover
 					the topics of urban climate, climate change resilience for
 					city infrastructure and data use for mapping urban areas.
+					Available in English and Chinese.
 				</p>
 				<p class="text chinese" lang="zh-cn">
 					TODO: Chinese here
@@ -132,7 +133,8 @@
 					Liang Guo and Dr Nick Klingaman talk about tracing the
 					sources of moisture that fall as rain and snow over China.
 					Dr Buwen Dong talks about analysing heatwaves in China and
-					his predictions for the second half of this century.
+					his predictions for the second half of this century. Videos
+					in English with Chinese subtitles available.
 				</p>
 				<p class="text chinese" lang="zh-cn">
 					TODO: Chinese here
@@ -191,7 +193,8 @@
 					businesses, planners and decision-makers to use directly to
 					find out more about the current and future climate. Here are
 					three videos summarising three different tools which are
-					tailored specifically for infrastructure and cities.
+					tailored specifically for infrastructure and cities. Videos
+					in English and with Chinese voiceover.
 				</p>
 				<p class="text chinese" lang="zh-cn">
 					TODO: Chinese here
@@ -250,7 +253,8 @@
 					and beneficial solutions. Hear about three tools and
 					services from scientists and engineers within the CSSP China
 					project revealing information on the next season and the
-					next decades to help planning and operation.
+					next decades to help planning and operation. Videos in
+					English and with Chinese voiceover.
 				</p>
 				<p class="text chinese" lang="zh-cn">
 					TODO: Chinese here
@@ -412,31 +416,33 @@ export default {
 				en: [
 					{
 						id: '',
+						title: 'Climate Services for the European Energy Sector'
+					},
+					{
+						id: '',
 						title:
-							'Seasonal forecasts for the Yangtze and wind farms'
+							'Seasonal climate prediction, with applications for wind energy and for Yangtze rainfall'
 					},
 					{
 						id: '',
-						title: 'Met Office example for renewables'
-					},
-					{
-						id: '',
-						title: 'RE-SAT'
+						title:
+							'A new energy analytics platform and its utility for expanding the penetration of renewable energy'
 					}
 				],
 				cn: [
 					{
 						id: '',
+						title: 'Climate Services for the European Energy Sector'
+					},
+					{
+						id: '',
 						title:
-							'Seasonal forecasts for the Yangtze and wind farms'
+							'Seasonal climate prediction, with applications for wind energy and for Yangtze rainfall'
 					},
 					{
 						id: '',
-						title: 'Met Office example for renewables'
-					},
-					{
-						id: '',
-						title: 'RE-SAT'
+						title:
+							'A new energy analytics platform and its utility for expanding the penetration of renewable energy'
 					}
 				]
 			}
@@ -626,6 +632,10 @@ iframe,
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
+}
+
+.no-video h2 {
+	text-align: center;
 }
 
 .no-video p.watermark {

@@ -50,6 +50,9 @@
 			installation instructions. For more information, see the linked
 			pages.
 		</p>
+		<p>
+			Instructions in English; all videos have Chinese subtitles. 
+		</p>
 	</div>
 </template>
 

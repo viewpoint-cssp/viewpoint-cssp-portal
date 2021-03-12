@@ -17,7 +17,7 @@
 			</div>
 			<div class="bilingual">
 				<p>
-					These demonstrators have been co-developed by the 
+					These demonstrators have been co-developed by the
 					<a
 						href="https://www.the-iea.org"
 						target="_blank"
@@ -30,8 +30,9 @@
 							Institute
 						</span>
 						for Environmental Analytics (IEA)</a
-					> based on user requirements
-					and the data provided by projects in CSSP China. 
+					>
+					based on user requirements and the data provided by projects
+					in CSSP China.
 				</p>
 				<p lang="zh-cn">TODO: Chinese here</p>
 			</div>
@@ -81,7 +82,8 @@ export default {
 					pageName: 'suhi',
 					imageName: 'suhi-laptop',
 					title: 'Surface Urban Heat Island',
-					enDesc: 'Intro...',
+					enDesc:
+						'Use satellite data to explore the variation in surface temperatures across four cities in China. Developed with the Met Office.',
 					cnDesc: 'TODO: Chinese here'
 				},
 				{
@@ -89,14 +91,15 @@ export default {
 					imageName: 'wrm-laptop',
 					title: 'Water Resources Management',
 					enDesc:
-						'A prototype dashboard to investigate the impact of climate change and water abstraction on the Upper Yellow River basin.',
+						'A prototype dashboard to investigate the impact of climate change and water abstraction on the Upper Yellow River basin. Developed with the University of Leeds.',
 					cnDesc: 'TODO: Chinese here'
 				},
 				{
 					pageName: 'verdant',
 					imageName: 'verdant-laptop',
 					title: 'Verdant',
-					enDesc: 'Intro...',
+					enDesc:
+						'Example output of satellite mapping of crop drought conditions, in development as an automated daily service. Developed with the University of Leicester.',
 					cnDesc: 'TODO: Chinese here',
 					disabled: true
 				}

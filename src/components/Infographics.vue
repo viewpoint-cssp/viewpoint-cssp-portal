@@ -105,13 +105,6 @@ export default {
 					cnTitle: '中英气候科学支持服务伙伴关系计划之粮食安全'
 				},
 				{
-					img: 'infographic-2',
-					enPdf: 'I02-en-air-quality',
-					enTitle: 'Urban China Decadal Air Quality Service',
-					cnPdf: 'I02-cn-air-quality',
-					cnTitle: '中国城市十年空气质量服务'
-				},
-				{
 					img: 'infographic-5',
 					enPdf: 'I05-en-urban',
 					enTitle: 'Urban Climate Services in CSSP China',
@@ -119,14 +112,21 @@ export default {
 					cnTitle: '中英气候科学服务伙伴关系计划 (CSSP)之中国城市气候服务'
 				},
 				{
-					img: 'infographic-1',
-					enPdf: 'I01-en-assessing-risk',
-					enTitle: `Assessing China's risk to climate related extremes`
+					img: 'infographic-2',
+					enPdf: 'I02-en-air-quality',
+					enTitle: 'Urban China Decadal Air Quality Service',
+					cnPdf: 'I02-cn-air-quality',
+					cnTitle: '中国城市十年空气质量服务'
 				},
 				{
 					img: 'infographic-3',
 					enPdf: 'I03-en-seasonal-forecast',
 					enTitle: 'Seasonal forecast service for the Yangtze River Basin'
+				},
+				{
+					img: 'infographic-1',
+					enPdf: 'I01-en-assessing-risk',
+					enTitle: `Assessing China's risk to climate related extremes`
 				}
 			]
 		}
