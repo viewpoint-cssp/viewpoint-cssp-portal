@@ -55,10 +55,15 @@ bash deploy.sh
 The conversion routine has been written in Python and can be found in the
 `python` directory.
 
--   In Zotero, select the Export Menu option from the File menu.
+-   Ensure the VIEWpoint library in your Zotero desktop app is the latest
+    version. If the latest version is the one on zotero.org, the desktop app
+    needs to by synced with the web version first.
 
-    -   Use the BibLaTeX option and ensure the character encoding is Unicode
-        (UTF-8). Leave the other options unchecked.
+-   In the Zotero desktop app, select the Export Library... option from the File
+    menu.
+
+    -   Use the BibLaTeX option and ensure the Character Encoding is Unicode
+        (UTF-8). Leave the other checkbox options unchecked.
 
 -   Check the filenames and paths are correct for the source `.bib` and the
     target `.txt` in `convert_bib_to_json.py` and run the program.
@@ -92,9 +97,9 @@ The conversion routine has been written in Python and can be found in the
     the expected columns are:
     -   the term in English,
     -   its definition in English,
-    -   the term translated into Mandarin,
-    -   a fuller explanation in Mandarin,
-    -   any comments.
+    -   the term translated into Chinese,
+    -   a fuller explanation in Chinese,
+    -   any comments, which can include URLs and Chinese characters.
 -   Save the worksheet as a CSV file called `glossary.csv` in this repo's
     `/public` directory.
 

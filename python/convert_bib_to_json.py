@@ -170,7 +170,7 @@ def make_json(bibFile, jsonFile):
 if __name__ == '__main__':
 
     # filenames should include path if not in the same directory
-    bibFile = r'VIEWpoint-jan2021-bibLaTeX.bib'
+    bibFile = r'VIEWpoint-mar2021-bibLaTeX.bib'
     #jsonFile = r'../public/catalogue.txt'
     jsonFile = r'catalogue.txt'
       
