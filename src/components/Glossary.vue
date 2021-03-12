@@ -58,21 +58,11 @@
 		</div>
 		<table v-if="!narrowPage">
 			<thead>
-				<th class="text english">
-					{{ header.enText }}
-				</th>
-				<th class="desc english">
-					{{ header.enDesc }}
-				</th>
-				<th class="text mandarin" lang="zh-cn">
-					{{ header.cnText }}
-				</th>
-				<th class="desc mandarin" lang="zh-cn">
-					{{ header.cnDesc }}
-				</th>
-				<th class="glossary-comments" lang="zh-cn">
-					{{ header.comments }}
-				</th>
+				<th class="text english" lang="zh-cn" v-html="header.enText"></th>
+				<th class="desc english" lang="zh-cn" v-html="header.enDesc"></th>
+				<th class="text mandarin" lang="zh-cn" v-html="header.cnText"></th>
+				<th class="desc mandarin" lang="zh-cn" v-html="header.cnDesc"></th>
+				<th class="glossary-comments header" lang="zh-cn" v-html="header.comments"></th>
 			</thead>
 			<tbody>
 				<tr v-for="(definition, i) in glossary" :key="i">
@@ -110,14 +100,8 @@
 		</table>
 		<table v-else>
 			<thead>
-				<th class="text english">
-					{{ header.enText }}
-				</th>
+				<th class="text english" lang="zh-cn" v-html="header.enText"></th>
 				<th class="narrow">
-					<!--<div>{{ header.enDesc }}</div>
-					<div lang="zh-cn">{{ header.cnText }}</div>
-					<div lang="zh-cn">{{ header.cnDesc }}</div>
-					<div lang="zh-cn">{{ header.comments }}</div>-->
 					<div>Definition, Translation and Comments</div>
 				</th>
 			</thead>
@@ -269,6 +253,11 @@ export default {
 					this.header = this.glossary[0]
 					this.glossary.splice(0, 1)
 				}
+				// change \ns to <br>s in header
+				for (let h in this.header) {
+					const lines = this.header[h].replace(/\r/g, '').split('\n')
+					this.header[h] = lines.join('<br>')
+				}
 				// "s can be left at the end of comments so this tidies that up
 				this.glossary
 					.filter(a => a.comments && a.comments.indexOf(','))
@@ -413,12 +402,15 @@ th {
 }
 
 th.desc {
-	min-width: 25%;
+	min-width: 22.5%;
 }
 
 div.glossary-comments {
 	width: var(--glossaryCommentsWidth);
 	background: transparent;
+}
+div.glossary-comments:not(.header) {
+	font-size: 0.9rem;
 }
 
 div.glossary-comments.suppressed {
@@ -435,10 +427,6 @@ td {
 
 td.text {
 	font-weight: 600;
-}
-
-.glossary-comments {
-	font-size: 0.9rem;
 }
 
 .attrib p {
