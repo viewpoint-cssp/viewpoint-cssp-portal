@@ -16,7 +16,7 @@
 					>
 					of publications.
 				</p>
-				<p lang="zh-cn">TODO: Mandarin here?</p>
+				<p lang="zh-cn">TODO: Chinese here</p>
 			</div>
 		</div>
 		<div
@@ -65,7 +65,7 @@ export default {
 					title: 'Handbook',
 					enDesc:
 						'A collection of articles and highlights of several years of the CSSP China project, including interviews with world-leading scientists.',
-					cnDesc: 'TODO: Mandarin here?'
+					cnDesc: 'TODO: Chinese here'
 				},
 				{
 					pageName: 'Explainers',
@@ -73,7 +73,7 @@ export default {
 					title: 'Explainers',
 					enDesc:
 						'One-page summaries of CSSP China research work, each covering the importance and approach to investigating the topic, with links to the original publications.',
-					cnDesc: 'TODO: Mandarin here?'
+					cnDesc: 'TODO: Chinese here'
 				},
 				{
 					pageName: 'Briefing',
@@ -81,7 +81,7 @@ export default {
 					title: 'Briefing notes',
 					enDesc:
 						'Each note collates a range of information sources on one pressing topic, clearly summarising the underlying issues, relevance and recommendations of the scientific evidence.',
-					cnDesc: 'TODO: Mandarin here?'
+					cnDesc: 'TODO: Chinese here'
 				},
 				{
 					pageName: 'Videos',
@@ -89,7 +89,7 @@ export default {
 					title: 'Videos',
 					enDesc:
 						'A range of video and audio from specialists within CSSP China, sharing their expertise in concise and engaging ways.',
-					cnDesc: 'TODO: Mandarin here?'
+					cnDesc: 'TODO: Chinese here'
 				},
 				{
 					pageName: 'Infographics',
@@ -97,7 +97,7 @@ export default {
 					title: 'Infographics',
 					enDesc:
 						'Climate services and fundamental science distilled into attractive graphics, produced by the Met Office.',
-					cnDesc: 'TODO: Mandarin here?'
+					cnDesc: 'TODO: Chinese here'
 				},
 				{
 					pageName: 'Training',
@@ -105,7 +105,7 @@ export default {
 					title: 'Training materials',
 					enDesc:
 						'For those interested in the urban climate, here is training to introduce the hands-on use of the Urban Multi-scale Environmental Predictor (UMEP) software.',
-					cnDesc: 'TODO: Mandarin here?'
+					cnDesc: 'TODO: Chinese here'
 				}
 			]
 		}

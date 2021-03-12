@@ -7,7 +7,7 @@
 			<p>
 				Some description about the handbook.
 			</p>
-			<p lang="zh-cn">TODO: Mandarin here?</p>
+			<p lang="zh-cn">TODO: Chinese here</p>
 			<a
 				class="download"
 				:href="

@@ -9,7 +9,7 @@
 					the topic and includes links to the original publications.
 				</p>
 				<p lang="zh-cn">
-					TODO: Mandarin here?
+					TODO: Chinese here
 				</p>
 			</div>
 		</div>
@@ -51,7 +51,7 @@
 					:title="getTooltip(doc)"
 				/>
 				<a
-					class="title mandarin clickable"
+					class="title chinese clickable"
 					:href="require(`../assets/pdfs/${doc.cnPdf}.pdf`)"
 					:download="`${doc.cnPdf}.pdf`"
 					target="_blank"
@@ -61,7 +61,7 @@
 					<p class="draft" v-if="doc.cnDraft">Draft</p>
 					<h3 v-if="doc.cnTitle" lang="zh-cn">{{ doc.cnTitle }}</h3>
 					<p v-else lang="zh-cn">
-						TODO: 'Not available in Mandarin' in Mandarin!
+						TODO: 'Not available in Chinese' in Chinese!
 					</p>
 					<font-awesome-icon
 						icon="download"
@@ -72,7 +72,7 @@
 					<p class="draft" v-if="doc.cnDraft">Draft</p>
 					<h3 v-if="doc.cnTitle" lang="zh-cn">{{ doc.cnTitle }}</h3>
 					<p v-else lang="zh-cn">
-						TODO: 'Not available in Mandarin' in Mandarin!
+						TODO: 'Not available in Chinese' in Chinese!
 					</p>
 				</div>
 			</div>
@@ -122,7 +122,7 @@ export default {
 					enPdf: 'E04-en-beijing-haze',
 					cnTitle: '什么会影响北京未来的雾霾事件？',
 					cnPdf:
-						'Mandarin Explainer No4 What will shape future Beijing Haze events',
+						'Chinese Explainer No4 What will shape future Beijing Haze events',
 					cnDraft: true,
 					imgPosition: 'bottom',
 					imgCredit: 'Pixabay.com',
@@ -136,7 +136,7 @@ export default {
 					cnTitle:
 						'高效评估中国风云三号卫星仪器，借以 提高天气预报质量',
 					cnPdf:
-						'Mandarin Explainer No 5 Efficient assessments of Chin',
+						'Chinese Explainer No 5 Efficient assessments of Chin',
 					cnDraft: true,
 					imgCredit: 'WikiImages,Pixabay',
 					imgAlt: 'Satellite image of Earth'

@@ -13,7 +13,7 @@
 					potential to form the basis of new operational climate
 					services.
 				</p>
-				<p lang="zh-cn">TODO: Mandarin here?</p>
+				<p lang="zh-cn">TODO: Chinese here</p>
 			</div>
 			<div class="bilingual">
 				<p>
@@ -33,7 +33,7 @@
 					> based on user requirements
 					and the data provided by projects in CSSP China. 
 				</p>
-				<p lang="zh-cn">TODO: Mandarin here?</p>
+				<p lang="zh-cn">TODO: Chinese here</p>
 			</div>
 		</div>
 		<div
@@ -82,7 +82,7 @@ export default {
 					imageName: 'suhi-laptop',
 					title: 'Surface Urban Heat Island',
 					enDesc: 'Intro...',
-					cnDesc: 'TODO: Mandarin here?'
+					cnDesc: 'TODO: Chinese here'
 				},
 				{
 					pageName: 'wrm',
@@ -90,14 +90,14 @@ export default {
 					title: 'Water Resources Management',
 					enDesc:
 						'A prototype dashboard to investigate the impact of climate change and water abstraction on the Upper Yellow River basin.',
-					cnDesc: 'TODO: Mandarin here?'
+					cnDesc: 'TODO: Chinese here'
 				},
 				{
 					pageName: 'verdant',
 					imageName: 'verdant-laptop',
 					title: 'Verdant',
 					enDesc: 'Intro...',
-					cnDesc: 'TODO: Mandarin here?',
+					cnDesc: 'TODO: Chinese here',
 					disabled: true
 				}
 			]
@@ -155,7 +155,7 @@ a {
 }
 a:lang(zh-cn) {
 	text-decoration: underline;
-	color: var(--mandarinAnchor);
+	color: var(--chineseAnchor);
 }
 a:hover,
 a:hover span,

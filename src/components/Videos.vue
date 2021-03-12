@@ -11,7 +11,7 @@
 					allowing the exploration of future climate threats across
 					China, from next season to the coming decades.
 				</p>
-				<p lang="zh-cn">TODO: Mandarin here?</p>
+				<p lang="zh-cn">TODO: Chinese here</p>
 			</div>
 		</div>
 		<div class="selected-page-wrapper">
@@ -22,7 +22,7 @@
 					@click="selectPage('cities')"
 				>
 					<p>City climates</p>
-					<p lang="zh-cn">TODO: Mandarin</p>
+					<p lang="zh-cn">TODO: Chinese</p>
 				</div>
 				<div
 					class="selected-page-button"
@@ -30,7 +30,7 @@
 					@click="selectPage('findings')"
 				>
 					<p>Research findings</p>
-					<p lang="zh-cn">TODO: Mandarin</p>
+					<p lang="zh-cn">TODO: Chinese</p>
 				</div>
 				<div
 					class="selected-page-button"
@@ -38,7 +38,7 @@
 					@click="selectPage('climate')"
 				>
 					<p>Infrastructure design</p>
-					<p lang="zh-cn">TODO: Mandarin</p>
+					<p lang="zh-cn">TODO: Chinese</p>
 				</div>
 				<div
 					class="selected-page-button"
@@ -46,7 +46,7 @@
 					@click="selectPage('renewables')"
 				>
 					<p>Renewable energy</p>
-					<p lang="zh-cn">TODO: Mandarin</p>
+					<p lang="zh-cn">TODO: Chinese</p>
 				</div>
 				<div
 					class="selected-page-button"
@@ -54,7 +54,7 @@
 					@click="selectPage('audio')"
 				>
 					<p>Audio discussions</p>
-					<p lang="zh-cn">TODO: Mandarin</p>
+					<p lang="zh-cn">TODO: Chinese</p>
 				</div>
 			</div>
 		</div>
@@ -75,8 +75,8 @@
 					the topics of urban climate, climate change resilience for
 					city infrastructure and data use for mapping urban areas.
 				</p>
-				<p class="text mandarin" lang="zh-cn">
-					TODO: Mandarin here?
+				<p class="text chinese" lang="zh-cn">
+					TODO: Chinese here
 				</p>
 			</div>
 			<div class="video-wrapper">
@@ -84,7 +84,7 @@
 					v-for="lang in Object.keys(cityVideos)"
 					:key="`city-${lang}`"
 					class="video-column"
-					:class="{ english: lang == 'en', mandarin: lang == 'cn' }"
+					:class="{ english: lang == 'en', chinese: lang == 'cn' }"
 				>
 					<div
 						class="video"
@@ -134,8 +134,8 @@
 					Dr Buwen Dong talks about analysing heatwaves in China and
 					his predictions for the second half of this century.
 				</p>
-				<p class="text mandarin" lang="zh-cn">
-					TODO: Mandarin here?
+				<p class="text chinese" lang="zh-cn">
+					TODO: Chinese here
 				</p>
 			</div>
 			<div class="video-wrapper">
@@ -143,7 +143,7 @@
 					v-for="lang in Object.keys(collaborationVideos)"
 					:key="`coll-${lang}`"
 					class="video-column"
-					:class="{ english: lang == 'en', mandarin: lang == 'cn' }"
+					:class="{ english: lang == 'en', chinese: lang == 'cn' }"
 				>
 					<div
 						class="video"
@@ -193,8 +193,8 @@
 					three videos summarising three different tools which are
 					tailored specifically for infrastructure and cities.
 				</p>
-				<p class="text mandarin" lang="zh-cn">
-					TODO: Mandarin here?
+				<p class="text chinese" lang="zh-cn">
+					TODO: Chinese here
 				</p>
 			</div>
 			<div class="video-wrapper">
@@ -202,7 +202,7 @@
 					v-for="lang in Object.keys(toolVideos)"
 					:key="`tool-${lang}`"
 					class="video-column"
-					:class="{ english: lang == 'en', mandarin: lang == 'cn' }"
+					:class="{ english: lang == 'en', chinese: lang == 'cn' }"
 				>
 					<div
 						class="video"
@@ -252,8 +252,8 @@
 					project revealing information on the next season and the
 					next decades to help planning and operation.
 				</p>
-				<p class="text mandarin" lang="zh-cn">
-					TODO: Mandarin here?
+				<p class="text chinese" lang="zh-cn">
+					TODO: Chinese here
 				</p>
 			</div>
 			<div class="video-wrapper">
@@ -261,7 +261,7 @@
 					v-for="lang in Object.keys(reVideos)"
 					:key="`re-${lang}`"
 					class="video-column"
-					:class="{ english: lang == 'en', mandarin: lang == 'cn' }"
+					:class="{ english: lang == 'en', chinese: lang == 'cn' }"
 				>
 					<div
 						class="video"
@@ -306,8 +306,8 @@
 				<p class="text english">
 					Audio discussions will live here.
 				</p>
-				<p class="text mandarin" lang="zh-cn">
-					TODO: Mandarin here?
+				<p class="text chinese" lang="zh-cn">
+					TODO: Chinese here
 				</p>
 			</div>
 		</div>

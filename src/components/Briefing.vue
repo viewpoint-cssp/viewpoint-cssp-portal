@@ -10,7 +10,7 @@
 					evidence.
 				</p>
 				<p lang="zh-cn">
-					TODO: Mandarin here?
+					TODO: Chinese here
 				</p>
 			</div>
 		</div>
@@ -52,7 +52,7 @@
 					:title="getTooltip(doc)"
 				/>
 				<a
-					class="title mandarin clickable"
+					class="title chinese clickable"
 					:href="require(`../assets/pdfs/${doc.cnPdf}.pdf`)"
 					:download="`${doc.cnPdf}.pdf`"
 					target="_blank"
@@ -62,7 +62,7 @@
 					<p class="draft" v-if="doc.cnDraft">Draft</p>
 					<h3 v-if="doc.cnTitle" lang="zh-cn">{{ doc.cnTitle }}</h3>
 					<p v-else lang="zh-cn">
-						TODO: 'Not available in Mandarin' in Mandarin!
+						TODO: 'Not available in Chinese' in Chinese!
 					</p>
 					<font-awesome-icon
 						icon="download"
@@ -73,7 +73,7 @@
 					<p class="draft" v-if="doc.cnDraft">Draft</p>
 					<h3 v-if="doc.cnTitle" lang="zh-cn">{{ doc.cnTitle }}</h3>
 					<p v-else lang="zh-cn">
-						TODO: 'Not available in Mandarin' in Mandarin!
+						TODO: 'Not available in Chinese' in Chinese!
 					</p>
 				</div>
 			</div>

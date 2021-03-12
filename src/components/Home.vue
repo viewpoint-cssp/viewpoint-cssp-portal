@@ -80,7 +80,7 @@ export default {
 					title: 'About VIEWpoint',
 					enDesc:
 						'Find out more about how and why these materials were created as part of a global scientific collaboration.',
-					cnDesc: 'TODO: Mandarin here?'
+					cnDesc: 'TODO: Chinese here'
 				},
 				{
 					pageName: 'Resources',
@@ -88,7 +88,7 @@ export default {
 					title: 'Resources',
 					enDesc:
 						'A variety of accessible information to browse on climate science and addressing the challenges of climate change.',
-					cnDesc: 'TODO: Mandarin here?'
+					cnDesc: 'TODO: Chinese here'
 				},
 				{
 					pageName: 'Demonstrators',
@@ -96,7 +96,7 @@ export default {
 					title: 'Demonstrators',
 					enDesc:
 						'Explore climate datasets for yourself with easy-to-use interfaces to engage directly with the current and potential future scenarios.',
-					cnDesc: 'TODO: Mandarin here?'
+					cnDesc: 'TODO: Chinese here'
 				},
 				{
 					pageName: 'Catalogue',
@@ -104,7 +104,7 @@ export default {
 					title: 'Catalogue of CSSP China published papers',
 					enDesc:
 						'The full suite of scientific peer-reviewed publications organised into a searchable catalogue which can be filtered by themes.',
-					cnDesc: 'TODO: Mandarin here?'
+					cnDesc: 'TODO: Chinese here'
 				}
 			]
 		}
@@ -156,7 +156,7 @@ export default {
 }
 .about-page a:lang(zh-cn) {
 	text-decoration: underline;
-	color: var(--mandarinAnchor);
+	color: var(--chineseAnchor);
 }
 .about-page a:hover,
 .about-page a:hover svg path {

@@ -264,7 +264,7 @@ a {
 }
 a:lang(zh-cn) {
 	text-decoration: underline;
-	color: var(--mandarinAnchor);
+	color: var(--chineseAnchor);
 }
 a:hover,
 a:hover span,

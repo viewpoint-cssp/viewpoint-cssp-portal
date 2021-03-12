@@ -5,7 +5,7 @@
 			<div class="bilingual">
 				<p>
 					This glossary provides suggested translations of climate
-					science terms from English to Mandarin. These terms have
+					science terms from English to Chinese. These terms have
 					been collected and reviewed by climate scientists working in
 					the UK and China.
 				</p>
@@ -17,7 +17,7 @@
 				<p>
 					The climate science terms in this glossary are those which
 					are commonly misunderstood by non-scientists or those which
-					have been difficult to translate into Mandarin from
+					have been difficult to translate into Chinese from
 					experience in CSSP China.
 				</p>
 				<p lang="zh-cn">
@@ -28,7 +28,7 @@
 			<div class="bilingual">
 				<p>
 					We hope this glossary will be useful for those looking for
-					accurate English-Mandarin climate science translations. The
+					accurate English-Chinese climate science translations. The
 					glossary can also be printed and used as a quick guide for
 					translators. It is important to note the language used in
 					climate science is constantly evolving and the precise
@@ -60,8 +60,8 @@
 			<thead>
 				<th class="text english" lang="zh-cn" v-html="header.enText"></th>
 				<th class="desc english" lang="zh-cn" v-html="header.enDesc"></th>
-				<th class="text mandarin" lang="zh-cn" v-html="header.cnText"></th>
-				<th class="desc mandarin" lang="zh-cn" v-html="header.cnDesc"></th>
+				<th class="text chinese" lang="zh-cn" v-html="header.cnText"></th>
+				<th class="desc chinese" lang="zh-cn" v-html="header.cnDesc"></th>
 				<th class="glossary-comments header" lang="zh-cn" v-html="header.comments"></th>
 			</thead>
 			<tbody>
@@ -72,10 +72,10 @@
 					<td class="desc english">
 						{{ definition.enDesc }}
 					</td>
-					<td class="text mandarin" lang="zh-cn">
+					<td class="text chinese" lang="zh-cn">
 						{{ definition.cnText }}
 					</td>
-					<td class="desc mandarin" lang="zh-cn">
+					<td class="desc chinese" lang="zh-cn">
 						{{ definition.cnDesc }}
 					</td>
 					<td class="glossary-comments" lang="zh-cn">

@@ -8,7 +8,7 @@
 					the CSSP China project, including interviews with
 					world-leading scientists.
 				</p>
-				<p lang="zh-cn">TODO: Mandarin here?</p>
+				<p lang="zh-cn">TODO: Chinese here</p>
 			</div>
 			<div class="download-buttons">
 				<a
