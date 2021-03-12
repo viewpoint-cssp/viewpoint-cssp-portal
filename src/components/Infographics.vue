@@ -98,21 +98,11 @@ export default {
 		return {
 			pdfs: [
 				{
-					img: 'infographic-1',
-					enPdf: 'I01-en-assessing-risk',
-					enTitle: `Assessing China's risk to climate related extremes`
-				},
-				{
 					img: 'infographic-4',
 					enPdf: 'I04-en-food-security',
 					enTitle: 'Food security in CSSP China',
 					cnPdf: 'I04-cn-food-security',
 					cnTitle: '中英气候科学支持服务伙伴关系计划之粮食安全'
-				},
-				{
-					img: 'infographic-3',
-					enPdf: 'I03-en-seasonal-forecast',
-					enTitle: 'Seasonal forecast service for the Yangtze River Basin'
 				},
 				{
 					img: 'infographic-2',
@@ -127,6 +117,16 @@ export default {
 					enTitle: 'Urban Climate Services in CSSP China',
 					cnPdf: 'I05-cn-urban',
 					cnTitle: '中英气候科学服务伙伴关系计划 (CSSP)之中国城市气候服务'
+				},
+				{
+					img: 'infographic-1',
+					enPdf: 'I01-en-assessing-risk',
+					enTitle: `Assessing China's risk to climate related extremes`
+				},
+				{
+					img: 'infographic-3',
+					enPdf: 'I03-en-seasonal-forecast',
+					enTitle: 'Seasonal forecast service for the Yangtze River Basin'
 				}
 			]
 		}
