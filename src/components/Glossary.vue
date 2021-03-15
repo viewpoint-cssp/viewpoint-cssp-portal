@@ -5,64 +5,84 @@
 			<div class="bilingual">
 				<p>
 					This glossary provides suggested translations of climate
-					science terms from English to Chinese. These terms have
-					been collected and reviewed by climate scientists working in
-					the UK and China.
+					science terms from English to Chinese. These terms have been
+					collected and reviewed by climate scientists working in the
+					UK and China.
 				</p>
 				<p lang="zh-cn">
 					本术语表提供了气候科学术语英文至中文（普通话）的建议翻译。这些术语已由在英国和中国工作的气候科学家们收集并审阅。
 				</p>
 			</div>
-			<div class="bilingual">
-				<p>
-					The climate science terms in this glossary are those which
-					are commonly misunderstood by non-scientists or those which
-					have been difficult to translate into Chinese from
-					experience in CSSP China.
-				</p>
-				<p lang="zh-cn">
-					本术语表中的气候科学术语是那些通常被非专业人士误解的术语，或者是那些根据“气候科学支持服务伙伴关系中国项目
-					(CSSP China)”的经验很难翻译为普通话的术语。
-				</p>
+			<div
+				class="about-more"
+				v-show-slide="showMore"
+				@slide-open-end="showingMore"
+			>
+				<div class="bilingual">
+					<p>
+						The climate science terms in this glossary are those
+						which are commonly misunderstood by non-scientists or
+						those which have been difficult to translate into
+						Chinese from experience in CSSP China.
+					</p>
+					<p lang="zh-cn">
+						本术语表中的气候科学术语是那些通常被非专业人士误解的术语，或者是那些根据“气候科学支持服务伙伴关系中国项目
+						(CSSP China)”的经验很难翻译为普通话的术语。
+					</p>
+				</div>
+				<div class="bilingual">
+					<p>
+						We hope this glossary will be useful for those looking
+						for accurate English-Chinese climate science
+						translations. The glossary can also be printed and used
+						as a quick guide for translators. It is important to
+						note the language used in climate science is constantly
+						evolving and the precise definition could change in the
+						future.
+					</p>
+					<p lang="zh-cn">
+						我们希望本术语表对那些寻求准确地在气候科学方面进行英文-中文（普通话）的翻译的人员有所帮助。本术语表也可以打印，并用作翻译人员的快速指南。值得注意的是，气候科学中使用的语言正在不断发展，即使是精确的定义也可能会在将来改变。
+					</p>
+				</div>
 			</div>
 			<div class="bilingual">
-				<p>
-					We hope this glossary will be useful for those looking for
-					accurate English-Chinese climate science translations. The
-					glossary can also be printed and used as a quick guide for
-					translators. It is important to note the language used in
-					climate science is constantly evolving and the precise
-					definition could change in the future.
-				</p>
-				<p lang="zh-cn">
-					我们希望本术语表对那些寻求准确地在气候科学方面进行英文-中文（普通话）的翻译的人员有所帮助。本术语表也可以打印，并用作翻译人员的快速指南。值得注意的是，气候科学中使用的语言正在不断发展，即使是精确的定义也可能会在将来改变。
-				</p>
-			</div>
-			<div class="bilingual">
-				<p>
-					If you have any additional suggestions for terms on this
-					list, please contact:
-					<a
-						href="mailto:jennifer.weeks@metoffice.gov.uk?subject='VIEWpoint glossary'"
-						>WCSSPProgrammeOffice@metoffice.gov.uk</a
-					>.
-				</p>
-				<p lang="zh-cn">
-					如果您对本列表中的术语有其他建议，请联系：
-					<a
-						href="mailto:jennifer.weeks@metoffice.gov.uk?subject='VIEWpoint glossary'"
-						>WCSSPProgrammeOffice@metoffice.gov.uk</a
-					>。
-				</p>
+				<div class="show-more clickable" @click="showMore = !showMore">
+					<span v-if="showMore">Show less...</span>
+					<span v-else>Show more...</span>
+				</div>
+				<div class="show-more clickable" @click="showMore = !showMore">
+					<span v-if="showMore">Show less...</span>
+					<span v-else>Show more...</span>
+				</div>
 			</div>
 		</div>
 		<table v-if="!narrowPage">
 			<thead>
-				<th class="text english" lang="zh-cn" v-html="header.enText"></th>
-				<th class="desc english" lang="zh-cn" v-html="header.enDesc"></th>
-				<th class="text chinese" lang="zh-cn" v-html="header.cnText"></th>
-				<th class="desc chinese" lang="zh-cn" v-html="header.cnDesc"></th>
-				<th class="glossary-comments header" lang="zh-cn" v-html="header.comments"></th>
+				<th
+					class="text english"
+					lang="zh-cn"
+					v-html="header.enText"
+				></th>
+				<th
+					class="desc english"
+					lang="zh-cn"
+					v-html="header.enDesc"
+				></th>
+				<th
+					class="text chinese"
+					lang="zh-cn"
+					v-html="header.cnText"
+				></th>
+				<th
+					class="desc chinese"
+					lang="zh-cn"
+					v-html="header.cnDesc"
+				></th>
+				<th
+					class="glossary-comments header"
+					lang="zh-cn"
+					v-html="header.comments"
+				></th>
 			</thead>
 			<tbody>
 				<tr v-for="(definition, i) in glossary" :key="i">
@@ -100,7 +120,11 @@
 		</table>
 		<table v-else>
 			<thead>
-				<th class="text english" lang="zh-cn" v-html="header.enText"></th>
+				<th
+					class="text english"
+					lang="zh-cn"
+					v-html="header.enText"
+				></th>
 				<th class="narrow">
 					<div>Definition, Translation and Comments</div>
 				</th>
@@ -182,10 +206,30 @@ export default {
 			header: {},
 			glossary: [],
 			narrowPage: false,
-			suppressComments: true
+			suppressComments: true,
+			showMore: false
 		}
 	},
 	methods: {
+		showingMore() {
+			const more = document.getElementsByClassName('show-more')
+			if (
+				more.length > 0 &&
+				more[0].getBoundingClientRect().bottom > window.innerHeight
+			) {
+				if ('scrollBehavior' in document.documentElement.style) {
+					window.scrollTo({
+						top:
+							more[0].getBoundingClientRect().bottom -
+							window.innerHeight +
+							8,
+						behavior: 'smooth'
+					})
+				} else {
+					more[0].scrollIntoView(false) // not smooth behaviour! :(
+				}
+			}
+		},
 		resized() {
 			// recalculate --glossaryCommentsWidth based on window innerWidth
 			// less table buffers and borders since table may not return
@@ -312,7 +356,9 @@ export default {
 							lines.pop()
 						}
 						// and re-join with <br>s
-						a.comments = lines.join('<hr>').replace(/<hr><hr>/g, '<hr>')
+						a.comments = lines
+							.join('<hr>')
+							.replace(/<hr><hr>/g, '<hr>')
 						a.htmlComments = true
 					})
 			})
@@ -352,7 +398,7 @@ div.glossary-comments a:hover svg path {
 }
 div.glossary-comments hr {
 	border: none;
-	border-top: 1px dotted var(--text); 
+	border-top: 1px dotted var(--text);
 }
 @media print {
 	div.glossary-comments svg {
@@ -373,6 +419,14 @@ div.glossary-comments hr {
 }
 .about-page.attrib {
 	padding-top: 12px;
+}
+
+.show-more span {
+	font-size: 0.9rem;
+	opacity: 0.7;
+}
+.show-more:hover span {
+	color: var(--vpOrange);
 }
 
 table {
