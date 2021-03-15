@@ -17,160 +17,76 @@
 		<div class="selected-page-wrapper">
 			<div class="selected-page">
 				<div
+					v-for="page in pages"
+					:key="`select-${page.name}`"
 					class="selected-page-button"
-					:class="{ selected: selectedPage == 'cities' }"
-					@click="selectPage('cities')"
+					:class="{ selected: selectedPage == page.name }"
+					@click="selectPage(page.name)"
 				>
-					<p>City climates</p>
-					<p lang="zh-cn">TODO: Chinese</p>
-				</div>
-				<div
-					class="selected-page-button"
-					:class="{ selected: selectedPage == 'findings' }"
-					@click="selectPage('findings')"
-				>
-					<p>Research findings</p>
-					<p lang="zh-cn">TODO: Chinese</p>
-				</div>
-				<div
-					class="selected-page-button"
-					:class="{ selected: selectedPage == 'climate' }"
-					@click="selectPage('climate')"
-				>
-					<p>Infrastructure design</p>
-					<p lang="zh-cn">TODO: Chinese</p>
-				</div>
-				<div
-					class="selected-page-button"
-					:class="{ selected: selectedPage == 'renewables' }"
-					@click="selectPage('renewables')"
-				>
-					<p>Renewable energy</p>
-					<p lang="zh-cn">TODO: Chinese</p>
-				</div>
-				<div
-					class="selected-page-button"
-					:class="{ selected: selectedPage == 'audio' }"
-					@click="selectPage('audio')"
-				>
-					<p>Audio discussions</p>
-					<p lang="zh-cn">TODO: Chinese</p>
+					<p>{{ page.enLabel }}</p>
+					<p lang="zh-cn">{{ page.cnLabel || 'TODO: Chinese' }}</p>
 				</div>
 			</div>
 		</div>
 		<div
-			id="cities"
+			v-for="page in pages"
+			:key="`page-${page.name}`"
+			:id="page.name"
 			class="video-panel"
-			v-show-slide:500:ease-in="selectedPage == 'cities'"
-			:class="{ active: activePage.cities }"
-			@slide-open-end="activePage.cities = true"
-			@slide-close-start="activePage.cities = false"
+			v-show-slide:500:ease-in="selectedPage == page.name"
+			:class="{ active: activePage[page.name] }"
+			@slide-open-end="activePage[page.name] = true"
+			@slide-close-start="activePage[page.name] = false"
 		>
 			<div class="bilingual">
-				<p class="text english">
-					What is special about city climates? Cities are living
-					things, always growing and changing, needing to adapt to the
-					needs of their populations and to an ever-changing climate,
-					which may threaten the city. These three short clips cover
-					the topics of urban climate, climate change resilience for
-					city infrastructure and data use for mapping urban areas.
-					Available in English and Chinese.
-				</p>
+				<p class="text english">{{ page.enText }}</p>
 				<p class="text chinese" lang="zh-cn">
-					TODO: Chinese here
+					{{ page.cnText || 'TODO: Chinese here' }}
 				</p>
 			</div>
-			<VideoWrapper :videos="cityVideos"></VideoWrapper>
-		</div>
-		<div
-			id="findings"
-			class="video-panel"
-			v-show-slide:500:ease-in="selectedPage == 'findings'"
-			:class="{ active: activePage.findings }"
-			@slide-open-end="activePage.findings = true"
-			@slide-close-start="activePage.findings = false"
-		>
-			<div class="bilingual">
-				<p class="text english">
-					Hear directly from researchers in CSSP China on their
-					collaborative UK-China work and the fascinating findings. Dr
-					Liang Guo and Dr Nick Klingaman talk about tracing the
-					sources of moisture that fall as rain and snow over China.
-					Dr Buwen Dong talks about analysing heatwaves in China and
-					his predictions for the second half of this century. Videos
-					in English with Chinese subtitles available.
-				</p>
-				<p class="text chinese" lang="zh-cn">
-					TODO: Chinese here
-				</p>
+			<div class="video-wrapper">
+				<div
+					v-for="lang in Object.keys(page.videos)"
+					:key="`city-${lang}`"
+					class="video-column"
+					:class="{ english: lang == 'en', chinese: lang == 'cn' }"
+				>
+					<div
+						class="video"
+						v-for="(video, i) in page.videos[lang]"
+						:key="`city-${lang}-${i}`"
+					>
+						<iframe
+							:src="
+								`https://cdn.jwplayer.com/players/${video.id}-NocosEfA.html`
+							"
+							:title="video.title"
+							:data-id="video.id"
+							frameborder="0"
+							scrolling="auto"
+							allowfullscreen
+							v-if="video.id"
+						></iframe>
+						<div class="no-video" v-else>
+							<h2 :lang="lang == 'cn' ? 'zh-cn' : ''">
+								{{ video.title }}
+							</h2>
+							<p class="watermark" v-if="page.audio">
+								<font-awesome-icon
+									icon="microphone-slash"
+								></font-awesome-icon>
+								No audio
+							</p>
+							<p class="watermark" v-else>
+								<font-awesome-icon
+									icon="video-slash"
+								></font-awesome-icon>
+								No video
+							</p>
+						</div>
+					</div>
+				</div>
 			</div>
-			<VideoWrapper :videos="collaborationVideos"></VideoWrapper>
-		</div>
-		<div
-			id="climate"
-			class="video-panel"
-			v-show-slide:500:ease-in="selectedPage == 'climate'"
-			:class="{ active: activePage.climate }"
-			@slide-open-end="activePage.climate = true"
-			@slide-close-start="activePage.climate = false"
-		>
-			<div class="bilingual">
-				<p class="text english">
-					For those who want to explore their own hands-on
-					information, CSSP China has produced practical tools for
-					businesses, planners and decision-makers to use directly to
-					find out more about the current and future climate. Here are
-					three videos summarising three different tools which are
-					tailored specifically for infrastructure and cities. Videos
-					in English and with Chinese voiceover.
-				</p>
-				<p class="text chinese" lang="zh-cn">
-					TODO: Chinese here
-				</p>
-			</div>
-			<VideoWrapper :videos="toolVideos"></VideoWrapper>
-		</div>
-		<div
-			id="renewables"
-			class="video-panel"
-			v-show-slide:500:ease-in="selectedPage == 'renewables'"
-			:class="{ active: activePage.renewables }"
-			@slide-open-end="activePage.renewables = true"
-			@slide-close-start="activePage.renewables = false"
-		>
-			<div class="bilingual">
-				<p class="text english">
-					Enabling renewable energy systems are at the heart of our
-					net-zero future and the climate is a key part of efficient
-					and beneficial solutions. Hear about three tools and
-					services from scientists and engineers within the CSSP China
-					project revealing information on the next season and the
-					next decades to help planning and operation. Videos in
-					English and with Chinese voiceover.
-				</p>
-				<p class="text chinese" lang="zh-cn">
-					TODO: Chinese here
-				</p>
-			</div>
-			<VideoWrapper :videos="reVideos"></VideoWrapper>
-		</div>
-		<div
-			id="audio"
-			class="video-panel"
-			v-show-slide:500:ease-in="selectedPage == 'audio'"
-			:class="{ active: activePage.audio }"
-			@slide-open-end="activePage.audio = true"
-			@slide-close-start="activePage.audio = false"
-		>
-			<div class="bilingual" style="margin-bottom:24px;">
-				<p class="text english">
-					Audio discussions will live here.
-				</p>
-				<p class="text chinese" lang="zh-cn">
-					TODO: Chinese here
-				</p>
-			</div>
-			<VideoWrapper :videos="audioTracks" audio="true"></VideoWrapper>
 		</div>
 		<Gotop></Gotop>
 	</div>
@@ -179,19 +95,19 @@
 <script>
 import Banner from './Banner.vue'
 import Gotop from './Gotop.vue'
-import VideoWrapper from './VideoWrapper.vue'
+import { videoPages } from '../js/videos.js'
 
 export default {
 	name: 'Videos',
 	components: {
 		Banner,
-		Gotop,
-		VideoWrapper
+		Gotop
 	},
 	data() {
 		return {
+			pages: [], // will be populated from videos.js when created
 			selectedPage: 'cities',
-			// this is just to allow old active page to darken 
+			// this is just to allow old active page to darken
 			// and fade before new active page takes its place
 			activePage: {
 				cities: true,
@@ -199,121 +115,6 @@ export default {
 				climate: false,
 				renewables: false,
 				audio: false
-			},
-			cityVideos: {
-				en: [
-					{
-						id: '',
-						title: 'Quick guide to urban climate'
-					},
-					{
-						id: '',
-						title: 'Futureproofing cities'
-					},
-					{
-						id: '',
-						title: 'Mapping and modelling cities'
-					}
-				],
-				cn: [
-					{
-						id: '',
-						title: 'Quick guide to urban climate'
-					},
-					{
-						id: '',
-						title: 'Futureproofing cities'
-					},
-					{
-						id: '',
-						title: 'Mapping and modelling cities'
-					}
-				]
-			},
-			collaborationVideos: {
-				en: [
-					{
-						id: '',
-						title: 'The water accounting tool'
-					},
-					{
-						id: '0WGfTYf0',
-						title:
-							'The evidence on past, present and future heatwaves in China'
-					}
-				]
-			},
-			toolVideos: {
-				en: [
-					{
-						id: '',
-						title: 'City packs and urban heat service'
-					},
-					{
-						id: '',
-						title: 'Visualising the surface urban heat island'
-					},
-					{
-						id: '',
-						title: 'Climate risk assessments for infrastructure'
-					}
-				],
-				cn: [
-					{
-						id: '',
-						title: 'City packs and urban heat service'
-					},
-					{
-						id: '',
-						title: 'Visualising the surface urban heat island'
-					},
-					{
-						id: '',
-						title: 'Climate risk assessments for infrastructure'
-					}
-				]
-			},
-			reVideos: {
-				en: [
-					{
-						id: '',
-						title: 'Climate Services for the European Energy Sector'
-					},
-					{
-						id: '',
-						title:
-							'Seasonal climate prediction, with applications for wind energy and for Yangtze rainfall'
-					},
-					{
-						id: '',
-						title:
-							'A new energy analytics platform and its utility for expanding the penetration of renewable energy'
-					}
-				],
-				cn: [
-					{
-						id: '',
-						title: 'Climate Services for the European Energy Sector'
-					},
-					{
-						id: '',
-						title:
-							'Seasonal climate prediction, with applications for wind energy and for Yangtze rainfall'
-					},
-					{
-						id: '',
-						title:
-							'A new energy analytics platform and its utility for expanding the penetration of renewable energy'
-					}
-				]
-			},
-			audioTracks: {
-				en: [
-					{
-						id: '',
-						title: 'Audiocast'
-					}
-				]
 			}
 		}
 	},
@@ -383,6 +184,9 @@ export default {
 				})
 			}
 		}
+	},
+	created() {
+		this.pages = videoPages // in videos.js
 	},
 	mounted() {
 		this.$el.parentElement.scrollIntoView(true)
@@ -464,6 +268,56 @@ p.text {
 	padding: 32px 64px 0 64px;
 }
 
+.video-wrapper {
+	width: 100%;
+	margin: 24px 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: flex-start;
+}
+
+.video-column {
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.video {
+	border: 1px solid var(--vpDark);
+	margin: 2px;
+	padding: 10px;
+}
+
+/* both need border to and .no-video needs addition margin-bottom to 'fix' 
+   problem with .video height for .no-video not matching that for iframe! */
+iframe,
+.no-video {
+	width: var(--iframeWidth);
+	height: var(--iframeHeight);
+	border: 2px solid transparent;
+}
+
+.no-video {
+	margin-bottom: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.no-video h2 {
+	text-align: center;
+}
+
+.no-video p.watermark {
+	font-size: 64px;
+	font-weight: bold;
+	letter-spacing: 8px;
+	opacity: 0.1;
+}
+
 @media (max-width: 1007px) {
 	.about-page p {
 		margin-bottom: 12px;
@@ -476,6 +330,13 @@ p.text {
 	}
 	p.text {
 		padding: 16px 32px 0 32px;
+	}
+	.video-wrapper {
+		flex-direction: column;
+		margin-top: 8px;
+	}
+	.video-column {
+		width: 100%;
 	}
 }
 @media (max-width: 640px) {
@@ -491,8 +352,15 @@ p.text {
 	p.text {
 		padding: 8px 16px 0 16px;
 	}
+	.video-wrapper {
+		margin-top: 4px;
+	}
+	.no-video p.watermark {
+		letter-spacing: normal;
+	}
 }
-@media (max-width: 640px) { /* TODO width TBC */
+@media (max-width: 640px) {
+	/* TODO width TBC */
 	.selected-page {
 		flex-direction: column;
 	}
