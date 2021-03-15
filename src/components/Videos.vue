@@ -160,9 +160,6 @@ export default {
 				// width needs to deduct air around 2 videos and return half the total
 				width = Math.floor((width - 2 * perVideo) / 2)
 			}
-			if (width > 640) {
-				width = 640
-			}
 			if (!oldWidth || width != parseInt(oldWidth)) {
 				document.documentElement.style.setProperty(
 					'--iframeWidth',
@@ -216,7 +213,7 @@ export default {
 }
 
 .selected-page {
-	max-width: 1358px;
+	max-width: var(--widthLimit);
 	margin: 0 auto;
 	padding: 0 64px;
 	display: flex;
@@ -248,6 +245,7 @@ export default {
 
 .video-panel {
 	width: 100%;
+	max-width: var(--widthLimit);
 	margin: 0 auto;
 	padding: 0 64px;
 	background: var(--primaryLightest);
@@ -263,7 +261,7 @@ export default {
 }
 
 p.text {
-	max-width: 1358px;
+	max-width: var(--widthLimit);
 	margin: 0 auto;
 	padding: 32px 64px 0 64px;
 }
