@@ -438,6 +438,8 @@ img#logo {
 }
 
 .training-handbook {
+	max-width: var(--widthLimit);
+	margin: 0 auto;
 	display: flex;
 	flex-direction: row;
 	align-items: flex-start;
