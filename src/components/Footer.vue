@@ -49,12 +49,10 @@
 		</div>
 		<p v-if="!narrowPage">
 			Contact:
-			<a href="mailto:viewpoint@the-iea.org">viewpoint@the-iea.org</a>
+			<a :href="contactHref">{{ contactUrl }}</a>
 		</p>
 		<div class="envelope-wrapper" v-else>
-			<a href="mailto:viewpoint@the-iea.org"
-				><div class="mail-solid icon"></div
-			></a>
+			<a :href="contactHref"><div class="mail-solid icon"></div></a>
 		</div>
 		<div class="logo-wrapper" :class="{ 'narrow-page': narrowPage }">
 			<a
@@ -107,7 +105,25 @@ export default {
 			timeout: null,
 			urlCMA: 'http://www.cma.gov.cn/en2014/',
 			urlIAP: 'http://english.iap.cas.cn/',
-			narrowPage: false
+			narrowPage: false,
+			contactUrl: 'viewpoint@the-iea.org'
+		}
+	},
+	computed: {
+		contactHref() {
+			let href = `mailto:${this.contactUrl}`
+			if (this.contactUrl == 'WCSSPProgrammeOffice@metoffice.gov.uk') {
+				href += `?subject=VIEWPoint ${this.$route.path.substr(1)} query`
+			}
+			return href.replace(/ /g, '%20')
+		}
+	},
+	watch: {
+		$route(to) {
+			this.checkContact(to.path)
+			if (!this.forceIconsOnly) {
+				this.checkNarrowPage()
+			}
 		}
 	},
 	methods: {
@@ -126,9 +142,21 @@ export default {
 				clearTimeout(this.timeout)
 			}
 		},
-		resized() {
-			// NOTE this method is only ever called if !this.forceIconsOnly
-			if (window.matchMedia('(max-width: 645px)').matches) {
+		checkContact(path) {
+			if (path == '/catalogue' || path == '/glossary') {
+				this.contactUrl = 'WCSSPProgrammeOffice@metoffice.gov.uk'
+			} else {
+				this.contactUrl = 'viewpoint@the-iea.org'
+			}
+		},
+		checkNarrowPage() {
+			// NOTE this method should only ever be called if !this.forceIconsOnly
+			if (this.forceIconsOnly) return // just in case it isn't!
+			let maxWidth = '(max-width: 645px)'
+			if (this.contactUrl == 'WCSSPProgrammeOffice@metoffice.gov.uk') {
+				maxWidth = '(max-width: 800px)'
+			}
+			if (window.matchMedia(maxWidth).matches) {
 				this.narrowPage = true
 			} else {
 				this.narrowPage = false
@@ -139,9 +167,16 @@ export default {
 		// see whether this component is within the portal website or not
 		if (this.$router) {
 			const routes = this.$router.options.routes
-			if (routes.length > 0 && routes[routes.length - 1].name == 'VIEWpoint404') {
+			if (
+				routes.length > 0 &&
+				routes[routes.length - 1].name == 'VIEWpoint404'
+			) {
 				this.portal = true
 			}
+		}
+		// change the contact to the Met Office if on catalogue or glossary
+		if (this.$router) {
+			this.checkContact(this.$route.path)
 		}
 		// change URLs to Chinese version if possible
 		if (
@@ -175,9 +210,9 @@ export default {
 		if (this.forceIconsOnly) {
 			this.narrowPage = true
 		} else {
-			this.resized()
-			window.addEventListener('resize', this.resized)
-			window.addEventListener('orientationchange', this.resized)
+			this.checkNarrowPage()
+			window.addEventListener('resize', this.checkNarrowPage)
+			window.addEventListener('orientationchange', this.checkNarrowPage)
 		}
 		if (!this.portal && !window.matchMedia('(hover: hover)').matches) {
 			// or '(pointer: none)' ?
@@ -191,8 +226,11 @@ export default {
 	},
 	beforeDestroy() {
 		if (!this.forceIconsOnly) {
-			window.removeEventListener('resize', this.resized)
-			window.removeEventListener('orientationchange', this.resized)
+			window.removeEventListener('resize', this.checkNarrowPage)
+			window.removeEventListener(
+				'orientationchange',
+				this.checkNarrowPage
+			)
 		}
 	}
 }
