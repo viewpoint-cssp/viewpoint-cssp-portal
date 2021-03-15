@@ -36,7 +36,7 @@ export default {
 }
 
 .banner div {
-	max-width: 1358px;
+	max-width: var(--widthLimit);
 	background: transparent;
 	display: flex;
 	flex-direction: column;

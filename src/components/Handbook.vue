@@ -473,12 +473,12 @@ export default {
 			let height
 			if (this.fullWidth) {
 				// width is available browser width less 16px either side
-				// (limited to the system maximum of 1358px)
+				// (limited to the system maximum of var(--widthLimit))
 				width = Math.min(parseInt(window.innerWidth) - 32, 1358)
 				height = width / ratio
 			} else {
 				// height is available browser height less 8px top and bottom
-				// (limited to the maximum that would yield a width of 1358px)
+				// (limited to the maximum that would yield a width of var(--widthLimit))
 				height = Math.min(
 					parseInt(window.innerHeight) - 16,
 					1358 / ratio

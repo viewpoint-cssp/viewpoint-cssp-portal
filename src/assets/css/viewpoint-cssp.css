@@ -33,6 +33,7 @@
 	--gotopBottom: 6px;
 	--fontSizeMedium: 0.925rem; /* for 641px to 1007px */
 	--fontSizeSmall: 0.85rem; /* up to 640px */
+	--widthLimit: 1358px;
 }
 
 * {
@@ -235,7 +236,7 @@ td {
 }
 
 .about-page {
-	max-width: 1358px;
+	max-width: var(--widthLimit);
 	margin: 0 auto;
 	padding: 32px 64px;
 }

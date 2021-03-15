@@ -166,7 +166,7 @@ export default {
 
 .button-panel {
 	width: 100%;
-	max-width: 1358px;
+	max-width: var(--widthLimit);
 	margin: 0 auto;
 	border: 0 solid var(--primaryLightest);
 	border-left-width: 1px;
