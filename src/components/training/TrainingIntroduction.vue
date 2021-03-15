@@ -53,6 +53,36 @@
 		<p>
 			Instructions in English; all videos have Chinese subtitles. 
 		</p>
+		<p class="download-buttons">
+			<a
+				class="download"
+				:href="
+					require('../../assets/pdfs/placeholder.pdf')
+				"
+				download="VIEWpoint-video-transcripts.pdf"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<button>
+					<font-awesome-icon icon="download"></font-awesome-icon>
+					Download the transcripts
+				</button>
+			</a>
+			<a
+				class="download"
+				:href="
+					require('../../assets/pdfs/placeholder.pdf')
+				"
+				download="VIEWpoint-video-transcripts.pdf"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<button>
+					<font-awesome-icon icon="download"></font-awesome-icon>
+					Download in Chinese
+				</button>
+			</a>
+		</p>
 	</div>
 </template>
 
@@ -62,4 +92,33 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.download-buttons {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: stretch;
+}
+
+a.download,
+.fa-download {
+	background: transparent;
+}
+.fa-download path {
+	color: var(--whiteDefault);
+}
+
+.download-buttons a:first-of-type {
+	margin-right: 2px;
+}
+.download-buttons a:last-of-type {
+	margin-left: 2px;
+}
+.download-buttons a:hover svg path {
+	color: var(--whiteDefault);
+}
+
+.download-buttons button {
+	height: 100%;
+}
+</style>
