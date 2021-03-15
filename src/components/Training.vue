@@ -189,6 +189,7 @@
 					></font-awesome-icon>
 				</div>
 			</div>
+			<hr class="contents-divider" />
 			<div class="page-content">
 				<transition name="fade" mode="out-in">
 					<component 
@@ -447,7 +448,6 @@ img#logo {
 	height: 100%;
 	overflow-x: hidden;
 	overflow-y: auto;
-	border-right: 1px solid var(--primaryLightest);
 }
 
 .section {
@@ -482,8 +482,14 @@ hr {
 	border-color: var(--primaryLightest);
 }
 
-.page-content {
+hr.contents-divider {
+	align-self: stretch;
+	min-height: calc(var(--minTrainingHeight) - 60px); /* less banner */
+	border: none;
 	border-left: 1px solid var(--primaryLightest);
+}
+
+.page-content {
 	width: 100%;
 }
 
