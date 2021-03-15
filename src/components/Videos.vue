@@ -48,14 +48,14 @@
 					<p>Renewable energy</p>
 					<p lang="zh-cn">TODO: Chinese</p>
 				</div>
-				<div
+				<!--<div
 					class="selected-page-button"
 					:class="{ selected: selectedPage == 'audio' }"
 					@click="selectPage('audio')"
 				>
 					<p>Audio discussions</p>
 					<p lang="zh-cn">TODO: Chinese</p>
-				</div>
+				</div>-->
 			</div>
 		</div>
 		<div
@@ -314,6 +314,43 @@
 					TODO: Chinese here
 				</p>
 			</div>
+			<div class="video-wrapper">
+				<div
+					v-for="lang in Object.keys(audVideos)"
+					:key="`re-${lang}`"
+					class="video-column"
+					:class="{ english: lang == 'en', chinese: lang == 'cn' }"
+				>
+					<div
+						class="video"
+						v-for="(video, i) in audVideos[lang]"
+						:key="`re-${lang}-${i}`"
+					>
+						<iframe
+							:src="
+								`https://cdn.jwplayer.com/players/${video.id}-NocosEfA.html`
+							"
+							:title="video.title"
+							:data-id="video.id"
+							frameborder="0"
+							scrolling="auto"
+							allowfullscreen
+							v-if="video.id"
+						></iframe>
+						<div class="no-video" v-else>
+							<h2 :lang="lang == 'cn' ? 'zh-cn' : ''">
+								{{ video.title }}
+							</h2>
+							<p class="watermark">
+								<font-awesome-icon
+									icon="microphone-slash"
+								></font-awesome-icon>
+								No audio
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<Gotop></Gotop>
 	</div>
@@ -443,6 +480,14 @@ export default {
 						id: '',
 						title:
 							'A new energy analytics platform and its utility for expanding the penetration of renewable energy'
+					}
+				]
+			},
+			audVideos: {
+				en: [
+					{
+						id: '',
+						title: 'Audiocast'
 					}
 				]
 			}
@@ -592,7 +637,7 @@ export default {
 p.text {
 	max-width: 1358px;
 	margin: 0 auto;
-	padding: 0 64px;
+	padding: 32px 64px 0 64px;
 }
 
 .video-wrapper {
@@ -656,7 +701,7 @@ iframe,
 		padding: 0 16px;
 	}
 	p.text {
-		padding: 16px 32px;
+		padding: 16px 32px 0 32px;
 	}
 	.video-wrapper {
 		flex-direction: column;
@@ -677,7 +722,7 @@ iframe,
 		padding: 0 8px;
 	}
 	p.text {
-		padding: 8px 16px;
+		padding: 8px 16px 0 16px;
 	}
 	.video-wrapper {
 		margin-top: 4px;
@@ -686,7 +731,7 @@ iframe,
 		letter-spacing: normal;
 	}
 }
-@media (max-width: 640px) {
+@media (max-width: 640px) { /* TODO width TBC */
 	.selected-page {
 		flex-direction: column;
 	}
