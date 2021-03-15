@@ -48,14 +48,14 @@
 					<p>Renewable energy</p>
 					<p lang="zh-cn">TODO: Chinese</p>
 				</div>
-				<!--<div
+				<div
 					class="selected-page-button"
 					:class="{ selected: selectedPage == 'audio' }"
 					@click="selectPage('audio')"
 				>
 					<p>Audio discussions</p>
 					<p lang="zh-cn">TODO: Chinese</p>
-				</div>-->
+				</div>
 			</div>
 		</div>
 		<div
@@ -80,43 +80,7 @@
 					TODO: Chinese here
 				</p>
 			</div>
-			<div class="video-wrapper">
-				<div
-					v-for="lang in Object.keys(cityVideos)"
-					:key="`city-${lang}`"
-					class="video-column"
-					:class="{ english: lang == 'en', chinese: lang == 'cn' }"
-				>
-					<div
-						class="video"
-						v-for="(video, i) in cityVideos[lang]"
-						:key="`city-${lang}-${i}`"
-					>
-						<iframe
-							:src="
-								`https://cdn.jwplayer.com/players/${video.id}-NocosEfA.html`
-							"
-							:title="video.title"
-							:data-id="video.id"
-							frameborder="0"
-							scrolling="auto"
-							allowfullscreen
-							v-if="video.id"
-						></iframe>
-						<div class="no-video" v-else>
-							<h2 :lang="lang == 'cn' ? 'zh-cn' : ''">
-								{{ video.title }}
-							</h2>
-							<p class="watermark">
-								<font-awesome-icon
-									icon="video-slash"
-								></font-awesome-icon>
-								No video
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
+			<VideoWrapper :videos="cityVideos"></VideoWrapper>
 		</div>
 		<div
 			id="findings"
@@ -140,43 +104,7 @@
 					TODO: Chinese here
 				</p>
 			</div>
-			<div class="video-wrapper">
-				<div
-					v-for="lang in Object.keys(collaborationVideos)"
-					:key="`coll-${lang}`"
-					class="video-column"
-					:class="{ english: lang == 'en', chinese: lang == 'cn' }"
-				>
-					<div
-						class="video"
-						v-for="(video, i) in collaborationVideos[lang]"
-						:key="`coll-${lang}-${i}`"
-					>
-						<iframe
-							:src="
-								`https://cdn.jwplayer.com/players/${video.id}-NocosEfA.html`
-							"
-							:title="video.title"
-							:data-id="video.id"
-							frameborder="0"
-							scrolling="auto"
-							allowfullscreen
-							v-if="video.id"
-						></iframe>
-						<div class="no-video" v-else>
-							<h2 :lang="lang == 'cn' ? 'zh-cn' : ''">
-								{{ video.title }}
-							</h2>
-							<p class="watermark">
-								<font-awesome-icon
-									icon="video-slash"
-								></font-awesome-icon>
-								No video
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
+			<VideoWrapper :videos="collaborationVideos"></VideoWrapper>
 		</div>
 		<div
 			id="climate"
@@ -200,43 +128,7 @@
 					TODO: Chinese here
 				</p>
 			</div>
-			<div class="video-wrapper">
-				<div
-					v-for="lang in Object.keys(toolVideos)"
-					:key="`tool-${lang}`"
-					class="video-column"
-					:class="{ english: lang == 'en', chinese: lang == 'cn' }"
-				>
-					<div
-						class="video"
-						v-for="(video, i) in toolVideos[lang]"
-						:key="`tool-${lang}-${i}`"
-					>
-						<iframe
-							:src="
-								`https://cdn.jwplayer.com/players/${video.id}-NocosEfA.html`
-							"
-							:title="video.title"
-							:data-id="video.id"
-							frameborder="0"
-							scrolling="auto"
-							allowfullscreen
-							v-if="video.id"
-						></iframe>
-						<div class="no-video" v-else>
-							<h2 :lang="lang == 'cn' ? 'zh-cn' : ''">
-								{{ video.title }}
-							</h2>
-							<p class="watermark">
-								<font-awesome-icon
-									icon="video-slash"
-								></font-awesome-icon>
-								No video
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
+			<VideoWrapper :videos="toolVideos"></VideoWrapper>
 		</div>
 		<div
 			id="renewables"
@@ -260,43 +152,7 @@
 					TODO: Chinese here
 				</p>
 			</div>
-			<div class="video-wrapper">
-				<div
-					v-for="lang in Object.keys(reVideos)"
-					:key="`re-${lang}`"
-					class="video-column"
-					:class="{ english: lang == 'en', chinese: lang == 'cn' }"
-				>
-					<div
-						class="video"
-						v-for="(video, i) in reVideos[lang]"
-						:key="`re-${lang}-${i}`"
-					>
-						<iframe
-							:src="
-								`https://cdn.jwplayer.com/players/${video.id}-NocosEfA.html`
-							"
-							:title="video.title"
-							:data-id="video.id"
-							frameborder="0"
-							scrolling="auto"
-							allowfullscreen
-							v-if="video.id"
-						></iframe>
-						<div class="no-video" v-else>
-							<h2 :lang="lang == 'cn' ? 'zh-cn' : ''">
-								{{ video.title }}
-							</h2>
-							<p class="watermark">
-								<font-awesome-icon
-									icon="video-slash"
-								></font-awesome-icon>
-								No video
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
+			<VideoWrapper :videos="reVideos"></VideoWrapper>
 		</div>
 		<div
 			id="audio"
@@ -314,43 +170,7 @@
 					TODO: Chinese here
 				</p>
 			</div>
-			<div class="video-wrapper">
-				<div
-					v-for="lang in Object.keys(audVideos)"
-					:key="`re-${lang}`"
-					class="video-column"
-					:class="{ english: lang == 'en', chinese: lang == 'cn' }"
-				>
-					<div
-						class="video"
-						v-for="(video, i) in audVideos[lang]"
-						:key="`re-${lang}-${i}`"
-					>
-						<iframe
-							:src="
-								`https://cdn.jwplayer.com/players/${video.id}-NocosEfA.html`
-							"
-							:title="video.title"
-							:data-id="video.id"
-							frameborder="0"
-							scrolling="auto"
-							allowfullscreen
-							v-if="video.id"
-						></iframe>
-						<div class="no-video" v-else>
-							<h2 :lang="lang == 'cn' ? 'zh-cn' : ''">
-								{{ video.title }}
-							</h2>
-							<p class="watermark">
-								<font-awesome-icon
-									icon="microphone-slash"
-								></font-awesome-icon>
-								No audio
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
+			<VideoWrapper :videos="audioTracks" audio="true"></VideoWrapper>
 		</div>
 		<Gotop></Gotop>
 	</div>
@@ -359,16 +179,20 @@
 <script>
 import Banner from './Banner.vue'
 import Gotop from './Gotop.vue'
+import VideoWrapper from './VideoWrapper.vue'
 
 export default {
 	name: 'Videos',
 	components: {
 		Banner,
-		Gotop
+		Gotop,
+		VideoWrapper
 	},
 	data() {
 		return {
 			selectedPage: 'cities',
+			// this is just to allow old active page to darken 
+			// and fade before new active page takes its place
 			activePage: {
 				cities: true,
 				findings: false,
@@ -483,7 +307,7 @@ export default {
 					}
 				]
 			},
-			audVideos: {
+			audioTracks: {
 				en: [
 					{
 						id: '',
@@ -640,56 +464,6 @@ p.text {
 	padding: 32px 64px 0 64px;
 }
 
-.video-wrapper {
-	width: 100%;
-	margin: 24px 0;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	align-items: flex-start;
-}
-
-.video-column {
-	width: 50%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.video {
-	border: 1px solid var(--vpDark);
-	margin: 2px;
-	padding: 10px;
-}
-
-/* both need border to and .no-video needs addition margin-bottom to 'fix' 
-   problem with .video height for .no-video not matching that for iframe! */
-iframe,
-.no-video {
-	width: var(--iframeWidth);
-	height: var(--iframeHeight);
-	border: 2px solid transparent;
-}
-
-.no-video {
-	margin-bottom: 5px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	align-items: center;
-}
-
-.no-video h2 {
-	text-align: center;
-}
-
-.no-video p.watermark {
-	font-size: 64px;
-	font-weight: bold;
-	letter-spacing: 8px;
-	opacity: 0.1;
-}
-
 @media (max-width: 1007px) {
 	.about-page p {
 		margin-bottom: 12px;
@@ -702,13 +476,6 @@ iframe,
 	}
 	p.text {
 		padding: 16px 32px 0 32px;
-	}
-	.video-wrapper {
-		flex-direction: column;
-		margin-top: 8px;
-	}
-	.video-column {
-		width: 100%;
 	}
 }
 @media (max-width: 640px) {
@@ -723,12 +490,6 @@ iframe,
 	}
 	p.text {
 		padding: 8px 16px 0 16px;
-	}
-	.video-wrapper {
-		margin-top: 4px;
-	}
-	.no-video p.watermark {
-		letter-spacing: normal;
 	}
 }
 @media (max-width: 640px) { /* TODO width TBC */
