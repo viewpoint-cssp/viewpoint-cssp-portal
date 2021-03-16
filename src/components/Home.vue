@@ -165,7 +165,11 @@ export default {
 
 .button-panel {
 	width: 100%;
+	max-width: var(--widthLimit);
+	margin: 0 auto;
 	border: 1px solid transparent;
+	border-right-color: var(--primaryLightest);
+	border-left-color: var(--primaryLightest);
 	padding: 64px;
 	cursor: pointer;
 	transition: background 0.2s ease-in-out;
