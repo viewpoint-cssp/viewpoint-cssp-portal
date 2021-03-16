@@ -389,6 +389,13 @@ nav menu to make a reasonable vertical menu */
 	padding-left: 0;
 }
 
+@media (min-width: 1400px) {
+	.nav-menu:not(.stand-alone) {
+		padding-left: calc((100vw - 1400px) / 2);
+		padding-right: calc((100vw - 1400px) / 2);
+	}
+}
+
 @media (max-width: 1007px) {
 	.nav-menu {
 		padding: 0 8px;

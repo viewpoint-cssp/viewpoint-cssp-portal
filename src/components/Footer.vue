@@ -359,6 +359,13 @@ footer a:hover {
 	transform: rotate(54deg);
 }
 
+@media (min-width: 1400px) {
+	footer:not(.stand-alone) {
+		padding-left: calc((100vw - 1400px) / 2);
+		padding-right: calc((100vw - 1400px) / 2);
+	}
+}
+
 @media (max-width: 1007px) {
 	.logo-wrapper a,
 	.logo-wrapper img {
