@@ -16,67 +16,142 @@
 		</div>
 		<div class="wrapper">
 			<div
-				class="button-panel"
+				class="button-panel-wrapper"
 				v-for="(doc, i) in pdfs"
 				:key="i"
 				:ref="`panel-${i}`"
 			>
-				<h2>{{ i + 1 }}</h2>
-				<a
-					class="title english clickable"
-					:href="require(`../assets/pdfs/${doc.enPdf}.pdf`)"
-					:download="`${doc.enPdf}.pdf`"
-					target="_blank"
-					rel="noopener noreferrer"
-					v-if="doc.enPdf"
-				>
-					<p class="draft" v-if="doc.enDraft">Draft</p>
-					<h3>{{ doc.enTitle }}</h3>
-					<font-awesome-icon
-						icon="download"
+				<div class="button-panel" :class="{ alt: i % 2 == 0 }">
+					<h2>{{ i + 1 }}</h2>
+					<a
+						class="title english clickable"
+						:href="require(`../assets/pdfs/${doc.enPdf}.pdf`)"
+						:download="`${doc.enPdf}.pdf`"
+						target="_blank"
+						rel="noopener noreferrer"
 						v-if="doc.enPdf"
-					></font-awesome-icon>
-				</a>
-				<div class="title" v-else>
-					<p class="draft" v-if="doc.enDraft">Draft</p>
-					<h3>{{ doc.enTitle }}</h3>
+					>
+						<p class="draft" v-if="doc.enDraft">Draft</p>
+						<h3>{{ doc.enTitle }}</h3>
+						<font-awesome-icon
+							icon="download"
+							v-if="doc.enPdf"
+						></font-awesome-icon>
+					</a>
+					<div class="title" v-else>
+						<p class="draft" v-if="doc.enDraft">Draft</p>
+						<h3>{{ doc.enTitle }}</h3>
+					</div>
+					<div class="img-wrapper" :class="{ double: doc.cnPdf }">
+						<img
+							class="button-img clickable"
+							:class="{
+								'in-preview':
+									preview.index == i && preview.lang == 'en'
+							}"
+							:src="require(`../assets/images/infographic-${i + 1}.jpg`)"
+							@click="setPreview(i, 'en')"
+							v-if="!doc.cnPdf || !narrowPage || (narrowPage && language == 'en')"
+						/>
+						<img
+							class="button-img clickable"
+							:class="{
+								'in-preview':
+									preview.index == i && preview.lang == 'cn'
+							}"
+							:src="require(`../assets/images/infographic-${i + 1}-cn.jpg`)"
+							@click="setPreview(i, 'cn')"
+							v-if="doc.cnPdf && (!narrowPage || (narrowPage && language == 'cn'))"
+						/>
+					</div>
+					<a
+						class="title chinese clickable"
+						:href="require(`../assets/pdfs/${doc.cnPdf}.pdf`)"
+						:download="`${doc.cnPdf}.pdf`"
+						target="_blank"
+						rel="noopener noreferrer"
+						v-if="doc.cnPdf"
+					>
+						<p class="draft" v-if="doc.cnDraft">Draft</p>
+						<h3 v-if="doc.cnTitle" lang="zh-cn">
+							{{ doc.cnTitle }}
+						</h3>
+						<p v-else lang="zh-cn">
+							TODO: 'Not available in Chinese' in Chinese!
+						</p>
+						<font-awesome-icon
+							icon="download"
+							v-if="doc.cnPdf"
+						></font-awesome-icon>
+					</a>
+					<div class="title" v-else>
+						<p class="draft" v-if="doc.cnDraft">Draft</p>
+						<h3 v-if="doc.cnTitle" lang="zh-cn">
+							{{ doc.cnTitle }}
+						</h3>
+						<p v-else lang="zh-cn">
+							TODO: 'Not available in Chinese' in Chinese!
+						</p>
+					</div>
 				</div>
-				<div 
-					class="img-wrapper"
-					:class="{ double: doc.cnPdf }"	
+				<div
+					class="preview"
+					:class="{ alt: i % 2 == 0 }"
+					v-show-slide="preview.index == i"
+					@slide-open-end="previewOpened"
+					@slide-close-end="previewClosed"
 				>
+					<iframe
+						:src="
+							require(`../assets/pdfs/${
+								preview.lang == 'cn' && doc.cnPdf
+									? doc.cnPdf
+									: doc.enPdf
+							}.pdf`) + '#statusbar=1&toolbar=0'
+						"
+						v-if="previewMode == 'iframe'"
+					>
+						This browser does not support PDFs
+					</iframe>
 					<img
-						:src="require(`../assets/images/${doc.img}.jpg`)"
+						:src="require(`../assets/images/infographic-${i + 1}-cn.jpg`)"
+						v-else-if="preview.lang == 'cn' && doc.cnPdf"
 					/>
 					<img
-						:src="require(`../assets/images/${doc.img}-cn.jpg`)"
-						v-if="doc.cnPdf"
+						:src="require(`../assets/images/infographic-${i + 1}.jpg`)"
+						v-else-if="preview.lang == 'en'"
 					/>
-				</div>
-				<a
-					class="title chinese clickable"
-					:href="require(`../assets/pdfs/${doc.cnPdf}.pdf`)"
-					:download="`${doc.cnPdf}.pdf`"
-					target="_blank"
-					rel="noopener noreferrer"
-					v-if="doc.cnPdf"
-				>
-					<p class="draft" v-if="doc.cnDraft">Draft</p>
-					<h3 v-if="doc.cnTitle" lang="zh-cn">{{ doc.cnTitle }}</h3>
-					<p v-else lang="zh-cn">
-						TODO: 'Not available in Chinese' in Chinese!
-					</p>
-					<font-awesome-icon
-						icon="download"
-						v-if="doc.cnPdf"
-					></font-awesome-icon>
-				</a>
-				<div class="title" v-else>
-					<p class="draft" v-if="doc.cnDraft">Draft</p>
-					<h3 v-if="doc.cnTitle" lang="zh-cn">{{ doc.cnTitle }}</h3>
-					<p v-else lang="zh-cn">
-						TODO: 'Not available in Chinese' in Chinese!
-					</p>
+					<div class="preview-icons">
+						<a
+							class="clickable"
+							:href="require(`../assets/pdfs/${doc.enPdf}.pdf`)"
+							:download="`${doc.enPdf}.pdf`"
+							target="_blank"
+							rel="noopener noreferrer"
+							v-if="preview.lang == 'en' && doc.enPdf"
+						>
+							<font-awesome-icon
+								icon="download"
+							></font-awesome-icon>
+						</a>
+						<a
+							class="clickable"
+							:href="require(`../assets/pdfs/${doc.cnPdf}.pdf`)"
+							:download="`${doc.cnPdf}.pdf`"
+							target="_blank"
+							rel="noopener noreferrer"
+							v-else-if="preview.lang == 'cn' && doc.cnPdf"
+						>
+							<font-awesome-icon
+								icon="download"
+							></font-awesome-icon>
+						</a>
+						<font-awesome-icon
+							icon="times"
+							class="close-icon clickable"
+							@click="setPreview(-1)"
+						></font-awesome-icon>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -98,40 +173,109 @@ export default {
 		return {
 			pdfs: [
 				{
-					img: 'infographic-4',
-					enPdf: 'I04-en-food-security',
+					enPdf: 'I01-en-food-security',
 					enTitle: 'Food security in CSSP China',
-					cnPdf: 'I04-cn-food-security',
+					cnPdf: 'I01-cn-food-security',
 					cnTitle: '中英气候科学支持服务伙伴关系计划之粮食安全'
 				},
 				{
-					img: 'infographic-5',
-					enPdf: 'I05-en-urban',
+					enPdf: 'I02-en-urban',
 					enTitle: 'Urban Climate Services in CSSP China',
-					cnPdf: 'I05-cn-urban',
-					cnTitle: '中英气候科学服务伙伴关系计划 (CSSP)之中国城市气候服务'
+					cnPdf: 'I02-cn-urban',
+					cnTitle:
+						'中英气候科学服务伙伴关系计划 (CSSP)之中国城市气候服务'
 				},
 				{
-					img: 'infographic-2',
-					enPdf: 'I02-en-air-quality',
+					enPdf: 'I03-en-air-quality',
 					enTitle: 'Urban China Decadal Air Quality Service',
-					cnPdf: 'I02-cn-air-quality',
+					cnPdf: 'I03-cn-air-quality',
 					cnTitle: '中国城市十年空气质量服务'
 				},
 				{
-					img: 'infographic-3',
-					enPdf: 'I03-en-seasonal-forecast',
-					enTitle: 'Seasonal forecast service for the Yangtze River Basin'
+					enPdf: 'I04-en-seasonal-forecast',
+					enTitle:
+						'Seasonal forecast service for the Yangtze River Basin'
 				},
 				{
-					img: 'infographic-1',
-					enPdf: 'I01-en-assessing-risk',
+					enPdf: 'I05-en-assessing-risk',
 					enTitle: `Assessing China's risk to climate related extremes`
 				}
-			]
+			],
+			previewMode: 'img', // can be set here to 'iframe' to use iframes for PDFs instead
+			preview: {
+				index: -1,
+				lang: ''
+			},
+			closedIndex: -1,
+			nextPreview: {
+				index: -1,
+				lang: ''
+			},
+			narrowPage: false,
+			language: 'en'
 		}
 	},
 	methods: {
+		setPreview(index, lang) {
+			if (
+				index < 0 ||
+				(this.preview.index == index && this.preview.lang == lang)
+			) {
+				// either clicked close icon in preview or the currently previewed thumbnail
+				this.nextPreview.lang = ''
+				this.nextPreview.index = -1 // will cause scroll in previewClosed to... 
+				this.closedIndex = this.preview.index // ... this .preview's .button-panel
+				this.preview.index = -1 // close the current .preview (and fire previewClosed)
+			} else if (this.preview.index < 0 || this.preview.index == index) {
+				// nothing already open or the .preview is already open (in the other language)
+				this.preview.lang = lang
+				this.preview.index = index
+			} else {
+				this.nextPreview.lang = lang // previewClosed will use this to set next preview.lang...
+				this.nextPreview.index = index // ... and preview.index
+				this.preview.index = -1 // close the current .preview (and fire previewClosed)
+			}
+		},
+		previewOpened() {
+			// scroll to put this newly opened .preview into the viewport
+			const previews = document.getElementsByClassName('preview')
+			if (previews.length > this.preview.index) {
+				if ('scrollBehavior' in document.documentElement.style) {
+					window.scrollTo({
+						top: previews[this.preview.index].offsetTop,
+						behavior: 'smooth'
+					})
+				} else {
+					previews[this.preview.index].scrollIntoView(true) // not smooth behaviour! :(
+				}
+			}
+		},
+		previewClosed() {
+			// if there isn't another .preview just opened, scroll to put the
+			// .button-panel for the closed preview back in the viewport
+			if (this.closedIndex >= 0) {
+				const panels = document.getElementsByClassName('button-panel')
+				if (
+					panels.length > this.closedIndex &&
+					panels[this.closedIndex].getBoundingClientRect().top < 0
+				) {
+					if ('scrollBehavior' in document.documentElement.style) {
+						window.scrollTo({
+							top: panels[this.closedIndex].offsetTop,
+							behavior: 'smooth'
+						})
+					} else {
+						panels[this.closedIndex].scrollIntoView(true) // not smooth behaviour! :(
+					}
+				}
+				this.closedIndex = -1 // don't do this again unless specifically set by setPreview
+			}
+			// if the next .preview has been set by setPreview, use it now
+			if (this.nextPreview.index >= 0) {
+				this.preview.lang = this.nextPreview.lang
+				this.preview.index = this.nextPreview.index
+			}
+		},
 		scrollCursor() {
 			const anchors = document.getElementsByTagName('a')
 			for (let a = 0; a < anchors.length; a++) {
@@ -143,10 +287,32 @@ export default {
 			for (let a = 0; a < anchors.length; a++) {
 				anchors[a].classList.remove('scroll-cursor')
 			}
+		},
+		resized() {
+			if (window.matchMedia('(max-width: 640px)').matches) {
+				this.narrowPage = true
+			} else {
+				this.narrowPage = false
+			}
+			document.documentElement.style.setProperty(
+				'--previewWidth',
+				`${Math.min(window.innerWidth - 32, 720)}px`
+			)
 		}
 	},
 	mounted() {
+		// change default language to Chinese if possible
+		if (
+			navigator &&
+			navigator.language &&
+			navigator.language.indexOf('CN') >= 0
+		) {
+			this.language = 'cn'
+		}
 		this.$el.parentElement.scrollIntoView(true)
+		this.resized() /* reset size-based CSS vars immediately on loading */
+		window.addEventListener('resize', this.resized)
+		window.addEventListener('orientationchange', this.resized)
 		if (navigator.userAgent.indexOf('Firefox/') < 0) {
 			// this is only here because Chrome and Edge don't correctly refresh
 			// :hover state as elements are moved under the cursor while scrolling
@@ -155,6 +321,8 @@ export default {
 		}
 	},
 	beforeDestroy() {
+		window.removeEventListener('resize', this.resized)
+		window.removeEventListener('orientationchange', this.resized)
 		if (navigator.userAgent.indexOf('Firefox/') < 0) {
 			document.removeEventListener('scroll', this.scrollCursor)
 			document.removeEventListener('mousemove', this.pointerCursor)
@@ -170,14 +338,15 @@ export default {
 	box-shadow: inset 0 0 0 1000px rgba(217, 216, 214, 0.5);
 }
 
-.wrapper {
+.wrapper,
+.button-panel-wrapper {
 	display: flex;
 	flex-direction: column;
 }
 
 .button-panel {
 	width: 100%;
-	max-width: 1358px;
+	max-width: var(--widthLimit);
 	margin: 0 auto;
 	border: 0 solid var(--primaryLightest);
 	border-left-width: 1px;
@@ -190,7 +359,7 @@ export default {
 	align-items: stretch;
 }
 
-.button-panel:nth-of-type(odd) {
+.button-panel.alt {
 	background: var(--primaryLightest);
 }
 
@@ -203,7 +372,8 @@ export default {
 }
 
 .button-panel h2 {
-	width: 56px; /* 4%; */
+	width: 5%;
+	max-width: 56px; /* 4%; */
 	align-self: flex-start;
 	margin: 0 8px 0 0;
 	padding: 8px;
@@ -245,48 +415,114 @@ export default {
 }
 
 .button-panel a.title:hover h3,
-.button-panel a.title:hover .fa-download path {
+.button-panel a.title:hover .fa-download path,
+.preview a:hover .fa-download path {
 	color: var(--vpOrange);
 }
 
-.button-panel .img-wrapper {	
-	width: calc((100% - 56px) * 0.2); /* 20% */
-	margin: 0 32px;
+a {
+	text-decoration: none;
+	outline: 0;
+}
+
+.button-panel .img-wrapper {
+	width: 170px; /* wide enough for img width:120px plus left:50px for 2nd image */
 	height: 170px;
+	flex-shrink: 0;
+	margin: 0 32px;
 }
 .button-panel .img-wrapper.double {
-	padding-right: 50px; /* 2nd image is offset by 50px */
-	height: 195px; /* 2nd image is offset by 25px; */
+	height: 195px; /* tall enough for img height:170px plus top:25px for 2nd image */
 	position: relative; /* for 2nd image */
 }
 
 .button-panel img {
 	position: absolute;
 	width: 120px;
+	border: 2px solid transparent;
+}
+.button-panel img.in-preview {
+	border-color: var(--vpOrange);
 }
 .button-panel img:nth-of-type(even) {
-	top: 25px;
 	left: 50px;
+	top: 25px;
+}
+.button-panel img:hover {
+	border-color: var(--vpOrange);
+	box-shadow: 4px 4px 5px var(--primarySelected);
+}
+
+.preview {
+	border-top: 1px solid var(--primaryLightest);
+	text-align: center;
+	position: relative; /* for close-icon */
+}
+.preview.alt {
+	background: var(--primaryLightest);
+}
+
+.preview-icons {
+	position: absolute;
+	top: 20px;
+	right: 32px;
+	background: transparent;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 52px;
+}
+.preview-icons a,
+.preview-icons .fa-download,
+.close-icon {
+	background: transparent;
+	font-size: 24px;
+}
+.close-icon {
+	font-size: 34px;
+}
+.close-icon path {
+	color: var(--text);
+}
+.close-icon:hover path {
+	color: var(--vpOrange);
+}
+
+.preview iframe,
+.preview img {
+	width: var(--previewWidth);
+	height: calc(
+		var(--previewWidth) * 0.75 + 56px
+	); /* ~half height + toolbar; Chrome toolbar is 56px others are less */
+	margin: 16px;
+}
+.preview img {
+	height: auto;
 }
 
 @media (max-width: 1007px) {
 	.button-panel {
 		padding: 12px 16px;
 	}
-	.button-panel .img-wrapper {	
+	.button-panel .img-wrapper {
 		margin: 0 16px;
+	}
+}
+
+@media (max-width: 800px) {
+	.button-panel .img-wrapper {
+		width: 85px; /* wide enough for img width:60px plus left:25px for 2nd image */
 		height: 85px;
 	}
 	.button-panel .img-wrapper.double {
-		padding-right: 25px; /* 2nd image is offset by 25px */
-		height: 97px; /* 2nd image is offset by 12px; */
+		height: 97px; /* tall enough for img height:85px plus top:12px for 2nd image */
 	}
 	.button-panel img {
 		width: 60px;
 	}
 	.button-panel img:nth-of-type(even) {
-		top: 12px;
 		left: 25px;
+		top: 12px;
 	}
 }
 
@@ -299,6 +535,10 @@ export default {
 	}
 	.button-panel img {
 		margin: 0 8px;
+		cursor: default !important;
+	}
+	.button-panel img:hover {
+		box-shadow: none;
 	}
 	.button-panel img:nth-of-type(even) {
 		display: none;
