@@ -39,6 +39,15 @@ export default {
 			document.getElementsByClassName(
 				'gotop-button'
 			)[0].style.display = display
+			// if wide screen, keep button close to the action
+			let right = 10
+			if (window.innerWidth > 1358) {
+				right = ((window.innerWidth - 1358) / 2) + 10
+			}
+			document.documentElement.style.setProperty(
+				'--gotopRight',
+				`${right}px`
+			)
 			// if button would be on the footer
 			if (display == 'block' && navFtr.length > 1) {
 				let bottom = 6
@@ -80,7 +89,7 @@ export default {
 	display: none;
 	position: fixed;
 	bottom: var(--gotopBottom);
-	right: 10px;
+	right: var(--gotopRight);
 	background-color: var(--vpGreen);
 	color: var(--whiteDefault);
 	border-radius: 20px;
