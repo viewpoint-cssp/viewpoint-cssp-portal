@@ -68,7 +68,8 @@
 						</span>
 						of Atmospheric Physics (IAP) at the Chinese Academy of
 						Sciences</a
-					> and Chinese universities started in 2014 and has already
+					>
+					and Chinese universities started in 2014 and has already
 					produced more than 340 published scientific research papers.
 					UK collaborators are led by the Met Office and include other
 					key organisations in the UK.
@@ -207,6 +208,39 @@
 					由牛顿基金以及商业、能源与产业战略部（BEIS）的中英研究与创新合作基金资助。
 				</p>
 			</div>
+			<table class="acronym">
+				<tr>
+					<td><strong>V</strong>isualisation</td>
+					<td lang="zh-cn">TODO: In Chinese</td>
+				</tr>
+				<tr>
+					<td><strong>I</strong>nnovation</td>
+					<td lang="zh-cn">TODO: In Chinese</td>
+				</tr>
+				<tr>
+					<td><strong>E</strong>ngagement</td>
+					<td lang="zh-cn">TODO: In Chinese</td>
+				</tr>
+				<tr>
+					<td><strong>W</strong>eb-enabled</td>
+					<td lang="zh-cn">TODO: In Chinese</td>
+				</tr>
+				<!--<tr class="viewpoint" v-if="firefox">
+					<td colspan="2">
+						<hr />
+						<span><strong>VIEW</strong>point</span>
+					</td>
+				</tr>-->
+				<tr class="viewpoint" >
+					<td colspan="2">
+						<hr />
+						<img
+							alt="VIEWpoint logo"
+							src="../assets/images/logo.png"
+						/>
+					</td>
+				</tr>
+			</table>
 		</div>
 		<Gotop></Gotop>
 	</div>
@@ -216,11 +250,65 @@
 import Banner from './Banner.vue'
 import Gotop from './Gotop.vue'
 
+// animation on scroll based on https://cssanimation.rocks/scroll-animations/
+// requestionAnimationFrame happens every 1/60s
+// if not supported by browser, setTimeout is used instead
+let scroll =
+	window.requestAnimationFrame ||
+	function(callback) {
+		window.setTimeout(callback, 1000 / 60)
+	}
+
 export default {
 	name: 'About',
 	components: {
 		Banner,
 		Gotop
+	},
+	data() {
+		return {
+			firefox: false
+		}
+	},
+	methods: {
+		isAcronymInViewport() {
+			const table = document.getElementsByClassName('acronym')
+			if (table.length == 0 || table[0].classList.contains('js-in-viewport')) {
+				// this has been done already (only needs to be done once)
+				return 
+			}
+			const rect = table[0].getBoundingClientRect()
+			if (
+				(rect.top <= 0 && rect.bottom >= 0) ||
+				(rect.bottom >=
+					(window.innerHeight ||
+						document.documentElement.clientHeight) &&
+					rect.top <=
+						(window.innerHeight ||
+							document.documentElement.clientHeight)) ||
+				(rect.top >= 0 &&
+					rect.bottom <=
+						(window.innerHeight ||
+							document.documentElement.clientHeight))
+			) {
+				// table.acronym is in view so add animation classes to table and rows
+				table[0].classList.add('js-in-viewport')
+				const tr = table[0].getElementsByTagName('tr')
+				for (let i = 0; i < tr.length; i++) {
+					tr[i].classList.add('widen')
+				}
+			} else {
+				// wait 1/60 of a second and check again
+				scroll(this.isAcronymInViewport)
+			}
+		}
+	},
+	mounted() {
+		if (navigator.userAgent.indexOf('Firefox/') >= 0) {
+			this.firefox = true
+		}
+		// start listening for table.acronym to come into viewport
+		this.isAcronymInViewport()
 	}
 }
 </script>
@@ -272,15 +360,109 @@ a:hover svg path {
 	color: var(--vpOrange);
 }
 
+.acronym {
+	border-collapse: separate;
+	margin: 32px auto 0 auto;
+	width: 90%;
+	background: var(--primaryLightest);
+	border: 2px solid var(--vpOrange);
+}
+.acronym tr {
+	transform: scaleX(0);
+}
+.acronym td {
+	background: var(--primaryLightest);
+	border: transparent;
+	padding: 4px 8px;
+	width: 50%;
+	font-size: 1.1rem;
+	color: var(--vpOrange);
+}
+.acronym td strong {
+	background: transparent;
+	font-size: inherit;
+	color: var(--vpOrange);
+}
+.acronym tr:first-of-type td {
+	padding-top: 8px;
+}
+.acronym td:first-of-type {
+	text-align: right;
+}
+.acronym tr.viewpoint td {
+	text-align: center;
+	padding-bottom: 8px;
+}
+/*.acronym tr.viewpoint span {
+	background: transparent;
+	color: var(--vpOrange);
+	font-size: 1.2rem;
+	transition: opacity 0.3s ease-in-out, transform 0s linear 0.3s;
+}*/
+.acronym tr.viewpoint td hr {
+	width: 50%;
+	margin: 0 auto 4px auto;
+	border-color: var(--primaryLighter);
+	border-bottom: none;
+}
+.acronym tr.viewpoint td img {
+	width: 20%;
+	background: transparent;
+	transition: all 0.3s ease-in-out 0.3s;
+}
+
+/* widen classes added only once table is in viewport */
+.acronym tr.widen {
+	transform-origin: center;
+	transition: transform 3s ease-out;
+	transform: scaleX(1);
+}
+.acronym tr.widen:nth-of-type(2) {
+	transition-delay: 1s
+}
+.acronym tr.widen:nth-of-type(3) {
+	transition-delay: 2s
+}
+.acronym tr.widen:nth-of-type(4) {
+	transition-delay: 3s
+}
+.acronym tr.widen:nth-of-type(5) {
+	transition-delay: 4s
+}
+/* firefox doesn't do scaleX very well for <img>s so will just fade it in */
+@supports (-moz-appearance:none) and (text-align-last:auto) { 
+	.acronym tr.viewpoint {
+		transform: scaleX(1);
+	}
+	.acronym tr.viewpoint td hr,
+	.acronym tr.viewpoint td img {
+		opacity: 0;
+	}
+	.acronym tr.viewpoint.widen td hr,
+	.acronym tr.viewpoint.widen td img {
+		transition: opacity 3s ease-out;
+		transition-delay: 5s;
+		opacity: 1; 
+	} 
+}
+
 @media (max-width: 1007px) {
 	.about-content {
 		width: 88%;
+		margin: 16px auto;
+	}
+	.acronym {
+		margin-top: 16px;
+	}
+	.acronym tr.viewpoint td hr {
+		width: 75%;
 	}
 }
 
 @media (max-width: 640px) {
 	.about-content {
 		width: 92%;
+		margin: 8px auto 12px auto;
 	}
 	.bilingual {
 		flex-direction: column;
@@ -293,6 +475,9 @@ a:hover svg path {
 	}
 	h2:lang(zh-cn) {
 		margin-top: 2px;
+	}
+	.acronym tr.viewpoint td hr {
+		width: 90%;
 	}
 }
 </style>
