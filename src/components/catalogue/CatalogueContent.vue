@@ -424,7 +424,7 @@ export default {
 		}
 	},
 	created() {
-		fetch(`${process.env.BASE_URL}xcatalogue.txt`)
+		fetch(`${process.env.BASE_URL}catalogue.txt`)
 			.then(response => {
 				return response.text()
 			})

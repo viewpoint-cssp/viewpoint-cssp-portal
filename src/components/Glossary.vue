@@ -258,7 +258,7 @@ export default {
 		}
 	},
 	created() {
-		fetch(`${process.env.BASE_URL}xglossary.csv`)
+		fetch(`${process.env.BASE_URL}glossary.csv`)
 			.then(response => {
 				return response.text()
 			})
