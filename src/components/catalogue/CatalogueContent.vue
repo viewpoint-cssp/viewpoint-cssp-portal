@@ -118,7 +118,6 @@
 </template>
 
 <script>
-import jsonRaw from 'raw-loader!../../../public/catalogue.txt' // in public for ease of maintenance
 import CatalogueEntry from './CatalogueEntry.vue'
 import CatalogueFilter from './CatalogueFilter.vue'
 
@@ -424,8 +423,14 @@ export default {
 			}
 		}
 	},
-	mounted() {
-		this.catalogue = JSON.parse(jsonRaw)
+	created() {
+		fetch(`${process.env.BASE_URL}xcatalogue.txt`)
+			.then(response => {
+				return response.text()
+			})
+			.then(jsonRaw => {
+				this.catalogue = JSON.parse(jsonRaw)
+			})
 	}
 }
 </script>

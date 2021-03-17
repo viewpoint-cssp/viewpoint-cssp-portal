@@ -56,7 +56,11 @@
 				</div>
 			</div>
 		</div>
-		<table v-if="!narrowPage">
+		<div class="no-glossary" v-if="glossary.length == 0">
+			<font-awesome-icon :icon="['far', 'frown']"></font-awesome-icon>
+			The glossary failed to load. Please try again later.
+		</div>
+		<table v-else-if="!narrowPage">
 			<thead>
 				<th
 					class="text english"
@@ -189,7 +193,6 @@
 </template>
 
 <script>
-import csvRaw from 'raw-loader!../../public/glossary.csv' // in public for ease of maintenance
 import Banner from './Banner.vue'
 import Gotop from './Gotop.vue'
 
@@ -255,111 +258,132 @@ export default {
 		}
 	},
 	created() {
-		const csv = require('csvtojson')
-		csv()
-			.fromString(`enText,enDesc,cnText,cnDesc,comments\n${csvRaw}`)
-			.then(jsonObj => {
-				const firstText = jsonObj[0].enText // 'English'
-				this.glossary = jsonObj.sort((a, b) => {
-					if (a.enText == firstText) {
-						// title always at the top
-						return -1
-					} else if (!a.enText) {
-						// blank ones always at the bottom
-						return 1
-					} else if (
-						a.enText.toUpperCase() < b.enText.toUpperCase()
-					) {
-						return -1
-					} else if (
-						a.enText.toUpperCase() > b.enText.toUpperCase()
-					) {
-						return 1
-					}
-					return 0
-				})
-				if (this.glossary[0].enText != firstText) {
-					// The above sort logic works to keep the title row
-					// at the top for FF but not Chrome or Edge
-					let i = 0
-					for (i = 1; i < this.glossary.length; i++) {
-						if (this.glossary[i].enText == firstText) {
-							break
-						}
-					}
-					if (i && i < this.glossary.length) {
-						// Just strip the header out the top and save it separately
-						this.header = this.glossary[i]
-						this.glossary.splice(i, 1)
-					}
-				} else {
-					// Strip the header off the top and save it separately
-					this.header = this.glossary[0]
-					this.glossary.splice(0, 1)
+		fetch(`${process.env.BASE_URL}xglossary.csv`)
+			.then(response => {
+				return response.text()
+			})
+			.then(csvRaw => {
+				if (csvRaw.indexOf('English') < 0 && csvRaw.indexOf('Chinese') < 0) {
+					return
 				}
-				// change \ns to <br>s in header
-				for (let h in this.header) {
-					const lines = this.header[h].replace(/\r/g, '').split('\n')
-					this.header[h] = lines.join('<br>')
-				}
-				// "s can be left at the end of comments so this tidies that up
-				this.glossary
-					.filter(a => a.comments && a.comments.indexOf(','))
-					.map(a => {
-						if (a.comments.substr(0, 1) == '"') {
-							a.comments = a.comments.slice(1)
-						}
-						if (
-							a.comments.substr(a.comments.length - 1, 1) == '"'
-						) {
-							a.comments = a.comments.slice(
-								0,
-								a.comments.length - 1
-							)
-						}
-					})
-				// tweaks to comments to add anchors to URLs
-				this.glossary
-					.filter(
-						a =>
-							a.comments &&
-							(a.comments.indexOf('\n') >= 0 ||
-								a.comments.indexOf('http') >= 0)
+				const csv = require('csvtojson')
+				csv()
+					.fromString(
+						`enText,enDesc,cnText,cnDesc,comments\n${csvRaw}`
 					)
-					.map(a => {
-						const lines = a.comments.replace(/\r/g, '').split('\n')
-						for (let x = 0; x < lines.length; x++) {
-							if (lines[x] && a.comments.indexOf('http') >= 0) {
-								const parts = lines[x].split(' ')
-								for (let i = 0; i < parts.length; i++) {
-									if (parts[i].indexOf('http') == 0) {
-										const url = parts[i]
-										const aAttrib =
-											'target="_blank" rel="noopener noreferrer"'
-										parts[
-											i
-										] = `<a href="${url}" ${aAttrib}>${iconSvg} ${url}</a>`
-										if (i > 0) {
-											parts[i] = '<br>' + parts[i]
+					.then(jsonObj => {
+						const firstText = jsonObj[0].enText // 'English'
+						this.glossary = jsonObj.sort((a, b) => {
+							if (a.enText == firstText) {
+								// title always at the top
+								return -1
+							} else if (!a.enText) {
+								// blank ones always at the bottom
+								return 1
+							} else if (
+								a.enText.toUpperCase() < b.enText.toUpperCase()
+							) {
+								return -1
+							} else if (
+								a.enText.toUpperCase() > b.enText.toUpperCase()
+							) {
+								return 1
+							}
+							return 0
+						})
+						if (this.glossary[0].enText != firstText) {
+							// The above sort logic works to keep the title row
+							// at the top for FF but not Chrome or Edge
+							let i = 0
+							for (i = 1; i < this.glossary.length; i++) {
+								if (this.glossary[i].enText == firstText) {
+									break
+								}
+							}
+							if (i && i < this.glossary.length) {
+								// Just strip the header out the top and save it separately
+								this.header = this.glossary[i]
+								this.glossary.splice(i, 1)
+							}
+						} else {
+							// Strip the header off the top and save it separately
+							this.header = this.glossary[0]
+							this.glossary.splice(0, 1)
+						}
+						// change \ns to <br>s in header
+						for (let h in this.header) {
+							const lines = this.header[h]
+								.replace(/\r/g, '')
+								.split('\n')
+							this.header[h] = lines.join('<br>')
+						}
+						// "s can be left at the end of comments so this tidies that up
+						this.glossary
+							.filter(a => a.comments && a.comments.indexOf(','))
+							.map(a => {
+								if (a.comments.substr(0, 1) == '"') {
+									a.comments = a.comments.slice(1)
+								}
+								if (
+									a.comments.substr(
+										a.comments.length - 1,
+										1
+									) == '"'
+								) {
+									a.comments = a.comments.slice(
+										0,
+										a.comments.length - 1
+									)
+								}
+							})
+						// tweaks to comments to add anchors to URLs
+						this.glossary
+							.filter(
+								a =>
+									a.comments &&
+									(a.comments.indexOf('\n') >= 0 ||
+										a.comments.indexOf('http') >= 0)
+							)
+							.map(a => {
+								const lines = a.comments
+									.replace(/\r/g, '')
+									.split('\n')
+								for (let x = 0; x < lines.length; x++) {
+									if (
+										lines[x] &&
+										a.comments.indexOf('http') >= 0
+									) {
+										const parts = lines[x].split(' ')
+										for (let i = 0; i < parts.length; i++) {
+											if (parts[i].indexOf('http') == 0) {
+												const url = parts[i]
+												const aAttrib =
+													'target="_blank" rel="noopener noreferrer"'
+												parts[
+													i
+												] = `<a href="${url}" ${aAttrib}>${iconSvg} ${url}</a>`
+												if (i > 0) {
+													parts[i] = '<br>' + parts[i]
+												}
+											}
 										}
+										lines[x] = parts.join(' ')
 									}
 								}
-								lines[x] = parts.join(' ')
-							}
-						}
-						// drop any trailing blank lines
-						while (
-							lines.length > 0 &&
-							(!lines[lines.length - 1] ||
-								lines[lines.length - 1] == '"')
-						) {
-							lines.pop()
-						}
-						// and re-join with <br>s
-						a.comments = lines
-							.join('<hr>')
-							.replace(/<hr><hr>/g, '<hr>')
-						a.htmlComments = true
+								// drop any trailing blank lines
+								while (
+									lines.length > 0 &&
+									(!lines[lines.length - 1] ||
+										lines[lines.length - 1] == '"')
+								) {
+									lines.pop()
+								}
+								// and re-join with <br>s
+								a.comments = lines
+									.join('<hr>')
+									.replace(/<hr><hr>/g, '<hr>')
+								a.htmlComments = true
+							})
 					})
 			})
 	},
@@ -427,6 +451,15 @@ div.glossary-comments hr {
 }
 .show-more:hover span {
 	color: var(--vpOrange);
+}
+
+.no-glossary {
+	text-align: center;
+	font-size: 1.5rem;
+	color: var(--chineseAnchor);
+}
+.no-glossary path {
+	color: var(--chineseAnchor);
 }
 
 table {

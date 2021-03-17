@@ -26,6 +26,7 @@ import {
 	faVideo,
 	faVideoSlash
 } from '@fortawesome/free-solid-svg-icons'
+import { faFrown } from '@fortawesome/free-regular-svg-icons'
 import {
 	FontAwesomeIcon,
 	FontAwesomeLayers
@@ -50,6 +51,7 @@ library.add(
 	faExpandArrowsAlt,
 	faExternalLinkAlt,
 	faForward,
+	faFrown,
 	faLink,
 	faListAlt,
 	faMicrophoneSlash,
