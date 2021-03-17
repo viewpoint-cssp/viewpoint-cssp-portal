@@ -44,7 +44,7 @@
 					</div>
 					<div class="img-wrapper" :class="{ double: doc.cnPdf }">
 						<img
-							class="button-img clickable"
+							class="button-img"
 							:class="{
 								'in-preview':
 									preview.index == i && preview.lang == 'en'
@@ -54,7 +54,7 @@
 							v-if="!doc.cnPdf || !narrowPage || (narrowPage && language == 'en')"
 						/>
 						<img
-							class="button-img clickable"
+							class="button-img"
 							:class="{
 								'in-preview':
 									preview.index == i && preview.lang == 'cn'
@@ -440,8 +440,10 @@ a {
 	position: absolute;
 	width: 120px;
 	border: 2px solid transparent;
+	cursor: zoom-in;
 }
 .button-panel img.in-preview {
+	cursor: zoom-out;
 	border-color: var(--vpOrange);
 }
 .button-panel img:nth-of-type(even) {
