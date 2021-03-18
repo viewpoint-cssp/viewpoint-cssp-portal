@@ -406,7 +406,7 @@ a:hover svg path {
 	border-bottom: none;
 }
 .acronym tr.viewpoint td img {
-	width: 20%;
+	width: calc(max(20%, 120px));
 	background: transparent;
 	transition: all 0.3s ease-in-out 0.3s;
 }
