@@ -1,6 +1,10 @@
 <template>
 	<div class="about">
-		<Banner class="banner-style" enTitle="About VIEWpoint"></Banner>
+		<Banner 
+			class="banner-style" 
+			enTitle="About VIEWpoint"
+			cnTitle="关于VIEWpoint新观点项目"
+		></Banner>
 		<div class="about-content">
 			<div class="bilingual">
 				<p>
@@ -12,10 +16,9 @@
 					videos designed for government, industry and the public.
 				</p>
 				<p lang="zh-cn">
-					VIEWpoint 气候科学项目与中国气象局（
-					CMA）、中国科学院大气物理研究所（IAP）
-					和其他一些英国机构合作，旨在分享 CSSP
-					China（中国气候科学服务合作伙伴关系）项目中的世界一流的科学研究信息。跟随我们一起发现专为政府、业界和大众设计的气候数据工具、示教器、培训资源、文章以及视频吧！
+					VIEWpoint气候科学项目与中国气象局（CMA）、中国科学院大气物理研究所（IAP）
+					和其他一些英国机构合作，旨在分享CSSP
+					China项目中的世界一流的科学研究信息。跟随我们一起发现专为政府、业界和大众设计的气候数据工具、演示工具、培训资源、文章以及视频吧！
 				</p>
 			</div>
 			<div class="bilingual">
@@ -34,9 +37,7 @@
 					Service Partnership (CSSP) China.
 				</p>
 				<p lang="zh-cn">
-					欢迎来到
-					VIEWpoint新观点，在这里您可获取有关前沿气候研究的深刻见解以及有关中英联合研究项目
-					- 中国气候科学服务合作伙伴（CSSP）项目的进阶咨询。
+					欢迎来到VIEWpoint新观点，在这里您可获取有关前沿气候研究的深刻洞见以及有关中英联合研究项目——气候科学支持服务伙伴关系（CSSP）计划中国项目的进阶咨询。
 				</p>
 			</div>
 			<div class="bilingual">
@@ -87,7 +88,7 @@
 						>中国科学院大气物理研究所</a
 					>（IAP）以及多所中国高等学府的支持。 它开始于 2014
 					年，到目前为止已经发表了 340
-					余篇科研论文。本项目英国方面的合作者以英国国家气象局为主，并且包括英国的一些其他重要组织。
+					余篇科研论文。本项目在英国方面的合作者以英国国家气象局为主，并且包括英国的一些其他重要组织。
 				</p>
 			</div>
 			<div class="bilingual">
@@ -111,8 +112,8 @@
 					leading to lasting benefits for China.
 				</p>
 				<p lang="zh-cn">
-					VIEWpoint新观点 是一个 CSSP China
-					项目，由环境分析研究所运行，工作地点位于英国雷丁大学。我们致力于提供各种高质量资讯，以支持证据基准的决策，从而应对气候风险，使中国社会长期受益。
+					VIEWpoint新观点隶属于CSSP
+					China项目，由位于英国雷丁大学的环境分析研究所运行。我们致力于提供各种高质量资讯，以支持证据基准的决策，从而应对气候风险，使中国社会长期受益。
 				</p>
 			</div>
 			<div class="bilingual">
@@ -120,7 +121,7 @@
 					Towards China’s goal of net zero emissions by 2060
 				</h2>
 				<h2 lang="zh-cn">
-					到 2060 年之前实现中国净零排放目标
+					到2060年之前实现中国净零排放目标
 				</h2>
 			</div>
 			<div class="bilingual">
@@ -133,10 +134,8 @@
 					variability.
 				</p>
 				<p lang="zh-cn">
-					CSSP China
-					由多个项目组成，这些项目着眼于气候研究的不同方面，涉及到中国的需求以及中国政府到
-					2060
-					年实现净零排放的承诺。其目的是发展合作伙伴关系，以提高生态脆弱地区对天气和气候变化的适应能力。
+					CSSP
+					China由多个项目组成，这些项目着眼于气候研究的不同方面，涉及到中国的需求以及中国政府到2060年实现净零排放的承诺。其目的是发展合作伙伴关系，以提高生态脆弱地区对天气和气候变化的适应能力。
 				</p>
 			</div>
 			<div class="bilingual">
@@ -152,10 +151,8 @@
 					are already being trialled in China.
 				</p>
 				<p lang="zh-cn">
-					每年中英双方的合作科学家都会出席 CSSP China
-					的学术讨论会/研讨会，分享最新发展、科学进展和主要成就。在过去的几年间，各国轮流举办该活动，但如今全球疫情的大流行限制了人们的出行，因此今年的研讨会是在
-					10
-					月份以线上形式举行的。代表们获悉，由两国科学家共同开发的气候服务原型已经在中国试用。
+					中英双方的科学家每年都会出席CSSP
+					China的学术讨论会/研讨会，分享最新发展、科学进展和主要成就。在过去的几年间，各国轮流举办该活动，如今全球疫情的大流行限制了人们的出行，因此今年的研讨会是在10月份以线上形式举行的。我们从代表们处获悉，由两国科学家共同开发的气候服务原型已经在中国试用。
 				</p>
 			</div>
 			<div class="bilingual">
@@ -175,8 +172,8 @@
 					and internationally.
 				</p>
 				<p lang="zh-cn">
-					VIEWpoint 是一个 CSSP China
-					项目，由环境分析研究所运行，工作地点位于英国雷丁大学.它的目标是分享优质资源，向中国以及全球展示新数据和气候服务原型。
+					VIEWpoint是一个CSSP
+					China项目，由位于英国雷丁大学的环境分析研究所运行。它的目标是分享优质资源，向中国以及全球展示新数据和气候服务原型。
 				</p>
 			</div>
 			<div class="bilingual">
@@ -187,7 +184,7 @@
 					and infographics also give insights into the research.
 				</p>
 				<p lang="zh-cn">
-					这其中将包括网站、可检索的已发表论文的目录、数据可视化、辅助培训资源和手册。同时，一系列书面、视频和音频内容以及信息图表将为研究提供深刻见解。
+					这其中将包括网站、可检索的已发表论文的目录、可视化数据、辅助培训资源和手册。同时，一系列文字、视频和音频内容以及信息图表将为研究提供深刻见解。
 				</p>
 			</div>
 			<div class="bilingual">
@@ -201,37 +198,30 @@
 					Research Innovation Partnership Fund.
 				</p>
 				<p lang="zh-cn">
-					项目目的在于提高人们对中国气候变化的认识，并分享最新、最高品质的科学和数据，从而为应对气候变化的计划和战略决策提供信息。
+					该项目致力于提高人们对中国气候变化的认识，并分享最新、最高质量的科学知识和数据，从而为应对气候变化的计划和战略决策提供信息。
+					CSSP
+					China由牛顿基金以及商业、能源与产业战略部（BEIS）的中英研究与创新合作基金资助。
 					<br />
-					<br />
-					CSSP China
-					由牛顿基金以及商业、能源与产业战略部（BEIS）的中英研究与创新合作基金资助。
 				</p>
 			</div>
 			<table class="acronym">
 				<tr>
 					<td><strong>V</strong>isualisation</td>
-					<td lang="zh-cn">TODO: In Chinese</td>
+					<td lang="zh-cn">可视化</td>
 				</tr>
 				<tr>
 					<td><strong>I</strong>nnovation</td>
-					<td lang="zh-cn">TODO: In Chinese</td>
+					<td lang="zh-cn">创新</td>
 				</tr>
 				<tr>
 					<td><strong>E</strong>ngagement</td>
-					<td lang="zh-cn">TODO: In Chinese</td>
+					<td lang="zh-cn">交互</td>
 				</tr>
 				<tr>
 					<td><strong>W</strong>eb-enabled</td>
-					<td lang="zh-cn">TODO: In Chinese</td>
+					<td lang="zh-cn">网络化</td>
 				</tr>
-				<!--<tr class="viewpoint" v-if="firefox">
-					<td colspan="2">
-						<hr />
-						<span><strong>VIEW</strong>point</span>
-					</td>
-				</tr>-->
-				<tr class="viewpoint" >
+				<tr class="viewpoint">
 					<td colspan="2">
 						<hr />
 						<img
@@ -273,9 +263,12 @@ export default {
 	methods: {
 		isAcronymInViewport() {
 			const table = document.getElementsByClassName('acronym')
-			if (table.length == 0 || table[0].classList.contains('js-in-viewport')) {
+			if (
+				table.length == 0 ||
+				table[0].classList.contains('js-in-viewport')
+			) {
 				// this has been done already (only needs to be done once)
-				return 
+				return
 			}
 			const rect = table[0].getBoundingClientRect()
 			if (
@@ -418,19 +411,19 @@ a:hover svg path {
 	transform: scaleX(1);
 }
 .acronym tr.widen:nth-of-type(2) {
-	transition-delay: 1s
+	transition-delay: 1s;
 }
 .acronym tr.widen:nth-of-type(3) {
-	transition-delay: 2s
+	transition-delay: 2s;
 }
 .acronym tr.widen:nth-of-type(4) {
-	transition-delay: 3s
+	transition-delay: 3s;
 }
 .acronym tr.widen:nth-of-type(5) {
-	transition-delay: 4s
+	transition-delay: 4s;
 }
 /* firefox doesn't do scaleX very well for <img>s so will just fade it in */
-@supports (-moz-appearance:none) and (text-align-last:auto) { 
+@supports (-moz-appearance: none) and (text-align-last: auto) {
 	.acronym tr.viewpoint {
 		transform: scaleX(1);
 	}
@@ -442,8 +435,8 @@ a:hover svg path {
 	.acronym tr.viewpoint.widen td img {
 		transition: opacity 3s ease-out;
 		transition-delay: 5s;
-		opacity: 1; 
-	} 
+		opacity: 1;
+	}
 }
 
 @media (max-width: 1007px) {

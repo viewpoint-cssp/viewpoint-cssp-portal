@@ -5,7 +5,7 @@
 		@mouseleave="startTimer"
 	>
 		<p class="logo-wrapper" v-if="!narrowPage">
-			Website delivered by
+			{{ deliveredByLabel }}
 			<a
 				id="iea-logo"
 				href="https://www.the-iea.org"
@@ -48,7 +48,7 @@
 			</a>
 		</div>
 		<p v-if="!narrowPage">
-			Contact:
+			{{ contactLabel }}:
 			<a :href="contactHref">{{ contactUrl }}</a>
 		</p>
 		<div class="envelope-wrapper" v-else>
@@ -106,7 +106,9 @@ export default {
 			urlCMA: 'http://www.cma.gov.cn/en2014/',
 			urlIAP: 'http://english.iap.cas.cn/',
 			narrowPage: false,
-			contactUrl: 'viewpoint@the-iea.org'
+			contactUrl: 'viewpoint@the-iea.org',
+			deliveredByLabel: 'Website delivered by',
+			contactLabel: 'Contact'
 		}
 	},
 	computed: {
@@ -186,6 +188,8 @@ export default {
 		) {
 			this.urlCMA = 'http://www.cma.gov.cn/'
 			this.urlIAP = 'http://www.iap.cas.cn/'
+			//this.deliveredByLabel = ''
+			this.contact = '联系方式'
 		}
 		// check whether the required CSS vars exist
 		if (

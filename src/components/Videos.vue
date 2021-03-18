@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<Banner class="banner-style" enTitle="Videos"></Banner>
+		<Banner class="banner-style" enTitle="Videos" cnTitle="视频"></Banner>
 		<div class="about-page">
 			<div class="bilingual">
 				<p>
@@ -11,7 +11,7 @@
 					allowing the exploration of future climate threats across
 					China, from next season to the coming decades.
 				</p>
-				<p lang="zh-cn">TODO: Chinese here</p>
+				<p lang="zh-cn">以下是一系列短视频和音频讨论，它们着重突出气候科学支持服务伙伴关系(CSSP)计划中国项目中的卓越科学和服务成就。从城市环境中出现的气候问题，到特定的工具和信息，这些都帮助我们探索未来中国从下一季到未来几十年的气候威胁。</p>
 			</div>
 		</div>
 		<div class="selected-page-wrapper">

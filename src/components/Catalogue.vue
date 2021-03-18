@@ -3,7 +3,9 @@
 		<div class="banner">
 			<div class="header-left">
 				<img id="logo" src="../assets/images/logo.png" />
-				<h1>Catalogue of published papers</h1>
+				<h1 v-if="!narrowPage">Catalogue of published papers</h1>
+				<h1 v-if="!narrowPage" lang="zh-cn">出版论文目录</h1>
+				<h1 v-else lang="zh-cn">Catalogue of published papers<br/>出版论文目录</h1>
 			</div>
 			<div class="header-right">
 				<p>{{ count }} entries</p>
@@ -37,7 +39,8 @@ export default {
 	data() {
 		return {
 			showFilter: false,
-			count: '0'
+			count: '0',
+			narrowPage: false
 		}
 	},
 	methods: {
@@ -110,6 +113,12 @@ export default {
 					'--rightCatalogueBlockerWidth',
 					`${rhPanel[0].clientWidth}px`
 				)
+			}
+			// randomly decide at 720px whether to toggle to the narrow table layout
+			if (window.matchMedia('(max-width: 725px)').matches) {
+				this.narrowPage = true
+			} else {
+				this.narrowPage = false
 			}
 		}
 	},

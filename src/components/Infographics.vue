@@ -1,6 +1,10 @@
 <template>
 	<div>
-		<Banner class="banner-style" enTitle="Infographics"></Banner>
+		<Banner
+			class="banner-style"
+			enTitle="Infographics"
+			cnTitle="信息图表"
+		></Banner>
 		<div class="about-page">
 			<div class="bilingual">
 				<p>
@@ -10,7 +14,7 @@
 					science in one place.
 				</p>
 				<p lang="zh-cn">
-					TODO: Chinese here
+					英国气象局制作了这些高质量的信息图表，以作为一系列中国重要科学课题项目的快速参考文件。这些信息图表可以帮助读者轻松获取大量的科学信息。
 				</p>
 			</div>
 		</div>
@@ -49,9 +53,16 @@
 								'in-preview':
 									preview.index == i && preview.lang == 'en'
 							}"
-							:src="require(`../assets/images/infographic-${i + 1}.jpg`)"
+							:src="
+								require(`../assets/images/infographic-${i +
+									1}.jpg`)
+							"
 							@click="setPreview(i, 'en')"
-							v-if="!doc.cnPdf || !narrowPage || (narrowPage && language == 'en')"
+							v-if="
+								!doc.cnPdf ||
+									!narrowPage ||
+									(narrowPage && language == 'en')
+							"
 						/>
 						<img
 							class="button-img"
@@ -59,9 +70,16 @@
 								'in-preview':
 									preview.index == i && preview.lang == 'cn'
 							}"
-							:src="require(`../assets/images/infographic-${i + 1}-cn.jpg`)"
+							:src="
+								require(`../assets/images/infographic-${i +
+									1}-cn.jpg`)
+							"
 							@click="setPreview(i, 'cn')"
-							v-if="doc.cnPdf && (!narrowPage || (narrowPage && language == 'cn'))"
+							v-if="
+								doc.cnPdf &&
+									(!narrowPage ||
+										(narrowPage && language == 'cn'))
+							"
 						/>
 					</div>
 					<a
@@ -76,20 +94,20 @@
 						<h3 v-if="doc.cnTitle" lang="zh-cn">
 							{{ doc.cnTitle }}
 						</h3>
-						<p v-else lang="zh-cn">
-							TODO: 'Not available in Chinese' in Chinese!
-						</p>
+						<p v-else>{{ doc.enTitle }} in Chinese</p>
 						<font-awesome-icon
 							icon="download"
 							v-if="doc.cnPdf"
 						></font-awesome-icon>
 					</a>
+					<div class="title" v-else-if="doc.cnTitle">
+						<h3 lang="zh-cn">{{ doc.cnTitle }}</h3>
+						<p lang="zh-cn" style="opacity:0.3;">
+							Not available in Chinese
+						</p>
+					</div>
 					<div class="title" v-else>
-						<p class="draft" v-if="doc.cnDraft">Draft</p>
-						<h3 v-if="doc.cnTitle" lang="zh-cn">
-							{{ doc.cnTitle }}
-						</h3>
-						<p v-else lang="zh-cn">
+						<p lang="zh-cn">
 							TODO: 'Not available in Chinese' in Chinese!
 						</p>
 					</div>
@@ -114,11 +132,16 @@
 						This browser does not support PDFs
 					</iframe>
 					<img
-						:src="require(`../assets/images/infographic-${i + 1}-cn.jpg`)"
+						:src="
+							require(`../assets/images/infographic-${i +
+								1}-cn.jpg`)
+						"
 						v-else-if="preview.lang == 'cn' && doc.cnPdf"
 					/>
 					<img
-						:src="require(`../assets/images/infographic-${i + 1}.jpg`)"
+						:src="
+							require(`../assets/images/infographic-${i + 1}.jpg`)
+						"
 						v-else-if="preview.lang == 'en'"
 					/>
 					<div class="preview-icons">
@@ -194,11 +217,13 @@ export default {
 				{
 					enPdf: 'I04-en-seasonal-forecast',
 					enTitle:
-						'Seasonal forecast service for the Yangtze River Basin'
+						'Seasonal forecast service for the Yangtze River Basin',
+					cnTitle: '长江流域季节性预报服务'
 				},
 				{
 					enPdf: 'I05-en-assessing-risk',
-					enTitle: `Assessing China's risk to climate related extremes`
+					enTitle: `Assessing China's risk to climate related extremes`,
+					cnTitle: '评估与中国气候相关的极端事件的风险'
 				}
 			],
 			previewMode: 'img', // can be set here to 'iframe' to use iframes for PDFs instead
@@ -223,7 +248,7 @@ export default {
 			) {
 				// either clicked close icon in preview or the currently previewed thumbnail
 				this.nextPreview.lang = ''
-				this.nextPreview.index = -1 // will cause scroll in previewClosed to... 
+				this.nextPreview.index = -1 // will cause scroll in previewClosed to...
 				this.closedIndex = this.preview.index // ... this .preview's .button-panel
 				this.preview.index = -1 // close the current .preview (and fire previewClosed)
 			} else if (this.preview.index < 0 || this.preview.index == index) {

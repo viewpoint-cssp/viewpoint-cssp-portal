@@ -7,8 +7,17 @@
 				src="../assets/images/logo.png"
 			/>
 			<div class="h1-wrapper">
-				<h1 v-if="enTitle">{{ enTitle }}</h1>
-				<h1 lang="zh-cn" v-if="cnTitle">{{ cnTitle }}</h1>
+				<h1 v-if="enTitle && cnTitle">
+					{{ enTitle }}
+					<br />
+					{{ cnTitle }}
+				</h1>
+				<h1 v-else-if="enTitle">
+					{{ enTitle }}
+				</h1>
+				<h1 v-else-if="cnTitle">
+					{{ cnTitle }}
+				</h1>
 			</div>
 		</div>
 	</div>
@@ -31,7 +40,6 @@ export default {
 	background-size: cover;
 	background-attachment: fixed;
 	background-blend-mode: luminosity;
-	height: 280px;
 	padding: 12px 64px;
 }
 
@@ -60,7 +68,6 @@ export default {
 	align-items: flex-start;
 }
 .h1-wrapper h1 {
-	width: 50%;
 	color: var(--vpOrange);
 }
 .h1-wrapper h1:lang(zh-cn) {
@@ -76,28 +83,19 @@ export default {
 
 @media (max-width: 1007px) {
 	.banner {
-		height: 200px;
 		padding: 8px 32px;
 	}
 }
 
 @media (max-width: 792px) {
 	.banner {
-		height: 180px;
 		padding: 8px 32px;
-	}
-}
-
-@media (max-width: 640px) {
-	.banner {
-		height: 150px;
 	}
 }
 
 @media print {
 	.banner {
 		background-image: none;
-		height: 100px;
 	}
 	.banner div {
 		flex-direction: row-reverse;

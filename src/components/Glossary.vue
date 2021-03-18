@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<Banner class="banner-style" enTitle="Glossary"></Banner>
+		<Banner class="banner-style" enTitle="Glossary" cnTitle="术语表"></Banner>
 		<div class="about-page">
 			<div class="bilingual">
 				<p>
@@ -10,7 +10,7 @@
 					UK and China.
 				</p>
 				<p lang="zh-cn">
-					本术语表提供了气候科学术语英文至中文（普通话）的建议翻译。这些术语已由在英国和中国工作的气候科学家们收集并审阅。
+					本术语表提供了气候科学术语英文至中文的建议翻译。这些术语已由在英国和中国工作的气候科学家们收集并审阅。
 				</p>
 			</div>
 			<div
@@ -47,12 +47,24 @@
 			</div>
 			<div class="bilingual">
 				<div class="show-more clickable" @click="showMore = !showMore">
-					<span v-if="showMore">Show less...</span>
-					<span v-else>Show more...</span>
+					<span v-if="showMore">
+						Show less
+					</span>
+					<span v-else>
+						Show more
+					</span>
+					<font-awesome-icon
+						icon="chevron-up"
+						:class="{ expanded: !showMore }"
+					></font-awesome-icon>
 				</div>
 				<div class="show-more clickable" @click="showMore = !showMore">
-					<span v-if="showMore">Show less...</span>
-					<span v-else>Show more...</span>
+					<font-awesome-icon
+						icon="chevron-up"
+						:class="{ expanded: !showMore }"
+					></font-awesome-icon>&nbsp;
+					<span lang="zh-cn" v-if="showMore">显示较少</span>
+					<span lang="zh-cn" v-else>显示更多</span>
 				</div>
 			</div>
 		</div>
@@ -239,7 +251,7 @@ export default {
 			// correct width when this is done (even after $nextTick)
 			let buffer = 64
 			const table = document.getElementsByTagName('table')
-			if (table.length) {
+			if (table.length > 0) {
 				buffer = table[0].getBoundingClientRect().x
 			}
 			let tableWidth = window.innerWidth - (2 * (buffer + 1))
@@ -254,7 +266,9 @@ export default {
 				this.narrowPage = false
 			}
 			// and set table margins to auto for centering
-			table[0].classList.add('center')
+			if (table.length > 0) {
+				table[0].classList.add('center')
+			}
 		}
 	},
 	created() {
@@ -263,7 +277,10 @@ export default {
 				return response.text()
 			})
 			.then(csvRaw => {
-				if (csvRaw.indexOf('English') < 0 && csvRaw.indexOf('Chinese') < 0) {
+				if (
+					csvRaw.indexOf('English') < 0 &&
+					csvRaw.indexOf('Chinese') < 0
+				) {
 					return
 				}
 				const csv = require('csvtojson')
@@ -445,11 +462,19 @@ div.glossary-comments hr {
 	padding-top: 12px;
 }
 
-.show-more span {
+.show-more span,
+.fa-chevron-up {
 	font-size: 0.9rem;
 	opacity: 0.7;
 }
-.show-more:hover span {
+.fa-chevron-up {
+	transition: transform 0.4s ease-in-out;
+}
+.fa-chevron-up.expanded {
+	transform: rotate(180deg);
+}
+.show-more:hover span,
+.show-more:hover .fa-chevron-up path {
 	color: var(--vpOrange);
 }
 

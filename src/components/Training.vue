@@ -4,6 +4,7 @@
 			<div class="header-left">
 				<img id="logo" src="../assets/images/logo.png" />
 				<h1>Training materials</h1>
+				<h1 lang="zh-cn">培训材料</h1>
 			</div>
 		</div>
 		<div class="training-handbook">
@@ -20,13 +21,9 @@
 					<div
 						class="section"
 						:class="{ selected: page == 'TrainingIntroduction' }"
-						@click="page = 'TrainingIntroduction'"	
+						@click="page = 'TrainingIntroduction'"
 					>
-						Introduction
-						<font-awesome-icon
-							icon="caret-right"
-							v-if="page == 'TrainingIntroduction'"
-						></font-awesome-icon>
+						Introduction <span lang="zh-cn">介绍</span>
 					</div>
 					<div
 						class="section"
@@ -34,10 +31,6 @@
 						@click="page = 'TrainingBackground'"
 					>
 						Background
-						<font-awesome-icon
-							icon="caret-right"
-							v-if="page == 'TrainingBackground'"
-						></font-awesome-icon>
 					</div>
 				</div>
 				<h2
@@ -58,10 +51,6 @@
 						@click="page = 'TrainingJupyter'"
 					>
 						Installing Jupyter Notebook
-						<font-awesome-icon
-							icon="caret-right"
-							v-if="page == 'TrainingJupyter'"
-						></font-awesome-icon>
 					</div>
 					<div
 						class="section"
@@ -69,10 +58,6 @@
 						@click="page = 'TrainingAnaconda'"
 					>
 						Installing Anaconda and Jupyter Notebook
-						<font-awesome-icon
-							icon="caret-right"
-							v-if="page == 'TrainingAnaconda'"
-						></font-awesome-icon>
 					</div>
 					<div
 						class="section"
@@ -80,10 +65,6 @@
 						@click="page = 'TrainingQgis'"
 					>
 						Installing QGIS and UMEP
-						<font-awesome-icon
-							icon="caret-right"
-							v-if="page == 'TrainingQgis'"
-						></font-awesome-icon>
 					</div>
 					<div
 						class="section"
@@ -91,10 +72,6 @@
 						@click="page = 'TrainingSupport'"
 					>
 						UMEP technical support
-						<font-awesome-icon
-							icon="caret-right"
-							v-if="page == 'TrainingSupport'"
-						></font-awesome-icon>
 					</div>
 				</div>
 				<h2
@@ -115,10 +92,6 @@
 						@click="page = 'TrainingFirstSteps'"
 					>
 						First steps with UMEP
-						<font-awesome-icon
-							icon="caret-right"
-							v-if="page == 'TrainingFirstSteps'"
-						></font-awesome-icon>
 					</div>
 					<div
 						class="section"
@@ -126,10 +99,6 @@
 						@click="page = 'TrainingBasics'"
 					>
 						Basics of QGIS and UMEP
-						<font-awesome-icon
-							icon="caret-right"
-							v-if="page == 'TrainingBasics'"
-						></font-awesome-icon>
 					</div>
 					<div
 						class="section"
@@ -137,10 +106,6 @@
 						@click="page = 'TrainingGrid'"
 					>
 						Creating a grid in QGIS and UMEP
-						<font-awesome-icon
-							icon="caret-right"
-							v-if="page == 'TrainingGrid'"
-						></font-awesome-icon>
 					</div>
 					<div
 						class="section"
@@ -148,10 +113,6 @@
 						@click="page = 'TrainingData'"
 					>
 						Meteorological data for UMEP modelling
-						<font-awesome-icon
-							icon="caret-right"
-							v-if="page == 'TrainingData'"
-						></font-awesome-icon>
 					</div>
 					<div
 						class="section"
@@ -159,10 +120,6 @@
 						@click="page = 'TrainingWebServices'"
 					>
 						Web services
-						<font-awesome-icon
-							icon="caret-right"
-							v-if="page == 'TrainingWebServices'"
-						></font-awesome-icon>
 					</div>
 					<div
 						class="section"
@@ -170,10 +127,6 @@
 						@click="page = 'TrainingTutorials'"
 					>
 						Ongoing tutorials
-						<font-awesome-icon
-							icon="caret-right"
-							v-if="page == 'TrainingTutorials'"
-						></font-awesome-icon>
 					</div>
 				</div>
 				<hr />
@@ -183,29 +136,35 @@
 					@click="page = 'TrainingReferences'"
 				>
 					References
-					<font-awesome-icon
-						icon="caret-right"
-						v-if="page == 'TrainingReferences'"
-					></font-awesome-icon>
 				</div>
 			</div>
 			<hr class="contents-divider" />
 			<div class="page-content">
 				<transition name="fade" mode="out-in">
-					<component 
-						:is="page" 
+					<component
+						:is="page"
 						@skipTo="skipTo"
 						@resizePlayer="resizePlayer"
 					></component>
 				</transition>
 				<div class="page-bottom">
-					<button @click="prevPage" :class="{ hidden: page == pages[0] }">
-						<font-awesome-icon icon="chevron-left"></font-awesome-icon>
+					<button
+						@click="prevPage"
+						:class="{ hidden: page == pages[0] }"
+					>
+						<font-awesome-icon
+							icon="chevron-left"
+						></font-awesome-icon>
 						Previous
 					</button>
-					<button @click="nextPage" :class="{ hidden: page == pages[pages.length - 1] }">
+					<button
+						@click="nextPage"
+						:class="{ hidden: page == pages[pages.length - 1] }"
+					>
 						Next
-						<font-awesome-icon icon="chevron-right"></font-awesome-icon>
+						<font-awesome-icon
+							icon="chevron-right"
+						></font-awesome-icon>
 					</button>
 				</div>
 			</div>
@@ -275,7 +234,7 @@ export default {
 	watch: {
 		page() {
 			if ('scrollBehavior' in document.documentElement.style) {
-				window.scrollTo({ top: 0, behavior: 'smooth'})
+				window.scrollTo({ top: 0, behavior: 'smooth' })
 			} else {
 				// EdgeHTML scrolls to top by scrolling the .nav-menu into view
 				const navFtr = document.getElementsByClassName('app-fixed')
@@ -348,9 +307,11 @@ export default {
 			const oldWidth = document.documentElement.style.getPropertyValue(
 				'--playerWidth'
 			)
-			let width = parseInt(document.documentElement.style.getPropertyValue(
-				'--rightTrainingWidth'
-			)) // default is width of right hand panel
+			let width = parseInt(
+				document.documentElement.style.getPropertyValue(
+					'--rightTrainingWidth'
+				)
+			) // default is width of right hand panel
 			// get default amount of air either side (parent <p>'s margins)
 			let airPx = 64
 			if (window.matchMedia('(max-width: 645px)').matches) {
@@ -360,7 +321,10 @@ export default {
 			const iframes = document.getElementsByTagName('iframe')
 			if (iframes.length) {
 				const parent = iframes[0].parentElement
-				width = Math.min(parent.getBoundingClientRect().width, width - airPx)
+				width = Math.min(
+					parent.getBoundingClientRect().width,
+					width - airPx
+				)
 			} else {
 				width = width - airPx
 			}
@@ -468,14 +432,10 @@ img#logo {
 	transform: rotate(180deg);
 }
 
-.fa-caret-right {
-	transform: translateY(2px);
-}
-
 .section.selected,
+.section.selected span,
 .section:hover,
-.section:hover path,
-.fa-caret-right path {
+.section:hover path {
 	color: var(--vpOrange);
 }
 
@@ -495,7 +455,8 @@ hr.contents-divider {
 	width: 100%;
 }
 
-.page-content >>> h1 {
+.page-content >>> h1,
+.page-content >>> h1 span {
 	color: var(--vpOrange);
 }
 
@@ -590,7 +551,8 @@ hr.contents-divider {
 	}
 	.page-content >>> h1,
 	.page-content >>> h2,
-	.page-content >>> p {
+	.page-content >>> p,
+	.page-bottom {
 		margin: 12px 32px;
 	}
 }
@@ -607,7 +569,8 @@ hr.contents-divider {
 	}
 	.page-content >>> h1,
 	.page-content >>> h2,
-	.page-content >>> p {
+	.page-content >>> p,
+	.page-bottom {
 		margin: 8px 16px;
 	}
 }

@@ -1,6 +1,10 @@
 <template>
 	<div>
-		<Banner class="banner-style" enTitle="Resources"></Banner>
+		<Banner 
+			class="banner-style" 
+			enTitle="Resources"
+			cnTitle="资源"
+		></Banner>
 		<div class="about-page">
 			<div class="bilingual">
 				<p>
@@ -32,8 +36,9 @@
 					/>
 				</div>
 				<div class="button-item desc">
-					<h3>{{ page.title }}</h3>
+					<h3>{{ page.enTitle }}</h3>
 					<p>{{ page.enDesc }}</p>
+					<h3 lang="zh-cn">{{ page.cnTitle }}</h3>
 					<p lang="zh-cn">{{ page.cnDesc }}</p>
 				</div>
 			</div>
@@ -62,49 +67,55 @@ export default {
 				{
 					pageName: 'Handbook',
 					imageName: 'handbook',
-					title: 'Handbook',
+					enTitle: 'Handbook',
 					enDesc:
 						'A collection of articles and highlights of several years of the CSSP China project, including interviews with world-leading scientists.',
+					cnTitle: '手册',
 					cnDesc: 'TODO: Chinese here'
 				},
 				{
 					pageName: 'Explainers',
 					imageName: 'explainers',
-					title: 'Explainers',
+					enTitle: 'Explainers',
 					enDesc:
 						'One-page summaries of CSSP China research work, each covering the importance and approach to investigating the topic, with links to the original publications.',
+					cnTitle: '主题解说',
 					cnDesc: 'TODO: Chinese here'
 				},
 				{
 					pageName: 'Briefing',
 					imageName: 'briefing',
-					title: 'Briefing notes',
+					enTitle: 'Briefing notes',
 					enDesc:
 						'Each note collates a range of information sources on one pressing topic, clearly summarising the underlying issues, relevance and recommendations of the scientific evidence.',
+					cnTitle: '简报',
 					cnDesc: 'TODO: Chinese here'
 				},
 				{
 					pageName: 'Videos',
 					imageName: 'videos',
-					title: 'Videos',
+					enTitle: 'Videos',
 					enDesc:
 						'A range of video and audio from specialists within CSSP China, sharing their expertise in concise and engaging ways.',
+					cnTitle: '视频',
 					cnDesc: 'TODO: Chinese here'
 				},
 				{
 					pageName: 'Infographics',
 					imageName: 'infographics',
-					title: 'Infographics',
+					enTitle: 'Infographics',
 					enDesc:
 						'Climate services and fundamental science distilled into attractive graphics, produced by the Met Office.',
+					cnTitle: '信息图表',
 					cnDesc: 'TODO: Chinese here'
 				},
 				{
 					pageName: 'Training',
 					imageName: 'training',
-					title: 'Training materials',
+					enTitle: 'Training materials',
 					enDesc:
 						'For those interested in the urban climate, here is training to introduce the hands-on use of the Urban Multi-scale Environmental Predictor (UMEP) software.',
+					cnTitle: '培训材料',
 					cnDesc: 'TODO: Chinese here'
 				}
 			]
@@ -194,13 +205,14 @@ span.goto:hover svg path {
 }
 
 .button-item {
-	width: 50%;
-	max-width: 400px;
+	max-width: 500px;
 	margin: 0 16px;
 	border: 2px solid transparent;
 }
 .button-item.image {
-	height: 250px;
+	max-width: 400px;
+	max-height: 250px;
+	flex: 2 2 40%;
 	background: rgba(65, 105, 91, 0.5); /*var(--vpGreen);*/
 }
 .button-item img {
@@ -212,6 +224,7 @@ span.goto:hover svg path {
 	border-color: var(--vpGreen);
 }
 .button-item.desc {
+	flex: 3 3 60%;
 	padding: 16px 32px;
 	background: var(--vpGreen);
 	color: var(--vpCoolGrey);

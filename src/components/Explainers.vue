@@ -1,15 +1,16 @@
 <template>
 	<div>
-		<Banner class="banner-style" enTitle="Explainers"></Banner>
+		<Banner class="banner-style" enTitle="Explainers" cnTitle="主题解说"></Banner>
 		<div class="about-page">
 			<div class="bilingual">
 				<p>
-					Explainers are one-page summaries of CSSP China research work.
-					Each explainer covers the importance and approach to investigating
-					the topic and includes links to the original publications.
+					Explainers are one-page summaries of CSSP China research
+					work. Each explainer covers the importance and approach to
+					investigating the topic and includes links to the original
+					publications.
 				</p>
 				<p lang="zh-cn">
-					TODO: Chinese here
+					主题解说是对中英气候科学支持服务伙伴关系计划研究工作的概述。每个解说涵盖了该主题研究的的重要性、研究方法和来源链接
 				</p>
 			</div>
 		</div>
@@ -60,18 +61,20 @@
 				>
 					<p class="draft" v-if="doc.cnDraft">Draft</p>
 					<h3 v-if="doc.cnTitle" lang="zh-cn">{{ doc.cnTitle }}</h3>
-					<p v-else lang="zh-cn">
-						TODO: 'Not available in Chinese' in Chinese!
-					</p>
+					<p v-else lang="zh-cn">{{ doc.enTitle }} in Chinese</p>
 					<font-awesome-icon
 						icon="download"
 						v-if="doc.cnPdf"
 					></font-awesome-icon>
 				</a>
+				<div class="title" v-else-if="doc.cnTitle">
+					<h3 lang="zh-cn">{{ doc.cnTitle }}</h3>
+					<p lang="zh-cn" style="opacity:0.3;">
+						Not yet available in Chinese
+					</p>
+				</div>
 				<div class="title" v-else>
-					<p class="draft" v-if="doc.cnDraft">Draft</p>
-					<h3 v-if="doc.cnTitle" lang="zh-cn">{{ doc.cnTitle }}</h3>
-					<p v-else lang="zh-cn">
+					<p lang="zh-cn">
 						TODO: 'Not available in Chinese' in Chinese!
 					</p>
 				</div>
@@ -98,12 +101,14 @@ export default {
 					enTitle:
 						'Investigating heatwaves in China under climate change',
 					enPdf: 'E01-en-investigating-heatwaves',
+					cnTitle: '气候变化背景下的中国热浪研究',
 					imgCredit: 'Kaijia, Unsplash'
 				},
 				{
 					enTitle:
 						'Increasing flash floods in a drying climate: dual challenges facing Southwest China',
 					enPdf: 'E02-en-increasing-flash-floods',
+					cnTitle: '干旱气候中的暴洪泛滥:中国西南地区面临的双重挑战',
 					imgPosition: 'bottom',
 					imgCredit: 'Chan Xiao (NCC, CMA)',
 					imgAlt: 'Rural area in Yunnan Province, Southwest China'
@@ -112,6 +117,8 @@ export default {
 					enTitle:
 						'Tibetan Plateau Vortices: a comparison of tracking methods',
 					enPdf: 'E03-en-tibetan-plateau-vortices',
+					cnTitle:
+						'青藏高原低涡跟踪调查研究:现代方法与传统方法的比较',
 					imgPosition: 'bottom',
 					imgCredit: 'Unsplash',
 					imgAlt: 'Tibetan Plateau'
@@ -120,7 +127,8 @@ export default {
 					enTitle:
 						'What will shape future Beijing haze events and air quality?',
 					enPdf: 'E04-en-beijing-haze',
-					cnTitle: '什么会影响北京未来的雾霾事件？',
+					xcnTitle: '什么会影响北京未来的雾霾事件？',
+					cnTitle: '北京雾霾未来将何去何从？',
 					cnPdf:
 						'Chinese Explainer No4 What will shape future Beijing Haze events',
 					cnDraft: true,
@@ -133,8 +141,9 @@ export default {
 					enTitle:
 						'Efficient assessments of Chinese Fengyun-3 satellite instruments to improve weather forecasts',
 					enPdf: 'E05-en-satellite-instrument',
-					cnTitle:
+					xcnTitle:
 						'高效评估中国风云三号卫星仪器，借以 提高天气预报质量',
+					cnTitle: '高效评估风云三号卫星仪器，借以提升天气预报质量',
 					cnPdf:
 						'Chinese Explainer No 5 Efficient assessments of Chin',
 					cnDraft: true,
@@ -145,24 +154,28 @@ export default {
 					enTitle:
 						'Arup climate risk tool: protecting your infrastructure under climate change',
 					enPdf: 'E06-en-arup-climate-risk',
+					cnTitle: '奥雅纳气候风险工具：在气候变化下保护您的基础设施',
 					imgPosition: 'top',
 					imgCredit: 'Erdenebayar Bayansan Pixabay'
 				},
 				{
 					enTitle: `High-resolution revolution brings insight into China's climate`,
 					enPdf: `E07-en-high-resolution`,
+					cnTitle: '高分辨率革命助力中国气候研究',
 					imgCredit: 'Darwit, Unsplash'
 				},
 				{
 					enTitle:
 						'Safer operation for urban rail transport: wind risk warning system',
 					enPdf: 'E08-en-urban-rail-transport',
+					cnTitle: '集成式大风预警系统，让城市轨道交通运行更安全',
 					imgCredit: 'PublicDomainPictures, Pixabay'
 				},
 				{
 					enTitle:
 						'A promising outlook: skilful seasonal forecasts for energy sectors in China',
 					enPdf: 'E09-en-seasonal-forecast',
+					cnTitle: '季节性预测在中国能源行业的应用前景可期',
 					imgCredit: 'Vista Wei, Unsplash',
 					imgAlt: 'Wind farm in Xinyang, China'
 				},
@@ -170,6 +183,7 @@ export default {
 					enTitle:
 						'Correcting urban bias in large-scale temperature records in China',
 					enPdf: 'E10-en-correcting-urban-bias',
+					cnTitle: '修正中国大规模气温记录中的城市偏差',
 					imgCredit: 'wei zhu, Pixabay',
 					imgAlt: 'Shanghai'
 				},
@@ -177,17 +191,20 @@ export default {
 					enTitle:
 						'Flood footprint assessment: a new approach for impacts and recovery',
 					enPdf: 'E11-en-flood-footprint-assessment',
+					cnTitle: '洪水足迹评估： 一种针对影响和恢复的全新方法',
 					imgCredit: 'Jéan Béller, Unsplash'
 				},
 				{
 					enTitle:
 						'Working together: the China Framework for Climate Services (CFCS)',
-					enPdf: 'E12-en-working-together'
+					enPdf: 'E12-en-working-together',
+					cnTitle: '携手合作：中国气候服务框架（CFCS）'
 				},
 				{
 					enTitle:
 						'Examining airflow around tall buildings using a 3D model',
 					enPdf: 'E13-en-examining-airflow',
+					cnTitle: '利用3D模型检测气流在高建筑物的流动情况',
 					imgCredit: 'Li Yang, Unsplash',
 					imgAlt: 'Beijing cityscape'
 				},
@@ -195,6 +212,7 @@ export default {
 					enTitle:
 						'Increasing summer rainfall intensity during the past four decades observed in China',
 					enPdf: 'E14-en-increasing-summer-rainfall',
+					cnTitle: '对中国近四十年来夏季降水强度增加的研究',
 					imgPosition: 'top',
 					imgCredit: 'Pexels, Pixabay'
 				},
@@ -202,6 +220,7 @@ export default {
 					enTitle:
 						'Daily satellite monitoring of crop drought conditions: developing a service',
 					enPdf: 'E15-en-daily-satellite-monitoring',
+					cnTitle: '服务开发：作物干旱状况卫星日常监测',
 					imgCredit: 'Pixabay',
 					imgAlt: 'Maize growing'
 				}

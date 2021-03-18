@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<Banner class="banner-style" enTitle="Handbook"></Banner>
+		<Banner class="banner-style" enTitle="Handbook" cnTitle="手册"></Banner>
 		<div class="about-page">
 			<div class="bilingual">
 				<p>
@@ -12,7 +12,9 @@
 					collaboratively over several years by hundreds of
 					researchers in China and the UK.
 				</p>
-				<p lang="zh-cn">TODO: Chinese here</p>
+				<p lang="zh-cn">
+					浏览关于气候科学支持服务伙伴关系(CSSP)计划中国项目的概述和项目亮点（内含有中英文两个版本）。该手册包括一系列专家访谈，对气候科学的总结和与气候服务相关的例子。您可以通过下载手册来更好了解中英数百名研究人员在过去几年间共同合作的项目成果。
+				</p>
 			</div>
 			<div class="download-buttons">
 				<a
@@ -32,15 +34,15 @@
 				<a
 					class="download"
 					:href="
-						require('../assets/pdfs/DRAFT_06_VP Handbook_SS Feb 22.pdf')
+						require('../assets/pdfs/placeholder.pdf')
 					"
 					download="VIEWpoint-handbook.pdf"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					<button>
-						<font-awesome-icon icon="download"></font-awesome-icon>
-						Download in Chinese
+					<button lang="zh-cn">
+						<font-awesome-icon icon="download"></font-awesome-icon>&nbsp;
+						下载手册
 					</button>
 				</a>
 			</div>

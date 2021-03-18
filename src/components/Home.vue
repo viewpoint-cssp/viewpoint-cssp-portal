@@ -3,6 +3,7 @@
 		<Banner
 			class="banner-style"
 			enTitle="A showcase for the Climate Science for Service Partnership with China"
+			cnTitle="气候科学支持服务伙伴关系(CSSP)计划中国项目成果展示"
 		></Banner>
 		<div class="about-page">
 			<h2>VIEWpoint and CSSP China</h2>
@@ -27,7 +28,7 @@
 					public.
 				</p>
 				<p lang="zh-cn">
-					“新观点” (VIEWpoint) 项目旨在最大化地发挥“中英气候科学到服务伙伴关系计划”
+					“新观点” (VIEWpoint) 项目旨在最大化地发挥“中英气候科学支持服务伙伴关系计划”
 					<a
 						href="https://www.metoffice.gov.uk/research/approach/collaboration/newton/cssp-china/index"
 						target="_blank"
@@ -51,8 +52,9 @@
 					/>
 				</div>
 				<div class="button-item desc">
-					<h3>{{ page.title }}</h3>
+					<h3>{{ page.enTitle }}</h3>
 					<p>{{ page.enDesc }}</p>
+					<h3 lang="zh-cn">{{ page.cnTitle }}</h3>
 					<p lang="zh-cn">{{ page.cnDesc }}</p>
 				</div>
 			</div>
@@ -77,34 +79,38 @@ export default {
 				{
 					pageName: 'About',
 					imageName: 'about',
-					title: 'About VIEWpoint',
+					enTitle: 'About VIEWpoint',
 					enDesc:
 						'Find out more about how and why these materials were created as part of a global scientific collaboration.',
-					cnDesc: 'TODO: Chinese here'
+					cnTitle: '关于VIEWpoint新观点项目',
+					cnDesc: '点击了解此项目作为全球科研合作的一部分，项目相关研究的合作方式以及服务目的等信息。'
 				},
 				{
 					pageName: 'Resources',
 					imageName: 'resources',
-					title: 'Resources',
+					enTitle: 'Resources',
 					enDesc:
 						'A variety of accessible information to browse on climate science and addressing the challenges of climate change.',
-					cnDesc: 'TODO: Chinese here'
+					cnTitle: '资源',
+					cnDesc: '浏览各种关于气候科学和应对气候变化挑战的可访问信息。'
 				},
 				{
 					pageName: 'Demonstrators',
 					imageName: 'demonstrators',
-					title: 'Demonstrators',
+					enTitle: 'Demonstrators',
 					enDesc:
 						'Explore climate datasets for yourself with easy-to-use interfaces to engage directly with the current and potential future scenarios.',
-					cnDesc: 'TODO: Chinese here'
+					cnTitle: '演示工具',
+					cnDesc: '通过简单易操作的界面来探索气候数据集，并与当前和未来的应用场景进行直接互动。'
 				},
 				{
 					pageName: 'Catalogue',
 					imageName: 'catalogue',
-					title: 'Catalogue of CSSP China published papers',
+					enTitle: 'Catalogue of CSSP China published papers',
 					enDesc:
 						'The full suite of scientific peer-reviewed publications organised into a searchable catalogue which can be filtered by themes.',
-					cnDesc: 'TODO: Chinese here'
+					cnTitle: '由CSSP China出版的论文目录',
+					cnDesc: '该论文目录来源于学术界专家评审过的出版物，我们对此进行了重组，您可根据主题进行检索。'
 				}
 			]
 		}
@@ -193,13 +199,14 @@ export default {
 }
 
 .button-item {
-	width: 50%;
-	max-width: 400px;
+	max-width: 500px;
 	margin: 0 16px;
 	border: 2px solid transparent;
 }
 .button-item.image {
-	height: 250px;
+	max-width: 400px;
+	max-height: 250px;
+	flex: 2 2 40%;
 	background: rgba(65, 105, 91, 0.5); /*var(--vpGreen);*/
 }
 .button-item img {
@@ -210,6 +217,7 @@ export default {
 	filter: blur(0.5px) grayscale(100%) opacity(0.5);
 }
 .button-item.desc {
+	flex: 3 3 60%;
 	padding: 16px 32px;
 	background: var(--vpGreen);
 	color: var(--vpCoolGrey);

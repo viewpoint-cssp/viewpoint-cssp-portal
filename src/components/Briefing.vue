@@ -1,6 +1,10 @@
 <template>
 	<div>
-		<Banner class="banner-style" enTitle="Briefing Notes"></Banner>
+		<Banner
+			class="banner-style"
+			enTitle="Briefing Notes"
+			cnTitle="简报"
+		></Banner>
 		<div class="about-page">
 			<div class="bilingual">
 				<p>
@@ -10,7 +14,7 @@
 					evidence.
 				</p>
 				<p lang="zh-cn">
-					TODO: Chinese here
+					每一份简报都整理了当下一系列焦点话题的信息来源，并清楚地总结了潜在的问题、关联性并给出了基于科学证据的建议。
 				</p>
 			</div>
 		</div>
@@ -61,18 +65,20 @@
 				>
 					<p class="draft" v-if="doc.cnDraft">Draft</p>
 					<h3 v-if="doc.cnTitle" lang="zh-cn">{{ doc.cnTitle }}</h3>
-					<p v-else lang="zh-cn">
-						TODO: 'Not available in Chinese' in Chinese!
-					</p>
+					<p v-else lang="zh-cn">{{ doc.enTitle }} in Chinese</p>
 					<font-awesome-icon
 						icon="download"
 						v-if="doc.cnPdf"
 					></font-awesome-icon>
 				</a>
-				<div class="title" v-else>
-					<p class="draft" v-if="doc.cnDraft">Draft</p>
+				<div class="title" v-else-if="doc.cnTitle">
 					<h3 v-if="doc.cnTitle" lang="zh-cn">{{ doc.cnTitle }}</h3>
-					<p v-else lang="zh-cn">
+					<p lang="zh-cn" style="opacity:0.3;">
+						Not yet available in Chinese
+					</p>
+				</div>
+				<div class="title" v-else>
+					<p lang="zh-cn">
 						TODO: 'Not available in Chinese' in Chinese!
 					</p>
 				</div>
@@ -101,6 +107,7 @@ export default {
 					enPdf:
 						'Briefing paper_urban flood control_02 December_final_SS',
 					enDraft: true,
+					cnTitle: '沿海特大城市的城市防洪：上海的应用实例',
 					imgCredit: ' Kelly Sikkema, Unsplash',
 					imgAlt: 'Urban Flood'
 				},
@@ -109,6 +116,8 @@ export default {
 						'Why is it so important to control sulphate aerosols? A complex role in a warming climate',
 					enPdf: 'Briefing paper _ sulphate aerosol_02 Dec_final_SS',
 					enDraft: true,
+					cnTitle:
+						'为什么控制硫酸盐气溶胶如此重要？——一个在气候变暖问题发挥复杂作用的角色',
 					imgCredit: 'Paweł Czerwiński, Unsplash',
 					imgAlt: 'Man made Pollution'
 				}
