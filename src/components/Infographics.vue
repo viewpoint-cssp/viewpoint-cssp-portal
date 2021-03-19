@@ -359,8 +359,8 @@ export default {
 <style scoped>
 .banner-style {
 	background-image: url('../assets/images/infographics.jpg');
-	background-position: bottom;
-	box-shadow: inset 0 0 0 1000px rgba(217, 216, 214, 0.5);
+	background-position: center;
+	box-shadow: inset 0 0 0 1000px rgba(217, 216, 214, 0.8);
 }
 
 .wrapper,
