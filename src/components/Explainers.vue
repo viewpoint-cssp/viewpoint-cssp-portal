@@ -25,7 +25,7 @@
 				<a
 					class="title english clickable"
 					:href="require(`../assets/pdfs/${doc.enPdf}.pdf`)"
-					:download="`${doc.enPdf}.pdf`"
+					:download="`VIEWpoint-${doc.enPdf}.pdf`"
 					target="_blank"
 					rel="noopener noreferrer"
 					v-if="doc.enPdf"
@@ -54,7 +54,7 @@
 				<a
 					class="title chinese clickable"
 					:href="require(`../assets/pdfs/${doc.cnPdf}.pdf`)"
-					:download="`${doc.cnPdf}.pdf`"
+					:download="`VIEWpoint-${doc.cnPdf}.pdf`"
 					target="_blank"
 					rel="noopener noreferrer"
 					v-if="doc.cnPdf"

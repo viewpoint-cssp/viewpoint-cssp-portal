@@ -358,7 +358,6 @@ iframe,
 	}
 }
 @media (max-width: 640px) {
-	/* TODO width TBC */
 	.selected-page {
 		flex-direction: column;
 	}

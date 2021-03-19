@@ -22,7 +22,7 @@
 					:href="
 						require('../assets/pdfs/DRAFT_06_VP Handbook_SS Feb 22.pdf')
 					"
-					download="VIEWpoint-handbook.pdf"
+					download="VIEWpoint-Handbook-en.pdf"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
@@ -36,7 +36,7 @@
 					:href="
 						require('../assets/pdfs/placeholder.pdf')
 					"
-					download="VIEWpoint-handbook.pdf"
+					download="VIEWpoint-Handbook-cn.pdf"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
@@ -116,7 +116,7 @@
 						:href="
 							require('../assets/pdfs/DRAFT_06_VP Handbook_SS Feb 22.pdf')
 						"
-						download="VIEWpoint-handbook.pdf"
+						download="`VIEWpoint-handbook-${language}.pdf`"
 						target="_blank"
 						rel="noopener noreferrer"
 						title="Download the handbook"

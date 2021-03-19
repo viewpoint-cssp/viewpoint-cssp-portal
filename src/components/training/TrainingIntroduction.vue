@@ -103,7 +103,7 @@
 			<a
 				class="download"
 				:href="require('../../assets/pdfs/placeholder.pdf')"
-				download="VIEWpoint-video-transcripts.pdf"
+				download="VIEWpoint-video-transcripts-en.pdf"
 				target="_blank"
 				rel="noopener noreferrer"
 			>
@@ -115,7 +115,7 @@
 			<a
 				class="download"
 				:href="require('../../assets/pdfs/placeholder.pdf')"
-				download="VIEWpoint-video-transcripts.pdf"
+				download="VIEWpoint-video-transcripts-cn.pdf"
 				target="_blank"
 				rel="noopener noreferrer"
 			>
