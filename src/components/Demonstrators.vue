@@ -51,51 +51,35 @@
 				</p>
 			</div>
 		</div>
-		<div
+		<SelectionPanel
 			v-for="page in pages"
+			:page="page"
+			:color="true"
 			:key="page.pageName"
-			class="button-panel"
-			:disabled="page.disabled"
-			@click="goTo(page.pageName)"
-		>
-			<div class="button-content">
-				<div class="button-item image">
-					<img
-						:src="require(`../assets/images/${page.imageName}.png`)"
-					/>
-				</div>
-				<div class="button-item desc">
-					<h3>{{ page.enTitle }}</h3>
-					<p>{{ page.enDesc }}</p>
-					<h3 lang="zh-cn">{{ page.cnTitle }}</h3>
-					<p lang="zh-cn">{{ page.cnDesc }}</p>
-				</div>
-			</div>
-		</div>
+			@goTo="goTo"
+		></SelectionPanel>
 		<Gotop></Gotop>
 	</div>
 </template>
 
 <script>
-/* TODO 
-At the moment this looks and works very similar to Home.vue. That may change. 
-If it doesn't, the styling could go into the .css or simplify by using new component(s)?
-*/
 import Banner from './Banner.vue'
 import Gotop from './Gotop.vue'
+import SelectionPanel from './SelectionPanel.vue'
 
 export default {
 	name: 'Demonstrators',
 	components: {
 		Banner,
-		Gotop
+		Gotop,
+		SelectionPanel
 	},
 	data() {
 		return {
 			pages: [
 				{
 					pageName: 'suhi',
-					imageName: 'suhi-laptop',
+					imageName: 'suhi-laptop.png',
 					enTitle: 'Surface Urban Heat Island',
 					enDesc:
 						'Use satellite data to explore the variation in surface temperatures across four cities in China. Developed with the Met Office.',
@@ -105,7 +89,7 @@ export default {
 				},
 				{
 					pageName: 'wrm',
-					imageName: 'wrm-laptop',
+					imageName: 'wrm-laptop.png',
 					enTitle: 'Water Resources Management',
 					enDesc:
 						'A prototype dashboard to investigate the impact of climate change and water abstraction on the Upper Yellow River basin. Developed with the University of Leeds.',
@@ -115,7 +99,7 @@ export default {
 				},
 				{
 					pageName: 'verdant',
-					imageName: 'verdant-laptop',
+					imageName: 'verdant-laptop.png',
 					enTitle: 'Verdant',
 					enDesc:
 						'Example output of satellite mapping of crop drought conditions, in development as an automated daily service. Developed with the University of Leicester.',
@@ -136,13 +120,13 @@ export default {
 			}
 		},
 		scrollCursor() {
-			const buttons = document.getElementsByClassName('button-panel')
+			const buttons = document.getElementsByClassName('selection-panel')
 			for (let b = 0; b < buttons.length; b++) {
 				buttons[b].classList.add('scroll-cursor')
 			}
 		},
 		pointerCursor() {
-			const buttons = document.getElementsByClassName('button-panel')
+			const buttons = document.getElementsByClassName('selection-panel')
 			for (let b = 0; b < buttons.length; b++) {
 				buttons[b].classList.remove('scroll-cursor')
 			}
@@ -185,115 +169,5 @@ a:hover,
 a:hover span,
 a:hover svg path {
 	color: var(--vpOrange);
-}
-
-.button-panel {
-	width: 100%;
-	max-width: var(--widthLimit);
-	margin: 0 auto;
-	border: 1px solid transparent;
-	border-right-color: var(--primaryLightest);
-	border-left-color: var(--primaryLightest);
-	padding: 64px;
-	transition: background 0.2s ease-in-out;
-}
-.button-panel:not([disabled]) {
-	cursor: pointer;
-}
-.button-panel.scroll-cursor {
-	cursor: ns-resize;
-}
-.button-panel:nth-of-type(odd) {
-	background: var(--primaryLightest);
-}
-.button-panel:nth-of-type(odd) div.button-content {
-	flex-direction: row-reverse;
-}
-
-.button-content {
-	background: transparent;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: stretch;
-}
-.button-content p:lang(zh-cn) {
-	margin-top: 12px;
-}
-
-.button-item {
-	max-width: 500px;
-	margin: 0 16px;
-	border: 2px solid transparent;
-}
-.button-item.image {
-	max-width: 400px;
-	flex: 2 2 40%;
-	background: var(--vpCoolGrey);
-	border-color: var(--vpGreen);
-}
-.button-item img {
-	height: 100%;
-	width: 100%;
-	object-fit: cover;
-	opacity: 0.6;
-}
-.button-item.desc {
-	flex: 3 3 60%;
-	padding: 16px 32px;
-	background: var(--vpGreen);
-	color: var(--vpCoolGrey);
-}
-.button-item.desc * {
-	background: transparent;
-	color: currentColor;
-}
-
-.button-panel:nth-of-type(odd) .button-item.desc {
-	background: var(--vpDark);
-}
-.button-panel:nth-of-type(odd) .button-item.image {
-	border-color: var(--vpDark);
-}
-.button-panel:not([disabled]):hover {
-	background: var(--bannerGrey);
-	/*border-color: var(--vpOrange);*/
-}
-.button-panel:not([disabled]):hover .button-item {
-	border-color: var(--vpOrange) !important;
-	box-shadow: 5px 5px 10px var(--vpDark);
-}
-.button-panel:not([disabled]):hover .button-item.desc * {
-	color: whitesmoke;
-}
-
-@media (max-width: 1007px) {
-	.button-panel {
-		padding: 32px;
-	}
-	.button-item {
-		margin: 8px;
-	}
-	.button-item.image {
-		height: auto;
-	}
-	.button-item img {
-		object-fit: contain;
-	}
-	.button-item.desc {
-		padding: 8px 16px;
-	}
-}
-
-@media (max-width: 768px) {
-	.button-panel {
-		padding: 16px;
-	}
-	.button-item {
-		margin: 4px;
-	}
-	.button-item.desc {
-		padding: 4px 8px;
-	}
 }
 </style>

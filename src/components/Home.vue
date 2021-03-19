@@ -39,26 +39,12 @@
 				</p>
 			</div>
 		</div>
-		<div
+		<SelectionPanel
 			v-for="page in pages"
+			:page="page"
 			:key="page.pageName"
-			class="button-panel"
-			@click="$router.push(page.pageName.toLowerCase())"
-		>
-			<div class="button-content">
-				<div class="button-item image">
-					<img
-						:src="require(`../assets/images/${page.imageName}.jpg`)"
-					/>
-				</div>
-				<div class="button-item desc">
-					<h3>{{ page.enTitle }}</h3>
-					<p>{{ page.enDesc }}</p>
-					<h3 lang="zh-cn">{{ page.cnTitle }}</h3>
-					<p lang="zh-cn">{{ page.cnDesc }}</p>
-				</div>
-			</div>
-		</div>
+			@goTo="goTo"
+		></SelectionPanel>
 		<Gotop></Gotop>
 	</div>
 </template>
@@ -66,19 +52,21 @@
 <script>
 import Banner from './Banner.vue'
 import Gotop from './Gotop.vue'
+import SelectionPanel from './SelectionPanel.vue'
 
 export default {
 	name: 'Home',
 	components: {
 		Banner,
-		Gotop
+		Gotop,
+		SelectionPanel
 	},
 	data() {
 		return {
 			pages: [
 				{
 					pageName: 'About',
-					imageName: 'about',
+					imageName: 'about.jpg',
 					enTitle: 'About VIEWpoint',
 					enDesc:
 						'Find out more about how and why these materials were created as part of a global scientific collaboration.',
@@ -87,7 +75,7 @@ export default {
 				},
 				{
 					pageName: 'Resources',
-					imageName: 'resources',
+					imageName: 'resources.jpg',
 					enTitle: 'Resources',
 					enDesc:
 						'A variety of accessible information to browse on climate science and addressing the challenges of climate change.',
@@ -96,7 +84,7 @@ export default {
 				},
 				{
 					pageName: 'Demonstrators',
-					imageName: 'demonstrators',
+					imageName: 'demonstrators.jpg',
 					enTitle: 'Demonstrators',
 					enDesc:
 						'Explore climate datasets for yourself with easy-to-use interfaces to engage directly with the current and potential future scenarios.',
@@ -105,7 +93,7 @@ export default {
 				},
 				{
 					pageName: 'Catalogue',
-					imageName: 'catalogue',
+					imageName: 'catalogue.jpg',
 					enTitle: 'Catalogue of CSSP China published papers',
 					enDesc:
 						'The full suite of scientific peer-reviewed publications organised into a searchable catalogue which can be filtered by themes.',
@@ -116,14 +104,17 @@ export default {
 		}
 	},
 	methods: {
+		goTo(pageName) {
+			this.$router.push(pageName.toLowerCase())
+		},
 		scrollCursor() {
-			const buttons = document.getElementsByClassName('button-panel')
+			const buttons = document.getElementsByClassName('selection-panel')
 			for (let b = 0; b < buttons.length; b++) {
 				buttons[b].classList.add('scroll-cursor')
 			}
 		},
 		pointerCursor() {
-			const buttons = document.getElementsByClassName('button-panel')
+			const buttons = document.getElementsByClassName('selection-panel')
 			for (let b = 0; b < buttons.length; b++) {
 				buttons[b].classList.remove('scroll-cursor')
 			}
@@ -169,124 +160,19 @@ export default {
 	color: var(--vpOrange);
 }
 
-.button-panel {
-	width: 100%;
-	max-width: var(--widthLimit);
-	margin: 0 auto;
-	border: 1px solid transparent;
-	border-right-color: var(--primaryLightest);
-	border-left-color: var(--primaryLightest);
-	padding: 64px;
-	cursor: pointer;
-	transition: background 0.2s ease-in-out;
-}
-.button-panel.scroll-cursor {
-	cursor: ns-resize;
-}
-.button-panel:nth-of-type(odd) {
-	background: var(--primaryLightest);
-}
-
-.button-content {
-	background: transparent;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: stretch;
-}
-.button-content p:lang(zh-cn) {
-	margin-top: 12px;
-}
-
-.button-item {
-	max-width: 500px;
-	margin: 0 16px;
-	border: 2px solid transparent;
-}
-.button-item.image {
-	max-width: 400px;
+.selection-panel >>> .selection-item.image {
 	max-height: 250px;
-	flex: 2 2 40%;
-	background: rgba(65, 105, 91, 0.5); /*var(--vpGreen);*/
 }
-.button-item img {
-	height: 100%;
-	width: 100%;
-	object-fit: cover;
-	mix-blend-mode: luminosity;
-	filter: blur(0.5px) grayscale(100%) opacity(0.5);
-}
-.button-item.desc {
-	flex: 3 3 60%;
-	padding: 16px 32px;
-	background: var(--vpGreen);
-	color: var(--vpCoolGrey);
-}
-.button-item.desc * {
-	background: transparent;
-	color: currentColor;
-}
-.button-panel:nth-of-type(odd) .button-item.image {
-	background: var(--vpDarkImage);
-}
-.button-panel:nth-of-type(odd) .button-item.desc {
-	background: var(--vpDark);
-}
-.button-panel:nth-of-type(even) div.button-content {
-	flex-direction: row-reverse;
-}
-.button-panel:hover {
-	background: var(--bannerGrey);
-}
-.button-panel:hover .button-item {
-	border-color: var(--vpOrange);
-	box-shadow: 5px 5px 10px var(--vpDark);
-}
-.button-panel:hover .button-item.desc * {
-	color: whitesmoke;
-}
-
-/* for zooming image on hover * /
-.button-item.image {
-	position: relative;
-	overflow: hidden;
-}
-.button-item.image img {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translateX(-50%) translateY(-50%);
-	transition: width 0.3s ease-in-out 0s;
-	transition-property: width;
-}
-.button-panel:hover .button-item.image img {
-	width: 110%;
-}
-/* end of styling to zoom on hover */
 
 @media (max-width: 1007px) {
-	.about-page,
-	.button-panel {
+	.about-page {
 		padding: 32px;
-	}
-	.button-item {
-		margin: 8px;
-	}
-	.button-item.desc {
-		padding: 8px 16px;
 	}
 }
 
 @media (max-width: 768px) {
-	.about-page,
-	.button-panel {
+	.about-page {
 		padding: 16px;
-	}
-	.button-item {
-		margin: 4px;
-	}
-	.button-item.desc {
-		padding: 4px 8px;
 	}
 }
 </style>
