@@ -30,6 +30,8 @@
 				@click="goTo(opt.page)"
 			>
 				{{ opt.label || opt.page }}
+				<br class="wrap-item" v-if="!hamburgerMenu" />
+				{{ opt.cnLabel }}
 				<ul v-if="opt.options" class="sub-nav">
 					<li
 						v-for="sub in opt.options"
@@ -40,6 +42,8 @@
 						@click.stop="goTo(sub.page)"
 					>
 						{{ sub.label || sub.page }}
+						<br v-if="!hamburgerMenu" />
+						{{ sub.cnLabel}}
 					</li>
 				</ul>
 			</li>
@@ -82,29 +86,30 @@ export default {
 		return {
 			portal: false,
 			options: [
-				{ page: 'Home' },
-				{ page: 'About' },
+				{ page: 'Home', cnLabel: '首页' },
+				{ page: 'About', cnLabel: '关于' },
 				{ 
-					page: 'Resources',
+					page: 'Resources', cnLabel: '资源',
 					options: [
-						{ page: 'Handbook' },
-						{ page: 'Explainers' },
-						{ page: 'Briefing', label: 'Briefing notes' },
-						{ page: 'Videos' },
-						{ page: 'Infographics' },
-						{ page: 'Training', label: 'Training materials' }
+						{ page: 'Handbook', cnLabel:'手册' },
+						{ page: 'Explainers', cnLabel: ' 主题解说' },
+						{ page: 'Briefing', label: 'Briefing notes', cnLabel: '简报' },
+						{ page: 'Videos', cnLabel: '视频' },
+						{ page: 'Infographics', cnLabel: '信息图表'},
+						{ page: 'Training', cnLabel: '培训材料' }
 					]
 				},
 				{
 					page: 'Demonstrators',
+					cnLabel: '演示工具',
 					options: [
-						{ page: 'suhi', label: 'Surface Urban Heat Island' },
-						{ page: 'wrm', label: 'Water Resources Management' },
-						{ page: 'verdant', label: 'Verdant', disabled: true }
+						{ page: 'suhi', label: 'Surface Urban Heat Island', cnLabel: '地表城市热岛' },
+						{ page: 'wrm', label: 'Water Resources Management', cnLabel: '水资源管理' },
+						{ page: 'verdant', label: 'Verdant', cnLabel: '作物健康监测', disabled: true }
 					]
 				},
-				{ page: 'Catalogue' },
-				{ page: 'Glossary' }
+				{ page: 'Catalogue', cnLabel: '目录' },
+				{ page: 'Glossary', cnLabel: '术语表' }
 			],
 			timeout: null,
 			narrowPage: false,
@@ -283,7 +288,8 @@ ul.sub-nav {
 
 .nav-item {
 	list-style: none;
-	margin-left: 32px;
+	margin-left: 40px;
+	text-indent: -8px;
 	padding: 8px;
 	color: var(--whiteDisabled);
 	background: transparent;
@@ -297,6 +303,10 @@ ul.sub-nav {
 }
 .nav-item:hover:not([disabled]):not(.active) {
 	color: var(--whiteHover);
+}
+
+.nav-item .wrap-item {
+	display: none;
 }
 
 .nav-item:hover:not([disabled]) ul.sub-nav {
@@ -383,7 +393,9 @@ nav menu to make a reasonable vertical menu */
 }
 .main-nav.hamburger .nav-item {
 	margin-left: 8px;
+	padding: 4px 8px;
 }
+
 .main-nav.hamburger ul.sub-nav .nav-item {
 	list-style: inside square;
 	padding-left: 0;
@@ -396,15 +408,29 @@ nav menu to make a reasonable vertical menu */
 	}
 }
 
+@media (max-width: 1102px) {
+	.nav-item .wrap-item {
+		display: block;
+	}
+}
 @media (max-width: 1007px) {
 	.nav-menu {
 		padding: 0 8px;
 	}
 	.nav-item {
-		margin-left: 4px;
+		margin-left: 14px;
+		text-indent: -6px;
+	}
+	.nav-item .wrap-item {
+		display: none; /* font-size reduced so stop wrapping */
 	}
 	.nav-menu.stand-alone {
 		font-size: 13.69px;
+	}
+}
+@media (max-width: 740px) {
+	.nav-item .wrap-item {
+		display: block;
 	}
 }
 @media (max-width: 640px) {
@@ -412,10 +438,19 @@ nav menu to make a reasonable vertical menu */
 		padding: 0 4px;
 	}
 	.nav-item {
-		margin-left: 4px;
+		margin-left: 8px;
+		text-indent: -4px;
+	}
+	.nav-item .wrap-item {
+		display: none; /* font-size reduced again so stop wrapping */
 	}
 	.nav-menu.stand-alone {
 		font-size: 11.56px;
+	}
+}
+@media (max-width: 625px) {
+	.nav-item .wrap-item {
+		display: block;
 	}
 }
 </style>
