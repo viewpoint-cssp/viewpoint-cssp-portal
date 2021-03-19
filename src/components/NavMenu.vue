@@ -105,7 +105,7 @@ export default {
 					options: [
 						{ page: 'suhi', label: 'Surface Urban Heat Island', cnLabel: '地表城市热岛' },
 						{ page: 'wrm', label: 'Water Resources Management', cnLabel: '水资源管理' },
-						{ page: 'verdant', label: 'Verdant', cnLabel: '作物健康监测', disabled: true }
+						{ page: 'verdant', label: 'Verdant', cnLabel: '作物健康监测' }
 					]
 				},
 				{ page: 'Catalogue', cnLabel: '目录' },
@@ -156,6 +156,8 @@ export default {
 				location.href = 'https://the-iea.github.io/viewpoint-suhi'
 			} else if (page == 'wrm') {
 				location.href = 'https://the-iea.github.io/viewpoint-wrm'
+			} else if (page == 'verdant') {
+				location.href = ' https://the-iea.github.io/viewpoint-verdant'
 			}
 		},
 		// if called from the likes of SUHI or WRM pages: if the mouse is outside this navMenu for more

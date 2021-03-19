@@ -105,8 +105,7 @@ export default {
 						'Example output of satellite mapping of crop drought conditions, in development as an automated daily service. Developed with the University of Leicester.',
 					cnTitle: '作物健康监测',
 					cnDesc:
-						'用卫星地图输出的作物干旱状况示例，此工具将作为全自动化的日常监测服务。此工具是与莱斯特大学合作开发的。',
-					disabled: true
+						'用卫星地图输出的作物干旱状况示例，此工具将作为全自动化的日常监测服务。此工具是与莱斯特大学合作开发的。'
 				}
 			]
 		}
@@ -117,6 +116,8 @@ export default {
 				location.href = 'https://the-iea.github.io/viewpoint-suhi'
 			} else if (page == 'wrm') {
 				location.href = 'https://the-iea.github.io/viewpoint-wrm'
+			} else if (page == 'verdant') {
+				location.href = ' https://the-iea.github.io/viewpoint-verdant'
 			}
 		},
 		scrollCursor() {
