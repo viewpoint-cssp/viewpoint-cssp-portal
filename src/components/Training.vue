@@ -485,6 +485,7 @@ hr.contents-divider {
 	outline: 0;
 }
 .page-content >>> a:hover,
+.page-content >>> a:hover span,
 .page-content >>> a:hover svg path {
 	color: var(--vpOrange);
 }

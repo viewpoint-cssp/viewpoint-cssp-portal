@@ -41,7 +41,7 @@
 				>.
 			</p>
 			<p>
-				如果您熟悉Python并且已经安装了Python，请跳过安装<span
+				如果您熟悉Python并且已经安装了Python，请跳过安装&nbsp;<span
 					class="goto nowrap"
 					@click="$emit('skipTo', 'TrainingQgis')"
 				>
