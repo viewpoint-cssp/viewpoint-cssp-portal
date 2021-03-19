@@ -1,15 +1,12 @@
 # viewpoint-cssp-portal
 
-This is the VIEWpoint-CSSP portal. It is a work-in-progress.
+This is the VIEWpoint-CSSP website. It is still a work-in-progress.
 
 -   To do list includes (in no particular order and possibly incomplete):
-    -   translations where required
     -   review all images and reduce physical size
-    -   continuing browser and responsiveness testing
     -   final versions of PDFs, remove 'Draft's
     -   video IDs, video resolution selector
     -   add audiocast
-    -   proper page not found for invalid /page
 
 ## Project setup
 
