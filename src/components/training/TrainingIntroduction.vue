@@ -25,7 +25,13 @@
 			</p>
 			<p>
 				为了帮助您使用UMEP，您可以跟随研讨会材料、教程和视频这三个重要材料进行学习。
-				所有这些资源均是免费的，并且已经被重新组建以优化您的用户体验。示例数据可在教程中获得。关于UMEP及其相关项目的详细介绍可在UMEP网站上查阅。
+				所有这些资源均是免费的，并且已经被重新组建以优化您的用户体验。示例数据可在教程中获得。<a
+					href="https://umep-docs.readthedocs.io/en/latest/Introduction.html"
+					target="_blank"
+					rel="noopener noreferrer"
+					lang="zh-cn"
+					>关于UMEP</a
+				>及其相关项目的详细介绍可在UMEP网站上查阅。
 			</p>
 		</div>
 		<div class="bilingual">
@@ -43,10 +49,10 @@
 			<p>
 				如果您熟悉Python并且已经安装了Python，请跳过安装&nbsp;<span
 					class="goto nowrap"
+					lang="zh-cn"
 					@click="$emit('skipTo', 'TrainingQgis')"
 				>
-					<font-awesome-icon icon="forward"></font-awesome-icon>&nbsp;
-					<strong>QGIS和UMEP</strong></span
+					QGIS和UMEP</span
 				>一节。
 			</p>
 		</div>
@@ -63,7 +69,11 @@
 				section.
 			</p>
 			<p>
-				如果您已经安装了UMEP，并且已经完成准备，请跳过第一步。
+				如果您已经安装了UMEP，并且已经完成准备，请跳过<span
+					class="goto nowrap"
+					lang="zh-cn"
+					@click="$emit('skipTo', 'TrainingFirstSteps')"
+				>第一步</span>。
 			</p>
 		</div>
 		<div class="bilingual">
@@ -88,7 +98,13 @@
 				pages.
 			</p>
 			<p>
-				UMEP是一个强大的工具，让操作城市数据成为可能。如需获取现有教程的完整列表（内容包括特定地点的能源、水资源和辐射通量，复杂城市环境下的平均辐射温度建模以及其他内容），请参阅UMEP教程。这里提供了一些详细的示例和安装说明。有关更多信息，请参阅链接页面。
+				UMEP是一个强大的工具，让操作城市数据成为可能。如需获取现有教程的完整列表（内容包括特定地点的能源、水资源和辐射通量，复杂城市环境下的平均辐射温度建模以及其他内容），请参阅<a
+					href="https://umep-docs.readthedocs.io/projects/tutorial/en/latest/index.html"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="nowrap"
+					lang="zh-cn"
+				>UMEP教程</a>。这里提供了一些详细的示例和安装说明。有关更多信息，请参阅链接页面。
 			</p>
 		</div>
 		<div class="bilingual">
@@ -147,6 +163,11 @@ export default {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: stretch;
+}
+
+a:lang(zh-cn) {
+	text-decoration: underline !important;
+	color: var(--chineseAnchor);
 }
 
 a.download,

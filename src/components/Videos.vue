@@ -24,7 +24,7 @@
 					@click="selectPage(page.name)"
 				>
 					<p>{{ page.enLabel }}</p>
-					<p lang="zh-cn">{{ page.cnLabel || 'TODO: Chinese' }}</p>
+					<p lang="zh-cn">{{ page.cnLabel }}</p>
 				</div>
 			</div>
 		</div>
@@ -41,7 +41,7 @@
 			<div class="bilingual">
 				<p class="text english">{{ page.enText }}</p>
 				<p class="text chinese" lang="zh-cn">
-					{{ page.cnText || 'TODO: Chinese here' }}
+					{{ page.cnText }}
 				</p>
 			</div>
 			<div class="video-wrapper">

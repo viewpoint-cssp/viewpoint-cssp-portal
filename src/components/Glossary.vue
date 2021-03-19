@@ -1,6 +1,10 @@
 <template>
 	<div>
-		<Banner class="banner-style" enTitle="Glossary" cnTitle="术语表"></Banner>
+		<Banner
+			class="banner-style"
+			enTitle="Glossary"
+			cnTitle="术语表"
+		></Banner>
 		<div class="about-page">
 			<div class="bilingual">
 				<p>
@@ -26,8 +30,8 @@
 						Chinese from experience in CSSP China.
 					</p>
 					<p lang="zh-cn">
-						本术语表中的气候科学术语是那些通常被非专业人士误解的术语，或者是那些根据“气候科学支持服务伙伴关系中国项目
-						(CSSP China)”的经验很难翻译为普通话的术语。
+						本术语表中的气候科学术语是那些通常被非专业人士误解的术语，或者是那些根据“气候科学支持服务伙伴关系计划中国项目
+						(CSSP China）”的经验很难翻译为普通话 中文的术语。
 					</p>
 				</div>
 				<div class="bilingual">
@@ -41,7 +45,8 @@
 						future.
 					</p>
 					<p lang="zh-cn">
-						我们希望本术语表对那些寻求准确地在气候科学方面进行英文-中文（普通话）的翻译的人员有所帮助。本术语表也可以打印，并用作翻译人员的快速指南。值得注意的是，气候科学中使用的语言正在不断发展，即使是精确的定义也可能会在将来改变。
+						我们希望本术语表对那些寻求准确地在气候科学方面进行英文转换中文的翻译
+						的人员有所帮助。本术语表也可以打印，并用作翻译人员的快速指南。值得注意的是，气候科学中使用的语言正在不断发展，即使是精确的定义也可能会在将来改变。
 					</p>
 				</div>
 			</div>
@@ -62,7 +67,8 @@
 					<font-awesome-icon
 						icon="chevron-up"
 						:class="{ expanded: !showMore }"
-					></font-awesome-icon>&nbsp;
+					></font-awesome-icon
+					>&nbsp;
 					<span lang="zh-cn" v-if="showMore">显示较少</span>
 					<span lang="zh-cn" v-else>显示更多</span>
 				</div>

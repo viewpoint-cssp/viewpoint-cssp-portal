@@ -1,7 +1,7 @@
 <template>
 	<div class="about">
-		<Banner 
-			class="banner-style" 
+		<Banner
+			class="banner-style"
 			enTitle="About VIEWpoint"
 			cnTitle="关于VIEWpoint新观点项目"
 		></Banner>
@@ -112,8 +112,12 @@
 					leading to lasting benefits for China.
 				</p>
 				<p lang="zh-cn">
-					VIEWpoint新观点隶属于CSSP
-					China项目，由位于英国雷丁大学的环境分析研究所运行。我们致力于提供各种高质量资讯，以支持证据基准的决策，从而应对气候风险，使中国社会长期受益。
+					VIEWpoint新观点隶属于CSSP China项目，由位于英国雷丁大学的<a
+						href="https://www.the-iea.org"
+						target="_blank"
+						rel="noopener noreferrer"
+						>环境分析研究所</a
+					>运行。我们致力于提供各种高质量资讯，以支持证据基准的决策，从而应对气候风险，使中国社会长期受益。
 				</p>
 			</div>
 			<div class="bilingual">

@@ -1,6 +1,10 @@
 <template>
 	<div>
-		<Banner class="banner-style" enTitle="Explainers" cnTitle="主题解说"></Banner>
+		<Banner
+			class="banner-style"
+			enTitle="Explainers"
+			cnTitle="主题解说"
+		></Banner>
 		<div class="about-page">
 			<div class="bilingual">
 				<p>
@@ -10,7 +14,7 @@
 					publications.
 				</p>
 				<p lang="zh-cn">
-					主题解说是对中英气候科学支持服务伙伴关系计划研究工作的概述。每个解说涵盖了该主题研究的的重要性、研究方法和来源链接
+					主题解说是对气候科学支持服务伙伴关系（CSSP）计划中国项目研究工作的概述。每个解说涵盖了该主题研究的的重要性、研究方法和来源链接。
 				</p>
 			</div>
 		</div>
@@ -70,13 +74,11 @@
 				<div class="title" v-else-if="doc.cnTitle">
 					<h3 lang="zh-cn">{{ doc.cnTitle }}</h3>
 					<p lang="zh-cn" style="opacity:0.3;">
-						Not yet available in Chinese
+						暂无中文版
 					</p>
 				</div>
 				<div class="title" v-else>
-					<p lang="zh-cn">
-						TODO: 'Not available in Chinese' in Chinese!
-					</p>
+					<p lang="zh-cn">暂无中文版</p>
 				</div>
 			</div>
 		</div>

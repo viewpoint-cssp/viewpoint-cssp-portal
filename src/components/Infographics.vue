@@ -103,12 +103,12 @@
 					<div class="title" v-else-if="doc.cnTitle">
 						<h3 lang="zh-cn">{{ doc.cnTitle }}</h3>
 						<p lang="zh-cn" style="opacity:0.3;">
-							Not available in Chinese
+							暂无中文版
 						</p>
 					</div>
 					<div class="title" v-else>
 						<p lang="zh-cn">
-							TODO: 'Not available in Chinese' in Chinese!
+							暂无中文版
 						</p>
 					</div>
 				</div>
@@ -218,7 +218,7 @@ export default {
 					enPdf: 'I04-en-seasonal-forecast',
 					enTitle:
 						'Seasonal forecast service for the Yangtze River Basin',
-					cnTitle: '长江流域季节性预报服务'
+					cnTitle: '长江流域的季节性预测服务'
 				},
 				{
 					enPdf: 'I05-en-assessing-risk',

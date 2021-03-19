@@ -74,13 +74,11 @@
 				<div class="title" v-else-if="doc.cnTitle">
 					<h3 v-if="doc.cnTitle" lang="zh-cn">{{ doc.cnTitle }}</h3>
 					<p lang="zh-cn" style="opacity:0.3;">
-						Not yet available in Chinese
+						暂无中文版
 					</p>
 				</div>
 				<div class="title" v-else>
-					<p lang="zh-cn">
-						TODO: 'Not available in Chinese' in Chinese!
-					</p>
+					<p lang="zh-cn">暂无中文版</p>
 				</div>
 			</div>
 		</div>

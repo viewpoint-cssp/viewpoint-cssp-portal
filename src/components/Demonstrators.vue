@@ -35,18 +35,19 @@
 							></font-awesome-icon>
 							Institute
 						</span>
-						for Environmental Analytics (IEA)</a
+						for Environmental Analytics</a
 					>
-					based on user requirements and the data provided by projects
-					in CSSP China.
+					(IEA) based on user requirements and the data provided by
+					projects in CSSP China.
 				</p>
 				<p lang="zh-cn">
-					这些演示工具是<a
+					这些演示工具是由<a
 						href="https://www.the-iea.org"
 						target="_blank"
 						rel="noopener noreferrer"
-						>由环境分析研究所（IEA）</a
-					>根据用户需求以及CSSP中国项目中所提供的数据共同开发的。
+						lang="zh-cn"
+						>环境分析研究所</a
+					>（IEA）根据用户需求以及CSSP中国项目中所提供的数据共同开发的。
 				</p>
 			</div>
 		</div>

@@ -474,6 +474,10 @@ hr.contents-divider {
 .page-content >>> span.goto {
 	cursor: pointer;
 }
+.page-content >>> span.goto:lang(zh-cn) {
+	color: var(--chineseAnchor);
+	text-decoration: underline;
+}
 .page-content >>> span.goto:hover,
 .page-content >>> span.goto:hover strong,
 .page-content >>> span.goto:hover svg path {
