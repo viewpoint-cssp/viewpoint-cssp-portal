@@ -1,6 +1,9 @@
 <template>
 	<div>
-		<h1>Introduction <span lang="zh-cn">介绍</span></h1>
+		<div class="bilingual">
+			<h1>Introduction</h1>
+			<h1 lang="zh-cn">介绍</h1>
+		</div>
 		<div class="bilingual">
 			<p>
 				There are three key resources available for help with using
@@ -154,6 +157,7 @@ export default {
 .bilingual {
 	margin: 16px 64px !important;
 }
+.bilingual h1,
 .bilingual p {
 	margin: 0 !important;
 }

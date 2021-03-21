@@ -23,7 +23,7 @@
 						:class="{ selected: page == 'TrainingIntroduction' }"
 						@click="page = 'TrainingIntroduction'"
 					>
-						Introduction <span lang="zh-cn">介绍</span>
+						Introduction <sup>介绍</sup>
 					</div>
 					<div
 						class="section"
@@ -437,6 +437,12 @@ img#logo {
 .section:hover,
 .section:hover path {
 	color: var(--vpOrange);
+}
+
+.section sup {
+	color: inherit;
+	font-size: 0.9rem;
+	cursor: inherit;
 }
 
 hr {

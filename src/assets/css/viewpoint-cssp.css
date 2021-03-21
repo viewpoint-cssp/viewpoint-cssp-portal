@@ -256,6 +256,7 @@ td {
 	justify-content: space-between;
 	align-items: flex-start;
 }
+.bilingual h1,
 .bilingual h2,
 .bilingual p {
 	width: 48%;
