@@ -31,7 +31,7 @@
 			>
 				{{ opt.label || opt.page }}
 				<br class="wrap-item" v-if="!hamburgerMenu" />
-				{{ opt.cnLabel }}
+				<sup>{{ opt.cnLabel }}</sup>
 				<ul v-if="opt.options" class="sub-nav">
 					<li
 						v-for="sub in opt.options"
@@ -42,8 +42,8 @@
 						@click.stop="goTo(sub.page)"
 					>
 						{{ sub.label || sub.page }}
-						<br v-if="!hamburgerMenu" />
-						{{ sub.cnLabel}}
+						<br v-if="opt.brBeforeCn && !hamburgerMenu" />
+						<sup>{{ sub.cnLabel}}</sup>
 					</li>
 				</ul>
 			</li>
@@ -102,6 +102,7 @@ export default {
 				{
 					page: 'Demonstrators',
 					cnLabel: '演示工具',
+					brBeforeCn: true,
 					options: [
 						{ page: 'suhi', label: 'Surface Urban Heat Island', cnLabel: '地表城市热岛' },
 						{ page: 'wrm', label: 'Water Resources Management', cnLabel: '水资源管理' },
@@ -306,8 +307,14 @@ ul.sub-nav {
 .nav-item:hover:not([disabled]):not(.active) {
 	color: var(--whiteHover);
 }
+.nav-item sup {
+	background: transparent;
+	color: inherit;
+	font-size: 0.85rem;
+	cursor: inherit;
+}
 
-.nav-item .wrap-item {
+.nav-item br.wrap-item {
 	display: none;
 }
 
@@ -389,18 +396,17 @@ nav menu to make a reasonable vertical menu */
 	margin: 0;
 	left: unset;
 	display: block;
-	padding-left: 0;
-	padding-bottom: 0;
+	padding: 0;
 	border-bottom: none;
 }
 .main-nav.hamburger .nav-item {
 	margin-left: 8px;
-	padding: 4px 8px;
+	padding: 2px 8px;
 }
 
 .main-nav.hamburger ul.sub-nav .nav-item {
 	list-style: inside square;
-	padding-left: 0;
+	padding: 0 24px 4px 0; 
 }
 
 @media (min-width: 1400px) {
@@ -411,7 +417,7 @@ nav menu to make a reasonable vertical menu */
 }
 
 @media (max-width: 1102px) {
-	.nav-item .wrap-item {
+	.nav-item br.wrap-item {
 		display: block;
 	}
 }
@@ -423,7 +429,7 @@ nav menu to make a reasonable vertical menu */
 		margin-left: 14px;
 		text-indent: -6px;
 	}
-	.nav-item .wrap-item {
+	.nav-item br.wrap-item {
 		display: none; /* font-size reduced so stop wrapping */
 	}
 	.nav-menu.stand-alone {
@@ -431,7 +437,7 @@ nav menu to make a reasonable vertical menu */
 	}
 }
 @media (max-width: 740px) {
-	.nav-item .wrap-item {
+	.nav-item br.wrap-item {
 		display: block;
 	}
 }
@@ -443,7 +449,7 @@ nav menu to make a reasonable vertical menu */
 		margin-left: 8px;
 		text-indent: -4px;
 	}
-	.nav-item .wrap-item {
+	.nav-item br.wrap-item {
 		display: none; /* font-size reduced again so stop wrapping */
 	}
 	.nav-menu.stand-alone {
@@ -451,7 +457,7 @@ nav menu to make a reasonable vertical menu */
 	}
 }
 @media (max-width: 625px) {
-	.nav-item .wrap-item {
+	.nav-item br.wrap-item {
 		display: block;
 	}
 }
