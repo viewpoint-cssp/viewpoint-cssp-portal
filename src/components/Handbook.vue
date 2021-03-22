@@ -20,7 +20,7 @@
 				<a
 					class="download"
 					:href="
-						require('../assets/pdfs/DRAFT_06_VP Handbook_SS Feb 22.pdf')
+						require('../assets/pdfs/handbook-en-webversion-opt.pdf')
 					"
 					download="VIEWpoint-Handbook-en.pdf"
 					target="_blank"
@@ -34,7 +34,7 @@
 				<a
 					class="download"
 					:href="
-						require('../assets/pdfs/placeholder.pdf')
+						require('../assets/pdfs/handbook-cn-webversion-opt.pdf')
 					"
 					download="VIEWpoint-Handbook-cn.pdf"
 					target="_blank"
@@ -64,7 +64,7 @@
 						@click="moveToIndex('prev')"
 						title="Go to previous page"
 					></font-awesome-icon>
-					<p>{{ pageNumber }} of {{ this.sides.length }}</p>
+					<p>{{ pageNumber }}</p>
 					<font-awesome-icon
 						icon="caret-right"
 						class="toggle-icon"
@@ -95,7 +95,7 @@
 								v-for="(section, i) in sections"
 								:key="`section-${i}`"
 								class="nav-item"
-								@click.stop="moveToIndex(section[showMode])"
+								@click.stop="moveToIndex(section[showMode] - 1)"
 							>
 								{{ section.name }}
 							</li>
@@ -114,7 +114,7 @@
 					<a
 						class="download TODO"
 						:href="
-							require('../assets/pdfs/DRAFT_06_VP Handbook_SS Feb 22.pdf')
+							require(`../assets/pdfs/handbook-${language}-webversion-opt.pdf`)
 						"
 						download="`VIEWpoint-handbook-${language}.pdf`"
 						target="_blank"
@@ -204,6 +204,9 @@
 import Banner from './Banner.vue'
 import { Slider, SliderItem } from 'vue-easy-slider'
 
+const SPREADWIDTH = 1191
+const PAGEHEIGHT = 842
+
 export default {
 	name: 'Handbook',
 	components: {
@@ -231,13 +234,24 @@ export default {
 	},
 	computed: {
 		pageNumber() {
+			let noLabel = this.narrowPage || this.language == 'cn'
+			if (!noLabel) {
+				const toggles = document.getElementsByClassName('toggles')
+				if (toggles.length > 0 && toggles[0].getBoundingClientRect().width < 460) {
+					noLabel = true
+				}
+			}
+			let suffix = noLabel ? '/' : ' of ' 
+			suffix += this.sides.length
 			if (this.showMode == 'sides') {
-				return `${this.narrowPage ? '' : 'Page '}${this.sideIndex + 1}`
+				return `${noLabel ? '' : 'Page '}${this.sideIndex + 1}${suffix}`
 			} else if (this.spreadIndex == 0) {
-				return `${this.narrowPage ? '' : 'Page '}1`
+				return `${noLabel ? '' : 'Page '}1${suffix}`
+			} else if (this.spreadIndex == this.spreads.length - 1) {
+				return `${noLabel ? '' : 'Page '}${this.sides.length}${suffix}`
 			} else {
-				return `${this.narrowPage ? '' : 'Pages '}${this.spreadIndex *
-					2}/${this.spreadIndex * 2 + 1}`
+				return `${noLabel ? '' : 'Pages '}${this.spreadIndex *
+					2}${noLabel ? '-' : '/'}${this.spreadIndex * 2 + 1}${suffix}`
 			}
 		}
 	},
@@ -406,47 +420,86 @@ export default {
 			this.sides = []
 			this.sections = []
 			if (this.language == 'en') {
-				// TODO finalise JPGs
-				for (let i = 1; i < 34; i++) {
+				for (let i = 1; i < 36; i++) {
 					this.spreads.push(
-						require(`../assets/images/DRAFT_06_VP Handbook_SS Feb 221024_${i}.jpg`)
+						require(`../assets/images/MASTER_ENG_VP_Handbook_Web${i}.jpg`)
 					)
 					this.sides.push(
-						require(`../assets/images/DRAFT_06_VP Handbook_SS Feb 221024_${i}.jpg`)
+						require(`../assets/images/MASTER_ENG_VP_Handbook_Web${i}.jpg`)
 					)
-					if (i > 1) {
+					if (i > 1 && i < 35) {
 						this.sides.push(
-							require(`../assets/images/DRAFT_06_VP Handbook_SS Feb 221024_${i}.jpg`)
+							require(`../assets/images/MASTER_ENG_VP_Handbook_Web${i}.jpg`)
 						)
 					}
 				}
-				// TODO determine sections
+				// note these are real page numbers, not array index references 
+				// (so, for ease of moveToIndex, spreads are real too)
 				this.sections = [
-					{
-						name: 'Introduction by the MetOffice',
-						spreads: 4,
-						sides: 7
-					},
-					{ name: 'Using the Handbook', spreads: 5, sides: 9 },
-					{ name: 'Explainers', spreads: 17, sides: 33 },
-					{ name: 'Infographics', spreads: 25, sides: 49 },
-					{ name: 'Demonstrators', spreads: 27, sides: 54 },
-					{ name: 'Briefing notes', spreads: 28, sides: 55 }
+					{ name: 'Foreword', spreads: 3, sides: 4 },
+					{ name: 'Welcome', spreads: 4, sides: 7 },
+					{ name: 'Using the VIEWpoint handbook', spreads: 7, sides: 12 },
+					{ name: 'CSSP China themes', spreads: 7, sides: 13 },
+					{ name: 'The CSSP China Project', spreads: 8, sides: 14 },
+					{ name: 'Catalogue of published papers', spreads: 8, sides: 15 },
+					{ name: 'Food security', spreads: 9, sides: 16 },
+					{ name: 'Historic data rescue', spreads: 10, sides: 19 },
+					{ name: 'Yangtze River Basin seasonal forecasts', spreads: 11, sides: 21 },
+					{ name: 'Seasonal forecasting of tropical cyclones', spreads: 13, sides: 24 },
+					{ name: 'Implications of climate change for tea production', spreads: 14, sides: 26 },
+					{ name: 'Attribution workshops', spreads: 15, sides: 28 },
+					{ name: 'Untangling the natural from the man-made', spreads: 16, sides: 31 },
+					{ name: 'Climate risk assessment of infrastructure', spreads: 17, sides: 32 },
+					{ name: 'Explainers', spreads: 18, sides: 34 },
+					{ name: 'Working together – photo album', spreads: 25, sides: 49 },
+					{ name: 'Infographics', spreads: 26, sides: 50 },
+					{ name: 'VIEWpoint demonstrators', spreads: 28, sides: 55 },
+					{ name: 'Briefing Notes', spreads: 29, sides: 56 },
+					{ name: 'Guide to climate science terminology', spreads: 34, sides: 66 }
 				]
 			} else {
-				// TODO finalise for Chinese version (currently just the draft front cover)
-				this.spreads.push(
-					require(`../assets/images/DRAFT_06_VP Handbook_SS Feb 221024_1.jpg`)
-				)
-				this.sides.push(
-					require(`../assets/images/DRAFT_06_VP Handbook_SS Feb 221024_1.jpg`)
-				)
-				// TODO don't forget the sections!
+				for (let i = 1; i < 36; i++) {
+					this.spreads.push(
+						require(`../assets/images/MASTER_CHN_VP_Handbook_Web${i}.jpg`)
+					)
+					this.sides.push(
+						require(`../assets/images/MASTER_CHN_VP_Handbook_Web${i}.jpg`)
+					)
+					if (i > 1 && i < 35) {
+						this.sides.push(
+							require(`../assets/images/MASTER_CHN_VP_Handbook_Web${i}.jpg`)
+						)
+					}
+				}
+				this.sections = [
+					{ name: '英国驻中华人民共和国大使致辞', spreads: 3, sides: 4 },
+					{ name: '欢迎', spreads: 4, sides: 7 },
+					{ name: '新观点手册的使用', spreads: 7, sides: 12 },
+					{ name: '项目的话题', spreads: 7, sides: 13 },
+					{ name: '气候科学支持服务伙伴关系（CSSP）计划', spreads: 8, sides: 14 },
+					{ name: '发表论文目录', spreads: 8, sides: 15 },
+					{ name: '粮食安全', spreads: 9, sides: 16 },
+					{ name: '恢复历史数据', spreads: 10, sides: 19 },
+					{ name: '长江流域的季节性预测服务', spreads: 11, sides: 21 },
+					{ name: '热带气旋的季节性预报', spreads: 13, sides: 24 },
+					{ name: '气候变化对茶叶生产的影响:挑战与机遇', spreads: 14, sides: 26 },
+					{ name: '归因研讨会', spreads: 15, sides: 28 },
+					{ name: '厘清自然与人为因素', spreads: 16, sides: 31 },
+					{ name: '基础设施的气候风险评估', spreads: 17, sides: 32 },
+					{ name: '合作解说', spreads: 18, sides: 34 },
+					{ name: '相册展示：项目人员齐心协力', spreads: 25, sides: 49 },
+					{ name: '信息图', spreads: 26, sides: 50 },
+					{ name: '新观点演示工具', spreads: 28, sides: 55 },
+					{ name: '简报', spreads: 29, sides: 56 },
+					{ name: '气候科学术语指南', spreads: 34, sides: 66 }
+				]
 			}
 		},
 		resized() {
-			if (window.matchMedia('(max-width: 756px)').matches) {
-				// less than 724px + 16px either side is narrow
+			let testHeight = PAGEHEIGHT + 32
+			let testWidth = SPREADWIDTH + 32
+			if (window.matchMedia(`(max-width: ${testHeight}px)`).matches) {
+				// less than PAGEHEIGHTpx + 16px either side is narrow
 				if (!this.narrowPage) {
 					// when first becames too narrow, change to fullwidth single page view
 					this.narrowPage = true
@@ -454,8 +507,8 @@ export default {
 					this.fullWidth = true // TODO use this to hide buttons?
 					this.changedWidth = 0
 				}
-			} else if (!window.matchMedia('(max-width: 1056px)').matches) {
-				// more than 1024px + 16px either side is wide
+			} else if (!window.matchMedia(`(max-width: ${testWidth}px)`).matches) {
+				// more than SPREADWIDTHpx + 16px either side is wide
 				if (this.narrowPage) {
 					// when first no longer narrow, change to two page spreads and normal width view
 					this.narrowPage = false
@@ -464,13 +517,13 @@ export default {
 					this.changedWidth = 0
 				}
 			} else if (this.narrowPage) {
-				// when first no longer narrow (more than 724px + 16px and less than 1024 + 16px),
-				// just change flag without changing view
+				// when first no longer narrow (more than PAGEHEIGHTpx + 16px and less
+				// than SPREADWIDTH + 16px),just change flag without changing view
 				this.narrowPage = false
 				this.changedWidth = 0
 			}
-			// default size of .jpg is 1024 x 724 (landscape 2-page spread)
-			const ratio = (this.showMode == 'sides' ? 512 : 1024) / 724
+			// default size of .jpg is SPREADWIDTH x PAGEHEIGHT (landscape 2-page spread)
+			const ratio = SPREADWIDTH * (this.showMode == 'sides' ? 0.5 : 1) / PAGEHEIGHT
 			let width
 			let height
 			if (this.fullWidth) {
@@ -497,7 +550,7 @@ export default {
 			)
 			document.documentElement.style.setProperty(
 				'--handbookScale',
-				`${width / (this.showMode == 'sides' ? 512 : 1024)}`
+				`${width / (SPREADWIDTH * (this.showMode == 'sides' ? 0.5 : 1))}`
 			)
 			let skew = width < 1180 ? 2 : 1
 			document.documentElement.style.setProperty(
@@ -648,7 +701,7 @@ ul.contents-list {
 	top: 30px;
 	left: -18px;
 	width: max-content;
-	z-index: 101;
+	z-index: 1001; /* slider buttons are at 999 */
 	padding: 8px;
 	background: var(--vpDark);
 	display: flex;
@@ -758,19 +811,23 @@ ul.contents-list.show-contents {
 	transform-origin: left top;
 }
 
-/* cover page will be formatted portrait so this is needed to correct that */
-/* TODO back page (if single page) will also be formatted portrait so similar is needed to correct that too */
-.slider >>> .slider-item:first-of-type img {
+/* cover and back pages will be formatted portrait so this is needed to correct that */
+.slider >>> .slider-item:first-of-type img,
+.slider >>> .slider-item:last-of-type img {
 	width: var(--handbookWidth);
 	height: var(--handbookHeight);
 }
-.slider:not(.sides) >>> .slider-item:first-of-type img {
-	/* since cover is only one page wide, this will correct that width problem */
+.slider:not(.sides) >>> .slider-item:first-of-type img,
+.slider:not(.sides) >>> .slider-item:last-of-type img {
+	/* since cover and back are only one page wide, this will correct that width problem */
 	transform: scaleX(0.5);
-	/* and this will ensure it's on the right hand side */
+}
+.slider:not(.sides) >>> .slider-item:first-of-type img {
+	/* and this will ensure the cover is on the right hand side */
 	transform-origin: right top;
 }
-.slider.sides >>> .slider-item:first-of-type img {
+.slider.sides >>> .slider-item:first-of-type img,
+.slider.sides >>> .slider-item:last-of-type img {
 	clip-path: none; /* don't need to clip anything */
 	transform: none;
 }
