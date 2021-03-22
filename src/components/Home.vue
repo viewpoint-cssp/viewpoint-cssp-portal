@@ -22,7 +22,7 @@
 						></font-awesome-icon
 						>&nbsp;CSSP China (Climate Science for Service
 						Partnership China)</a
-					> programme. VIEWpoint has created tools, demonstrators,
+					> project. VIEWpoint has created tools, demonstrators,
 					articles and videos to make research outputs more accessible
 					to a wider audience, including government, industry and the
 					public.
