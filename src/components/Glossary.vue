@@ -227,7 +227,7 @@ export default {
 			header: {},
 			glossary: [],
 			narrowPage: false,
-			suppressComments: true,
+			suppressComments: false,
 			showMore: false
 		}
 	},
@@ -270,10 +270,6 @@ export default {
 				this.narrowPage = true
 			} else {
 				this.narrowPage = false
-			}
-			// and set table margins to auto for centering
-			if (table.length > 0) {
-				table[0].classList.add('center')
 			}
 		}
 	},
@@ -495,12 +491,7 @@ div.glossary-comments hr {
 
 table {
 	max-width: min(calc(100% - 24px), 1230px);
-	margin: 12px 64px;
-}
-
-table.center {
-	margin-left: auto;
-	margin-right: auto;
+	margin: 12px auto;
 }
 
 tr:nth-of-type(even) {
