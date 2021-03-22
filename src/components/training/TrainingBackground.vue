@@ -41,7 +41,7 @@
 					<font-awesome-icon
 						icon="link"
 					></font-awesome-icon>
-					<strong>Videos and audiocasts</strong></span
+					<strong>Videos</strong></span
 				> page before continuing.
 			</span>
 		</p>
@@ -53,7 +53,7 @@
 				<font-awesome-icon
 					icon="link"
 				></font-awesome-icon>
-				<strong>Videos and audiocasts</strong></span
+				<strong>Videos</strong></span
 			> page.
 		</p>
 		<p v-for="(video, i) of videos" :key="i">

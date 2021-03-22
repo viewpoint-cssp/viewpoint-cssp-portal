@@ -74,7 +74,6 @@ export const videoPages = [
 	},
 	{
 		name: 'climate',
-		disabled: true,
 		enLabel: 'Infrastructure design',
 		enText: `For those who want to explore their own hands-on
 					information, CSSP China has produced practical tools for
@@ -89,29 +88,29 @@ export const videoPages = [
 		videos: {
 			en: [
 				{
-					id: '',
+					id: 'N4XMzHJA',
 					title: 'City packs and urban heat service'
 				},
 				{
-					id: '',
+					id: 'YCRys6ry',
 					title: 'Visualising the surface urban heat island'
 				},
 				{
-					id: '',
+					id: 'kp9sYZHs',
 					title: 'Climate risk assessments for infrastructure'
 				}
 			],
 			cn: [
 				{
-					id: '',
+					id: 'd15cOZIH',
 					title: '城市包和城市高温服务'
 				},
 				{
-					id: '',
+					id: 'Oqk9Qh7o',
 					title: '界面可视化和城市热岛'
 				},
 				{
-					id: '',
+					id: '5iZMeUsr',
 					title: '城市基础设施的气候风险评估'
 				}
 			]
