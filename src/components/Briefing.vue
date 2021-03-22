@@ -104,34 +104,32 @@ export default {
 						'Why is it so important to control sulphate aerosols? A complex role in a warming climate',
 					enPdf:
 						'BN01-en-sulphate-aerosol',
-					enDraft: true,
 					cnTitle: '为什么控制硫酸盐气溶胶如此重要？--一个在气候变暖问题发挥复杂作用的角色',
 					cnPdf: 'BN01-cn-sulphate-aerosol',
-					imgCredit: 'Photoholgic, Unsplash'
+					imgCredit: 'Photoholgic, Unsplash',
+					imgAlt: 'Air Pollution in Shanghai'
 				},
 				{
 					enTitle:
-						'Urban flood control in coastal mega cities: an application to Shanghai',
+						'Urban flood control in coastal mega cities: Shanghai',
 					enPdf: 'BN02-en-urban-flood',
-					enDraft: true,
 					cnTitle: '沿海大城市的城市防洪：上海的应用实例',
 					cnPdf: 'BN02-cn-urban-flood',
-					imgCredit: 'Kelly Sikkema, Unsplash'
+					imgCredit: 'Kelly Sikkema, Unsplash',
+					imgAlt: 'Urban flood'
 				},
 				{
-					enTitle:
-						'Food security',
-					enPdf: 'BN03-cn-food-security',
-					enDraft: true,
+					enTitle: 'Risks to food security in China under climate change',
+					enPdf: 'BN03-en-food-security',
 					cnTitle: '气候变化对中国粮食安全的威胁',
 					cnPdf: 'BN03-cn-food-security',
-					imgCredit: ' Pixabay.com'
+					imgCredit: ' Pixabay.com',
+					imgAlt: 'Maize harvest'
 				},
 				{
 					enTitle:
-						'Communicating uncertainty',
-					enPdf: 'BN04-cn-communicating-uncertainity',
-					enDraft: true,
+						'Communicating uncertainty in climate and extreme weather forecasting',
+					enPdf: 'BN04-en-communicating-uncertainity',
 					cnTitle: '传达气候预报和极端天气预报的不确定性',
 					cnPdf: 'BN04-cn-communicating-uncertainity',
 					imgCredit: 'www.viewpoint-cssp.org/glossary',
