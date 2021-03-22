@@ -103,7 +103,7 @@ export default {
 					enTitle: 'Verdant',
 					enDesc:
 						'Example output of satellite mapping of crop drought conditions, in development as an automated daily service. Developed with the University of Leicester.',
-					cnTitle: '作物健康监测',
+					cnTitle: '作物干旱状况监测',
 					cnDesc:
 						'用卫星地图输出的作物干旱状况示例，此工具将作为全自动化的日常监测服务。此工具是与莱斯特大学合作开发的。'
 				}

@@ -106,7 +106,7 @@ export default {
 					options: [
 						{ page: 'suhi', label: 'Surface Urban Heat Island', cnLabel: '地表城市热岛' },
 						{ page: 'wrm', label: 'Water Resources Management', cnLabel: '水资源管理' },
-						{ page: 'verdant', label: 'Verdant', cnLabel: '作物健康监测' }
+						{ page: 'verdant', label: 'Verdant', cnLabel: '作物干旱状况监测' }
 					]
 				},
 				{ page: 'Catalogue', cnLabel: '目录' },
