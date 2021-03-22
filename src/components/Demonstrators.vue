@@ -79,7 +79,7 @@ export default {
 			pages: [
 				{
 					pageName: 'suhi',
-					imageName: 'suhi-laptop.png',
+					imageName: 'suhi-laptop.jpg',
 					enTitle: 'Surface Urban Heat Island',
 					enDesc:
 						'Use satellite data to explore the variation in surface temperatures across four cities in China. Developed with the Met Office.',
@@ -89,7 +89,7 @@ export default {
 				},
 				{
 					pageName: 'wrm',
-					imageName: 'wrm-laptop.png',
+					imageName: 'wrm-laptop.jpg',
 					enTitle: 'Water Resources Management',
 					enDesc:
 						'A prototype dashboard to investigate the impact of climate change and water abstraction on the Upper Yellow River basin. Developed with the University of Leeds.',
@@ -99,7 +99,7 @@ export default {
 				},
 				{
 					pageName: 'verdant',
-					imageName: 'verdant-laptop.png',
+					imageName: 'verdant-laptop.jpg',
 					enTitle: 'Verdant',
 					enDesc:
 						'Example output of satellite mapping of crop drought conditions, in development as an automated daily service. Developed with the University of Leicester.',

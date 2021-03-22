@@ -42,6 +42,7 @@
 		<SelectionPanel
 			v-for="page in pages"
 			:page="page"
+			:color="true"
 			:key="page.pageName"
 			@goTo="goTo"
 		></SelectionPanel>
@@ -140,6 +141,8 @@ export default {
 
 <style scoped>
 .banner-style {
+	background-image: url('../assets/images/about.jpg');
+	background-position: top;
 	box-shadow: inset 0 0 0 1000px rgba(217, 216, 214, 0.5);
 }
 

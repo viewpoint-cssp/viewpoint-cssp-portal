@@ -35,6 +35,7 @@
 		<SelectionPanel
 			v-for="page in pages"
 			:page="page"
+			:color="true"
 			:key="page.pageName"
 			@goTo="goTo"
 		></SelectionPanel>
