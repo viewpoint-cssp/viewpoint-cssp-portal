@@ -16,29 +16,29 @@ export const videoPages = [
 		videos: {
 			en: [
 				{
-					id: '',
+					id: 'C76uKL1j',
 					title: 'Quick guide to urban climate'
 				},
 				{
-					id: '',
+					id: 'SQzKqP5z',
 					title: 'Futureproofing cities'
 				},
 				{
-					id: '',
+					id: 'Q2EmkITO',
 					title: 'Mapping and modelling cities'
 				}
 			],
 			cn: [
 				{
-					id: '',
+					id: 'YWMW3eYH',
 					title: '城市气候的快速指南'
 				},
 				{
-					id: '',
+					id: 'g9tkMFKy',
 					title: '面向未来的城市'
 				},
 				{
-					id: '',
+					id: 'FglshKzv',
 					title: '绘制城市地图和城市建模'
 				}
 			]
@@ -60,7 +60,7 @@ export const videoPages = [
 		videos: {
 			en: [
 				{
-					id: '',
+					id: 'G8SZVECk',
 					title: 'The water accounting tool',
 					cnTitle: '水分来源追踪工具'
 				},

@@ -76,9 +76,9 @@ export default {
 	data() {
 		return {
 			videos: [
-				{ id: '', tite: 'Quick guide to urban climate' },
-				{ id: '', tite: 'Futureproofing cities' },
-				{ id: '', tite: 'Mapping and modelling cities' }
+				{ id: 'C76uKL1j', tite: 'Quick guide to urban climate' },
+				{ id: 'SQzKqP5z', tite: 'Futureproofing cities' },
+				{ id: 'Q2EmkITO', tite: 'Mapping and modelling cities' }
 			]
 		}
 	},
