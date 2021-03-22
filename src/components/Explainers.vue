@@ -161,7 +161,7 @@ export default {
 					enPdf: `E07-en-high-resolution`,
 					cnTitle: '高分辨率革命助力中国气候研究',
 					cnPdf: `E07-cn-high-resolution`,
-					imgCredit: 'Vitor Dutra Kaosnoff, Pixabay.co'
+					imgCredit: 'Vitor Dutra Kaosnoff, Pixabay'
 				},
 				{
 					enTitle:
