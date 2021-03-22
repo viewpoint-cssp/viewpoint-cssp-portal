@@ -51,7 +51,7 @@
 							doc.png ? 'png' : 'jpg'
 						}`)
 					"
-					:class="doc.imgPosition"
+					:class="{ 'with-border': doc.imgBorder }"
 					:alt="doc.imgAlt"
 					:title="getTooltip(doc)"
 				/>
@@ -101,23 +101,41 @@ export default {
 			pdfs: [
 				{
 					enTitle:
-						'Urban flood control in coastal mega cities: an application to Shanghai',
+						'Why is it so important to control sulphate aerosols? A complex role in a warming climate',
 					enPdf:
-						'Briefing paper_urban flood control_02 December_final_SS',
+						'BN01-en-sulphate-aerosol',
 					enDraft: true,
-					cnTitle: '沿海特大城市的城市防洪：上海的应用实例',
-					imgCredit: ' Kelly Sikkema, Unsplash',
-					imgAlt: 'Urban Flood'
+					cnTitle: '为什么控制硫酸盐气溶胶如此重要？--一个在气候变暖问题发挥复杂作用的角色',
+					cnPdf: 'BN01-cn-sulphate-aerosol',
+					imgCredit: 'Photoholgic, Unsplash'
 				},
 				{
 					enTitle:
-						'Why is it so important to control sulphate aerosols? A complex role in a warming climate',
-					enPdf: 'Briefing paper _ sulphate aerosol_02 Dec_final_SS',
+						'Urban flood control in coastal mega cities: an application to Shanghai',
+					enPdf: 'BN02-en-urban-flood',
 					enDraft: true,
-					cnTitle:
-						'为什么控制硫酸盐气溶胶如此重要？——一个在气候变暖问题发挥复杂作用的角色',
-					imgCredit: 'Paweł Czerwiński, Unsplash',
-					imgAlt: 'Man made Pollution'
+					cnTitle: '沿海大城市的城市防洪：上海的应用实例',
+					cnPdf: 'BN02-cn-urban-flood',
+					imgCredit: 'Kelly Sikkema, Unsplash'
+				},
+				{
+					enTitle:
+						'Food security',
+					enPdf: 'BN03-cn-food-security',
+					enDraft: true,
+					cnTitle: '气候变化对中国粮食安全的威胁',
+					cnPdf: 'BN03-cn-food-security',
+					imgCredit: ' Pixabay.com'
+				},
+				{
+					enTitle:
+						'Communicating uncertainty',
+					enPdf: 'BN04-cn-communicating-uncertainity',
+					enDraft: true,
+					cnTitle: '传达气候预报和极端天气预报的不确定性',
+					cnPdf: 'BN04-cn-communicating-uncertainity',
+					imgCredit: 'www.viewpoint-cssp.org/glossary',
+					imgBorder: true
 				}
 			]
 		}
@@ -254,11 +272,8 @@ export default {
 	object-position: center;
 	align-self: flex-start;
 }
-.button-panel img.top {
-	object-position: top;
-}
-.button-panel img.bottom {
-	object-position: bottom;
+.button-panel img.with-border {
+	border: 1px solid var(--primaryLighter);
 }
 
 @media (max-width: 1007px) {
