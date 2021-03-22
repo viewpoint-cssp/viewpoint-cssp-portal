@@ -30,9 +30,7 @@
 				frameborder="0"
 				scrolling="auto"
 				allowfullscreen
-				v-if="video.id"
 			></iframe>
-			<img class="youtube" src="../../assets/images/training-6.png" v-else />
 		</p>
 	</div>
 </template>
@@ -42,7 +40,7 @@ export default {
 	name: 'Data',
 	data() {
 		return {
-			video: { id: '', tite: 'Meteorological data' }
+			video: { id: 'pbkuwj1J', tite: 'Meteorological data' }
 		}
 	},
 	mounted() {

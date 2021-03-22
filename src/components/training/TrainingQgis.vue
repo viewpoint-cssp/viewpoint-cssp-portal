@@ -19,9 +19,7 @@
 				frameborder="0"
 				scrolling="auto"
 				allowfullscreen
-				v-if="qgisVideo.id"
 			></iframe>
-			<img class="youtube" src="../../assets/images/training-1.png" v-else />
 		</p>
 		<h2>Installing UMEP</h2>
 		<p>
@@ -41,9 +39,7 @@
 				frameborder="0"
 				scrolling="auto"
 				allowfullscreen
-				v-if="umepVideo.id"
 			></iframe>
-			<img class="youtube" src="../../assets/images/training-2.png" v-else />
 		</p>
 	</div>
 </template>
@@ -53,8 +49,8 @@ export default {
 	name: "QGIS",
 	data() {
 		return {
-			qgisVideo: { id: '', tite: 'Installing QGIS' },
-			umepVideo: { id: '', tite: 'Installing UMEP' }
+			qgisVideo: { id: 'EkZ6nfXN', tite: 'Installing QGIS' },
+			umepVideo: { id: 'le4aE0n3', tite: 'Installing UMEP' }
 		}
 	},
 	mounted() {

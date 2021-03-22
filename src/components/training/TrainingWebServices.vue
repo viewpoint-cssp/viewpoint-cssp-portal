@@ -13,9 +13,7 @@
 				frameborder="0"
 				scrolling="auto"
 				allowfullscreen
-				v-if="video.id"
 			></iframe>
-			<img class="youtube" src="../../assets/images/training-7.png" v-else />
 		</p>
 		<p>
 			There is also
@@ -45,7 +43,7 @@ export default {
 	name: "WebServices",
 	data() {
 		return {
-			video: { id: '', tite: 'Importing from web services' }
+			video: { id: 'HJ0OASBz', tite: 'Importing from web services' }
 		}
 	},
 	mounted() {

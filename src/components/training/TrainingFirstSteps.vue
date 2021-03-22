@@ -24,9 +24,7 @@
 				frameborder="0"
 				scrolling="auto"
 				allowfullscreen
-				v-if="video.id"
 			></iframe>
-			<img class="youtube" src="../../assets/images/training-3.png" v-else />
 		</p>
 	</div>
 </template>
@@ -36,7 +34,7 @@ export default {
 	name: "FirstSteps",
 	data() {
 		return {
-			video: { id: '', tite: 'First steps' }
+			video: { id: 'PqQapOGH', tite: 'First steps' }
 		}
 	},
 	mounted() {

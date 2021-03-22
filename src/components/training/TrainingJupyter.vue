@@ -13,9 +13,7 @@
 				frameborder="0"
 				scrolling="auto"
 				allowfullscreen
-				v-if="video.id"
 			></iframe>
-			<img class="youtube" src="../../assets/images/training-9.png" v-else />
 		</p>
 		<p>
 			The basics of Jupyter Notebooks are covered in this tutorial and include:
@@ -60,9 +58,7 @@
 				frameborder="0"
 				scrolling="auto"
 				allowfullscreen
-				v-if="video.id"
 			></iframe>
-			<img class="youtube" :src="require(`../../assets/images/training-${video.img}.png`)" v-else />
 		</p>
 		<p>
 			These two tutorials cover these key points:
@@ -90,10 +86,10 @@ export default {
 	name: "Jupyter",
 	data() {
 		return {
-			video: { id: '', tite: 'Installing' },
+			video: { id: 'Fwl8isin', tite: 'Installing' },
 			basicsVideos: [
-				{ id: '', tite: 'First basics on using Jupyter Notebook', img: 10 },
-				{ id: '', tite: 'Second basics on using Jupyter Notebook', img: 11 }				
+				{ id: 'bGFD3W6l', tite: 'First basics on using Jupyter Notebook', img: 10 },
+				{ id: 'kWFEwU63', tite: 'Second basics on using Jupyter Notebook', img: 11 }				
 			]
 		}
 	},

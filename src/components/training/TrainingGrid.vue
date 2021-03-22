@@ -30,9 +30,7 @@
 				frameborder="0"
 				scrolling="auto"
 				allowfullscreen
-				v-if="video.id"
 			></iframe>
-			<img class="youtube" src="../../assets/images/training-5.png" v-else />
 		</p>
 	</div>
 </template>
@@ -42,7 +40,7 @@ export default {
 	name: "Grid",
 	data() {
 		return {
-			video: { id: '', tite: 'Creating a grid' }
+			video: { id: 'blI7WtaK', tite: 'Creating a grid' }
 		}
 	},
 	mounted() {

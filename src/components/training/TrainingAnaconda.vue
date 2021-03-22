@@ -13,9 +13,7 @@
 				frameborder="0"
 				scrolling="auto"
 				allowfullscreen
-				v-if="video.id"
 			></iframe>
-			<img class="youtube" :src="require(`../../assets/images/training-${video.img}.png`)" v-else />
 		</p>
 		<p>
 			<a
@@ -35,9 +33,9 @@ export default {
 	data() {
 		return {
 			videos: [
-				{ id: '', tite: 'Downloading Anaconda3', img: 12 },
-				{ id: '', tite: 'Installing Anaconda3', img: 13 },
-				{ id: '', tite: 'Launching Jupyter Notebook', img: 14 }
+				{ id: 'AjMHr6w1', tite: 'Downloading Anaconda3', img: 12 },
+				{ id: '0icUhUNm', tite: 'Installing Anaconda3', img: 13 },
+				{ id: 'zIy3aTMJ', tite: 'Launching Jupyter Notebook', img: 14 }
 			]
 		}
 	},
