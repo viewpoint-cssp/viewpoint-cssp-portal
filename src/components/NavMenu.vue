@@ -96,7 +96,7 @@ export default {
 						{ page: 'Briefing', label: 'Briefing notes', cnLabel: '简报' },
 						{ page: 'Videos', cnLabel: '视频' },
 						{ page: 'Infographics', cnLabel: '信息图表'},
-						{ page: 'Training', cnLabel: '培训材料' }
+						{ page: 'Training', label: 'Training materials', cnLabel: '培训材料' }
 					]
 				},
 				{
