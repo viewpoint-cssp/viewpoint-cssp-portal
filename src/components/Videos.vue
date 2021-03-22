@@ -21,7 +21,8 @@
 					:key="`select-${page.name}`"
 					class="selected-page-button"
 					:class="{ selected: selectedPage == page.name }"
-					@click="selectPage(page.name)"
+					:disabled="page.disabled" 
+					@click="selectPage(page.name, page.disabled)"
 				>
 					<p>{{ page.enLabel }}</p>
 					<p lang="zh-cn">{{ page.cnLabel }}</p>
@@ -119,8 +120,10 @@ export default {
 		}
 	},
 	methods: {
-		selectPage(page) {
-			this.selectedPage = page
+		selectPage(page, disabled) {
+			if (!disabled) {
+				this.selectedPage = page
+			}
 		},
 		resized() {
 			// JWPlayer suggests 640 by 360 soooo...
@@ -236,10 +239,10 @@ export default {
 .selected-page-button.selected p {
 	color: var(--whiteDefault);
 }
-.selected-page-button:not(disabled):not(.selected):hover p {
+.selected-page-button:not([disabled]):not(.selected):hover p {
 	color: var(--whiteHover);
 }
-.selected-page-button:not(disabled) {
+.selected-page-button:not([disabled]) {
 	cursor: pointer;
 }
 

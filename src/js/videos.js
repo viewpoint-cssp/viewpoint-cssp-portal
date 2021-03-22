@@ -74,6 +74,7 @@ export const videoPages = [
 	},
 	{
 		name: 'climate',
+		disabled: true,
 		enLabel: 'Infrastructure design',
 		enText: `For those who want to explore their own hands-on
 					information, CSSP China has produced practical tools for
@@ -118,6 +119,7 @@ export const videoPages = [
 	},
 	{
 		name: 'renewables',
+		disabled: true,
 		enLabel: 'Renewable energy',
 		enText: `Enabling renewable energy systems are at the heart of our
 					net-zero future and the climate is a key part of efficient
