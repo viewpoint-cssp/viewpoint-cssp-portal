@@ -628,8 +628,8 @@ th.narrow div {
 		border-right: none;
 	}
 	div.glossary-comments {
-		width: 150px;
-		font-size: 0.7rem;
+		width: 150px !important;
+		font-size: 0.7rem !important;
 	}
 }
 </style>
