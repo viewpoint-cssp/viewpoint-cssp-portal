@@ -104,12 +104,16 @@
 				</div>
 				<div class="other-toggles">
 					<img
+						class="flag"
 						src="../assets/images/en-flag.png"
 						@click="language = 'en'"
+						v-if="language == 'cn'"
 					/>
 					<img
+						class="flag"
 						src="../assets/images/cn-flag.png"
 						@click="language = 'cn'"
+						v-else
 					/>
 					<a
 						class="download TODO"
@@ -732,10 +736,16 @@ ul.contents-list.show-contents {
 	align-items: center;
 }
 
-.other-toggles img {
+.other-toggles img.flag {
 	background: transparent;
 	width: 38px;
 	margin: 0 2px;
+	clip-path: inset(15% 0 10% 0);
+	transform: translateY(-1px);
+	cursor: pointer;
+}
+.other-toggles img.flag:hover {
+	background: var(--whiteHover);
 }
 
 .fa-slash {
