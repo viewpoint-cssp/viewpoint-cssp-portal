@@ -3,9 +3,11 @@
 		<div class="banner">
 			<div class="header-left">
 				<img id="logo" src="../assets/images/logo.png" />
-				<h1 v-if="!narrowPage">Catalogue of published papers</h1>
-				<h1 v-if="!narrowPage" lang="zh-cn">出版论文目录</h1>
-				<h1 v-else lang="zh-cn">Catalogue<br/>目录</h1>
+				<h1 v-if="!narrowPage">
+					Catalogue of published papers
+					<sup lang="zh-cn">出版论文目录</sup>
+				</h1>
+				<h1 v-else>Catalogue<sup>目录</sup></h1>
 			</div>
 			<div class="header-right">
 				<p>{{ count }} entries</p>
@@ -114,8 +116,8 @@ export default {
 					`${rhPanel[0].clientWidth}px`
 				)
 			}
-			// randomly decide at 720px whether to toggle to the shorter banner labels
-			if (window.matchMedia('(max-width: 725px)').matches) {
+			// randomly decide at 700px whether to toggle to the shorter banner labels
+			if (window.matchMedia('(max-width: 700px)').matches) {
 				this.narrowPage = true
 			} else {
 				this.narrowPage = false
@@ -161,6 +163,12 @@ export default {
 	display: flex;
 	flex-direction: row;
 	align-items: flex-end;
+}
+
+.banner sup {
+	color: inherit;
+	background: transparent;
+	font-size: 0.95rem;
 }
 
 img#logo {

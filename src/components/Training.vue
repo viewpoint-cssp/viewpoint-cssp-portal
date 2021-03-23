@@ -3,8 +3,10 @@
 		<div class="banner">
 			<div class="header-left">
 				<img id="logo" src="../assets/images/logo.png" />
-				<h1>Training materials</h1>
-				<h1 lang="zh-cn">培训材料</h1>
+				<h1>
+					Training materials
+					<sup lang="zh-cn">培训材料</sup>
+				</h1>
 			</div>
 		</div>
 		<div class="training-handbook">
@@ -380,6 +382,11 @@ export default {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: flex-end;
+}
+.banner sup {
+	color: inherit;
+	background: transparent;
+	font-size: 0.95rem;
 }
 
 .header-left {
