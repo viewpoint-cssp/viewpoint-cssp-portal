@@ -28,7 +28,7 @@ const router = new VueRouter({
 			name: 'About',
 			component: About,
 			meta: {
-				title: 'VIEWpoint | About'
+				title: 'VIEWpoint About'
 			}
 		},
 		{
@@ -36,7 +36,7 @@ const router = new VueRouter({
 			name: 'Briefing',
 			component: Briefing,
 			meta: {
-				title: 'VIEWpoint | Briefing notes'
+				title: 'VIEWpoint Briefing notes'
 			}
 		},
 		{
@@ -44,7 +44,7 @@ const router = new VueRouter({
 			name: 'Catalogue',
 			component: Catalogue,
 			meta: {
-				title: 'VIEWpoint | Catalogue'
+				title: 'VIEWpoint Catalogue'
 			}
 		},
 		{
@@ -52,7 +52,7 @@ const router = new VueRouter({
 			name: 'Demonstrators',
 			component: Demonstrators,
 			meta: {
-				title: 'VIEWpoint | Demonstrators'
+				title: 'VIEWpoint Demonstrators'
 			}
 		},
 		{
@@ -60,7 +60,7 @@ const router = new VueRouter({
 			name: 'Explainers',
 			component: Explainers,
 			meta: {
-				title: 'VIEWpoint | Explainers'
+				title: 'VIEWpoint Explainers'
 			}
 		},
 		{
@@ -68,7 +68,7 @@ const router = new VueRouter({
 			name: 'Glossary',
 			component: Glossary,
 			meta: {
-				title: 'VIEWpoint | Glossary'
+				title: 'VIEWpoint Glossary'
 			}
 		},
 		{
@@ -76,7 +76,7 @@ const router = new VueRouter({
 			name: 'Handbook',
 			component: Handbook,
 			meta: {
-				title: 'VIEWpoint | Handbook'
+				title: 'VIEWpoint Handbook'
 			}
 		},
 		{
@@ -84,7 +84,7 @@ const router = new VueRouter({
 			name: 'Home',
 			component: Home,
 			meta: {
-				title: 'VIEWpoint | Home'
+				title: 'VIEWpoint Home'
 			}
 		},
 		{
@@ -92,7 +92,7 @@ const router = new VueRouter({
 			name: 'Infographics',
 			component: Infographics,
 			meta: {
-				title: 'VIEWpoint | Infographics'
+				title: 'VIEWpoint Infographics'
 			}
 		},
 		{
@@ -100,7 +100,7 @@ const router = new VueRouter({
 			name: 'Resources',
 			component: Resources,
 			meta: {
-				title: 'VIEWpoint | Resources'
+				title: 'VIEWpoint Resources'
 			}
 		},
 		{
@@ -108,7 +108,7 @@ const router = new VueRouter({
 			name: 'Videos',
 			component: Videos,
 			meta: {
-				title: 'VIEWpoint | Videos'
+				title: 'VIEWpoint Videos'
 			}
 		},
 		{
@@ -116,7 +116,7 @@ const router = new VueRouter({
 			name: 'Training',
 			component: Training,
 			meta: {
-				title: 'VIEWpoint | Training materials'
+				title: 'VIEWpoint Training materials'
 			}
 		},
 		{
