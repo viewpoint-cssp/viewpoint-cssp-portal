@@ -5,54 +5,49 @@
 中文定义","Comments
 注释"
 State,Particular condition at a specific time,状态,特定时间下的状态,Refers to 'state' of the atmosphere (not 'nation')
-Uncertainty/ certainty,"A state of incomplete knowledge that can result from a lack of information or from disagreement
-about what is known or even knowable",不确定性/确定性,由于信息缺失或者对已知甚至可知信息的不同见解而产生的不完善的知识状态,Definition from IPCC SR1.5 (2018).
+Uncertainty/ certainty,A state of incomplete knowledge that can result from a lack of information or from disagreement about what is known or even knowable,不确定性/确定性,由于信息缺失或者对已知甚至可知信息的不同见解而产生的不完善的知识状态,Definition from IPCC SR1.5 (2018).
 Skill,"A statistical evaluation of the accuracy of forecasts or the effectiveness of detection techniques.
 ",技巧,信号侦测手段的有效性,Definition from American Meteorological Society (2021). Available at: https://glossary.ametsoc.org/wiki/Skill (accessed 03/03/2021)
 Ensemble,A collection of model simulations characterizing a climate prediction or projection. Differences in initial conditions and model formulation result in different evolutions of the modeled system and may give information on uncertainty associated with various errors.,集合,针对某一变量，综合采用不同数据源进行估计，从而提升估计值的可靠性,Adapted from IPCC AR5 WGII (2014).
 Precision,The quality of being exactly defined.,精密度,多次重复测定同一量时各测定值之间彼此相符合的程度,Definition from American Meteorological Society (2021). Available at: https://glossary.ametsoc.org/wiki/Precision (accessed 03/03/2021)
 Accuracy,The extent to which results of a calculation or the readings of an instrument approach the true values of the calculated or measured quantities.,准确度,对某一变量的估计或者仪器度数的准确度，用以刻画测量值与真实值的接近程度,Definition from American Meteorological Society (2021). Available at: https://glossary.ametsoc.org/wiki/Accuracy (accessed 03/03/2021)
 Exceedance,"For any threshold, x, the probability that during the year the random variable in question, X, will exceed some x; exceedance probability =
-P = [X>x]",超越（概率）,变量X超过临界值x的概率,Definition from American Meteorological Society (2021). Available at: https://glossary.ametsoc.org/wiki/Exceedance_probability
+P = [X>x]",超越（概率）,变量X超过临界值x的概率,Definition from American Meteorological Society (2021). Available at: https://glossary.ametsoc.org/wiki/Exceedance_probability (accessed 03/03/2021)
 Excess,Exceeding a prescribed or desirable amount.,超值,超过临界值的数量,Definition from Oxford Languages (2021).
-Vulnerability,The propensity or predisposition of assets to be adversely affected by hazards.,脆弱性,承灾体易于受到致灾因子的破坏、伤害或损伤的可能性,Definition used in ARUP's city tool.
-Exposure,"The presence of people,  ivelihoods,species or ecosystems,  nvironmental functions,services, and resources, infrastructure, or economic,social, or
-cultural assets in places and settings that could be adversely affected.",暴露,人员、生计、种群、生态环境、服务、资源、基础设施，以及经济、社会和文化财产处于可能被灾害破坏的状态,Definition from IPCC AR5.
+Vulnerability,The propensity or predisposition of assets to be adversely affected by hazards.,脆弱性,承灾体易于受到致灾因子的破坏、伤害或损伤的可能性,Definition used in city tool developed by ARUP.
+Exposure,"The presence of people, livelihoods, species or ecosystems, environmental functions, services, and resources, infrastructure, or economic, social, or cultural assets in places and settings that could be adversely affected.",暴露,人员、生计、种群、生态环境、服务、资源、基础设施，以及经济、社会和文化财产处于可能被灾害破坏的状态,Definition from IPCC AR5 WGII (2014).
 Predictability,The extent to which future states of a system may be predicted based on knowledge of current and past states of the system.,可预报性,基于历史数据，对于未来状态的可预测程度,Definition from American Meteorological Society (2021). Available at: https://glossary.ametsoc.org/wiki/Predictability (accessed 03/03/2021)
 Confidence,"The robustness of a finding based on the type, amount, quality and consistency of evidence (e.g., mechanistic understanding, theory, data, models, expert judgment) and on the degree of agreement across multiple lines of evidence. ",信度,被测量参数的测量值的可信程度,Definition from IPCC SR1.5 (2018).
-Likelihood,Probability of a hazard event occurring.,可能性,给定特定观测值后，描述模型参数是否合理,Definition used in ARUP's city tool.
+Likelihood,Probability of a hazard event occurring.,可能性,给定特定观测值后，描述模型参数是否合理,Definition used in city tool developed by ARUP.
 Surprises,"Low probability, high consequence events",突发事件,低可能性但会产生重大影响的事件,
-Probability,"The chance that a prescribed event  will occur, represented as a pure  number p in the range 0 ≤ p ≤ 1.",概率,某事件可能发生的百分比,Definition from American Meteorological Society (2021). Available at:  https://glossary.ametsoc.org/wiki/Probability (accessed 03/03/2021)
-Reliability,The degree of correspondence between forecast probabilities and observed relative frequencies.,可靠性,指采用同样的方法对同一对象重复测量时所得结果的一致性程度,Also: 预测概率与观察到的相对频率之间的对应程度。
+Probability,"The chance that a prescribed event  will occur, represented as a pure number p in the range 0 ≤ p ≤ 1.",概率,某事件可能发生的百分比,Definition from American Meteorological Society (2021). Available at:  https://glossary.ametsoc.org/wiki/Probability (accessed 03/03/2021)
+Reliability,The degree of correspondence between forecast probabilities and observed relative frequencies.,可靠性,指采用同样的方法对同一对象重复测量时所得结果的一致性程度,
 Properties/ property,Characteristics,特征,某事物或事件的特有或突出属性,Could be mistaken for 'owned item' or 'estate/building'
 End-user/ next user,A person who ultimately uses or is intended to ultimately use a product/ the next person who uses or is intended to use a product,终端用户/下游用户,最终使用或打算最终使用产品或服务的人/下一个使用或打算使用产品或服务的人,
-Urban characteristic/s,Aspects /features of the urban environment/ form,关于城市环境的特征 ,城市环境或形式的方面或特征,Could be mis-tranlsated as Mandarin equivalent of 'urban disease'
-City asset,City Infrastructure,城市基础设施,城市基础设施,
-Adaptive capacity,"The ability of systems, institutions, humans and other organisms to adjust to potential damage, to take advantage of opportunities, or to respond to consequences",适应能力,指一个系统能修正或改变其特 质或行为，使在面对既有的或预期的外部压力时能有 更好的处理能力,Term used in Arup's city tool. Definition from IPCC SR1.5 (2018).
-Annual Exceedence Probability (AEP),The chance or probability of a natural hazard event occurring annually and is usually expressed as a percentage.,年超越概率,指某一年内某超过临界值事件的发生可能性,Definition used in ARUP's city tool.
-Criticality,"The importance of assets or systems for the wider functioning of a society, economy or other systems/services",严重性,资产或系统在社会、经济或其他系统/服务中广泛运作的重要性,Definition used in ARUP's city tool.
-Climate Change,A change in the state of the climate that can be identified (e.g. by using statistical tests) by changes in the mean and/or the variability of its properties and that persists for an extended period (typically decades or longer).,气候变化,当前气候的平均态或变率产生包含或超过年代纪的持续变化,Term used in Arup's city tool. Definition from IPCC SR1.5.
-Global Climate Model,"A numerical representation of the global climate system based on the physical, chemical and biological properties of its components, their interactions and feedback processes, and accounting for some of its known properties. Climate models are tools to simulate the current and future climate.",全球气候模式,全球尺度下，依据物理、化学和生物学关系对气候系统进行数值模拟的工具,Global climate model' definition from IPCC SR1.5. 'Climate model' term is used in ARUP's city tool.
-Hazard,"The potential occurrence of a natural or human-induced physical event or trend that may cause loss of life, injury, or other health impacts, as well as damage and loss to property, infrastructure, livelihoods, service provision, ecosystems and environmental resources.",灾害危险,自然产生或人为造成的可能产生人员伤亡和财产损失的事件,Term used in Arup's city tool. Definition from IPCC SR1.5.
-Impacts,"The consequences of realized risks on natural and human systems, where risks result from the interactions of climate-related hazards (including extreme weather and climate events), exposure, and vulnerability. ",影响,极端天气现象或气候事件对人类社会生产生活产生的影响,"Used in Arup's city tool. IPCC SR1.5
-
-Impacts generally refer to effects on lives; livelihoods; health and well-being; ecosystems and species; economic, social and cultural assets; services (including ecosystem services); and infrastructure. Impacts may be referred to as consequences or outcomes, and can be adverse or beneficial."
-Infrastructure system,The physical systems whose services support the functioning of a society or economy.,基建系统,国民经济各部门为增加固定资产面进行的建筑、购置和安装工作的总称,Definition used in ARUP's city tool.
-Primary hazard,"An event or condition that may cause immediately injury, illness or death to people or damage to assets.",主要致灾因子,主要致灾因子,Definition used in ARUP's city tool.
-Emissions scenarios,"Greenhouse gas 'Emissions Scenarios' are based on a plausible set of assumptions such as demographics and socio-economic development, technological change, energy and land use.  Representative Concentration Pathways are the latest set of emission scenarios available",排放情景,温室气体“排放情景”是基于一组合理的假设，假设基于人口统计资料和社会经济发展、技术变革、能源和土地使用。,Definition used in ARUP's city tool.
-Impacts,Effects on natural and human systems that result from hazards,影响,对自然和人类系统造成的危害,Definition used in ARUP's city tool.
-Primary impacts,"Effects on natural or human systems that result immediately from hazards (for instance in the case of flooding, it would be the erosion of soil or humans, animals or others livings getting caught in the high velocity flood waters).",主要影响,极端天气现象或气候事件对人类社会生产生活产生的主要影响,Definition used in ARUP's city tool.
-Representative Concentration Pathway (RCP),The current four IPCC emissions scenarios named by the resultant future greenhouse gases (GHGs) radiative forcing in 2100. They result in a different ranges of global mean temperature increases over the 21st century and subsequent climate response. The RCPs are not forecasts or policy recommendations.,代表性浓度路径,一组包括了所有温室气体、气溶胶和化学活性气体 排放和浓度时间序列，以及土地利用/土地覆盖状况的情景,Definition used in ARUP's city tool.
+Urban characteristic/s,Aspects/ features of the urban environment/ form,关于城市环境的特征 ,城市环境或形式的方面或特征,Could be mis-translated as Chinese (Mandarin) equivalent of 'urban disease'
+City asset,City infrastructure,城市基础设施,城市基础设施,
+Adaptive capacity,"The ability of systems, institutions, humans and other organisms to adjust to potential damage, to take advantage of opportunities, or to respond to consequences",适应能力,指一个系统能修正或改变其特 质或行为，使在面对既有的或预期的外部压力时能有 更好的处理能力,Term used in city tool developed by ARUP. Definition from IPCC SR1.5 (2018).
+Annual Exceedence Probability (AEP),The chance or probability of a natural hazard event occurring annually and is usually expressed as a percentage.,年超越概率,指某一年内某超过临界值事件的发生可能性,Definition used in city tool developed by ARUP.
+Criticality,"The importance of assets or systems for the wider functioning of a society, economy or other systems/ services",严重性,资产或系统在社会、经济或其他系统/服务中广泛运作的重要性,Definition used in city tool developed by ARUP.
+Climate Change,A change in the state of the climate that can be identified (e.g. by using statistical tests) by changes in the mean and/or the variability of its properties and that persists for an extended period (typically decades or longer).,气候变化,当前气候的平均态或变率产生包含或超过年代纪的持续变化,Term used in city tool developed by ARUP. Definition from IPCC SR1.5 (2018).
+Global Climate Model,"A numerical representation of the global climate system based on the physical, chemical and biological properties of its components, their interactions and feedback processes, and accounting for some of its known properties. Climate models are tools to simulate the current and future climate.",全球气候模式,全球尺度下，依据物理、化学和生物学关系对气候系统进行数值模拟的工具,Global climate model' definition from IPCC SR1.5 (2018). The term 'climate model' is used in the city tool developed by ARUP.
+Hazard,"The potential occurrence of a natural or human-induced physical event or trend that may cause loss of life, injury, or other health impacts, as well as damage and loss to property, infrastructure, livelihoods, service provision, ecosystems and environmental resources.",灾害危险,自然产生或人为造成的可能产生人员伤亡和财产损失的事件,Term used in city tool developed by ARUP. Definition from IPCC SR1.5 (2018).
+Impacts,"The consequences of realized risks on natural and human systems, where risks result from the interactions of climate-related hazards (including extreme weather and climate events), exposure, and vulnerability. ",影响,极端天气现象或气候事件对人类社会生产生活产生的影响,"Term used in city tool developed by ARUP. Definition from IPCC SR1.5 (2018)
+"
+Infrastructure system,The physical systems whose services support the functioning of a society or economy.,基建系统,国民经济各部门为增加固定资产面进行的建筑、购置和安装工作的总称,Definition used in city tool developed by ARUP.
+Primary hazard,"An event or condition that may cause immediately injury, illness or death to people or damage to assets.",主要致灾因子,主要致灾因子,Definition used in city tool developed by ARUP.
+Emissions scenarios,"Greenhouse gas 'Emissions Scenarios' are based on a plausible set of assumptions such as demographics and socio-economic development, technological change, energy and land use.  Representative Concentration Pathways are the latest set of emission scenarios available",排放情景,温室气体“排放情景”是基于一组合理的假设，假设基于人口统计资料和社会经济发展、技术变革、能源和土地使用。,Definition used in city tool developed by ARUP.
+Impacts,Effects on natural and human systems that result from hazards,影响,对自然和人类系统造成的危害,Definition used in city tool developed by ARUP.
+Primary impacts,"Effects on natural or human systems that result immediately from hazards (for instance in the case of flooding, it would be the erosion of soil or humans, animals or others livings getting caught in the high velocity flood waters).",主要影响,极端天气现象或气候事件对人类社会生产生活产生的主要影响,Definition used in city tool developed by ARUP.
+Representative Concentration Pathway (RCP),The current four IPCC emissions scenarios named by the resultant future greenhouse gases (GHGs) radiative forcing in 2100. They result in a different ranges of global mean temperature increases over the 21st century and subsequent climate response. The RCPs are not forecasts or policy recommendations.,代表性浓度路径,一组包括了所有温室气体、气溶胶和化学活性气体 排放和浓度时间序列，以及土地利用/土地覆盖状况的情景,Definition used in city tool developed by ARUP.
 Shared Socioeconomic Pathway (SSP),"Shared Socio-economic Pathways (SSPs) were developed to complement the RCPs with varying socio-economic challenges to adaptation and mitigation (O’Neill et al., 2014)",共享社会经济路径,反应辐射强波和社会经济发展的关联,"Definition from IPCC SR1.5 (2018).
 
-Based on five narratives, the SSPs describe alternative socio-economic futures in the absence of climate policy intervention, comprising sustainable development (SSP1), regional rivalry (SSP3), inequality (SSP4), fossil–fuelled development (SSP5) and middle-of-the-road development (SSP2) (O’Neill, 2000; O’Neill et al., 2017; Riahi et al., 2017). The combination of SSP-based socio-economic scenarios and Representative Concentration Pathway (RCP)-based climate projections provides an integrative frame for climate impact and policy analysis."
-Risk,The potential for adverse consequences where something of value is at stake and where the occurrence and degree of an outcome is uncertain.,风险,气候相关危害与人类和自然系统的暴露度和脆弱性相互作用而产生不良后果的可能,"Term used in Arup's city tool. Definition from IPCC SR1.5 (2018).
+Based on five narratives, the SSPs describe alternative socio-economic futures in the absence of climate policy intervention, comprising sustainable development (SSP1), regional rivalry (SSP3), inequality (SSP4), fossil–fuelled development (SSP5) and middle-of-the-road development (SSP2) (O’Neill, 2000; O’Neill et al., 2017; Riahi et al., 2017)."
+Risk,The potential for adverse consequences where something of value is at stake and where the occurrence and degree of an outcome is uncertain.,风险,气候相关危害与人类和自然系统的暴露度和脆弱性相互作用而产生不良后果的可能,"Term used in city tool developed by ARUP. Definition from IPCC SR1.5 (2018).
 
 "
-Risk Acceptability,"The predisposition to accept the risk, or the willingness to live with a risk so as to secure certain benefits and in the confidence that it is being properly controlled (HSE).",风险的可接受性,对于某气候风险的可接受度,Definition from ARUP's city tool (2021).
-Secondary hazard,"An event or condition that may cause injury, illness or death to people or damage to assets that result from the primary hazard.",次级致灾因子,居第二位的致灾因子,"From Arup's city tool. Proofreading: change to 次生灾害 if you mean hazard that is caused by primary hazard as ""secondary"" in secondary organic pollution. If it just means ""secondary"", then keep translation as it is. So is the case with secondary impacts."
-Secondary impacts,"Effects on natural and human systems that result from the primary impacts (for instance in the case of flooding, it would be the disruption of services or long term effects such as the destruction of wildlife habitats).",次级影响,居第二位的气候影响,"From Arup's city tool. Proofreading: change to 次生灾害 if you mean hazard that is caused by primary hazard as ""secondary"" in secondary organic pollution. If it just means ""secondary"", then keep translation as it is. So is the case with secondary impacts."
-Sensitivity,"The degree to which a system, population or resource is or might be affected by hazards.",敏感性,某事件或变量对控制因子的响应程度,Definition from ARUP's city tool (2021).
+Risk Acceptability,"The predisposition to accept the risk, or the willingness to live with a risk so as to secure certain benefits and in the confidence that it is being properly controlled.",风险的可接受性,对于某气候风险的可接受度,Definition used in city tool developed by ARUP.
+Sensitivity,"The degree to which a system, population or resource is or might be affected by hazards.",敏感性,某事件或变量对控制因子的响应程度,Definition used in city tool developed by ARUP.
 Error,Difference from exact true number,误差,测量结果偏离真值的程度,"Avoid using 'mistake', 'wrong' or 'incorrect' in definition."
 Positive Trend,Upward trend,正（向）趋势,变量随时间正向变化,Could be mistaken for 'fashion'. Avoid 'good trend'.
 Positive Feedback,Self-reinforcing cycle,正（向）反馈,两变量呈互相促进的发展变化关系,Avoid using 'good response' or 'praise' in definition
@@ -63,65 +58,65 @@ Sign,Plus or minus sign,正负号,数学定义上的正值与负值,Could be mis
 Theory,Scientific understanding,理论,对某一事物或现象的系统性认知,Could be mistaken for 'hunch' or 'speculation'
 Enhance,"Intensify, increase",增强 或 增加,某气候或天气系统增强或某测量值增加,Avoid 'improve'
 Bias,The correspondence between the mean forecast and mean observation.,偏差,均值预测和均值观测之间的对应关系。,Could be mistaken for political bias of media
-Trough,An elongated area of relatively low atmospheric pressure; the opposite of a ridge.,（低压）槽,大气压较低的狭长区域；与高压脊相对。,"Definition from https://glossary.ametsoc.org/wiki/Trough
+Trough,An elongated area of relatively low atmospheric pressure; the opposite of a ridge.,（低压）槽,大气压较低的狭长区域；与高压脊相对。,"Definition from American Meteorological Society (2021). Available at: https://glossary.ametsoc.org/wiki/Trough (accessed 03/03/2021).
 
 For example, a trough of low pressure. Could be mistaken for an animal's trough"
 Zonal wind,"The wind, or wind component, along the local parallel of latitude, as distinguished from the meridional wind.
 
 Same as 'westerlies.' ", 纬向风,"区别于经向风，纬向风是沿局部纬度圈的风或风分量。
 
-与“西风带”相同。","Definition from https://glossary.ametsoc.org/wiki/Zonal_wind
+与“西风带”相同。","Definition from American Meteorological Society (2021). Available at: https://glossary.ametsoc.org/wiki/Zonal_wind (accessed 03/03/2021)
 
 i.e. 'westerly wind'.
 
-In a horizontal coordinate system fixed locally with the x axis directed eastward and the y axis directed northward, the zonal wind is positive if it blows from the west and negative if from the east.
+""In a horizontal coordinate system fixed locally with the x axis directed eastward and the y axis directed northward, the zonal wind is positive if it blows from the west and negative if from the east.""
 
 
 "
-Meridional wind,"The wind or wind component along the local meridian, as distinguished from the zonal wind. ",经向风,区别于纬向风，经向风是沿局部经线圈的风或风分量。,"Definition from https://glossary.ametsoc.org/wiki/Meridional_wind
+Meridional wind,"The wind or wind component along the local meridian, as distinguished from the zonal wind. ",经向风,区别于纬向风，经向风是沿局部经线圈的风或风分量。,"Definition from American Meteorological Society (2021). Available at: https://glossary.ametsoc.org/wiki/Meridional_wind (accessed 03/03/2021)
 
 i.e. 'southerly wind'.
 
 Sometimes confused with the Greenwich meridian and mistakenly interpreted as the westerly wind
 
-In a horizontal coordinate system fixed locally with the x axis directed eastward and the y axis northward, the meridional wind is positive if from the south, and negative if from the north."
-Front,The interface or transition zone between two air masses of different density.,锋面（如冷锋）,两个密度不同的空气团之间的交界面或过渡区。,"Definition from https://glossary.ametsoc.org/wiki/Front
+""In a horizontal coordinate system fixed locally with the x axis directed eastward and the y axis northward, the meridional wind is positive if from the south, and negative if from the north."""
+Front,The interface or transition zone between two air masses of different density.,锋面（如冷锋）,两个密度不同的空气团之间的交界面或过渡区。,"Definition from American Meteorological Society (2021). Available at: https://glossary.ametsoc.org/wiki/Front (accessed 03/03/2021).
 
 For example, 'cold front'.
 
-Since the temperature distribution is the most important regulator of atmospheric density, a front almost invariably separates air masses of different temperature. Along with the basic density criterion and the common temperature criterion, many other features may distinguish a front, such as a pressure trough, a change in wind direction, a moisture discontinuity, and certain characteristic cloud and precipitation forms."
-Drought,A period of abnormally dry weather long enough to cause a serious hydrological imbalance. Drought is a relative term; therefore any discussion in terms of precipitation deficit must refer to the particular precipitation-related activity that is under discussion,干旱,一段异常干燥的天气，其持续时间足以导致严重的水文失衡。,"Definition: IPCC AR5
+""Since the temperature distribution is the most important regulator of atmospheric density, a front almost invariably separates air masses of different temperature."""
+Drought,A period of abnormally dry weather long enough to cause a serious hydrological imbalance. Drought is a relative term; therefore any discussion in terms of precipitation deficit must refer to the particular precipitation-related activity that is under discussion,干旱,一段异常干燥的天气，其持续时间足以导致严重的水文失衡。,"Definition from IPCC AR5 WGII (2014)
 
 Need to be careful if using 'drought' to describe a short break within the wet season. Better to describe 'pause' in the rainfall."
 Low pressure centre,"On a synoptic chart (or on a mean chart of atmospheric pressure), a point of local minimum pressure; the center of a low. ",低压,在天气图（或大气压平均值图）上，局部最低压的点：低压的中心。,"Need to be careful of inadvertently interpreting a local reduction in the high pressure during the winter, as a low pressure centre.
 
-For a high pressure cntre, this would be a point of local maximum pressure; the center of a high. "
-Chaos,The property describing a dynamical system that exhibits erratic behavior in the sense that very small changes in the initial state of the system rapidly lead to large and apparently unpredictable changes in the later state.,混沌,该属性描述的动态系统表现出不稳定性，即系统初始状态中的很小变化会快速形成较大的状态，并且在随后的状态中出现不可预测的变化。,Definition from https://glossary.ametsoc.org/wiki/Chaos
+For a high pressure centre, this would be a point of local maximum pressure; the centre of a high. "
+Chaos,The property describing a dynamical system that exhibits erratic behavior in the sense that very small changes in the initial state of the system rapidly lead to large and apparently unpredictable changes in the later state.,混沌,该属性描述的动态系统表现出不稳定性，即系统初始状态中的很小变化会快速形成较大的状态，并且在随后的状态中出现不可预测的变化。,Definition from American Meteorological Society (2021). Available at:  https://glossary.ametsoc.org/wiki/Chaos (accessed 03/03/2021).
 Correlation (statistical),"A statistical relationship between two random variables or bivariate data, which usually refers to a simple, linear correlation when used without further qualification.
-",相关,两个随机变量或双变量数据之间的统计关系，通常是指在没有进一步限定的情况下的简单的线性相关。,Definition from https://glossary.ametsoc.org/wiki/Correlation
+",相关,两个随机变量或双变量数据之间的统计关系，通常是指在没有进一步限定的情况下的简单的线性相关。,Definition from American Meteorological Society (2021). Available at: https://glossary.ametsoc.org/wiki/Correlation. (accessed 03/03/2021)
 Correlation (general),"A mutual relationship between variables or other entities, whether causal or not.", 相关（一般）,变量或其他实体之间的相互关系或因果关系。,"As opposed to causality. 
 Definition from American Meteorological Society (2021). Available at:  https://glossary.ametsoc.org/wiki/Correlation (accessed 03/03/2021)"
 Causality,"A relationship between correlated variables, where the change of one variable causes a direct effect on another variable. ",因果关系,相关变量之间的关系，其中一个变量的更改会直接影响另一个变量。,
 Compound weather/ climate events,The combination of multiple drivers and/or hazards that contributes to societal and environmental risk,复合天气/气候事件,导致社会和环境风险的多种驱动因素和/或危害的组合,Definition from Zscheischler et al. (2018)
-Crop failure,Poor harvest,（作物）歉收,农作物无法提供足够的粮食也无法产生可销售的剩余,"Normally, ‘歉收（'poor harvest’ will be used in agriculture instead of ‘欠收’). Source: https://www.linguee.com/english-chinese/search?source=auto&query=歉收"
+Crop failure,Poor harvest,（作物）歉收,农作物无法提供足够的粮食也无法产生可销售的剩余,"Normally, ‘歉收（'poor harvest’ will be used in agriculture instead of ‘欠收’). Available at: https://www.linguee.com/english-chinese/search?source=auto&query=歉收. (accessed 03/03/2021)"
 CSSP China,Climate Science for Service Partnership China, 气候科学支持服务伙伴关系计划中国项目    ,,"https://www.metoffice.gov.uk/research/approach/collaboration/newton/cssp-china/index
 
 The Climate Science for Service Partnership China (CSSP China) is a scientific research project that is building the basis for services to support climate and weather resilient economic development and social welfare through strong, strategic partnerships harnessing UK scientific expertise."
-Return period,An estimate of the average time interval between occurrences of an event of a defined size or intensity.,重现期,对已确定规模或强度的事件发生之间的平均时间间隔的预估。,Term used in ARUP's city tool. 
+Return period,An estimate of the average time interval between occurrences of an event of a defined size or intensity.,重现期,对已确定规模或强度的事件发生之间的平均时间间隔的预估。,Term used in city tool developed by ARUP. 
 Normal,The average value of a meteorological element over any fixed period of years that is recognized as a standard for the country and element concerned.,正常值,某一气象要素在任何固定年限内的平均值，该平均值被认定为有关国家/地区和有关要素的标准。,Definition from American Meteorological Society (2021). Available at: https://glossary.ametsoc.org/wiki/Normal (accessed 03/03/2021)
-Users,,用户,产品或服务的使用者。,Can this be combined with next or end users?
-Flood,"The overflowing of the normal confines of a stream or other body of water, or the accumulation of water over areas not normally submerged.",洪水,溪流或其他水体超过常规水位，或在不上水区域内的积水。,"Floods include river (fluvial) floods, flash floods, urban floods, pluvial floods, sewer floods, coastal floods and glacial lake outburst floods"
+Users,An individual or organisation who is intended to use a product.,用户,产品或服务的使用者。,
+Flood,"The overflowing of the normal confines of a stream or other body of water, or the accumulation of water over areas not normally submerged.",洪水,溪流或其他水体超过常规水位，或在不上水区域内的积水。,
 Extreme weather event,"An extreme weather event is an event that is rare at a particular place and time of year, normally as rare as or rarer than the 10th or 90th percentile of a probability density function estimated from observations.",极端天气事件,极端天气事件是指一年中特定地点和时间很少发生的事件。通常情况下，极端天气事件的罕见程度相当于或者低于与观测值预估的概率密度函数的10%或90% 。,Adapted from IPCC AR5 WGII (2014)
-Climate,"Usually defined as the average weather, or statistically in terms of the mean and variability of relevant quantities over a period of time ranging from months to thousands or millions of years",气候,通常被定义为平均天气状况，或在统计学上，从数月到数千或数百万年的一段时间内的相关数量的平均值和可变性,Definition from IPCC AR5
-Projection,"A projection is a potential future evolution of a quantity or set of quantities, often computed with the aid of a model.",预测,预测是一个数量或数量集的潜在未来发展，我们通常会借助模型进行计算。,"Definition from IPCC AR5. 
+Climate,"Usually defined as the average weather, or statistically in terms of the mean and variability of relevant quantities over a period of time ranging from months to thousands or millions of years",气候,通常被定义为平均天气状况，或在统计学上，从数月到数千或数百万年的一段时间内的相关数量的平均值和可变性,Definition from IPCC AR5 WGII (2014).
+Projection,"A projection is a potential future evolution of a quantity or set of quantities, often computed with the aid of a model.",预估,预测是一个数量或数量集的潜在未来发展，我们通常会借助模型进行计算。,"Definition from IPCC AR5 WGII (2014). 
 
-Unlike predictions, projections are conditional on assumptions concerning, for example, future socio-economic and technological developments that may or may not be realized"
-Climate Projection,"A climate projection is the simulated response of the climate system to a scenario of future emission or concentration of greenhouse gases (GHGs) and aerosols, generally derived using climate models",气候预测,气候预测是气候系统对未来温室气体 (GHG) 和气溶胶排放或浓度情景的模拟响应，通常使用气候模型得出。,"Definition from IPCC AR5.
+""Unlike predictions, projections are conditional on assumptions concerning, for example, future socio-economic and technological developments that may or may not be realized"""
+Climate Projection,"A climate projection is the simulated response of the climate system to a scenario of future emission or concentration of greenhouse gases (GHGs) and aerosols, generally derived using climate models",气候预估,气候预测是气候系统对未来温室气体 (GHG) 和气溶胶排放或浓度情景的模拟响应，通常使用气候模型得出。,"Definition from IPCC AR5 WGII (2014).
 
-Climate projections are distinguished from climate predictions by their dependence on the emission/concentration/radiative forcing scenario used, which is in turn based on assumptions concerning, for example, future socio-economic and technological developments that may or may not be realized."
-Hindcast,A forecast made for a historical period which only uses only information available before the beginning of the forecast.,追算,针对某个历史时期的预测，仅使用预测开始之前的可用信息。,Also 'retrospective forecast' 
-Percentiles,One of a set of numbers on the random-variable axis that divides a probability distribution into 100 equal areas.,百分位数,100 个相等概率分布区域的随机变量轴上的一组数字之一。,Definition from https://glossary.ametsoc.org/wiki/Percentile
-Time period,"A climate describes the average weather conditions over a time period, typically between 20-30 years. In this tool, a period of 30 years is used to estimate climate variable characteristics for the future. The central year is used to refer to a specific time period (e.g. 2050 represents the time period 2035-2065).",时期,气候是描述一段时期内（通常在 20-30 年之间）的平均天气状况。奥雅纳的工具使用 30 年的周期来预估未来的气候变化特征。中间年用于指代 特定时期（ 例如 2050 表示 2035-2065年）。,Definition used in ARUP's city tool.
+""Climate projections are distinguished from climate predictions by their dependence on the emission/concentration/radiative forcing scenario used, which is in turn based on assumptions concerning, for example, future socio-economic and technological developments that may or may not be realized."""
+Hindcast,A forecast made for a historical period which only uses only information available before the beginning of the forecast.,后报追算,针对某个历史时期的预测，仅使用预测开始之前的可用信息。,Also 'retrospective forecast' 
+Percentiles,One of a set of numbers on the random-variable axis that divides a probability distribution into 100 equal areas.,百分位数,100 个相等概率分布区域的随机变量轴上的一组数字之一。,Definition from American Meteorological Society (2021). Available at: https://glossary.ametsoc.org/wiki/Percentile (accessed 03/03/2021)
+Time period,"A climate describes the average weather conditions over a time period, typically between 20-30 years. In the city tool developed by ARUP, a period of 30 years is used to estimate climate variable characteristics for the future. The central year is used to refer to a specific time period (e.g. 2050 represents the time period 2035-2065).",时段,气候是描述一段时期内（通常在 20-30 年之间）的平均天气状况。奥雅纳的工具使用 30 年的周期来预估未来的气候变化特征。中间年用于指代 特定时期（ 例如 2050 表示 2035-2065年）。,Definition used in city tool developed by ARUP.
 Heat wave,A period of abnormally and uncomfortably hot weather.,热浪,一段异常且令人不舒服的炎热天气。,
 Climate forecast/ Climate prediction,"A climate prediction or climate forecast is the result of an attempt to produce an estimate of the actual evolution of the climate in the future, for example, at seasonal, interannual or decadal time scales. Because the future evolution of the climate system may be highly sensitive to initial conditions, has chaotic elements and is subject to natural variability, such predictions are usually probabilistic in nature.",气候预报/气候预测,气候预测或气候预报是尝试对未来气候的实际演变进行预估的结果，例如以季节、年际或十年为时间尺度。由于未来气候系统的演化可能对初始条件高度敏感，且具有混浊元素并且受到自然变化的影响，因此这种预测通常具有概率性。,
 Likely/ unlikely,The probability of an occurrence is greater than 66% / the probability of an occurrence is less than 33% ,可能/ 不大可能,发生的可能性 66-100% 概率 / 0-33% 概率 ,"The translation of 'unlikely' will depend on the context.
