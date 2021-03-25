@@ -76,7 +76,8 @@
 					class="goto nowrap"
 					lang="zh-cn"
 					@click="$emit('skipTo', 'TrainingFirstSteps')"
-				>第一步</span>。
+					>第一步</span
+				>。
 			</p>
 		</div>
 		<div class="bilingual">
@@ -107,7 +108,8 @@
 					rel="noopener noreferrer"
 					class="nowrap"
 					lang="zh-cn"
-				>UMEP教程</a>。这里提供了一些详细的示例和安装说明。有关更多信息，请参阅链接页面。
+					>UMEP教程</a
+				>。这里提供了一些详细的示例和安装说明。有关更多信息，请参阅链接页面。
 			</p>
 		</div>
 		<div class="bilingual">
@@ -118,32 +120,36 @@
 				英文教程。所有视频均有中文字幕。
 			</p>
 		</div>
-		<p class="download-buttons">
-			<a
-				class="download"
-				:href="require('../../assets/pdfs/placeholder.pdf')"
-				download="VIEWpoint-video-transcripts-en.pdf"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				<button>
-					<font-awesome-icon icon="download"></font-awesome-icon>
-					Download the transcripts
-				</button>
-			</a>
-			<a
-				class="download"
-				:href="require('../../assets/pdfs/placeholder.pdf')"
-				download="VIEWpoint-video-transcripts-cn.pdf"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				<button>
-					<font-awesome-icon icon="download"></font-awesome-icon
-					>&nbsp;下载视频字幕文本
-				</button>
-			</a>
-		</p>
+		<div class="bilingual download-buttons">
+			<p>
+				<a
+					class="download"
+					:href="require('../../assets/pdfs/placeholder.pdf')"
+					download="VIEWpoint-video-transcripts-en.pdf"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<button>
+						<font-awesome-icon icon="download"></font-awesome-icon>
+						Download the transcripts
+					</button>
+				</a>
+			</p>
+			<p>
+				<a
+					class="download"
+					:href="require('../../assets/pdfs/placeholder.pdf')"
+					download="VIEWpoint-video-transcripts-cn.pdf"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<button>
+						<font-awesome-icon icon="download"></font-awesome-icon
+						>&nbsp;下载视频字幕文本
+					</button>
+				</a>
+			</p>
+		</div>
 	</div>
 </template>
 
@@ -162,14 +168,6 @@ export default {
 	margin: 0 !important;
 }
 
-.download-buttons {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: stretch;
-	display: none;
-}
-
 a:lang(zh-cn) {
 	text-decoration: underline !important;
 	color: var(--chineseAnchor);
@@ -183,21 +181,8 @@ a.download,
 	color: var(--whiteDefault);
 }
 
-.download-buttons a {
-	max-width: 45%;
-}
-.download-buttons a:first-of-type {
-	margin-right: 2px;
-}
-.download-buttons a:last-of-type {
-	margin-left: 2px;
-}
 .download-buttons a:hover button svg path {
 	color: var(--whiteDefault);
-}
-
-.download-buttons button {
-	height: 100%;
 }
 
 @media (max-width: 1007px) {
@@ -211,17 +196,6 @@ a.download,
 	}
 	.bilingual p:last-of-type {
 		margin-top: 8px !important;
-	}
-	.download-buttons {
-		flex-direction: column;
-	}
-	.download-buttons a:first-of-type {
-		margin-right: 0;
-	}
-	.download-buttons a:last-of-type {
-		margin-top: 4px;
-		margin-left: 0;
-		align-self: stretch;
 	}
 }
 </style>

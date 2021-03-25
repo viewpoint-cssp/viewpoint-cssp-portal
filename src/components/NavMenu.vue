@@ -188,6 +188,7 @@ export default {
 	mounted() {
 		// see whether this component is within the portal website or not
 		if (this.$router) {
+			// probably needs only to check for router but this makes doubly sure!
 			const routes = this.$router.options.routes
 			if (routes.length > 0 && routes[routes.length - 1].name == 'VIEWpoint404') {
 				this.portal = true
@@ -459,6 +460,11 @@ nav menu to make a reasonable vertical menu */
 @media (max-width: 625px) {
 	.nav-item br.wrap-item {
 		display: block;
+	}
+}
+@media (max-width: 340px) {
+	.main-nav.hamburger {
+		padding: 0;
 	}
 }
 </style>
