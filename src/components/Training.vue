@@ -5,6 +5,7 @@
 				<img id="logo" src="../assets/images/logo.png" />
 				<h1>
 					Training materials
+					<br class="wrap-item" />
 					<sup lang="zh-cn">培训材料</sup>
 				</h1>
 			</div>
@@ -270,33 +271,18 @@ export default {
 			this.page = page
 		},
 		resized() {
-			// recalculate --minTrainingHeight using 100vh and deducting
-			// App.vue's NavMenu and Footer (since this component sits between them)
-			let usedHeight = 0
-			const appFixed = document.getElementsByClassName('app-fixed')
-			if (appFixed.length) {
-				for (let i = 0; i < appFixed.length; i++) {
-					usedHeight += appFixed[i].getBoundingClientRect().height
-				}
-			}
-			if (usedHeight) {
-				document.documentElement.style.setProperty(
-					'--minTrainingHeight',
-					`${window.innerHeight - usedHeight}px`
-				)
-			}
-			// and recalculate a best-fit width for the two panels too
+			// recalculate a best-fit width for the two panels
 			let lhWidth = 360
-			if (window.innerWidth >= 1600) {
-				lhWidth = Math.floor(window.innerWidth / 4)
-			} else if (window.innerWidth >= 300) {
-				lhWidth = Math.floor(window.innerWidth / 3)
+			let availableWidth = window.innerWidth
+			if (availableWidth >= 1400) {
+				availableWidth = 1400
+				lhWidth = Math.floor(availableWidth / 4)
 			} else {
-				lhWidth = Math.floor(window.innerWidth / 2)
+				lhWidth = Math.floor(availableWidth / 3)
 			}
 			document.documentElement.style.setProperty(
 				'--rightTrainingWidth',
-				`${window.innerWidth - lhWidth}px`
+				`${availableWidth - lhWidth}px`
 			)
 			document.documentElement.style.setProperty(
 				'--leftTrainingWidth',
@@ -368,7 +354,7 @@ export default {
 
 <style scoped>
 #training {
-	min-height: var(--minTrainingHeight);
+	min-height: var(--minContentHeight);
 }
 
 .banner {
@@ -408,6 +394,10 @@ img#logo {
 	color: var(--vpOrange);
 }
 
+br.wrap-item {
+	display: none;
+}
+
 .training-handbook {
 	max-width: var(--widthLimit);
 	margin: 0 auto;
@@ -417,7 +407,7 @@ img#logo {
 }
 
 .contents {
-	min-width: var(--leftTrainingWidth);
+	width: var(--leftTrainingWidth);
 	height: 100%;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -459,13 +449,13 @@ hr {
 
 hr.contents-divider {
 	align-self: stretch;
-	min-height: calc(var(--minTrainingHeight) - 60px); /* less banner */
+	min-height: calc(var(--minContentHeight) - 60px); /* less banner */
 	border: none;
 	border-left: 1px solid var(--primaryLightest);
 }
 
 .page-content {
-	width: 100%;
+	width: calc(var(--rightTrainingWidth) - 2px);
 }
 
 .page-content >>> h1,
@@ -573,6 +563,9 @@ hr.contents-divider {
 	.page-bottom {
 		margin: 12px 32px;
 	}
+	.page-bottom button {
+		padding: 8px 16px;
+	}
 }
 @media (max-width: 640px) {
 	img#logo {
@@ -590,6 +583,18 @@ hr.contents-divider {
 	.page-content >>> p,
 	.page-bottom {
 		margin: 8px 16px;
+	}
+	.page-bottom button {
+		padding: 4px 8px;
+	}
+}
+@media (max-width: 300px) {
+	img#logo {
+		width: 50%;
+		height: auto;
+	}
+	br.wrap-item {
+		display: block;
 	}
 }
 </style>

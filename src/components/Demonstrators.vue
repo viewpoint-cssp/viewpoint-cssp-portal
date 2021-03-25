@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div id="demonstrators">
 		<Banner
 			class="banner-style"
 			enTitle="Demonstrators"
@@ -152,6 +152,10 @@ export default {
 </script>
 
 <style scoped>
+#demonstrators {
+	min-height: var(--minContentHeight);
+}
+
 .banner-style {
 	background-image: url('../assets/images/demonstrators.jpg');
 	background-position: bottom;

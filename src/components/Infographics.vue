@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div id="infographics">
 		<Banner
 			class="banner-style"
 			enTitle="Infographics"
@@ -357,6 +357,10 @@ export default {
 </script>
 
 <style scoped>
+#infographics {
+	min-height: var(--minContentHeight);
+}
+
 .banner-style {
 	background-image: url('../assets/images/infographics.jpg');
 	background-position: center;
@@ -386,6 +390,10 @@ export default {
 
 .button-panel.alt {
 	background: var(--primaryLightest);
+}
+
+.button-panel:last-of-type {
+	border-bottom-width: 1px;
 }
 
 .button-panel div,

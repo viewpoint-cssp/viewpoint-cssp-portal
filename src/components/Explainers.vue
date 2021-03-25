@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div id="explainers">
 		<Banner
 			class="banner-style"
 			enTitle="Explainers"
@@ -272,6 +272,10 @@ export default {
 </script>
 
 <style scoped>
+#explainers {
+	min-height: var(--minContentHeight);
+}
+
 .banner-style {
 	background-image: url('../assets/images/explainers.jpg');
 	background-position: bottom;
@@ -301,6 +305,11 @@ export default {
 .button-panel:nth-of-type(odd) {
 	background: var(--primaryLightest);
 }
+
+.button-panel:last-of-type {
+	border-bottom-width: 1px;
+}
+
 
 .button-panel div,
 .button-panel a,

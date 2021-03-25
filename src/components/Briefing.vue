@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div id="briefing">
 		<Banner
 			class="banner-style"
 			enTitle="Briefing Notes"
@@ -176,6 +176,10 @@ export default {
 </script>
 
 <style scoped>
+#briefing {
+	min-height: var(--minContentHeight);
+}
+
 .banner-style {
 	background-image: url('../assets/images/briefing.jpg');
 	background-position: bottom;
@@ -204,6 +208,10 @@ export default {
 
 .button-panel:nth-of-type(odd) {
 	background: var(--primaryLightest);
+}
+
+.button-panel:last-of-type {
+	border-bottom-width: 1px;
 }
 
 .button-panel div,

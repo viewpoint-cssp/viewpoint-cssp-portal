@@ -65,8 +65,34 @@ export default {
 			this.navPage = to.name
 		}
 	},
+	methods: {
+		resized() {
+			// recalculate --minContentHeight using 100vh and deducting
+			// App.vue's NavMenu and Footer (since this component sits between them)
+			let usedHeight = 0
+			const appFixed = document.getElementsByClassName('app-fixed')
+			if (appFixed.length) {
+				for (let i = 0; i < appFixed.length; i++) {
+					usedHeight += appFixed[i].getBoundingClientRect().height
+				}
+			}
+			if (usedHeight) {
+				document.documentElement.style.setProperty(
+					'--minContentHeight',
+					`${window.innerHeight - usedHeight}px`
+				)
+			}
+		}
+	},
 	mounted() {
 		this.navPage = this.$route.name
+		this.resized() /* reset size-based CSS vars immediately on loading */
+		window.addEventListener('resize', this.resized)
+		window.addEventListener('orientationchange', this.resized)
+	},
+	beforeDestroy() {
+		window.removeEventListener('resize', this.resized)
+		window.removeEventListener('orientationchange', this.resized)
 	}
 }
 </script>

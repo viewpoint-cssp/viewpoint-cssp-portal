@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div id="videos">
 		<Banner class="banner-style" enTitle="Videos" cnTitle="视频"></Banner>
 		<div class="about-page">
 			<div class="bilingual">
@@ -204,6 +204,10 @@ export default {
 </script>
 
 <style scoped>
+#videos {
+	min-height: var(--minContentHeight);
+}
+
 .banner-style {
 	background-image: url('../assets/images/videos.jpg');
 	background-position: bottom;

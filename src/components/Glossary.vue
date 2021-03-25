@@ -260,7 +260,7 @@ export default {
 			if (table.length > 0) {
 				buffer = table[0].getBoundingClientRect().x
 			}
-			let tableWidth = window.innerWidth - (2 * (buffer + 1))
+			let tableWidth = Math.min(window.innerWidth - (2 * (buffer + 1)), 1230)
 			document.documentElement.style.setProperty(
 				'--glossaryCommentsWidth',
 				`${Math.ceil(tableWidth * 0.2)}px`

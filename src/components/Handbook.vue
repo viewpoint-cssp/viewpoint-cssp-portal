@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div id="handbook">
 		<Banner class="banner-style" enTitle="Handbook" cnTitle="手册"></Banner>
 		<div class="about-page">
 			<div class="bilingual">
@@ -598,6 +598,10 @@ export default {
 </script>
 
 <style scoped>
+#handbook {
+	min-height: var(--minContentHeight);
+}
+
 .banner-style {
 	background-image: url('../assets/images/handbook.jpg');
 	background-position: bottom;
