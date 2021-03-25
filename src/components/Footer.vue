@@ -168,6 +168,7 @@ export default {
 	mounted() {
 		// see whether this component is within the portal website or not
 		if (this.$router) {
+			// probably needs only to check for router but this makes doubly sure!
 			const routes = this.$router.options.routes
 			if (
 				routes.length > 0 &&
@@ -188,7 +189,7 @@ export default {
 		) {
 			this.urlCMA = 'http://www.cma.gov.cn/'
 			this.urlIAP = 'http://www.iap.cas.cn/'
-			//this.deliveredByLabel = ''
+			//this.deliveredByLabel = '网站' // just "website"
 			this.contact = '联系方式'
 		}
 		// check whether the required CSS vars exist
