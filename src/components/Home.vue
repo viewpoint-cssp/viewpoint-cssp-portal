@@ -141,7 +141,8 @@ export default {
 
 <style scoped>
 .banner-style {
-	box-shadow: inset 0 0 0 1000px rgba(217, 216, 214, 0.5);
+	background-blend-mode: inherit; /* or overlay and no box-shadow */
+	box-shadow: inset 0 0 0 1000px rgba(217, 216, 214, 0.7);
 }
 
 .about-page {
@@ -165,6 +166,15 @@ export default {
 	max-height: 250px;
 }
 
+@media (min-width: 2000px) {
+	.banner-style {
+		background-image: url('../assets/images/banner-fixed.jpg');
+		background-attachment: scroll;
+		background-size: 100%; /* just the width */
+		background-position: center;
+	}
+}
+
 @media (max-width: 1007px) {
 	.about-page {
 		padding: 32px;
@@ -174,6 +184,15 @@ export default {
 @media (max-width: 768px) {
 	.about-page {
 		padding: 16px;
+	}
+}
+
+@media (max-width: 680px) {
+	.banner-style {
+		background-image: url('../assets/images/banner-fixed.jpg');
+		background-attachment: scroll;
+		background-size: auto 100%; /* just the height */
+		background-position: center;
 	}
 }
 </style>
