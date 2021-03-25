@@ -116,11 +116,11 @@
 						v-else
 					/>
 					<a
-						class="download TODO"
+						class="download"
 						:href="
 							require(`../assets/pdfs/handbook-${language}-webversion-opt.pdf`)
 						"
-						download="`VIEWpoint-handbook-${language}.pdf`"
+						:download="`VIEWpoint-handbook-${language}.pdf`"
 						target="_blank"
 						rel="noopener noreferrer"
 						title="Download the handbook"
