@@ -33,7 +33,7 @@
 				<p>
 					Welcome to VIEWpoint, where you can find insights into
 					cutting-edge climate research and advanced information about
-					the China-UK joint research project, Climate Science for
+					the Sino-UK joint research project, Climate Science for
 					Service Partnership (CSSP) China.
 				</p>
 				<p lang="zh-cn">
@@ -149,7 +149,7 @@
 					share the latest developments, scientific progress and
 					achievements. In past years each country has hosted the
 					event in turn but the global pandemic has restricted travel
-					and this year’s workshop was held virtually, in October.
+					and the 2020 workshop was held virtually, in October.
 					Delegates were told that prototype climate services,
 					developed by scientists in both countries working together,
 					are already being trialled in China.
