@@ -33,20 +33,8 @@
 				A glossary of terms used</a
 			>
 		</p>
-		<p class="boxed" v-if="noVideos" >
-			<font-awesome-icon icon="video"></font-awesome-icon>
-			<span>
-				You may like to view the urban animations on the 
-				<span class="goto nowrap" @click="$router.push('videos')">
-					<font-awesome-icon
-						icon="link"
-					></font-awesome-icon>
-					<strong>Videos</strong></span
-				> page before continuing.
-			</span>
-		</p>
-		<hr v-if="!noVideos" />
-		<p v-if="!noVideos">
+		<hr />
+		<p>
 			You may like to view these urban animations before continuing.  
 			They can also be found on the 
 			<span class="goto nowrap" @click="$router.push('videos')">
@@ -55,8 +43,15 @@
 				></font-awesome-icon>
 				<strong>Videos</strong></span
 			> page.
+			<Toggle
+				class="language"
+				v-model="inEnglish"
+				onImage="en-flag.png"
+				offImage="cn-flag.png"
+				width="82"
+			></Toggle>
 		</p>
-		<p v-for="(video, i) of videos" :key="i">
+		<p v-for="(video, i) of videos" :key="`${language}-${i}`">
 			<iframe
 				:src="`https://cdn.jwplayer.com/players/${video.id}-NocosEfA.html`"
 				:title="video.title"
@@ -64,28 +59,38 @@
 				frameborder="0"
 				scrolling="auto"
 				allowfullscreen
-				v-if="video.id"
 			></iframe>
 		</p>
 	</div>
 </template>
 
 <script>
+import { videoPages } from '../../js/videos.js'
+import Toggle from '../Toggle.vue'
+
 export default {
 	name: 'Background',
+	components: {
+		Toggle
+	},
 	data() {
 		return {
-			videos: [
-				{ id: 'C76uKL1j', tite: 'Quick guide to urban climate' },
-				{ id: 'SQzKqP5z', tite: 'Futureproofing cities' },
-				{ id: 'Q2EmkITO', tite: 'Mapping and modelling cities' }
-			]
+			videos: [],
+			inEnglish: true
 		}
 	},
 	computed: {
-		noVideos() {
-			return this.videos.filter(a => a.id).length == 0
+		language() {
+			return this.inEnglish ? 'en' : 'cn'
 		}
+	},
+	watch: {
+		language() {
+			this.videos = videoPages[0].videos[this.language]
+		}
+	},
+	created() {
+		this.videos = videoPages[0].videos[this.language] // in videos.js
 	},
 	mounted() {
 		this.$emit('resizePlayer')
@@ -115,9 +120,14 @@ p.boxed {
 	align-items: center;
 }
 
-.fa-video {
-	font-size: 32px;
-	margin-right: 12px;
+div.language {
+	float: right;
+	margin: 8px 0;
+	font-size: 0.8rem;
 }
 
+.language >>> img {
+	height: 25px;
+	clip-path: inset(15% 0 10% 0);
+}
 </style>
