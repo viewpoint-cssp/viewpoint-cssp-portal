@@ -547,6 +547,12 @@ hr.contents-divider {
 	opacity: 0;
 }
 
+@media (min-width: 1400px) {
+	.banner {
+		padding-left: calc((100vw - 1400px) / 2);
+		padding-right: calc((100vw - 1400px) / 2);
+	}
+}
 @media (max-width: 1007px) {
 	img#logo {
 		height: calc(80px * 0.925);
