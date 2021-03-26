@@ -134,6 +134,15 @@ export default {
 					cnPdf: 'BN04-cn-communicating-uncertainity',
 					imgCredit: 'www.viewpoint-cssp.org/glossary',
 					imgBorder: true
+				},
+				{
+					enTitle: 'City heatwaves: climate change & human heat stress',
+					enPdf: 'BN05-en-heatwave-cities',
+					cnTitle: '城市热浪：气候变化和人类热应激',
+					cnPdf: 'BN05-cn-heatwave-cities',
+					imgCredit: 'Pixabay',
+					imgAlt: 'Air conditioning emits waste heat out to the city environment',
+					imgBorder: true
 				}
 			]
 		}
