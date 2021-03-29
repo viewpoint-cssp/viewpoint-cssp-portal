@@ -43,25 +43,27 @@ export default {
 			pages: [
 				{
 					pageName: 'umep',
-					imageName: 'training.jpg',
-					enTitle: 'UMEP',
-					enDesc: 'TODO: UMEP training.',
+					imageName: 'umep.jpg',
+					enTitle: 'Urban Modelling',
+					enDesc:
+						'The Urban Multi-scale Environmental Predictor (UMEP) has been developed to investigate urban processes, including the effects of climate change. This page help you to get started on using the software.',
 					cnTitle: 'UMEP',
 					cnDesc: 'TODO: In Chinese.'
 				},
 				{
 					pageName: 'arup',
-					imageName: 'training.jpg',
-					enTitle: 'ARUP',
-					enDesc: 'TODO: ARUP training.',
+					imageName: 'arup.jpg',
+					enTitle: 'Climate Risk to Infrastructure',
+					enDesc: `Arup, the global engineering company, have created this hands-on step-by-step tool to help planners and policy-makers understand how climate change may impact a city's infrastructure.`,
 					cnTitle: 'ARUP',
 					cnDesc: 'TODO: In Chinese.'
 				},
 				{
 					pageName: 'qump',
-					imageName: 'training.jpg',
-					enTitle: 'QUMP',
-					enDesc: 'TODO: QUMP training.',
+					imageName: 'qump.jpg',
+					enTitle: 'Climate Projection Uncertainty',
+					enDesc:
+						'Because there is no single best estimate of future climate change, Quantifying Uncertainty in Model Projections (QUMP) is a Met Office project to explore the range of uncertainty using multiple outcomes of climate projections.',
 					cnTitle: 'QUMP',
 					cnDesc: 'TODO: In Chinese.'
 				}
