@@ -132,6 +132,13 @@
 					</div>
 					<div
 						class="section"
+						:class="{ selected: page == 'TrainingParameters' }"
+						@click="page = 'TrainingParameters'"
+					>
+						Morphological parameters
+					</div>
+					<div
+						class="section"
 						:class="{ selected: page == 'TrainingTutorials' }"
 						@click="page = 'TrainingTutorials'"
 					>
@@ -195,6 +202,7 @@ import TrainingBasics from './training/TrainingBasics.vue'
 import TrainingGrid from './training/TrainingGrid.vue'
 import TrainingData from './training/TrainingData.vue'
 import TrainingWebServices from './training/TrainingWebServices.vue'
+import TrainingParameters from './training/TrainingParameters.vue'
 import TrainingTutorials from './training/TrainingTutorials.vue'
 import TrainingReferences from './training/TrainingReferences.vue'
 import Gotop from './Gotop.vue'
@@ -222,6 +230,7 @@ export default {
 		TrainingGrid,
 		TrainingData,
 		TrainingWebServices,
+		TrainingParameters,
 		TrainingTutorials,
 		TrainingReferences,
 		Gotop
@@ -245,6 +254,7 @@ export default {
 				'TrainingGrid',
 				'TrainingData',
 				'TrainingWebServices',
+				'TrainingParameters',
 				'TrainingTutorials',
 				'TrainingReferences'
 			],
