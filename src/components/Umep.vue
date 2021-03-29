@@ -183,6 +183,7 @@
 </template>
 
 <script>
+// this was originally called Training.vue which is why these are all ./training/Training*.vue
 import TrainingIntroduction from './training/TrainingIntroduction.vue'
 import TrainingBackground from './training/TrainingBackground.vue'
 import TrainingJupyter from './training/TrainingJupyter.vue'
