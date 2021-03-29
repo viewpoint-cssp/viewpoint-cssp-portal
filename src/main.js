@@ -22,6 +22,7 @@ import {
 	faListAlt,
 	faMicrophoneSlash,
 	faSlash,
+	faThumbtack,
 	faTimes,
 	faVideo,
 	faVideoSlash
@@ -56,6 +57,7 @@ library.add(
 	faListAlt,
 	faMicrophoneSlash,
 	faSlash,
+	faThumbtack,
 	faTimes,
 	faVideo,
 	faVideoSlash

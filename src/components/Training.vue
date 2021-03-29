@@ -12,6 +12,12 @@
 		</div>
 		<div class="training-handbook">
 			<div class="contents">
+				<font-awesome-icon
+					icon="thumbtack"
+					class="pin-contents"
+					:class="{ pinned: sticky }"
+					@click="toggleSticky"
+				></font-awesome-icon>
 				<h2 class="section header" @click="showAbout = !showAbout">
 					About
 					<font-awesome-icon
@@ -192,6 +198,15 @@ import TrainingTutorials from './training/TrainingTutorials.vue'
 import TrainingReferences from './training/TrainingReferences.vue'
 import Gotop from './Gotop.vue'
 
+// stickiness on scroll based on https://cssanimation.rocks/scroll-animations/
+// requestionAnimationFrame happens every 1/60s
+// if not supported by browser, setTimeout is used instead
+let scroll =
+	window.requestAnimationFrame ||
+	function(callback) {
+		window.setTimeout(callback, 1000 / 60)
+	}
+
 export default {
 	name: 'Training',
 	components: {
@@ -231,11 +246,16 @@ export default {
 				'TrainingWebServices',
 				'TrainingTutorials',
 				'TrainingReferences'
-			]
+			],
+			sticky: false // set TRUE to make the contents sticky
 		}
 	},
 	watch: {
 		page() {
+			const contents = document.getElementsByClassName('contents')
+			if (contents.length > 0) {
+				contents[0].style.marginTop = `0px`
+			}
 			if ('scrollBehavior' in document.documentElement.style) {
 				window.scrollTo({ top: 0, behavior: 'smooth' })
 			} else {
@@ -338,12 +358,61 @@ export default {
 					}
 				})
 			}
+		},
+		toggleSticky() {
+			this.sticky = !this.sticky
+			if (this.sticky) {
+				// start listening for training-contents to scroll out of viewport
+				this.stickyContents()
+			} else {
+				// reset margin and next stickyContents will leave it alone (and not listen any more)
+				const contents = document.getElementsByClassName('contents')
+				if (contents.length > 0) {
+					contents[0].style.marginTop = `0px`
+				}
+			}
+		},
+		stickyContents() {
+			const contents = document.getElementsByClassName('contents')
+			let offsetTop = 0
+			if (contents.length > 0) {
+				const banner = document.getElementsByClassName('banner')
+				if (
+					this.sticky &&
+					banner.length > 0 &&
+					banner[0].getBoundingClientRect().bottom < 0
+				) {
+					// banner has scrolled above the viewport...
+					const page = document.getElementsByClassName('page-content')
+					if (page.length > 0) {
+						if (
+							page[0].getBoundingClientRect().height >
+							contents[0].getBoundingClientRect().height
+						) {
+							// ... and page is longer than the contents
+							// calculate a top margin that will keep the contents in view
+							offsetTop = Math.abs(
+								banner[0].getBoundingClientRect().bottom
+							)
+						}
+					}
+				}
+				contents[0].style.marginTop = `${offsetTop}px`
+			}
+			if (this.sticky) {
+				// wait 1/60 of a second and check again
+				scroll(this.stickyContents)
+			}
 		}
 	},
 	mounted() {
 		this.resized() /* reset size-based CSS vars immediately on loading */
 		window.addEventListener('resize', this.resized)
 		window.addEventListener('orientationchange', this.resized)
+		if (this.sticky) {
+			// start listening for training-contents to scroll out of viewport
+			this.stickyContents()
+		}
 	},
 	beforeDestroy() {
 		window.removeEventListener('resize', this.resized)
@@ -411,6 +480,22 @@ br.wrap-item {
 	height: 100%;
 	overflow-x: hidden;
 	overflow-y: auto;
+	position: relative;
+}
+
+.pin-contents {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	cursor: pointer;
+	transform: rotate(45deg);
+	transition: transform 0.3s linear;
+}
+.pin-contents:hover path {
+	color: var(--vpOrange);
+}
+.pin-contents.pinned {
+	transform: none;
 }
 
 .section {
