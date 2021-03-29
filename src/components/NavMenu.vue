@@ -16,8 +16,8 @@
 				<span class="hamburger-line"></span>
 			</div>
 		</div>
-		<ul 
-			class="main-nav" 
+		<ul
+			class="main-nav"
 			:class="{ hamburger: hamburgerMenu }"
 			v-if="showOptions"
 		>
@@ -43,7 +43,7 @@
 					>
 						{{ sub.label || sub.page }}
 						<br v-if="opt.brBeforeCn && !hamburgerMenu" />
-						<sup>{{ sub.cnLabel}}</sup>
+						<sup>{{ sub.cnLabel }}</sup>
 					</li>
 				</ul>
 			</li>
@@ -59,8 +59,6 @@ Use .nav-menu to position (eg absolute, at top left with any z-index)
 @mouseleave not required if there's no v-if or there's another way to disappear it
 */
 
-// NOTE This is defined here AND in App.vue in order to allow this 
-// component to be copied stand-alone for inclusion in the demonstrators
 const appPages = [
 	'About',
 	'Briefing',
@@ -73,6 +71,7 @@ const appPages = [
 	'Infographics',
 	'Resources',
 	'Training',
+	'Umep', // this is a valid page but not actually used below
 	'Videos'
 ]
 
@@ -88,15 +87,25 @@ export default {
 			options: [
 				{ page: 'Home', cnLabel: '首页' },
 				{ page: 'About', cnLabel: '关于' },
-				{ 
-					page: 'Resources', cnLabel: '资源',
+				{
+					page: 'Resources',
+					cnLabel: '资源',
 					options: [
-						{ page: 'Handbook', cnLabel:'手册' },
+						{ page: 'Handbook', cnLabel: '手册' },
 						{ page: 'Explainers', cnLabel: ' 主题解说' },
-						{ page: 'Briefing', label: 'Briefing notes', cnLabel: '简报' },
+						{
+							page: 'Briefing',
+							label: 'Briefing notes',
+							cnLabel: '简报'
+						},
 						{ page: 'Videos', cnLabel: '视频' },
-						{ page: 'Infographics', cnLabel: '信息图表'},
-						{ page: 'Training', label: 'Training materials', cnLabel: '培训材料' }
+						{ page: 'Infographics', cnLabel: '信息图表' },
+						// training now split into UMEP, ARUP and QUMP but no sub-menu offered here
+						{
+							page: 'Training',
+							label: 'Training materials',
+							cnLabel: '培训材料'
+						}
 					]
 				},
 				{
@@ -104,9 +113,21 @@ export default {
 					cnLabel: '演示工具',
 					brBeforeCn: true,
 					options: [
-						{ page: 'suhi', label: 'Surface Urban Heat Island', cnLabel: '地表城市热岛' },
-						{ page: 'wrm', label: 'Water Resources Management', cnLabel: '水资源管理' },
-						{ page: 'verdant', label: 'Verdant', cnLabel: '作物干旱状况监测' }
+						{
+							page: 'suhi',
+							label: 'Surface Urban Heat Island',
+							cnLabel: '地表城市热岛'
+						},
+						{
+							page: 'wrm',
+							label: 'Water Resources Management',
+							cnLabel: '水资源管理'
+						},
+						{
+							page: 'verdant',
+							label: 'Crop Drought Conditions',
+							cnLabel: '作物干旱状况监测'
+						}
 					]
 				},
 				{ page: 'Catalogue', cnLabel: '目录' },
@@ -151,8 +172,7 @@ export default {
 			if (appPages.includes(page) && this.portal) {
 				this.$router.push(page.toLowerCase())
 			} else if (appPages.includes(page) && !this.portal) {
-				location.href =
-					`https://www.viewpoint-cssp.org/${page.toLowerCase()}`
+				location.href = `https://www.viewpoint-cssp.org/${page.toLowerCase()}`
 			} else if (page == 'suhi') {
 				location.href = 'https://the-iea.github.io/viewpoint-suhi'
 			} else if (page == 'wrm') {
@@ -190,13 +210,23 @@ export default {
 		if (this.$router) {
 			// probably needs only to check for router but this makes doubly sure!
 			const routes = this.$router.options.routes
-			if (routes.length > 0 && routes[routes.length - 1].name == 'VIEWpoint404') {
+			if (
+				routes.length > 0 &&
+				routes[routes.length - 1].name == 'VIEWpoint404'
+			) {
 				this.portal = true
 			}
 		}
 		// check whether the required CSS vars exist
-		if (!getComputedStyle(document.documentElement).getPropertyValue('--vpOrange')) {
-			document.documentElement.style.setProperty('--vpCoolGrey', '#d9d8d6')
+		if (
+			!getComputedStyle(document.documentElement).getPropertyValue(
+				'--vpOrange'
+			)
+		) {
+			document.documentElement.style.setProperty(
+				'--vpCoolGrey',
+				'#d9d8d6'
+			)
 			document.documentElement.style.setProperty('--vpDark', '#4d5858')
 			document.documentElement.style.setProperty('--vpOrange', '#ff671d')
 			document.documentElement.style.setProperty('--whiteDefault', '#fff')
@@ -214,14 +244,14 @@ export default {
 				`'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif`
 			)
 		}
-		// if forcing use of hamburger, set props, otherwise listen for 
+		// if forcing use of hamburger, set props, otherwise listen for
 		// resize event to see when hamburger needs to be toggled on/off
 		if (this.forceHamburger) {
 			// show the closed hamburger icon
-			this.showOptions = false 
+			this.showOptions = false
 			this.hamburgerMenu = true
 		} else {
-			this.resized() 
+			this.resized()
 			window.addEventListener('resize', this.resized)
 			window.addEventListener('orientationchange', this.resized)
 		}
@@ -255,7 +285,7 @@ export default {
 
 /* extra base styling needed on top of specific .nav-menu 
    styling when this component is used outside portal */
-.nav-menu.stand-alone { 
+.nav-menu.stand-alone {
 	box-sizing: border-box;
 	margin: 0;
 	color: var(--text);
@@ -407,7 +437,7 @@ nav menu to make a reasonable vertical menu */
 
 .main-nav.hamburger ul.sub-nav .nav-item {
 	list-style: inside square;
-	padding: 0 24px 4px 0; 
+	padding: 0 24px 4px 0;
 }
 
 @media (min-width: 1400px) {

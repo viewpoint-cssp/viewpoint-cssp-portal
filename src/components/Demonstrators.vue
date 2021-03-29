@@ -100,7 +100,7 @@ export default {
 				{
 					pageName: 'verdant',
 					imageName: 'verdant-laptop.jpg',
-					enTitle: 'Verdant',
+					enTitle: 'Crop Drought Conditions',
 					enDesc:
 						'Example output of satellite mapping of crop drought conditions, in development as an automated daily service. Developed with the University of Leicester.',
 					cnTitle: '作物干旱状况监测',
