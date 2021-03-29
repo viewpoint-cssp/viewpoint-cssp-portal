@@ -260,7 +260,10 @@ export default {
 			if (table.length > 0) {
 				buffer = table[0].getBoundingClientRect().x
 			}
-			let tableWidth = Math.min(window.innerWidth - (2 * (buffer + 1)), 1230)
+			let tableWidth = Math.min(
+				window.innerWidth - 2 * (buffer + 1),
+				1230
+			)
 			document.documentElement.style.setProperty(
 				'--glossaryCommentsWidth',
 				`${Math.ceil(tableWidth * 0.2)}px`
@@ -452,8 +455,7 @@ div.glossary-comments hr {
 
 <style scoped>
 .banner-style {
-	background-image: url('../assets/images/glossary.jpg');
-	background-position: bottom;
+	background-image: url('../assets/images/glossary-banner.jpg');
 	box-shadow: inset 0 0 0 1000px rgba(217, 216, 214, 0.5);
 }
 

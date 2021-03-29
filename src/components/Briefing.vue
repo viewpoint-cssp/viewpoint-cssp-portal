@@ -193,8 +193,7 @@ export default {
 }
 
 .banner-style {
-	background-image: url('../assets/images/briefing.jpg');
-	background-position: bottom;
+	background-image: url('../assets/images/briefing-banner.jpg');
 	box-shadow: inset 0 0 0 1000px rgba(217, 216, 214, 0.5);
 }
 

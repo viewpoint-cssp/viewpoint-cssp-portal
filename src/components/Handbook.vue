@@ -41,8 +41,8 @@
 					rel="noopener noreferrer"
 				>
 					<button lang="zh-cn">
-						<font-awesome-icon icon="download"></font-awesome-icon>&nbsp;
-						下载手册
+						<font-awesome-icon icon="download"></font-awesome-icon
+						>&nbsp; 下载手册
 					</button>
 				</a>
 			</div>
@@ -224,7 +224,7 @@ export default {
 			spreads: [],
 			sides: [],
 			showMode: 'spreads',
-			// TODO define these once handbook is finalised
+			// define these once handbook is finalised
 			sections: [],
 			// sideIndex and spreadIndex needed to try to stop
 			// multiple pages becoming visible at the same time
@@ -241,11 +241,14 @@ export default {
 			let noLabel = this.narrowPage || this.language == 'cn'
 			if (!noLabel) {
 				const toggles = document.getElementsByClassName('toggles')
-				if (toggles.length > 0 && toggles[0].getBoundingClientRect().width < 460) {
+				if (
+					toggles.length > 0 &&
+					toggles[0].getBoundingClientRect().width < 460
+				) {
 					noLabel = true
 				}
 			}
-			let suffix = noLabel ? '/' : ' of ' 
+			let suffix = noLabel ? '/' : ' of '
 			suffix += this.sides.length
 			if (this.showMode == 'sides') {
 				return `${noLabel ? '' : 'Page '}${this.sideIndex + 1}${suffix}`
@@ -254,8 +257,9 @@ export default {
 			} else if (this.spreadIndex == this.spreads.length - 1) {
 				return `${noLabel ? '' : 'Page '}${this.sides.length}${suffix}`
 			} else {
-				return `${noLabel ? '' : 'Pages '}${this.spreadIndex *
-					2}${noLabel ? '-' : '/'}${this.spreadIndex * 2 + 1}${suffix}`
+				return `${noLabel ? '' : 'Pages '}${this.spreadIndex * 2}${
+					noLabel ? '-' : '/'
+				}${this.spreadIndex * 2 + 1}${suffix}`
 			}
 		}
 	},
@@ -437,29 +441,66 @@ export default {
 						)
 					}
 				}
-				// note these are real page numbers, not array index references 
+				// note these are real page numbers, not array index references
 				// (so, for ease of moveToIndex, spreads are real too)
 				this.sections = [
 					{ name: 'Foreword', spreads: 3, sides: 4 },
 					{ name: 'Welcome', spreads: 4, sides: 7 },
-					{ name: 'Using the VIEWpoint handbook', spreads: 7, sides: 12 },
+					{
+						name: 'Using the VIEWpoint handbook',
+						spreads: 7,
+						sides: 12
+					},
 					{ name: 'CSSP China themes', spreads: 7, sides: 13 },
 					{ name: 'The CSSP China Project', spreads: 8, sides: 14 },
-					{ name: 'Catalogue of published papers', spreads: 8, sides: 15 },
+					{
+						name: 'Catalogue of published papers',
+						spreads: 8,
+						sides: 15
+					},
 					{ name: 'Food security', spreads: 9, sides: 16 },
 					{ name: 'Historic data rescue', spreads: 10, sides: 19 },
-					{ name: 'Yangtze River Basin seasonal forecasts', spreads: 11, sides: 21 },
-					{ name: 'Seasonal forecasting of tropical cyclones', spreads: 13, sides: 24 },
-					{ name: 'Implications of climate change for tea production', spreads: 14, sides: 26 },
+					{
+						name: 'Yangtze River Basin seasonal forecasts',
+						spreads: 11,
+						sides: 21
+					},
+					{
+						name: 'Seasonal forecasting of tropical cyclones',
+						spreads: 13,
+						sides: 24
+					},
+					{
+						name:
+							'Implications of climate change for tea production',
+						spreads: 14,
+						sides: 26
+					},
 					{ name: 'Attribution workshops', spreads: 15, sides: 28 },
-					{ name: 'Untangling the natural from the man-made', spreads: 16, sides: 31 },
-					{ name: 'Climate risk assessment of infrastructure', spreads: 17, sides: 32 },
+					{
+						name: 'Untangling the natural from the man-made',
+						spreads: 16,
+						sides: 31
+					},
+					{
+						name: 'Climate risk assessment of infrastructure',
+						spreads: 17,
+						sides: 32
+					},
 					{ name: 'Explainers', spreads: 18, sides: 34 },
-					{ name: 'Working together – photo album', spreads: 25, sides: 49 },
+					{
+						name: 'Working together – photo album',
+						spreads: 25,
+						sides: 49
+					},
 					{ name: 'Infographics', spreads: 26, sides: 50 },
 					{ name: 'VIEWpoint demonstrators', spreads: 28, sides: 55 },
 					{ name: 'Briefing Notes', spreads: 29, sides: 56 },
-					{ name: 'Guide to climate science terminology', spreads: 34, sides: 66 }
+					{
+						name: 'Guide to climate science terminology',
+						spreads: 34,
+						sides: 66
+					}
 				]
 			} else {
 				for (let i = 1; i < 36; i++) {
@@ -476,22 +517,42 @@ export default {
 					}
 				}
 				this.sections = [
-					{ name: '英国驻中华人民共和国大使致辞', spreads: 3, sides: 4 },
+					{
+						name: '英国驻中华人民共和国大使致辞',
+						spreads: 3,
+						sides: 4
+					},
 					{ name: '欢迎', spreads: 4, sides: 7 },
 					{ name: '新观点手册的使用', spreads: 7, sides: 12 },
 					{ name: '项目的话题', spreads: 7, sides: 13 },
-					{ name: '气候科学支持服务伙伴关系（CSSP）计划', spreads: 8, sides: 14 },
+					{
+						name: '气候科学支持服务伙伴关系（CSSP）计划',
+						spreads: 8,
+						sides: 14
+					},
 					{ name: '发表论文目录', spreads: 8, sides: 15 },
 					{ name: '粮食安全', spreads: 9, sides: 16 },
 					{ name: '恢复历史数据', spreads: 10, sides: 19 },
-					{ name: '长江流域的季节性预测服务', spreads: 11, sides: 21 },
+					{
+						name: '长江流域的季节性预测服务',
+						spreads: 11,
+						sides: 21
+					},
 					{ name: '热带气旋的季节性预报', spreads: 13, sides: 24 },
-					{ name: '气候变化对茶叶生产的影响:挑战与机遇', spreads: 14, sides: 26 },
+					{
+						name: '气候变化对茶叶生产的影响:挑战与机遇',
+						spreads: 14,
+						sides: 26
+					},
 					{ name: '归因研讨会', spreads: 15, sides: 28 },
 					{ name: '厘清自然与人为因素', spreads: 16, sides: 31 },
 					{ name: '基础设施的气候风险评估', spreads: 17, sides: 32 },
 					{ name: '合作解说', spreads: 18, sides: 34 },
-					{ name: '相册展示：项目人员齐心协力', spreads: 25, sides: 49 },
+					{
+						name: '相册展示：项目人员齐心协力',
+						spreads: 25,
+						sides: 49
+					},
 					{ name: '信息图', spreads: 26, sides: 50 },
 					{ name: '新观点演示工具', spreads: 28, sides: 55 },
 					{ name: '简报', spreads: 29, sides: 56 },
@@ -511,7 +572,9 @@ export default {
 					this.fullWidth = true // TODO use this to hide buttons?
 					this.changedWidth = 0
 				}
-			} else if (!window.matchMedia(`(max-width: ${testWidth}px)`).matches) {
+			} else if (
+				!window.matchMedia(`(max-width: ${testWidth}px)`).matches
+			) {
 				// more than SPREADWIDTHpx + 16px either side is wide
 				if (this.narrowPage) {
 					// when first no longer narrow, change to two page spreads and normal width view
@@ -527,7 +590,9 @@ export default {
 				this.changedWidth = 0
 			}
 			// default size of .jpg is SPREADWIDTH x PAGEHEIGHT (landscape 2-page spread)
-			const ratio = SPREADWIDTH * (this.showMode == 'sides' ? 0.5 : 1) / PAGEHEIGHT
+			const ratio =
+				(SPREADWIDTH * (this.showMode == 'sides' ? 0.5 : 1)) /
+				PAGEHEIGHT
 			let width
 			let height
 			if (this.fullWidth) {
@@ -554,7 +619,8 @@ export default {
 			)
 			document.documentElement.style.setProperty(
 				'--handbookScale',
-				`${width / (SPREADWIDTH * (this.showMode == 'sides' ? 0.5 : 1))}`
+				`${width /
+					(SPREADWIDTH * (this.showMode == 'sides' ? 0.5 : 1))}`
 			)
 			let skew = width < 1180 ? 2 : 1
 			document.documentElement.style.setProperty(
@@ -603,8 +669,7 @@ export default {
 }
 
 .banner-style {
-	background-image: url('../assets/images/handbook.jpg');
-	background-position: bottom;
+	background-image: url('../assets/images/resources-banner.jpg');
 	box-shadow: inset 0 0 0 1000px rgba(217, 216, 214, 0.8);
 }
 

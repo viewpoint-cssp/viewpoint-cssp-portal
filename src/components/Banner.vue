@@ -35,10 +35,10 @@ export default {
 
 <style scoped>
 .banner {
-	background-image: url('../assets/images/banner.jpg');
-	background-position: bottom;
-	background-size: cover;
-	background-attachment: fixed;
+	background-image: url('../assets/images/banner-fixed.jpg');
+	background-attachment: scroll;
+	background-size: 100%; /* just the width */
+	background-position: center;
 	background-blend-mode: luminosity;
 	padding: 12px 64px;
 }
@@ -72,13 +72,6 @@ export default {
 }
 .h1-wrapper h1:lang(zh-cn) {
 	text-align: right;
-}
-
-@supports (-ms-ime-align: auto) {
-	/* EdgeHTML is jerky if 'fixed' so set it to scroll up with the rest of the page */
-	.banner {
-		background-attachment: scroll;
-	}
 }
 
 @media (max-width: 1007px) {

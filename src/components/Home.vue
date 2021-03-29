@@ -22,20 +22,24 @@
 						></font-awesome-icon
 						>&nbsp;CSSP China (Climate Science for Service
 						Partnership China)</a
-					> project. VIEWpoint has created tools, demonstrators,
+					>
+					project. VIEWpoint has created tools, demonstrators,
 					articles and videos to make research outputs more accessible
 					to a wider audience, including government, industry and the
 					public.
 				</p>
 				<p lang="zh-cn">
-					“新观点” (VIEWpoint) 项目旨在最大化地发挥“中英气候科学支持服务伙伴关系计划”
+					“新观点” (VIEWpoint)
+					项目旨在最大化地发挥“中英气候科学支持服务伙伴关系计划”
 					<a
 						href="https://www.metoffice.gov.uk/research/approach/collaboration/newton/cssp-china/index"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						(CSSP China: Climate Science for Service Partnership China)</a
-					> 的世界级科研合作的影响力。通过创建工具、演示、文章和视频，“新观点”项目让包括政府、企业和公众等在内的不同群体更易获得研究成果。
+						(CSSP China: Climate Science for Service Partnership
+						China)</a
+					>
+					的世界级科研合作的影响力。通过创建工具、演示、文章和视频，“新观点”项目让包括政府、企业和公众等在内的不同群体更易获得研究成果。
 				</p>
 			</div>
 		</div>
@@ -72,7 +76,8 @@ export default {
 					enDesc:
 						'Find out more about how and why these materials were created as part of a global scientific collaboration.',
 					cnTitle: '关于VIEWpoint新观点项目',
-					cnDesc: '点击了解此项目作为全球科研合作的一部分，项目相关研究的合作方式以及服务目的等信息。'
+					cnDesc:
+						'点击了解此项目作为全球科研合作的一部分，项目相关研究的合作方式以及服务目的等信息。'
 				},
 				{
 					pageName: 'Resources',
@@ -81,7 +86,8 @@ export default {
 					enDesc:
 						'A variety of accessible information to browse on climate science and addressing the challenges of climate change.',
 					cnTitle: '资源',
-					cnDesc: '浏览各种关于气候科学和应对气候变化挑战的可访问信息。'
+					cnDesc:
+						'浏览各种关于气候科学和应对气候变化挑战的可访问信息。'
 				},
 				{
 					pageName: 'Demonstrators',
@@ -90,7 +96,8 @@ export default {
 					enDesc:
 						'Explore climate datasets for yourself with easy-to-use interfaces to engage directly with the current and potential future scenarios.',
 					cnTitle: '演示工具',
-					cnDesc: '通过简单易操作的界面来探索气候数据集，并与当前和未来的应用场景进行直接互动。'
+					cnDesc:
+						'通过简单易操作的界面来探索气候数据集，并与当前和未来的应用场景进行直接互动。'
 				},
 				{
 					pageName: 'Catalogue',
@@ -99,7 +106,8 @@ export default {
 					enDesc:
 						'The full suite of scientific peer-reviewed publications organised into a searchable catalogue which can be filtered by themes.',
 					cnTitle: '由CSSP China出版的论文目录',
-					cnDesc: '该论文目录来源于学术界专家评审过的出版物，我们对此进行了重组，您可根据主题进行检索。'
+					cnDesc:
+						'该论文目录来源于学术界专家评审过的出版物，我们对此进行了重组，您可根据主题进行检索。'
 				}
 			]
 		}
@@ -166,15 +174,6 @@ export default {
 	max-height: 250px;
 }
 
-@media (min-width: 2000px) {
-	.banner-style {
-		background-image: url('../assets/images/banner-fixed.jpg');
-		background-attachment: scroll;
-		background-size: 100%; /* just the width */
-		background-position: center;
-	}
-}
-
 @media (max-width: 1007px) {
 	.about-page {
 		padding: 32px;
@@ -184,15 +183,6 @@ export default {
 @media (max-width: 768px) {
 	.about-page {
 		padding: 16px;
-	}
-}
-
-@media (max-width: 680px) {
-	.banner-style {
-		background-image: url('../assets/images/banner-fixed.jpg');
-		background-attachment: scroll;
-		background-size: auto 100%; /* just the height */
-		background-position: center;
 	}
 }
 </style>
