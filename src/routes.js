@@ -11,6 +11,7 @@ import Home from './components/Home.vue'
 import Infographics from './components/Infographics.vue'
 import Resources from './components/Resources.vue'
 import Training from './components/Training.vue'
+import Umep from './components/Umep.vue'
 import Videos from './components/Videos.vue'
 
 Vue.use(VueRouter)
@@ -117,6 +118,14 @@ const router = new VueRouter({
 			component: Training,
 			meta: {
 				title: 'VIEWpoint Training materials'
+			}
+		},
+		{
+			path: '/umep',
+			name: 'UMEP Training',
+			component: Umep,
+			meta: {
+				title: 'VIEWpoint UMEP Training'
 			}
 		},
 		{
