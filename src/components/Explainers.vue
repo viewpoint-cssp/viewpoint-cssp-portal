@@ -111,7 +111,8 @@ export default {
 					enTitle:
 						'Increasing flash floods in a drying climate: dual challenges facing Southwest China',
 					enPdf: 'E02-en-increasing-flash-floods',
-					cnTitle: '干旱气候中的暴洪泛滥：中国西南部地区面临的双重挑战',
+					cnTitle:
+						'干旱气候中的暴洪泛滥：中国西南部地区面临的双重挑战',
 					cnPdf: 'E02-cn-increasing-flash-floods',
 					imgPosition: 'bottom',
 					imgCredit: 'Chan Xiao (NCC, CMA)',
@@ -121,7 +122,8 @@ export default {
 					enTitle:
 						'Tibetan Plateau Vortices: a comparison of tracking methods',
 					enPdf: 'E03-en-tibetan-plateau-vortices',
-					cnTitle: '青藏高原低涡跟踪调查研究：现代方法和传统方法的比较',
+					cnTitle:
+						'青藏高原低涡跟踪调查研究：现代方法和传统方法的比较',
 					cnPdf: 'E03-cn-tibetan-plateau-vortices',
 					imgPosition: 'bottom',
 					imgCredit: 'Unsplash',
@@ -151,7 +153,8 @@ export default {
 					enTitle:
 						'Arup climate risk tool: protecting your infrastructure under climate change',
 					enPdf: 'E06-en-arup-climate-risk',
-					cnTitle: '奥雅纳气候风险工具：在气候变化背景下保护您的基础设施',
+					cnTitle:
+						'奥雅纳气候风险工具：在气候变化背景下保护您的基础设施',
 					cnPdf: 'E06-cn-arup-climate-risk',
 					imgPosition: 'top',
 					imgCredit: 'Erdenebayar Bayansan, Pixabay.com'
@@ -202,7 +205,7 @@ export default {
 						'Working together: the China Framework for Climate Services (CFCS)',
 					enPdf: 'E12-en-working-together',
 					cnTitle: '携手合作：中国气候服务框架(CFCS)',
-					cnPdf: 'E12-cn-working-together',
+					cnPdf: 'E12-cn-working-together'
 				},
 				{
 					enTitle:
@@ -310,7 +313,6 @@ export default {
 	border-bottom-width: 1px;
 }
 
-
 .button-panel div,
 .button-panel a,
 .button-panel h3,
@@ -390,8 +392,7 @@ export default {
 
 @media (max-width: 820px) {
 	.button-panel img {
-		height: auto;
-		align-self: stretch;
+		height: 100px;
 		margin: 0 16px;
 	}
 }

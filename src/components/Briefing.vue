@@ -102,9 +102,9 @@ export default {
 				{
 					enTitle:
 						'Why is it so important to control sulphate aerosols? A complex role in a warming climate',
-					enPdf:
-						'BN01-en-sulphate-aerosol',
-					cnTitle: '为什么控制硫酸盐气溶胶如此重要？--一个在气候变暖问题发挥复杂作用的角色',
+					enPdf: 'BN01-en-sulphate-aerosol',
+					cnTitle:
+						'为什么控制硫酸盐气溶胶如此重要？--一个在气候变暖问题发挥复杂作用的角色',
 					cnPdf: 'BN01-cn-sulphate-aerosol',
 					imgCredit: 'Photoholgic, Unsplash',
 					imgAlt: 'Air Pollution in Shanghai'
@@ -119,7 +119,8 @@ export default {
 					imgAlt: 'Urban flood'
 				},
 				{
-					enTitle: 'Risks to food security in China under climate change',
+					enTitle:
+						'Risks to food security in China under climate change',
 					enPdf: 'BN03-en-food-security',
 					cnTitle: '气候变化对中国粮食安全的威胁',
 					cnPdf: 'BN03-cn-food-security',
@@ -136,12 +137,14 @@ export default {
 					imgBorder: true
 				},
 				{
-					enTitle: 'City heatwaves: climate change & human heat stress',
+					enTitle:
+						'City heatwaves: climate change & human heat stress',
 					enPdf: 'BN05-en-heatwave-cities',
 					cnTitle: '城市热浪：气候变化和人类热应激',
 					cnPdf: 'BN05-cn-heatwave-cities',
 					imgCredit: 'Pixabay',
-					imgAlt: 'Air conditioning emits waste heat out to the city environment',
+					imgAlt:
+						'Air conditioning emits waste heat out to the city environment',
 					imgBorder: true
 				}
 			]
@@ -299,8 +302,7 @@ export default {
 
 @media (max-width: 820px) {
 	.button-panel img {
-		height: auto;
-		align-self: stretch;
+		height: 100px;
 		margin: 0 16px;
 	}
 }
