@@ -6,6 +6,16 @@
 		</div>
 		<div class="bilingual">
 			<p>
+				For those interested in the urban climate, here is training to
+				introduce the hands-on use of the Urban Multi-scale
+				Environmental Predictor (UMEP) software.
+			</p>
+			<p lang="zh-cn">
+				对于城市气候感兴趣的人，这里介绍了如何使用城市多尺度环境预测器(UMEP)软件的培训。
+			</p>
+		</div>
+		<div class="bilingual">
+			<p>
 				There are three key resources available for help with using
 				UMEP: Workshop materials, tutorials and videos to allow you to
 				follow along. All of these are complimentary and have been

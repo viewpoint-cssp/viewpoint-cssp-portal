@@ -113,10 +113,9 @@ export default {
 					imageName: 'training.jpg',
 					enTitle: 'Training materials',
 					enDesc:
-						'For those interested in the urban climate, here is training to introduce the hands-on use of the Urban Multi-scale Environmental Predictor (UMEP) software.',
+						'These training materials are for those with some technical knowledge to get started in some of the tools within CSSP China.',
 					cnTitle: '培训材料',
-					cnDesc:
-						'对于城市气候感兴趣的人，这里介绍了如何使用城市多尺度环境预测器(UMEP)软件的培训。'
+					cnDesc: 'TODO: Chinese.'
 				}
 			]
 		}

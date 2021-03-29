@@ -4,7 +4,7 @@
 			<div class="header-left">
 				<img id="logo" src="../assets/images/logo.png" />
 				<h1>
-					Training materials
+					UMEP training materials
 					<br class="wrap-item" />
 					<sup lang="zh-cn">培训材料</sup>
 				</h1>

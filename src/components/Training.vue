@@ -8,7 +8,12 @@
 		<div class="about-page">
 			<div class="bilingual">
 				<p>
-					TODO: Words about the training.
+					These training materials are for those with some technical
+					knowledge to get started in some of the tools within CSSP
+					China. Find out more about how climate change can impact
+					cities and infrastructure, and investigate the range of
+					outcomes for climate projections in the second half of this
+					century.
 				</p>
 				<p lang="zh-cn">
 					TODO: Words translated to Chinese.
@@ -46,7 +51,7 @@ export default {
 					imageName: 'umep.jpg',
 					enTitle: 'Urban Modelling',
 					enDesc:
-						'The Urban Multi-scale Environmental Predictor (UMEP) has been developed to investigate urban processes, including the effects of climate change. This page help you to get started on using the software.',
+						'The Urban Multi-scale Environmental Predictor (UMEP) has been developed to investigate urban processes, including the effects of climate change.',
 					cnTitle: 'UMEP',
 					cnDesc: 'TODO: In Chinese.'
 				},
