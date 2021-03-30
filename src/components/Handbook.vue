@@ -972,7 +972,8 @@ ul.contents-list.show-contents {
 	display: none;
 }
 .narrow-page img {
-	width: 60vw;
+	height: 400px; /* this should define the width to stay in proportion */
+	max-width: calc(100% - 16px);
 	margin: 0 auto 8px auto;
 }
 
