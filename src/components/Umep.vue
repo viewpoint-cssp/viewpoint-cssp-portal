@@ -4,13 +4,13 @@
 			<div class="header-left">
 				<img id="logo" src="../assets/images/logo.png" />
 				<h1>
-					UMEP training materials
+					Urban Modelling
 					<br class="wrap-item" />
-					<sup lang="zh-cn">培训材料</sup>
+					<sup lang="zh-cn">城市模型</sup>
 				</h1>
 			</div>
 		</div>
-		<div class="training-handbook">
+		<div class="umep-training">
 			<div class="contents">
 				<font-awesome-icon
 					icon="thumbtack"
@@ -478,7 +478,7 @@ br.wrap-item {
 	display: none;
 }
 
-.training-handbook {
+.umep-training {
 	max-width: var(--widthLimit);
 	margin: 0 auto;
 	display: flex;

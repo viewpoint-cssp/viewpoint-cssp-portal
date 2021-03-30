@@ -81,7 +81,7 @@ export default {
 	},
 	methods: {
 		goTo(page) {
-			if (page == 'umep') {
+			if (page == 'umep' || page == 'arup') {
 				this.$router.push(page.toLowerCase())
 			} else if (page == 'arup') {
 				location.href =

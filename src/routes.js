@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import About from './components/About.vue'
+import Arup from './components/Arup.vue'
 import Briefing from './components/Briefing.vue'
 import Catalogue from './components/Catalogue.vue'
 import Demonstrators from './components/Demonstrators.vue'
@@ -30,6 +31,14 @@ const router = new VueRouter({
 			component: About,
 			meta: {
 				title: 'VIEWpoint About'
+			}
+		},
+		{
+			path: '/arup',
+			name: 'Arup City Tool',
+			component: Arup,
+			meta: {
+				title: 'VIEWpoint Arup City Tool'
 			}
 		},
 		{

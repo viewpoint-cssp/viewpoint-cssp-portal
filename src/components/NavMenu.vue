@@ -61,6 +61,7 @@ Use .nav-menu to position (eg absolute, at top left with any z-index)
 
 const appPages = [
 	'About',
+	'Arup', // this is a valid page but not actually used below
 	'Briefing',
 	'Catalogue',
 	'Demonstrators',
