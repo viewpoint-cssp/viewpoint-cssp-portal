@@ -115,7 +115,8 @@ export default {
 					enDesc:
 						'These training materials are for those with some technical knowledge to get started in some of the tools within CSSP China.',
 					cnTitle: '培训材料',
-					cnDesc: 'TODO: Chinese.'
+					cnDesc:
+						'这些培训材料为具有一定技术知识的人员设计，帮助他们着手使用气候科学支持服务伙伴关系（CSSP）计划中国项目下的一些工具。'
 				}
 			]
 		}

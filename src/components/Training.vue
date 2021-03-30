@@ -16,7 +16,8 @@
 					century.
 				</p>
 				<p lang="zh-cn">
-					TODO: Words translated to Chinese.
+					这些培训材料为具有一定技术知识的人员设计，帮助他们着手使用气候科学支持服务伙伴关系（CSSP）
+					计划中国项目下的一些工具。这些培训材料可以帮助相关人员获取更多有关气候变化如何影响城市和基础设施的相关信息，并调查本世纪下半叶的气候预测结果范围。
 				</p>
 			</div>
 		</div>
@@ -52,16 +53,18 @@ export default {
 					enTitle: 'Urban Modelling',
 					enDesc:
 						'The Urban Multi-scale Environmental Predictor (UMEP) has been developed to investigate urban processes, including the effects of climate change.',
-					cnTitle: 'UMEP',
-					cnDesc: 'TODO: In Chinese.'
+					cnTitle: '城市模型',
+					cnDesc:
+						'城市多尺度环境预测器（UMEP）的开发可以调查包括气候变化影响在内的城市发展过程。'
 				},
 				{
 					pageName: 'arup',
 					imageName: 'arup.jpg',
 					enTitle: 'Climate Risk to Infrastructure',
 					enDesc: `Arup, the global engineering company, have created this hands-on step-by-step tool to help planners and policy-makers understand how climate change may impact a city's infrastructure.`,
-					cnTitle: 'ARUP',
-					cnDesc: 'TODO: In Chinese.'
+					cnTitle: '基础设施面临的气候风险',
+					cnDesc:
+						'国际工程咨询公司奥雅纳（Arup）已创建了实用的逐步操作工具，以帮助城市规划人员和政策制定者了解气候变化将如何影响城市基础设施。'
 				},
 				{
 					pageName: 'qump',
@@ -69,8 +72,9 @@ export default {
 					enTitle: 'Climate Projection Uncertainty',
 					enDesc:
 						'Because there is no single best estimate of future climate change, Quantifying Uncertainty in Model Projections (QUMP) is a Met Office project to explore the range of uncertainty using multiple outcomes of climate projections.',
-					cnTitle: 'QUMP',
-					cnDesc: 'TODO: In Chinese.'
+					cnTitle: '气候预测的不确定性',
+					cnDesc:
+						'由于没有关于对未来气候变化的最佳预估，由英国气象局（Met Office）开发的气候预测模型不确定性量化（QUMP）项目，旨在利用多种气候预测结果探索气候预测不确定性的范围。'
 				}
 			]
 		}
@@ -139,5 +143,10 @@ a:hover,
 a:hover span,
 a:hover svg path {
 	color: var(--vpOrange);
+}
+
+.selection-panel >>> .selection-item.image {
+	/* these images are square so width needs to be reduced */
+	max-width: 300px;
 }
 </style>
