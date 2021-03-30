@@ -118,7 +118,6 @@ export const videoPages = [
 	},
 	{
 		name: 'renewables',
-		disabled: true,
 		enLabel: 'Renewable energy',
 		enText: `Enabling renewable energy systems are at the heart of our
 					net-zero future and the climate is a key part of efficient
@@ -133,31 +132,31 @@ export const videoPages = [
 		videos: {
 			en: [
 				{
-					id: '',
+					id: '85W0tX0W',
 					title: `Climate Services for the European Energy Sector`
 				},
 				{
-					id: '',
+					id: '5WboVNNq',
 					title: `Seasonal climate prediction, with applications for 
 								wind energy and for Yangtze rainfall`
 				},
 				{
-					id: '',
+					id: 'ZcrRTg80',
 					title: `A new energy analytics platform and its utility for 
 								expanding the penetration of renewable energy`
 				}
 			],
 			cn: [
 				{
-					id: '',
+					id: 'tkK9u9N3',
 					title: `欧洲能源部门的气候服务`
 				},
 				{
-					id: '',
+					id: 'c0GmwaAI',
 					title: `季节性气候预测在风能和长江流域降水的应用`
 				},
 				{
-					id: '',
+					id: 'q1YfXWYK',
 					title: `新能源分析平台及其在扩大可再生能源渗透方面的效用`
 				}
 			]
@@ -166,7 +165,7 @@ export const videoPages = [
 	{
 		name: 'audio',
 		enLabel: 'Audio discussion',
-		enText: `A discusson between experts in the psychology of communicating climate change, environmental risk and international scientific climate research and services to discuss. Available in English only.`,
+		enText: `A discussion between experts in the psychology of communicating climate change, environmental risk and international scientific climate research and services. Available in English only.`,
 		cnLabel: '音频讨论',
 		cnText: 'TODO: Chinese translation',
 		audio: true,
