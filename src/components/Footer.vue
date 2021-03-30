@@ -280,8 +280,10 @@ footer a:focus {
 	outline: none;
 	color: var(--vpOrange);
 }
-footer a:hover {
-	color: var(--vpOrange);
+@media (hover: hover) {
+	footer a:hover {
+		color: var(--vpOrange);
+	}
 }
 
 .logo-wrapper {
@@ -330,8 +332,10 @@ footer a:hover {
 	border: solid 1.5px currentColor;
 	background-color: currentColor;
 }
-.mail-solid.icon:hover {
-	color: var(--vpOrange);
+@media (hover: hover) {
+	.mail-solid.icon:hover {
+		color: var(--vpOrange);
+	}
 }
 
 .mail-solid.icon:before {

@@ -165,9 +165,11 @@ export default {
 	text-decoration: underline;
 	color: var(--chineseAnchor);
 }
-.about-page a:hover,
-.about-page a:hover svg path {
-	color: var(--vpOrange);
+@media (hover: hover) {
+	.about-page a:hover,
+	.about-page a:hover svg path {
+		color: var(--vpOrange);
+	}
 }
 
 .selection-panel >>> .selection-item.image {

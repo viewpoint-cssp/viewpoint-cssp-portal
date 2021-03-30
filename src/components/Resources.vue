@@ -169,10 +169,12 @@ span.goto.noicon {
 	text-decoration: underline;
 	color: var(--chineseAnchor);
 }
-span.goto:hover,
-span.goto:hover strong,
-span.goto:hover svg path {
-	color: var(--vpOrange);
+@media (hover: hover) {
+	span.goto:hover,
+	span.goto:hover strong,
+	span.goto:hover svg path {
+		color: var(--vpOrange);
+	}
 }
 
 .fa-link {

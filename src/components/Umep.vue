@@ -502,8 +502,10 @@ br.wrap-item {
 	transform: rotate(45deg);
 	transition: transform 0.3s linear;
 }
-.pin-contents:hover path {
-	color: var(--vpOrange);
+@media (hover: hover) {
+	.pin-contents:hover path {
+		color: var(--vpOrange);
+	}
 }
 .pin-contents.pinned {
 	transform: none;
@@ -526,10 +528,15 @@ br.wrap-item {
 }
 
 .section.selected,
-.section.selected span,
-.section:hover,
-.section:hover path {
+.section.selected span {
 	color: var(--vpOrange);
+}
+
+@media (hover: hover) {
+	.section:hover,
+	.section:hover path {
+		color: var(--vpOrange);
+	}
 }
 
 .section sup {
@@ -577,23 +584,27 @@ hr.contents-divider {
 	color: var(--chineseAnchor);
 	text-decoration: underline;
 }
-.page-content >>> span.goto:hover,
-.page-content >>> span.goto:hover strong,
-.page-content >>> span.goto:hover svg path {
-	color: var(--vpOrange);
+@media (hover: hover) {
+	.page-content >>> span.goto:hover,
+	.page-content >>> span.goto:hover strong,
+	.page-content >>> span.goto:hover svg path {
+		color: var(--vpOrange);
+	}
 }
 
 .page-content >>> a {
 	text-decoration: none;
 	outline: 0;
 }
-.page-content >>> a:hover,
-.page-content >>> a:hover span,
-.page-content >>> a:hover svg path {
-	color: var(--vpOrange);
-}
-.page-content >>> a:hover img {
-	box-shadow: 4px 4px 5px var(--primarySelected);
+@media (hover: hover) {
+	.page-content >>> a:hover,
+	.page-content >>> a:hover span,
+	.page-content >>> a:hover svg path {
+		color: var(--vpOrange);
+	}
+	.page-content >>> a:hover img {
+		box-shadow: 4px 4px 5px var(--primarySelected);
+	}
 }
 .page-content >>> a:active img {
 	transform: translateY(1px);

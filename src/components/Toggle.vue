@@ -58,7 +58,7 @@ export default {
 		},
 		offImage: {
 			type: String,
-			required: false,
+			required: false
 		},
 		onState: {
 			type: String,
@@ -140,11 +140,13 @@ export default {
 	opacity: 0.7;
 }
 
-.switch-plate:hover {
-	border-color: var(--vpOrange);
-}
-.switch-plate:hover .switch-state {
-	background-color: var(--vpOrange);
+@media (hover: hover) {
+	.switch-plate:hover {
+		border-color: var(--vpOrange);
+	}
+	.switch-plate:hover .switch-state {
+		background-color: var(--vpOrange);
+	}
 }
 
 @media (max-width: 1007px) {

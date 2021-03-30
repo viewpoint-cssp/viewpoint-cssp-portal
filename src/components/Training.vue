@@ -139,10 +139,12 @@ a:lang(zh-cn) {
 	text-decoration: underline;
 	color: var(--chineseAnchor);
 }
-a:hover,
-a:hover span,
-a:hover svg path {
-	color: var(--vpOrange);
+@media (hover: hover) {
+	a:hover,
+	a:hover span,
+	a:hover svg path {
+		color: var(--vpOrange);
+	}
 }
 
 .selection-panel >>> .selection-item.image {

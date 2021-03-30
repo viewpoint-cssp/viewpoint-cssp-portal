@@ -105,15 +105,17 @@ export default {
 .selection-panel:nth-of-type(odd) .selection-item.image {
 	background: var(--vpDarkImage);
 }
-.selection-panel:not([disabled]):hover {
-	background: var(--bannerGrey);
-}
-.selection-panel:not([disabled]):hover .selection-item {
-	border-color: var(--vpOrange) !important;
-	box-shadow: 5px 5px 10px var(--vpDark);
-}
-.selection-panel:not([disabled]):hover .selection-item.desc * {
-	color: whitesmoke;
+@media (hover: hover) {
+	.selection-panel:not([disabled]):hover {
+		background: var(--bannerGrey);
+	}
+	.selection-panel:not([disabled]):hover .selection-item {
+		border-color: var(--vpOrange) !important;
+		box-shadow: 5px 5px 10px var(--vpDark);
+	}
+	.selection-panel:not([disabled]):hover .selection-item.desc * {
+		color: whitesmoke;
+	}
 }
 
 /* for zooming image on hover * /
@@ -129,8 +131,10 @@ export default {
 	transition: width 0.3s ease-in-out 0s;
 	transition-property: width;
 }
-.selection-panel:hover .selection-item.image img {
-	width: 110%;
+@media (hover: hover) {
+	.selection-panel:hover .selection-item.image img {
+		width: 110%;
+	}
 }
 /* end of styling to zoom on hover */
 

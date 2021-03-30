@@ -438,9 +438,11 @@ div.glossary-comments svg {
 div.glossary-comments a:focus {
 	outline: none;
 }
-div.glossary-comments a:hover,
-div.glossary-comments a:hover svg path {
-	color: var(--vpOrange);
+@media (hover: hover) {
+	div.glossary-comments a:hover,
+	div.glossary-comments a:hover svg path {
+		color: var(--vpOrange);
+	}
 }
 div.glossary-comments hr {
 	border: none;
@@ -477,9 +479,11 @@ div.glossary-comments hr {
 .fa-chevron-up.expanded {
 	transform: rotate(180deg);
 }
-.show-more:hover span,
-.show-more:hover .fa-chevron-up path {
-	color: var(--vpOrange);
+@media (hover: hover) {
+	.show-more:hover span,
+	.show-more:hover .fa-chevron-up path {
+		color: var(--vpOrange);
+	}
 }
 
 .no-glossary {

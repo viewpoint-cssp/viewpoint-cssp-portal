@@ -32,8 +32,8 @@
 					></font-awesome-icon>
 				</div>
 			</div>
-			<div 
-				class="search-in-list" 
+			<div
+				class="search-in-list"
 				:class="{ visible: showSearchInList }"
 				v-show-slide="showSearchInList"
 			>
@@ -139,8 +139,8 @@
 					></font-awesome-icon>
 				</div>
 			</div>
-			<div 
-				class="keyword-list" 				
+			<div
+				class="keyword-list"
 				:class="{ visible: showTags }"
 				v-show-slide="showTags"
 			>
@@ -172,10 +172,7 @@
 				>
 					Apply filter
 				</button>
-				<button
-					@click="clearFilter"
-					:data-disabled="!filterSet"
-				>
+				<button @click="clearFilter" :data-disabled="!filterSet">
 					Clear filter
 				</button>
 			</div>
@@ -505,8 +502,10 @@ export default {
 	color: var(--whiteDisabled);
 }
 
-.header:hover .close-icon path {
-	color: var(--whiteHover);
+@media (hover: hover) {
+	.header:hover .close-icon path {
+		color: var(--whiteHover);
+	}
 }
 
 .settings {
@@ -552,10 +551,12 @@ h3 {
 	flex-shrink: 0;
 }
 
-.clickable:hover h3,
-.clickable:hover .fa-caret-down path,
-.caret:hover .fa-caret-down path {
-	color: var(--vpOrange);
+@media (hover: hover) {
+	.clickable:hover h3,
+	.clickable:hover .fa-caret-down path,
+	.caret:hover .fa-caret-down path {
+		color: var(--vpOrange);
+	}
 }
 .fa-caret-down {
 	font-size: 24px;
@@ -616,9 +617,11 @@ h3 {
 /*.keyword.selected:after {
 	content: '\2713'; 
 }*/
-.keyword:hover {
-	background: var(--vpOrange);
-	box-shadow: 2px 2px 5px var(--primarySelected);
+@media (hover: hover) {
+	.keyword:hover {
+		background: var(--vpOrange);
+		box-shadow: 2px 2px 5px var(--primarySelected);
+	}
 }
 .keyword:active {
 	transform: translateY(1px);

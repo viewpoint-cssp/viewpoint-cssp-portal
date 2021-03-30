@@ -164,9 +164,11 @@ button:disabled {
 	background: var(--primaryDisabled);
 }
 
-button:not([disabled]):hover {
-	background: var(--vpOrange);
-	box-shadow: 4px 4px 5px var(--primarySelected);
+@media (hover: hover) {
+	button:not([disabled]):hover {
+		background: var(--vpOrange);
+		box-shadow: 4px 4px 5px var(--primarySelected);
+	}
 }
 
 button:not([disabled]):active {
@@ -246,8 +248,10 @@ td {
 .about-page p {
 	margin-bottom: 16px;
 }
-.about-page a:hover {
-	color: var(--vpOrange);
+@media (hover: hover) {
+	.about-page a:hover {
+		color: var(--vpOrange);
+	}
 }
 
 .bilingual {

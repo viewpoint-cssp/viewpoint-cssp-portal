@@ -446,10 +446,12 @@ export default {
 	cursor: ns-resize;
 }
 
-.button-panel a.title:hover h3,
-.button-panel a.title:hover .fa-download path,
-.preview a:hover .fa-download path {
-	color: var(--vpOrange);
+@media (hover: hover) {
+	.button-panel a.title:hover h3,
+	.button-panel a.title:hover .fa-download path,
+	.preview a:hover .fa-download path {
+		color: var(--vpOrange);
+	}
 }
 
 a {
@@ -482,9 +484,11 @@ a {
 	left: 50px;
 	top: 25px;
 }
-.button-panel img:hover {
-	border-color: var(--vpOrange);
-	box-shadow: 4px 4px 5px var(--primarySelected);
+@media (hover: hover) {
+	.button-panel img:hover {
+		border-color: var(--vpOrange);
+		box-shadow: 4px 4px 5px var(--primarySelected);
+	}
 }
 
 .preview {
@@ -518,8 +522,10 @@ a {
 .close-icon path {
 	color: var(--text);
 }
-.close-icon:hover path {
-	color: var(--vpOrange);
+@media (hover: hover) {
+	.close-icon:hover path {
+		color: var(--vpOrange);
+	}
 }
 
 .preview iframe,
@@ -571,8 +577,10 @@ a {
 		margin: 0 8px;
 		cursor: default !important;
 	}
-	.button-panel img:hover {
-		box-shadow: none;
+	@media (hover: hover) {
+		.button-panel img:hover {
+			box-shadow: none;
+		}
 	}
 	.button-panel img:nth-of-type(even) {
 		display: none;

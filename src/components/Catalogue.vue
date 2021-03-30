@@ -85,7 +85,7 @@ export default {
 			// and recalculate a best-fit width for the two panels too
 			let rhWidth = 480
 			if (window.innerWidth >= 900) {
-				rhWidth = Math.floor(window.innerWidth / 3) 
+				rhWidth = Math.floor(window.innerWidth / 3)
 			} else {
 				rhWidth = Math.floor(window.innerWidth / 2)
 			}
@@ -210,15 +210,14 @@ h1.filter {
 	color: var(--vpDark);
 	cursor: pointer;
 }
-h1.filter:hover {
-	color: var(--vpOrange);
-}
-
 h1.filter path {
 	fill: var(--vpDark);
 }
-h1.filter:hover path {
-	fill: var(--vpOrange);
+@media (hover: hover) {
+	h1.filter:hover,
+	h1.filter:hover path {
+		fill: var(--vpOrange);
+	}
 }
 
 .filter-icon {

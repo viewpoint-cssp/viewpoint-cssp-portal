@@ -16,7 +16,8 @@ export default {
 	name: 'Gotop',
 	methods: {
 		showHideButton() {
-			if (document.getElementsByClassName('gotop-button').length == 0) return // just in case!
+			if (document.getElementsByClassName('gotop-button').length == 0)
+				return // just in case!
 			let display = 'none'
 			const navFtr = document.getElementsByClassName('app-fixed')
 			if (!window.matchMedia('(max-width: 640px)').matches) {
@@ -42,7 +43,7 @@ export default {
 			// if wide screen, keep button close to the action
 			let right = 10
 			if (window.innerWidth > 1358) {
-				right = ((window.innerWidth - 1358) / 2) + 10
+				right = (window.innerWidth - 1358) / 2 + 10
 			}
 			document.documentElement.style.setProperty(
 				'--gotopRight',
@@ -99,8 +100,10 @@ export default {
 	z-index: 50;
 }
 
-.gotop-button:hover {
-	background-color: var(--vpOrange);
+@media (hover: hover) {
+	.gotop-button:hover {
+		background-color: var(--vpOrange);
+	}
 }
 
 .gotop-icon {

@@ -24,7 +24,10 @@
 		<div class="entry-details" v-else-if="selectedPage == 'abstract'">
 			<h2 class="title">{{ selectedEntry.title }}</h2>
 			<p v-if="!selectedEntry.abstract">No abstract available</p>
-			<p v-else-if="selectedEntry.htmlAbstract" v-html="selectedEntry.abstract"></p>
+			<p
+				v-else-if="selectedEntry.htmlAbstract"
+				v-html="selectedEntry.abstract"
+			></p>
 			<p v-else>{{ selectedEntry.abstract }}</p>
 		</div>
 		<div class="entry-details" v-else>
@@ -36,7 +39,9 @@
 				</tr>
 				<tr v-if="selectedEntry.journal">
 					<td class="field-label">Journal</td>
-					<td class="field-value break-word">{{ selectedEntry.journal }}</td>
+					<td class="field-value break-word">
+						{{ selectedEntry.journal }}
+					</td>
 				</tr>
 				<tr v-if="selectedEntry.volume">
 					<td class="field-label">Volume</td>
@@ -52,13 +57,25 @@
 				</tr>
 				<tr class="row-hover" v-if="selectedEntry.doi">
 					<td class="field-label clickable">
-						<a :href="`https://doi.org/${selectedEntry.doi}`" target="_blank" rel="noopener noreferrer" class="nowrap">
+						<a
+							:href="`https://doi.org/${selectedEntry.doi}`"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="nowrap"
+						>
 							DOI
-							<font-awesome-icon icon="external-link-alt" class="link-icon"></font-awesome-icon>
+							<font-awesome-icon
+								icon="external-link-alt"
+								class="link-icon"
+							></font-awesome-icon>
 						</a>
 					</td>
 					<td class="field-value">
-						<a :href="`https://doi.org/${selectedEntry.doi}`" target="_blank" rel="noopener noreferrer">
+						<a
+							:href="`https://doi.org/${selectedEntry.doi}`"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
 							{{ selectedEntry.doi }}
 						</a>
 					</td>
@@ -69,77 +86,124 @@
 				</tr>
 				<tr class="row-hover" v-if="selectedEntry.url">
 					<td class="field-label clickable">
-						<a :href="selectedEntry.url" target="_blank" rel="noopener noreferrer" class="nowrap">
+						<a
+							:href="selectedEntry.url"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="nowrap"
+						>
 							URL
-							<font-awesome-icon icon="external-link-alt" class="link-icon"></font-awesome-icon>
+							<font-awesome-icon
+								icon="external-link-alt"
+								class="link-icon"
+							></font-awesome-icon>
 						</a>
 					</td>
 					<td class="field-value">
-						<a :href="selectedEntry.url" target="_blank" rel="noopener noreferrer">
+						<a
+							:href="selectedEntry.url"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
 							{{ selectedEntry.url }}
 						</a>
 					</td>
 				</tr>
 				<tr v-if="selectedEntry.publisher">
 					<td class="field-label">Publisher</td>
-					<td class="field-value break-word">{{ selectedEntry.publisher }}</td>
+					<td class="field-value break-word">
+						{{ selectedEntry.publisher }}
+					</td>
 				</tr>
 				<tr v-if="selectedEntry.editor">
 					<td class="field-label">Editor(s)</td>
-					<td class="field-value break-word">{{ selectedEntry.editor }}</td>
+					<td class="field-value break-word">
+						{{ selectedEntry.editor }}
+					</td>
 				</tr>
 				<tr v-if="selectedEntry.notes">
 					<td class="field-label">Notes</td>
-					<td class="field-value break-word" v-if="selectedEntry.htmlNotes" v-html="selectedEntry.notes"></td>
-					<td class="field-value break-word" v-else>{{ selectedEntry.notes }}</td>
+					<td
+						class="field-value break-word"
+						v-if="selectedEntry.htmlNotes"
+						v-html="selectedEntry.notes"
+					></td>
+					<td class="field-value break-word" v-else>
+						{{ selectedEntry.notes }}
+					</td>
 				</tr>
-				<tr v-if="selectedEntry.authors && selectedEntry.authors.length == 1">
+				<tr
+					v-if="
+						selectedEntry.authors &&
+							selectedEntry.authors.length == 1
+					"
+				>
 					<td class="field-label">Author</td>
-					<td class="field-value break-word">{{ selectedEntry.authors[0] }}</td>
+					<td class="field-value break-word">
+						{{ selectedEntry.authors[0] }}
+					</td>
 				</tr>
-				<tr v-if="selectedEntry.authors && selectedEntry.authors.length == 2">
+				<tr
+					v-if="
+						selectedEntry.authors &&
+							selectedEntry.authors.length == 2
+					"
+				>
 					<td class="field-label">Authors</td>
 					<td class="field-value break-word">
-						{{ selectedEntry.authors[0] }} and <br/> 
+						{{ selectedEntry.authors[0] }} and <br />
 						{{ selectedEntry.authors[1] }}
 					</td>
 				</tr>
-				<tr 
+				<tr
 					class="clickable row-hover"
 					@click="showAllAuthors = !showAllAuthors"
-					v-if="selectedEntry.authors && selectedEntry.authors.length > 2"
+					v-if="
+						selectedEntry.authors &&
+							selectedEntry.authors.length > 2
+					"
 				>
 					<td class="field-label nowrap">
 						Authors
-						<font-awesome-icon 
-							:icon="!showAllAuthors ? 'expand-arrows-alt' : 'compress-arrows-alt'" 
-							class="collapse-icon" 
+						<font-awesome-icon
+							:icon="
+								!showAllAuthors
+									? 'expand-arrows-alt'
+									: 'compress-arrows-alt'
+							"
+							class="collapse-icon"
 						></font-awesome-icon>
 					</td>
 					<td class="field-value break-word" v-if="showAllAuthors">
-						<span v-for="(author, i) in selectedEntry.authors" :key="`author-${i}`">
+						<span
+							v-for="(author, i) in selectedEntry.authors"
+							:key="`author-${i}`"
+						>
 							<br v-if="i > 0" />{{ author }}
 						</span>
 					</td>
 					<td class="field-value break-word" v-else>
-						{{ selectedEntry.authors[0] }} and 
+						{{ selectedEntry.authors[0] }} and
 						{{ selectedEntry.authors.length - 1 }} others
 					</td>
 				</tr>
 				<tr>
 					<td class="field-label">
-						Keywords 
+						Keywords
 					</td>
-					<td class="field-value" v-if="selectedEntry.keywords.length == 0">
-						None 
+					<td
+						class="field-value"
+						v-if="selectedEntry.keywords.length == 0"
+					>
+						None
 					</td>
 					<td class="keywords flex-row" v-else>
-						<div 
-							v-for="(tag, i) in selectedEntry.keywords" 
-							:key="`tag-${i}`" 
+						<div
+							v-for="(tag, i) in selectedEntry.keywords"
+							:key="`tag-${i}`"
 							class="keyword"
-							:class="{ 
-								'in-filter': tagInFilter(tag), 
+							:class="{
+								'in-filter': tagInFilter(tag),
 								'in-taglist': tagInList(tag)
 							}"
 						>
@@ -172,7 +236,7 @@ export default {
 			this.showAllAuthors = false
 			this.$nextTick(() => {
 				if (typeof this.$el.scrollTo == 'function') {
-					this.$el.scrollTo({ top: 0, behavior: 'smooth'})
+					this.$el.scrollTo({ top: 0, behavior: 'smooth' })
 				} else {
 					this.$el.scrollTop = 0
 				}
@@ -181,10 +245,15 @@ export default {
 	},
 	methods: {
 		tagInFilter(tag) {
-			return this.filterSettings.themes && this.filterSettings.themes.includes(tag.toUpperCase())
+			return (
+				this.filterSettings.themes &&
+				this.filterSettings.themes.includes(tag.toUpperCase())
+			)
 		},
 		tagInList(tag) {
-			return this.tagList.map(a => a.toUpperCase()).includes(tag.toUpperCase())
+			return this.tagList
+				.map(a => a.toUpperCase())
+				.includes(tag.toUpperCase())
 		}
 	}
 }
@@ -219,8 +288,10 @@ export default {
 	color: var(--whiteDefault);
 }
 
-.selected-page-button:not(disabled):not(.selected):hover {
-	color: var(--whiteHover);
+@media (hover: hover) {
+	.selected-page-button:not(disabled):not(.selected):hover {
+		color: var(--whiteHover);
+	}
 }
 
 .selected-page-button:not(disabled) {
@@ -257,15 +328,17 @@ tr.row-hover td a,
 tr.row-hover td span {
 	text-decoration: none !important;
 }
-tr.row-hover:hover td,
-tr.row-hover:hover td a,
-tr.row-hover:hover td span {
-	text-decoration: none !important;
-	color: var(--vpOrange);
-}
-tr.row-hover:hover td a path,
-tr.row-hover:hover td path {
-	color: var(--vpOrange);
+@media (hover: hover) {
+	tr.row-hover:hover td,
+	tr.row-hover:hover td a,
+	tr.row-hover:hover td span {
+		text-decoration: none !important;
+		color: var(--vpOrange);
+	}
+	tr.row-hover:hover td a path,
+	tr.row-hover:hover td path {
+		color: var(--vpOrange);
+	}
 }
 
 .fa-expand-arrows-alt {
@@ -277,7 +350,7 @@ td.flex-row {
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
-	align-items: flex-start;	
+	align-items: flex-start;
 	flex-wrap: wrap;
 }
 

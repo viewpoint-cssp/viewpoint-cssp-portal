@@ -731,16 +731,20 @@ a.download,
 .toggle-icon path {
 	color: var(--whiteDisabled);
 }
-.toggle-icon:not([disabled]):hover path {
-	color: var(--whiteHover);
+@media (hover: hover) {
+	.toggle-icon:not([disabled]):hover path {
+		color: var(--whiteHover);
+	}
 }
 .toggle-icon.boxed {
 	border: 1px solid var(--whiteDisabled);
 	width: 18px;
 	height: 18px;
 }
-.toggle-icon:not([disabled]):hover {
-	border-color: var(--whiteHover);
+@media (hover: hover) {
+	.toggle-icon:not([disabled]):hover {
+		border-color: var(--whiteHover);
+	}
 }
 
 .page-toggles {
@@ -792,8 +796,10 @@ ul.contents-list.show-contents {
 	background: transparent;
 	cursor: pointer;
 }
-.nav-item:hover {
-	color: var(--whiteHover);
+@media (hover: hover) {
+	.nav-item:hover {
+		color: var(--whiteHover);
+	}
 }
 
 .other-toggles {
@@ -813,8 +819,10 @@ ul.contents-list.show-contents {
 	transform: translateY(-1px);
 	cursor: pointer;
 }
-.other-toggles img.flag:hover {
-	background: var(--whiteHover);
+@media (hover: hover) {
+	.other-toggles img.flag:hover {
+		background: var(--whiteHover);
+	}
 }
 
 .fa-slash {
@@ -925,9 +933,11 @@ ul.contents-list.show-contents {
 	opacity: 0.1;
 }
 
-.slider >>> .slider-btn:hover {
-	background: var(--primaryLighter); /*rgba(0, 0, 0, 0.1);*/
-	box-shadow: none;
+@media (hover: hover) {
+	.slider >>> .slider-btn:hover {
+		background: var(--primaryLighter); /*rgba(0, 0, 0, 0.1);*/
+		box-shadow: none;
+	}
 }
 
 .slider >>> .slider-icon {
@@ -935,9 +945,11 @@ ul.contents-list.show-contents {
 	border-color: var(--whiteDefault);
 	border-width: 4px;
 }
-.slider >>> .slider-btn:hover .slider-icon {
-	border-color: var(--vpOrange) !important;
-	opacity: 1;
+@media (hover: hover) {
+	.slider >>> .slider-btn:hover .slider-icon {
+		border-color: var(--vpOrange) !important;
+		opacity: 1;
+	}
 }
 
 .slider >>> .slider-indicators {
@@ -946,8 +958,10 @@ ul.contents-list.show-contents {
 	text-align: center;
 }
 
-.slider >>> .slider-indicator-icon:hover {
-	background: var(--vpPeach);
+@media (hover: hover) {
+	.slider >>> .slider-indicator-icon:hover {
+		background: var(--vpPeach);
+	}
 }
 
 .slider >>> .slider-indicator-active {

@@ -244,8 +244,10 @@ export default {
 .selected-page-button.selected p {
 	color: var(--whiteDefault);
 }
-.selected-page-button:not([disabled]):not(.selected):hover p {
-	color: var(--whiteHover);
+@media (hover: hover) {
+	.selected-page-button:not([disabled]):not(.selected):hover p {
+		color: var(--whiteHover);
+	}
 }
 .selected-page-button:not([disabled]) {
 	cursor: pointer;

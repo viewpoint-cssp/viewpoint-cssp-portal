@@ -464,14 +464,14 @@ export default {
 .cat-table th.sort {
 	color: var(--whiteDefault);
 }
-.cat-table th:not(.sort):hover {
-	color: var(--whiteHover);
-}
-.cat-table th.sort:hover {
-	color: var(--vpOrange);
-}
-.cat-table th.sort:hover .fa-caret-down path {
-	color: var(--vpOrange);
+@media (hover: hover) {
+	.cat-table th:not(.sort):hover {
+		color: var(--whiteHover);
+	}
+	.cat-table th.sort:hover,
+	.cat-table th.sort:hover .fa-caret-down path {
+		color: var(--vpOrange);
+	}
 }
 
 .column-header {
@@ -516,9 +516,11 @@ th.sort .sort-icon {
 	cursor: pointer;
 }
 
-.cat-table tr:hover td {
-	background: var(--vpPeach);
-	border-color: var(--vpCoolGrey);
+@media (hover: hover) {
+	.cat-table tr:hover td {
+		background: var(--vpPeach);
+		border-color: var(--vpCoolGrey);
+	}
 }
 
 .cat-table tr.selected td {
@@ -530,8 +532,10 @@ th.sort .sort-icon {
 	text-align: center;
 }
 
-.cat-table tr:hover td.no-entries {
-	background: var(--primaryLightest);
+@media (hover: hover) {
+	.cat-table tr:hover td.no-entries {
+		background: var(--primaryLightest);
+	}
 }
 
 /* This is to stop table content appearing above the column titles when scrolling!
@@ -543,7 +547,7 @@ has to be forced to the top for Edge and Chrome). */
 .top-blocker {
 	position: absolute;
 	top: 0;
-	height: 2.5px; 
+	height: 2.5px;
 }
 .top-blocker.left {
 	left: 0;

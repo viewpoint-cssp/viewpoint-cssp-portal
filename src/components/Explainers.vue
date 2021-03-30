@@ -362,9 +362,11 @@ export default {
 	cursor: ns-resize;
 }
 
-.button-panel a.title:hover h3,
-.button-panel a.title:hover .fa-download path {
-	color: var(--vpOrange);
+@media (hover: hover) {
+	.button-panel a.title:hover h3,
+	.button-panel a.title:hover .fa-download path {
+		color: var(--vpOrange);
+	}
 }
 
 .button-panel img {

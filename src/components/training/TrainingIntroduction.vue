@@ -191,8 +191,10 @@ a.download,
 	color: var(--whiteDefault);
 }
 
-.download-buttons a:hover button svg path {
-	color: var(--whiteDefault);
+@media (hover: hover) {
+	.download-buttons a:hover button svg path {
+		color: var(--whiteDefault);
+	}
 }
 
 @media (max-width: 1007px) {

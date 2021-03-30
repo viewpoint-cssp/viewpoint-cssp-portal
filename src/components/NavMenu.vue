@@ -79,7 +79,7 @@ export default {
 	name: 'NavMenu',
 	props: {
 		navPage: String, // current page (see valid page names in options array below)
-		forceHamburger: Boolean // passed true to use hamburger/vertical menu regardless of browser width
+		forceHamburger: Boolean // passed true to use hamburger/vertical menu regardless of browser width,
 	},
 	data() {
 		return {
@@ -283,7 +283,7 @@ export default {
 	position: relative; /* for hamburger (vertical) ul.main-nav */
 }
 
-/* extra base styling needed on top of specific .nav-menu 
+/* extra base styling needed on top of specific .nav-menu
    styling when this component is used outside portal */
 .nav-menu.stand-alone {
 	box-sizing: border-box;
@@ -335,8 +335,10 @@ ul.sub-nav {
 .nav-item:not([disabled]) {
 	cursor: pointer;
 }
-.nav-item:hover:not([disabled]):not(.active) {
-	color: var(--whiteHover);
+@media (hover: hover) {
+	.nav-item:hover:not([disabled]):not(.active) {
+		color: var(--whiteHover);
+	}
 }
 .nav-item sup {
 	background: transparent;
@@ -349,8 +351,11 @@ ul.sub-nav {
 	display: none;
 }
 
-.nav-item:hover:not([disabled]) ul.sub-nav {
-	display: block;
+@media (hover: hover) {
+	/* only do this for touch devices since :hover state can be sticky */
+	.nav-item:hover:not([disabled]) ul.sub-nav {
+		display: block;
+	}
 }
 
 .sub-nav .nav-item {
@@ -369,9 +374,11 @@ ul.sub-nav {
 	margin: 8px 0;
 	position: relative;
 }
-.hamburger-icon:hover {
-	color: var(--whiteHover);
-	cursor: pointer;
+@media (hover: hover) {
+	.hamburger-icon:hover {
+		color: var(--whiteHover);
+		cursor: pointer;
+	}
 }
 
 .hamburger-icon .hamburger-line {
@@ -383,8 +390,10 @@ ul.sub-nav {
 	position: absolute;
 	transition: all 200ms ease-out;
 }
-.hamburger-icon:hover .hamburger-line {
-	background: var(--whiteHover);
+@media (hover: hover) {
+	.hamburger-icon:hover .hamburger-line {
+		background: var(--whiteHover);
+	}
 }
 .hamburger-icon .hamburger-line:nth-child(1) {
 	top: 4px;
@@ -409,7 +418,7 @@ ul.sub-nav {
 	height: 4px;
 }
 
-/* the following overrides normal horizontal 
+/* the following overrides normal horizontal
 nav menu to make a reasonable vertical menu */
 .main-nav.hamburger {
 	position: absolute; /* wrt .nav-menu */
