@@ -47,6 +47,42 @@
 					{{ page.cnText }}
 				</p>
 			</div>
+			<div class="bilingual download-buttons" v-if="page.pdfs">
+				<p class="text english">
+					<a
+						class="download"
+						:href="require(`../assets/pdfs/${page.pdfs.en}.pdf`)"
+						download="VIEWpoint-audio-transcripts-en.pdf"
+						target="_blank"
+						rel="noopener noreferrer"
+						v-if="page.pdfs.en"
+					>
+						<button>
+							<font-awesome-icon
+								icon="download"
+							></font-awesome-icon>
+							Download the transcript
+						</button>
+					</a>
+				</p>
+				<p class="text chinese">
+					<a
+						class="download"
+						:href="require(`../assets/pdfs/${page.pdfs.cn}.pdf`)"
+						download="VIEWpoint-audio-transcripts-cn.pdf"
+						target="_blank"
+						rel="noopener noreferrer"
+						v-if="page.pdfs.cn"
+					>
+						<button>
+							<font-awesome-icon
+								icon="download"
+							></font-awesome-icon
+							>&nbsp;下载视频字幕文本
+						</button>
+					</a>
+				</p>
+			</div>
 			<div class="video-wrapper">
 				<div
 					v-for="lang in Object.keys(page.videos)"
@@ -266,7 +302,8 @@ export default {
 	background: var(--vpCoolGrey);
 	opacity: 1;
 }
-.video-panel * {
+.video-panel div,
+.video-panel p {
 	background: transparent;
 }
 
@@ -274,6 +311,24 @@ p.text {
 	max-width: var(--widthLimit);
 	margin: 0 auto;
 	padding: 32px 64px 0 64px;
+}
+
+.download-buttons p.text {
+	padding-top: 16px;
+}
+
+a.download,
+.fa-download {
+	background: transparent;
+}
+.fa-download path {
+	color: var(--whiteDefault);
+}
+
+@media (hover: hover) {
+	.download-buttons a:hover button svg path {
+		color: var(--whiteDefault);
+	}
 }
 
 .video-wrapper {
@@ -339,6 +394,9 @@ iframe,
 	p.text {
 		padding: 16px 32px 0 32px;
 	}
+	.download-buttons p.text {
+		padding-top: 8px;
+	}
 	.video-wrapper {
 		flex-direction: column;
 		margin-top: 8px;
@@ -359,6 +417,9 @@ iframe,
 	}
 	p.text {
 		padding: 8px 16px 0 16px;
+	}
+	.download-buttons p.text {
+		padding-top: 4px;
 	}
 	.video-wrapper {
 		margin-top: 4px;

@@ -162,21 +162,24 @@ export const videoPages = [
 				}
 			]
 		}
-		/*},
+	},
 	{
 		name: 'audio',
-		enLabel: 'Audio discussions',
-		enText: `Coming soon`,
+		enLabel: 'Audio discussion',
+		enText: `A discusson between experts in the psychology of communicating climate change, environmental risk and international scientific climate research and services to discuss. Available in English only.`,
 		cnLabel: '音频讨论',
 		cnText: 'TODO: Chinese translation',
 		audio: true,
 		videos: {
 			en: [
 				{
-					id: '',
-					title: 'Audiocast'
+					id: 'DeGvEtCy',
+					title: 'Challenges of communicating climate change'
 				}
 			]
-		}*/
+		},
+		pdfs: {
+			en: 'transcript-en-podcast'
+		}
 	}
 ]
