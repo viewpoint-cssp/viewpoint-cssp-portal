@@ -19,7 +19,7 @@ module.exports = {
 	chainWebpack: config => {
 		config.module
 			.rule('pdf')
-			.test(/\.(pdf)(\?.*)?$/)
+			.test(/\.(pdf|epub)(\?.*)?$/)
 			.use('file-loader')
 			.loader('file-loader')
 			.options({

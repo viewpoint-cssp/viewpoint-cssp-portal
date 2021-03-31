@@ -17,34 +17,58 @@
 				</p>
 			</div>
 			<div class="download-buttons">
-				<a
-					class="download"
-					:href="
-						require('../assets/pdfs/handbook-en-webversion-opt.pdf')
-					"
-					download="VIEWpoint-Handbook-en.pdf"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<button>
+				<div class="button-pairs">
+					<button disabled>
 						<font-awesome-icon icon="download"></font-awesome-icon>
 						Download the handbook
 					</button>
-				</a>
-				<a
-					class="download"
-					:href="
-						require('../assets/pdfs/handbook-cn-webversion-opt.pdf')
-					"
-					download="VIEWpoint-Handbook-cn.pdf"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<button lang="zh-cn">
+					<a
+						class="download"
+						:href="
+							require('../assets/pdfs/handbook-en-webversion-opt.pdf')
+						"
+						download="VIEWpoint-Handbook-en.pdf"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<button>PDF</button>
+					</a>
+					<a
+						class="download TODO"
+						:href="require('../assets/pdfs/handbook-en.epub')"
+						download="VIEWpoint-Handbook-en.epub"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<button>ePUB</button>
+					</a>
+				</div>
+				<div class="button-pairs">
+					<button disabled>
 						<font-awesome-icon icon="download"></font-awesome-icon
 						>&nbsp; 下载手册
 					</button>
-				</a>
+					<a
+						class="download"
+						:href="
+							require('../assets/pdfs/handbook-cn-webversion-opt.pdf')
+						"
+						download="VIEWpoint-Handbook-cn.pdf"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<button lang="zh-cn">PDF</button>
+					</a>
+					<a
+						class="download TODO"
+						:href="require('../assets/pdfs/handbook-cn.epub')"
+						download="VIEWpoint-Handbook-cn.epub"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<button lang="zh-cn">ePUB</button>
+					</a>
+				</div>
 			</div>
 		</div>
 		<div class="toggle-wrapper">
@@ -123,7 +147,7 @@
 						:download="`VIEWpoint-handbook-${language}.pdf`"
 						target="_blank"
 						rel="noopener noreferrer"
-						title="Download the handbook"
+						title="Download the PDF"
 					>
 						<font-awesome-icon
 							icon="download"
@@ -688,15 +712,25 @@ a.download,
 	color: var(--whiteDefault);
 }
 
-.download-buttons a:first-of-type {
+.download-buttons .button-pairs {
+	max-width: 48%;
+	display: flex;
+	flex-direction: row;
+}
+.download-buttons .button-pairs:first-of-type {
 	margin-right: 2px;
 }
-.download-buttons a:last-of-type {
+.download-buttons .button-pairs:last-of-type {
 	margin-left: 2px;
 }
-
+.download-buttons a {
+	margin: 0 1px;
+}
 .download-buttons button {
 	height: 100%;
+}
+.download-buttons button:not([disabled]) {
+	font-size: 0.9rem;
 }
 
 .toggle-wrapper {
