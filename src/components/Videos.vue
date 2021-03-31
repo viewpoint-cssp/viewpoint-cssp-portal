@@ -81,6 +81,21 @@
 							>&nbsp;下载视频字幕文本
 						</button>
 					</a>
+					<a
+						class="download"
+						:href="require(`../assets/pdfs/${page.pdfs.en}.pdf`)"
+						download="VIEWpoint-audio-transcripts-en.pdf"
+						target="_blank"
+						rel="noopener noreferrer"
+						v-else-if="page.pdfs.en"
+					>
+						<button>
+							<font-awesome-icon
+								icon="download"
+							></font-awesome-icon
+							>&nbsp;下载英文文本
+						</button>
+					</a>
 				</p>
 			</div>
 			<div class="video-wrapper">

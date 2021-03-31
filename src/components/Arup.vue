@@ -27,7 +27,7 @@
 					:class="{ selected: selectedPage == 'handbook-cn' }"
 					@click="setPage('handbook-cn')"
 				>
-					<p lang="zh-cn">手册</p>
+					<p lang="zh-cn">在手册中</p>
 				</div>
 				<div
 					class="selected-page-button"
@@ -41,7 +41,7 @@
 					:class="{ selected: selectedPage == 'explainer-cn' }"
 					@click="setPage('explainer-cn')"
 				>
-					<p lang="zh-cn">主题解说</p>
+					<p lang="zh-cn">请见“主题解说”</p>
 				</div>
 			</div>
 		</div>
@@ -75,7 +75,7 @@
 					有针对性的适应措施。
 				</p>
 			</div>
-			<div class="bilingual">
+			<!--<div class="bilingual">
 				<p class="two-buttons">
 					<button @click="setPage('handbook-en')">
 						Handbook
@@ -92,7 +92,7 @@
 						主题解说
 					</button>
 				</p>
-			</div>
+			</div>-->
 		</div>
 		<div
 			class="about-page selected-content"
@@ -135,10 +135,12 @@
 				The tool is undergoing final testing and will be available in
 				late spring 2021.
 				<br />
-				<span lang="zh-cn"> TODO: Chinese.</span>
+				<span lang="zh-cn"
+					>该工具正在进行最后的测试，并计划于2021年春末推出。</span
+				>
 			</p>
 			<button class="use-button" disabled v-if="!toolReady">
-				Use the tool<br /><span lang="zh-cn">TODO Chinese</span>
+				Use the tool<br /><span lang="zh-cn">使用此工具</span>
 			</button>
 			<a
 				href="https://app.powerbi.com/view?r=eyJrIjoiZjkzYWE4YjMtMzQ0MC00YjdjLTliNmYtNGVjY2NlNjcxOTYzIiwidCI6IjRhZTQ4YjQxLTAxMzctNDU5OS04NjYxLWZjNjQxZmU3N2JlYSIsImMiOjh9&pageName=ReportSection"
@@ -147,7 +149,7 @@
 				v-else
 			>
 				<button class="use-button">
-					Use the tool<br /><span lang="zh-cn">TODO Chinese</span>
+					Use the tool<br /><span lang="zh-cn">使用此工具</span>
 				</button>
 			</a>
 		</div>

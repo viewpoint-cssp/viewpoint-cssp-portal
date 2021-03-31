@@ -167,7 +167,8 @@ export const videoPages = [
 		enLabel: 'Audio discussion',
 		enText: `A discussion between experts in the psychology of communicating climate change, environmental risk and international scientific climate research and services. Available in English only.`,
 		cnLabel: '音频讨论',
-		cnText: 'TODO: Chinese translation',
+		cnText:
+			'收听心理学专家之间就如何交流气候变化，环境风险和国际科学气候研究与服务的讨论。仅有英文版本提供。',
 		audio: true,
 		videos: {
 			en: [
