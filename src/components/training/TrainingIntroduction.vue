@@ -134,8 +134,10 @@
 			<p>
 				<a
 					class="download"
-					:href="require('../../assets/pdfs/placeholder.pdf')"
-					download="VIEWpoint-video-transcripts-en.pdf"
+					:href="
+						require(`../../assets/pdfs/transcript-en-training.pdf`)
+					"
+					download="VIEWpoint-training-transcripts-en.pdf"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
@@ -148,14 +150,16 @@
 			<p>
 				<a
 					class="download"
-					:href="require('../../assets/pdfs/placeholder.pdf')"
-					download="VIEWpoint-video-transcripts-cn.pdf"
+					:href="
+						require('../../assets/pdfs/transcript-cn-training.pdf')
+					"
+					download="VIEWpoint-training-transcripts-cn.pdf"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
 					<button>
 						<font-awesome-icon icon="download"></font-awesome-icon
-						>&nbsp;下载视频字幕文本
+						>&nbsp; 下载视频字幕文本
 					</button>
 				</a>
 			</p>
