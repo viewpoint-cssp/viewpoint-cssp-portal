@@ -13,18 +13,17 @@ export const explainerPdfs = [
 		enPdf: 'E02-en-increasing-flash-floods',
 		cnTitle: '干旱气候中的暴洪泛滥：中国西南部地区面临的双重挑战',
 		cnPdf: 'E02-cn-increasing-flash-floods',
-		imgPosition: 'bottom',
 		imgCredit: 'Chan Xiao (NCC, CMA)',
-		imgAlt: 'Rural area in Yunnan Province, Southwest China'
+		imgAlt:
+			'Rural area in Yunnan Province, Southwest China\n位于中国西南部的云南省内农村地区'
 	},
 	{
 		enTitle: 'Tibetan Plateau Vortices: a comparison of tracking methods',
 		enPdf: 'E03-en-tibetan-plateau-vortices',
 		cnTitle: '青藏高原低涡跟踪调查研究：现代方法和传统方法的比较',
 		cnPdf: 'E03-cn-tibetan-plateau-vortices',
-		imgPosition: 'bottom',
 		imgCredit: 'Unsplash',
-		imgAlt: 'Tibetan Plateau'
+		imgAlt: 'Tibetan Plateau\n青藏高原'
 	},
 	{
 		enTitle: 'What will shape future Beijing haze events and air quality?',
@@ -50,7 +49,6 @@ export const explainerPdfs = [
 		enPdf: 'E06-en-arup-climate-risk',
 		cnTitle: '奥雅纳气候风险工具：在气候变化背景下保护您的基础设施',
 		cnPdf: 'E06-cn-arup-climate-risk',
-		imgPosition: 'top',
 		imgCredit: 'Erdenebayar Bayansan, Pixabay.com'
 	},
 	{
@@ -75,7 +73,7 @@ export const explainerPdfs = [
 		cnTitle: '季节性预测在中国能源行业的应用前景可期',
 		cnPdf: 'E09-cn-seasonal-forecast',
 		imgCredit: 'Vista Wei, Unsplash',
-		imgAlt: 'Wind farm in Xinyang, China'
+		imgAlt: 'Wind farm in Xinyang, China\n风力发电场'
 	},
 	{
 		enTitle:
@@ -84,7 +82,7 @@ export const explainerPdfs = [
 		cnTitle: '修正中国大规模气温记录中的城市偏差',
 		cnPdf: 'E10-cn-correcting-urban-bias',
 		imgCredit: 'wei zhu, Pixabay',
-		imgAlt: 'Shanghai'
+		imgAlt: 'Shanghai\n上海'
 	},
 	{
 		enTitle:
@@ -107,7 +105,7 @@ export const explainerPdfs = [
 		cnTitle: '利用3D模型检测气流在高建筑物的流动情况',
 		cnPdf: 'E13-cn-examining-airflow',
 		imgCredit: 'Li Yang, Unsplash',
-		imgAlt: 'Beijing cityscape'
+		imgAlt: 'Beijing cityscape\n北京城市景观图像'
 	},
 	{
 		enTitle:
@@ -115,7 +113,6 @@ export const explainerPdfs = [
 		enPdf: 'E14-en-increasing-summer-rainfall',
 		cnTitle: '对中国近四十年来夏季降水强度增加的研究',
 		cnPdf: 'E14-cn-increasing-summer-rainfall',
-		imgPosition: 'top',
 		imgCredit: 'Pexels, Pixabay'
 	},
 	{
@@ -125,7 +122,7 @@ export const explainerPdfs = [
 		cnTitle: '服务开发：作物干旱状况卫星日常监测',
 		cnPdf: 'E15-cn-daily-satellite-monitoring',
 		imgCredit: 'Pixabay',
-		imgAlt: 'Maize growing'
+		imgAlt: 'Maize growing\n玉米种植图像'
 	},
 	{
 		enTitle:
