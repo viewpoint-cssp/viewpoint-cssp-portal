@@ -78,7 +78,7 @@
 							<font-awesome-icon
 								icon="download"
 							></font-awesome-icon
-							>&nbsp;下载视频字幕文本
+							>&nbsp; 下载视频字幕文本
 						</button>
 					</a>
 					<a
@@ -93,7 +93,7 @@
 							<font-awesome-icon
 								icon="download"
 							></font-awesome-icon
-							>&nbsp;下载英文文本
+							>&nbsp; 下载英文文本
 						</button>
 					</a>
 				</p>

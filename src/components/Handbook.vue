@@ -34,7 +34,7 @@
 						<button>PDF</button>
 					</a>
 					<a
-						class="download TODO"
+						class="download"
 						:href="require('../assets/pdfs/handbook-en.epub')"
 						download="VIEWpoint-Handbook-en.epub"
 						target="_blank"
@@ -60,7 +60,7 @@
 						<button lang="zh-cn">PDF</button>
 					</a>
 					<a
-						class="download TODO"
+						class="download"
 						:href="require('../assets/pdfs/handbook-cn.epub')"
 						download="VIEWpoint-Handbook-cn.epub"
 						target="_blank"
