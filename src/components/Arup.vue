@@ -218,7 +218,6 @@ export default {
 	padding: 0 64px;
 	display: flex;
 	flex-direction: row;
-	align-items: center;
 	background: transparent;
 }
 
@@ -266,6 +265,7 @@ img.spread {
 img.explainer {
 	width: 100%;
 	max-width: 620px;
+	height: auto;
 }
 
 .about-page.use-button {
@@ -280,5 +280,43 @@ button.use-button span {
 	color: inherit;
 	background: transparent;
 	font-size: inherit;
+}
+
+@media (max-width: 1007px) {
+	.selected-page {
+		padding: 0 32px;
+	}
+}
+@media (max-width: 640px) {
+	.selected-page {
+		padding: 0 16px;
+	}
+}
+@media (max-width: 640px) {
+	.selected-page {
+		flex-direction: column;
+	}
+	.selected-page-button {
+		display: flex;
+		flex-direction: row;
+		padding: 4px 8px 4px 0;
+	}
+	.selected-page-button:first-of-type {
+		padding-top: 8px;
+	}
+	.selected-page-button:last-of-type {
+		padding-bottom: 8px;
+	}
+	.selected-page-button p {
+		margin-right: 8px;
+	}
+}
+@media (max-width: 520px) {
+	.selected-page {
+		padding: 0 8px;
+	}
+	p.text {
+		padding: 8px;
+	}
 }
 </style>

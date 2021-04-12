@@ -22,52 +22,60 @@
 						<font-awesome-icon icon="download"></font-awesome-icon>
 						Download the handbook
 					</button>
-					<a
-						class="download"
-						:href="
-							require('../assets/pdfs/handbook-en-webversion-opt.pdf')
-						"
-						download="VIEWpoint-Handbook-en.pdf"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						<button>PDF</button>
-					</a>
-					<a
-						class="download"
-						:href="require('../assets/pdfs/handbook-en.epub')"
-						download="VIEWpoint-Handbook-en.epub"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						<button>ePUB</button>
-					</a>
+					<div class="download-types">
+						<a
+							class="download"
+							:href="
+								require('../assets/pdfs/handbook-en-webversion-opt.pdf')
+							"
+							download="VIEWpoint-Handbook-en.pdf"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<button class="download-type">PDF</button>
+						</a>
+						<a
+							class="download"
+							:href="require('../assets/pdfs/handbook-en.epub')"
+							download="VIEWpoint-Handbook-en.epub"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<button class="download-type">ePUB</button>
+						</a>
+					</div>
 				</div>
 				<div class="button-pairs">
 					<button disabled>
 						<font-awesome-icon icon="download"></font-awesome-icon
 						>&nbsp; 下载手册
 					</button>
-					<a
-						class="download"
-						:href="
-							require('../assets/pdfs/handbook-cn-webversion-opt.pdf')
-						"
-						download="VIEWpoint-Handbook-cn.pdf"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						<button lang="zh-cn">PDF</button>
-					</a>
-					<a
-						class="download"
-						:href="require('../assets/pdfs/handbook-cn.epub')"
-						download="VIEWpoint-Handbook-cn.epub"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						<button lang="zh-cn">ePUB</button>
-					</a>
+					<div class="download-types">
+						<a
+							class="download"
+							:href="
+								require('../assets/pdfs/handbook-cn-webversion-opt.pdf')
+							"
+							download="VIEWpoint-Handbook-cn.pdf"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<button lang="zh-cn" class="download-type">
+								PDF
+							</button>
+						</a>
+						<a
+							class="download"
+							:href="require('../assets/pdfs/handbook-cn.epub')"
+							download="VIEWpoint-Handbook-cn.epub"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<button lang="zh-cn" class="download-type">
+								ePUB
+							</button>
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -713,7 +721,7 @@ a.download,
 }
 
 .download-buttons .button-pairs {
-	max-width: 48%;
+	width: 48%;
 	display: flex;
 	flex-direction: row;
 }
@@ -731,6 +739,10 @@ a.download,
 }
 .download-buttons button:not([disabled]) {
 	font-size: 0.9rem;
+}
+.download-types {
+	display: flex;
+	flex-direction: row;
 }
 
 .toggle-wrapper {
@@ -1020,6 +1032,23 @@ ul.contents-list.show-contents {
 	}
 	.other-toggles {
 		margin-right: 8px;
+	}
+}
+
+@media (max-width: 800px) {
+	.download-types {
+		flex-direction: column;
+		justify-content: flex-end;
+	}
+	.download-buttons a:first-of-type {
+		margin-bottom: 1px;
+	}
+	.download-buttons button {
+		width: 100%;
+		padding: 8px;
+	}
+	.download-buttons a button.download-type {
+		padding: 8px;
 	}
 }
 
