@@ -3,9 +3,7 @@
 		<NavMenu class="app-fixed" :navPage="navPage"></NavMenu>
 		<transition name="fade" mode="out-in">
 			<router-view>
-				<component 
-					:is="navPage" 
-				></component>
+				<component :is="navPage"></component>
 			</router-view>
 		</transition>
 		<Footer class="app-fixed"></Footer>
@@ -48,13 +46,13 @@ export default {
 	},
 	data() {
 		return {
-			navPage: 'Home' 
+			navPage: 'Home'
 		}
 	},
 	watch: {
 		navPage() {
 			if ('scrollBehavior' in document.documentElement.style) {
-				window.scrollTo({ top: 0, behavior: 'smooth'})
+				window.scrollTo({ top: 0, behavior: 'smooth' })
 			} else {
 				// EdgeHTML scrolls to top by scrolling the .nav-menu into view
 				const navFtr = document.getElementsByClassName('app-fixed')

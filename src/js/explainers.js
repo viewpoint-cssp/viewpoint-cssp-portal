@@ -139,5 +139,12 @@ export const explainerPdfs = [
 		cnPdf: 'E17-cn-extreme-cold',
 		imgCredit: 'Kenneth Yang, Unsplash',
 		imgAlt: 'Nanjing city after snow\n雪后的南京'
+	},
+	{
+		enTitle: 'More frequent extreme rainfall likely for Eastern China',
+		enPdf: 'E18-en-extreme-rainfall',
+		cnTitle: '中国东部极端降水事件发生频率将增加',
+		cnPdf: 'E18-cn-extreme-rainfall',
+		imgCredit: 'Alvin Leopold Unsplash'
 	}
 ]
